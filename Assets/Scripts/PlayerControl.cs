@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour {
+    [SerializeField] Text sanityText;
+
     [SerializeField] float moveSpeed = 1f;
 
     [SerializeField] float sanity = 100.0f;
@@ -11,20 +14,20 @@ public class PlayerControl : MonoBehaviour {
     int boozeNum = 0;
     
 
-    GameObject object2interact;
+    public GameObject object2interact;
     bool isInteracting = false;
 
 
     // Use this for initialization
     void Start () {
-		
+        updateSanityUI();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetButtonDown("Interact1"))
         {
-            Debug.Log("Button X, ghost");
+            Debug.Log("Button X, player");
             isInteracting = true;
 
             interact();
@@ -82,10 +85,12 @@ public class PlayerControl : MonoBehaviour {
         {
             if (object2interact.GetComponent<PowerSource>())
             {
+                Debug.Log("interaction w a power s");
                 object2interact.GetComponent<PowerSource>().getInteracted(this.gameObject);
             }
             else if (object2interact.GetComponent<Stairs>())
             {
+                Debug.Log("interaction w stairs");
                 object2interact.GetComponent<Stairs>().getInteracted();
             }
             // ADD more scripts later, like containers and doors
@@ -122,7 +127,7 @@ public class PlayerControl : MonoBehaviour {
     public void drainSanity(float amount)
     {
         sanity -= amount;
-
+        updateSanityUI();
 
         if (sanity <=0)
         {
@@ -131,4 +136,12 @@ public class PlayerControl : MonoBehaviour {
             Time.timeScale = 0;
         }
     }
+
+    void updateSanityUI()
+    {
+        sanityText.text = "Sanity: " + (int)sanity;
+    }
+
+
+
 }

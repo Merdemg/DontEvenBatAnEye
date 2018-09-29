@@ -51,8 +51,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340096977714418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5522182, y: -9.912199, z: -0.039847363}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.236781, y: 4.2588096, z: -0.039847363}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4905754823018492}
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTime: 4
   feedbackObj: {fileID: 1407082316932162}
-  interactDistance: 1
+  interactDistance: 0.5
   myPair: {fileID: 0}
 --- !u!212 &212510052864472538
 SpriteRenderer:

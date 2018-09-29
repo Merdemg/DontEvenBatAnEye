@@ -11,8 +11,8 @@ public class Stairs : MonoBehaviour {
 
     bool feedbackOn = false;
     GameObject player;
-    bool playerCanInteract = false;
-    bool isPlayerInteracting = false;
+     bool playerCanInteract = false;
+     bool isPlayerInteracting = false;
 
     float timer = 0;
 
@@ -28,12 +28,13 @@ public class Stairs : MonoBehaviour {
         {
             feedbackObj.GetComponent<SpriteRenderer>().enabled = true;
             player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
-
+            playerCanInteract = true;
             // Programmers of the future, if you're reading this, I'm terribly sorry for these scripts
         }
         else
         {
             feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+            playerCanInteract = true;
             timer = 0;
         }
 

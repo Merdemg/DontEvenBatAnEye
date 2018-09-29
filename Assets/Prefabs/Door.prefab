@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostInteractTime: 2
   playerInteractTime: 4.5
-  interactDistance: 2
+  interactDistance: 0.4
   feedbackObj: {fileID: 1875761672050538}
 --- !u!212 &212137035744846236
 SpriteRenderer:
