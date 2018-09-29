@@ -93,6 +93,10 @@ public class PlayerControl : MonoBehaviour {
                 Debug.Log("interaction w stairs");
                 object2interact.GetComponent<Stairs>().getInteracted();
             }
+            else if (object2interact.GetComponent<Door>())
+            {
+                object2interact.GetComponent<Door>().getInteracted(this.gameObject);
+            }
             // ADD more scripts later, like containers and doors
 
 
@@ -112,6 +116,10 @@ public class PlayerControl : MonoBehaviour {
             else if (object2interact.GetComponent<Stairs>())
             {
                 object2interact.GetComponent<Stairs>().stopBeingInteracted();
+            }
+            else if (object2interact.GetComponent<Door>())
+            {
+                object2interact.GetComponent<Door>().stopBeingInteracted(this.gameObject);
             }
             // ADD more scripts later, like containers and doors
 

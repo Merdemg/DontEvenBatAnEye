@@ -7,12 +7,12 @@ public class GhostController : MonoBehaviour {
     [SerializeField] Transform anchor1, anchor2;
     [SerializeField] Text powerText, powerLevelText;
     [SerializeField] float moveSpeed = 1f;
-    GameObject object2interact;
+    [SerializeField] GameObject object2interact;
 
     [SerializeField] float power = 10.0f;
     int powerLevel = 1;
-    [SerializeField] const float insanityMultiplier = 1.0f;
-    [SerializeField] const float insanityRange = 3.0f;
+    [SerializeField] float insanityMultiplier = 1.0f;
+    [SerializeField] float insanityRange = 3.0f;
 
 
     bool isInteracting = false;
@@ -21,6 +21,8 @@ public class GhostController : MonoBehaviour {
     float flyTimer = 0;
 
     GameObject player;
+
+    public LayerMask ghostMask;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -79,7 +81,7 @@ public class GhostController : MonoBehaviour {
             GetComponent<Rigidbody2D>().AddForce(temp);
         }
 
-
+        drainSanity();
     }
 
     public void losePower(float amount)
@@ -107,13 +109,16 @@ public class GhostController : MonoBehaviour {
     {
         if (power > 0.1f && Vector3.Distance(this.transform.position, player.transform.position) <= insanityRange)
         {
-            RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, insanityRange);
-            Debug.DrawRay(this.transform.position, player.transform.position - this.transform.position);
+            RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, 
+                insanityRange, ghostMask);
+            Debug.DrawRay(this.transform.position, player.transform.position - this.transform.position, Color.red);
 
+            //Debug.Log(temp);
+            Debug.Log(temp.transform.gameObject);
             if (temp && temp.transform.gameObject == player)
             {
-
-                player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier);
+                Debug.Log("Almost draining. my soul and motivation to live, i mean.");
+                player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
 
 
             }
@@ -134,6 +139,10 @@ public class GhostController : MonoBehaviour {
             {
                 object2interact.GetComponent<PowerSource>().getInteracted(this.gameObject);
             }
+            else if (object2interact.GetComponent<Door>())
+            {
+                object2interact.GetComponent<Door>().getInteracted(this.gameObject);
+            }
             // ADD more scripts later, like containers and doors
 
 
@@ -148,6 +157,10 @@ public class GhostController : MonoBehaviour {
             if (object2interact.GetComponent<PowerSource>())
             {
                 object2interact.GetComponent<PowerSource>().stopBeingInteracted(this.gameObject);
+            }
+            else if (object2interact.GetComponent<Door>())
+            {
+                object2interact.GetComponent<Door>().stopBeingInteracted(this.gameObject);
             }
             // ADD more scripts later, like containers and doors
 
@@ -200,5 +213,10 @@ public class GhostController : MonoBehaviour {
         {
             this.transform.position = (this.transform.position - anchor2.transform.position) + anchor1.transform.position;
         }
+    }
+
+    public int getPowerLevel()
+    {
+        return powerLevel;
     }
 }

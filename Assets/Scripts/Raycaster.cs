@@ -7,7 +7,7 @@ public class Raycaster : MonoBehaviour {
     [SerializeField] Transform c, r1, r2, r3, r4, l1, l2, l3, l4;
     [SerializeField] float pushForce = 1f;
 
-    [SerializeField] const float powerDrainMultiplier = 1.5f;
+    [SerializeField] float powerDrainMultiplier = 1.5f;
 
     GameObject ghost;
 
@@ -42,6 +42,8 @@ public class Raycaster : MonoBehaviour {
             force.Normalize();
             force *= pushForce;
             ghost.GetComponent<Rigidbody2D>().AddForce(force);
+
+            drainGhostPower();
         }
 
         

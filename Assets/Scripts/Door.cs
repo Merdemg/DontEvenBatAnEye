@@ -15,6 +15,9 @@ public class Door : MonoBehaviour {
     bool ghostCanInter = false;
     bool playerCanInter = false;
 
+    bool isPlayerInteracting = false;
+    bool isGhostInteracting = false;
+
     float timer = 0;
 
     // Use this for initialization
@@ -43,9 +46,12 @@ public class Door : MonoBehaviour {
         if (isLocked == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
             playerCanInter = true;
-        }else if (isLocked == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance)
+            player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
+        }else if (isLocked == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance 
+            && ghost.GetComponent<GhostController>().getPowerLevel() > 1)
         {
             ghostCanInter = true;
+            ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
         }
         else
         {
@@ -63,7 +69,56 @@ public class Door : MonoBehaviour {
             feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
         }
 
+
+        if (isGhostInteracting)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= ghostInteractTime)
+            {
+                isLocked = true;
+                isGhostInteracting = false;
+            }
+        }
+        else if (isPlayerInteracting)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= playerInteractTime)
+            {
+                isLocked = false;
+                isPlayerInteracting = false;
+            }
+        }
+
 	}
+
+
+    public void getInteracted(GameObject obj)
+    {
+        if (obj == ghost && ghostCanInter && isGhostInteracting == false)
+        {
+            isGhostInteracting = true;
+            timer = 0;
+        }
+        else if (obj == player && playerCanInter && isPlayerInteracting == false)
+        {
+            isPlayerInteracting = true;
+            timer = 0;
+        }
+    }
+
+    public void stopBeingInteracted(GameObject obj)
+    {
+        if (obj == player)
+        {
+            isPlayerInteracting = false;
+        }
+        else if (obj == ghost)
+        {
+            isGhostInteracting = false;
+        }
+    }
 
 
 
