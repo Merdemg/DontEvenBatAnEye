@@ -84,6 +84,10 @@ public class PlayerControl : MonoBehaviour {
             {
                 object2interact.GetComponent<PowerSource>().getInteracted(this.gameObject);
             }
+            else if (object2interact.GetComponent<Stairs>())
+            {
+                object2interact.GetComponent<Stairs>().getInteracted();
+            }
             // ADD more scripts later, like containers and doors
 
 
@@ -99,6 +103,10 @@ public class PlayerControl : MonoBehaviour {
             if (object2interact.GetComponent<PowerSource>())
             {
                 object2interact.GetComponent<PowerSource>().stopBeingInteracted(this.gameObject);
+            }
+            else if (object2interact.GetComponent<Stairs>())
+            {
+                object2interact.GetComponent<Stairs>().stopBeingInteracted();
             }
             // ADD more scripts later, like containers and doors
 
