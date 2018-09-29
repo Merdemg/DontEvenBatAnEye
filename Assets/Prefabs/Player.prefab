@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1519210945596956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -8.407257, y: -0.12312338, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4353649038887528}
@@ -410,8 +410,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca95d9361d913a419dc181b62404129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sanityText: {fileID: 0}
   moveSpeed: 10
   sanity: 100
+  object2interact: {fileID: 0}
+  mineCost: 25
+  mineDropTime: 2
+  mine: {fileID: 0}
 --- !u!114 &114270960304866694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,7 +438,8 @@ MonoBehaviour:
   l2: {fileID: 4309257222909356}
   l3: {fileID: 4243631059600846}
   l4: {fileID: 4272160211589412}
-  pushForce: 5
+  pushForce: 10
+  powerDrainMultiplier: 15
   playerMask:
     serializedVersion: 2
     m_Bits: 513
@@ -469,8 +475,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 187990941
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

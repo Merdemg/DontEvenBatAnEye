@@ -4,19 +4,30 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour {
-    [SerializeField] Text sanityText;
+    [SerializeField] Text sanityText, boozeText;
 
     [SerializeField] float moveSpeed = 1f;
 
     [SerializeField] float sanity = 100.0f;
-    const float boozeSanity = 33.3f;
+    [SerializeField] float drinkingSpeed = 1.0f;
+    [SerializeField] float boozeSanity = 33.3f;
     const float maxSanity = 100.0f;
-    int boozeNum = 0;
-    
+    int boozeNum = 1;
+    bool isDrinking = false;
 
     public GameObject object2interact;
     bool isInteracting = false;
+    bool isDroppingMine = false;
+    [SerializeField] float mineCost = 25f;
+    [SerializeField] float mineDropTime = 2.0f;
+    [SerializeField] GameObject mine;
+    float timer = 0;
 
+
+    [SerializeField] GameObject ward;
+    [SerializeField] float wardCost = 25f;
+    [SerializeField] float wardDropTime = 1.0f;
+    bool isDroppingWard = false;
 
     // Use this for initialization
     void Start () {
@@ -25,7 +36,7 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Interact1"))
+        if (Input.GetButtonDown("Interact1") && isDroppingMine == false && isDroppingWard == false && isDrinking == false)
         {
             Debug.Log("Button X, player");
             isInteracting = true;
@@ -38,8 +49,74 @@ public class PlayerControl : MonoBehaviour {
             uninteract();
         }
 
+        if (Input.GetButtonDown("Mine") && isInteracting == false && sanity > mineCost && isDroppingWard == false && isDrinking == false)
+        {
+            Debug.Log("Button O, player");
+            isDroppingMine = true;
+            timer = 0;
+        }
+        if (Input.GetButtonUp("Mine"))
+        {
+            isDroppingMine = false;
+        }
+
+        if (isDroppingMine)
+        {
+            timer += Time.deltaTime;
+            if (timer >= mineDropTime)
+            {
+                isDroppingMine = false;
+                Instantiate(mine, this.transform.position, this.transform.rotation);
+                drainSanity(mineCost);
+            }
+
+        }
 
 
+        if (Input.GetButtonDown("Ward") && isInteracting == false && sanity > wardCost && isDroppingMine == false && isDrinking == false)
+        {
+            Debug.Log("Button 1, player");
+            isDroppingWard = true;
+            timer = 0;
+        }
+        if (Input.GetButtonUp("Ward"))
+        {
+            isDroppingWard = false;
+        }
+
+        if (isDroppingWard)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= wardDropTime)
+            {
+                isDroppingWard = false;
+                Instantiate(ward, this.transform.position, this.transform.rotation);
+                drainSanity(wardCost);
+            }
+        }
+
+
+        if (Input.GetButtonDown("Booze") && isInteracting == false && isDroppingMine == false && isDroppingWard == false)
+        {
+            Debug.Log("Button 3, player");
+            isDrinking = true;
+            timer = 0;
+        }
+        if (Input.GetButtonUp("Booze"))
+        {
+            isDrinking = false;
+        }
+
+        if (isDrinking)
+        {
+            timer += Time.deltaTime;
+            if (timer >= drinkingSpeed)
+            {
+                isDrinking = false;
+                gainSanity(boozeSanity);
+            }
+        }
 
         //Vector3 dir = new Vector3(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical1"), 0);
         //dir += this.transform.position;
@@ -51,7 +128,8 @@ public class PlayerControl : MonoBehaviour {
         //Debug.Log(Input.GetAxis("Horizontal1"));
         //Debug.Log(Input.GetAxis("Vertical1"));
 
-        if (isInteracting == false &&  (Input.GetAxis("Horizontal1") > 0.1f || Input.GetAxis("Horizontal1") < -0.1f 
+        if (isInteracting == false && isDroppingMine == false && isDroppingWard == false &&
+            (Input.GetAxis("Horizontal1") > 0.1f || Input.GetAxis("Horizontal1") < -0.1f 
             || Input.GetAxis("Vertical1") > 0.1f || Input.GetAxis("Vertical1") < -0.1f))
         {
             //ROTATION
@@ -145,9 +223,22 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
+    void gainSanity(float amount)
+    {
+        sanity += amount;
+
+        if (sanity > maxSanity)
+        {
+            sanity = maxSanity;
+        }
+
+        updateSanityUI();
+    }
+
     void updateSanityUI()
     {
         sanityText.text = "Sanity: " + (int)sanity;
+        boozeText.text = "Booze: " + boozeNum;
     }
 
 
