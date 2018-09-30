@@ -11,7 +11,7 @@ public class Container : MonoBehaviour {
 
     GameObject player;
     [SerializeField] GameObject feedbackObj;
-    [SerializeField] float interactDistance = 1.0f;
+    float interactDistance = 0.5f;
     bool playerCanInteract = false;
     float timer = 0;
     bool isPlayerInteracting = false;
@@ -56,6 +56,7 @@ public class Container : MonoBehaviour {
                     player.GetComponent<PlayerControl>().getBooze();
                 }
 
+                feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
                 Destroy(this);
             }
         }

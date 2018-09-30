@@ -114,7 +114,7 @@ public class GhostController : MonoBehaviour {
             Debug.DrawRay(this.transform.position, player.transform.position - this.transform.position, Color.red);
 
             //Debug.Log(temp);
-            Debug.Log(temp.transform.gameObject);
+            //Debug.Log(temp.transform.gameObject);
             if (temp && temp.transform.gameObject == player)
             {
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");

@@ -182,6 +182,7 @@ public class PlayerControl : MonoBehaviour {
             }
             else if (object2interact.GetComponent<Container>())
             {
+                Debug.Log("interaction w CONTAINER");
                 object2interact.GetComponent<Container>().getInteracted();
             }
             // ADD more scripts later, like containers and doors
