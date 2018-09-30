@@ -109,13 +109,13 @@ public class GhostController : MonoBehaviour {
     {
         if (power > 0.1f && Vector3.Distance(this.transform.position, player.transform.position) <= insanityRange)
         {
-            RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, 
-                insanityRange, ghostMask);
-            Debug.DrawRay(this.transform.position, player.transform.position - this.transform.position, Color.red);
+           // RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, 
+           //     insanityRange, ghostMask);
+           // Debug.DrawRay(this.transform.position, player.transform.position - this.transform.position, Color.red);
 
             //Debug.Log(temp);
             //Debug.Log(temp.transform.gameObject);
-            if (temp && temp.transform.gameObject == player)
+            //if (temp && temp.transform.gameObject == player)
             {
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
                 player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
@@ -176,7 +176,7 @@ public class GhostController : MonoBehaviour {
 
     void updatePowerLevel()
     {
-        if (power < 0.1f)
+        if (power < 50f)
         {
             powerLevel = 0;
         }

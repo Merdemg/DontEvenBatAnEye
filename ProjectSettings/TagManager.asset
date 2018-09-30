@@ -7,6 +7,7 @@ TagManager:
   - Ghost
   - Pentagram
   - Container
+  - Wall
   layers:
   - Default
   - TransparentFX

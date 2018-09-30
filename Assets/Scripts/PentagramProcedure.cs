@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PentagramProcedure : MonoBehaviour {
     GameObject[] pentagrams;
-    [SerializeField] const int pentagramsToDestroy = 3;
+    [SerializeField] const int pentagramsToDestroy = 5;
 
 
 	// Use this for initialization

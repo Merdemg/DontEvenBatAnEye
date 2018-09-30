@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324b15729e9b5a4db57607e0ceb7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useTime: 2
+  useTime: 1
   feedbackObj: {fileID: 1060143614018458}
   interactDistance: 0.4
   myPair: {fileID: 0}

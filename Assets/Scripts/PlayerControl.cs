@@ -113,12 +113,13 @@ public class PlayerControl : MonoBehaviour {
             isDrinking = false;
         }
 
-        if (isDrinking)
+        if (isDrinking && boozeNum > 0)
         {
             timer += Time.deltaTime;
             if (timer >= drinkingSpeed)
             {
                 isDrinking = false;
+                boozeNum--;
                 gainSanity(boozeSanity);
             }
         }

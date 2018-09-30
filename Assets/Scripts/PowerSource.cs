@@ -38,7 +38,17 @@ public class PowerSource : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+        if (isActive)
+        {
+            GetComponent<SpriteRenderer>().color = Color.black;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+
         if(isActive == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance)
         {
             RaycastHit2D temp = Physics2D.Raycast(this.transform.position, ghost.transform.position - this.transform.position, interactDistance);
