@@ -34,6 +34,13 @@ public class PlayerControl : MonoBehaviour {
     int evidenceRequired = 5;
     [SerializeField] Text evidenceText;
 
+
+    float blinkTimer = 0;
+    const float blinkTimerMax = 0.5f;
+    //bool isBlinking = false;
+    const float blinkSpeed = 0.2f;
+    float blinkSwitchTimer = 0;
+
     // Use this for initialization
     void Start () {
         updateSanityUI();
@@ -41,6 +48,28 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(blinkTimer > 0)
+        {
+            blinkTimer -= Time.deltaTime;
+            //isBlinking = true;
+            blinkSwitchTimer += Time.deltaTime;
+
+            if (blinkSwitchTimer >= blinkSpeed)
+            {
+                blinkSwitchTimer -= blinkSpeed;
+                GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+            }
+
+
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+
+        }
+
+
+
         if (Input.GetButtonDown("Interact1") && isDroppingMine == false && isDroppingWard == false && isDrinking == false)
         {
             Debug.Log("Button X, player");
@@ -236,6 +265,9 @@ public class PlayerControl : MonoBehaviour {
 
             Time.timeScale = 0;
         }
+
+        if(amount >0)
+        blinkTimer = blinkTimerMax;
     }
 
     void gainSanity(float amount)

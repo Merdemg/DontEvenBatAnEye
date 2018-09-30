@@ -8,6 +8,7 @@ TagManager:
   - Pentagram
   - Container
   - Wall
+  - Highlight
   layers:
   - Default
   - TransparentFX

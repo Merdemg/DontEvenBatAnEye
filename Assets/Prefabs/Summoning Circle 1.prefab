@@ -266,7 +266,7 @@ MonoBehaviour:
   powerInterval: 10
   ghostInteractTime: 4.5
   playerInteractTime: 2
-  interactDistance: 2
+  interactDistance: 0.5
   feedbackObj: {fileID: 1133541704573904}
   isActive: 0
 --- !u!212 &212002875402245488

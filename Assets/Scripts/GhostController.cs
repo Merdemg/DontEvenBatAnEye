@@ -12,7 +12,7 @@ public class GhostController : MonoBehaviour {
     [SerializeField] float power = 10.0f;
     int powerLevel = 1;
     [SerializeField] float insanityMultiplier = 1.0f;
-    [SerializeField] float insanityRange = 3.0f;
+    //  [SerializeField] float insanityRange = 3.0f;
 
 
     bool isInteracting = false;
@@ -23,6 +23,19 @@ public class GhostController : MonoBehaviour {
     GameObject player;
 
     public LayerMask ghostMask;
+
+    float blinkTimer = 0;
+    const float blinkTimerMax = 0.5f;
+    bool isBlinking = false;
+    const float blinkSpeed = 0.2f;
+    float blinkSwitchTimer = 0;
+
+    bool isHaunting;
+
+    float range = 0.75f;
+
+    [SerializeField] GameObject rangeIndicator;
+
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -32,7 +45,24 @@ public class GhostController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (blinkTimer > 0)
+        {
+            blinkTimer -= Time.deltaTime;
+            blinkSwitchTimer += Time.deltaTime;
 
+            if (blinkSwitchTimer >= blinkSpeed)
+            {
+                blinkSwitchTimer -= blinkSpeed;
+                GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+            }
+
+
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+
+        }
 
 
         if (Input.GetButtonDown("Interact2"))
@@ -46,6 +76,16 @@ public class GhostController : MonoBehaviour {
         {
             isInteracting = false;
             uninteract();
+        }
+
+        if (Input.GetButtonDown("Haunt"))
+        {
+            Debug.Log("Buton 1, ghost");
+            isHaunting = true;
+        }
+        else if (Input.GetButtonUp("Haunt"))
+        {
+            isHaunting = false;
         }
 
         if (Input.GetButtonDown("Fly"))
@@ -72,7 +112,7 @@ public class GhostController : MonoBehaviour {
 
 
 
-            if (isInteracting == false && (Input.GetAxis("Horizontal2") > 0.1f || Input.GetAxis("Horizontal2") < -0.1f 
+            if (isInteracting == false && isHaunting == false && (Input.GetAxis("Horizontal2") > 0.1f || Input.GetAxis("Horizontal2") < -0.1f 
             || Input.GetAxis("Vertical2") > 0.1f || Input.GetAxis("Vertical2") < -0.1f))
         {
             Vector2 temp = new Vector2(Input.GetAxis("Horizontal2"), -Input.GetAxis("Vertical2"));
@@ -85,6 +125,14 @@ public class GhostController : MonoBehaviour {
     }
 
     public void losePower(float amount)
+    {
+        losePowerWithoutBlinking(amount);
+
+        if(amount > 0)
+            blinkTimer = blinkTimerMax;
+    }
+
+    public void losePowerWithoutBlinking(float amount)
     {
         power -= amount;
 
@@ -107,7 +155,7 @@ public class GhostController : MonoBehaviour {
 
     void drainSanity()
     {
-        if (power > 0.1f && Vector3.Distance(this.transform.position, player.transform.position) <= insanityRange)
+        if (power > 0.1f && isHaunting && Vector3.Distance(this.transform.position, player.transform.position) <= (range * powerLevel))
         {
            // RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, 
            //     insanityRange, ghostMask);
@@ -193,6 +241,15 @@ public class GhostController : MonoBehaviour {
             powerLevel = 3;
         }
 
+        updateRangeIndicator();
+    }
+
+    void updateRangeIndicator()
+    {
+        Vector3 temp = rangeIndicator.transform.localScale; 
+        temp.x = powerLevel * 3.5f;
+        temp.y = powerLevel * 3.5f;
+        rangeIndicator.transform.localScale = temp;
     }
 
     void updatePowerText()

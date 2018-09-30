@@ -5,7 +5,7 @@ using UnityEngine;
 public class ContainerProcedure : MonoBehaviour {
     GameObject[] containers;
     [SerializeField] int boozeNum = 5;
-    [SerializeField] int evidenceNum = 6;
+    [SerializeField] int evidenceNum = 5;
 
     // Use this for initialization
     void Start () {
@@ -49,7 +49,7 @@ public class ContainerProcedure : MonoBehaviour {
             containers[b] = temp;
         }
 
-        for (int i = 0; i < boozeNum; i++)
+        for (int i = 0; i < evidenceNum; i++)
         {
             containers[i].GetComponent<Container>().getEvidence();
         }

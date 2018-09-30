@@ -10,7 +10,7 @@ public class Door : MonoBehaviour {
     [SerializeField] float interactDistance = 2f;
     [SerializeField] GameObject feedbackObj;
 
-
+    const float lockPrice = 15f;
     bool feedbackOn = false;
     bool ghostCanInter = false;
     bool playerCanInter = false;
@@ -30,6 +30,16 @@ public class Door : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (isLocked)
+        {
+            GetComponent<SpriteRenderer>().color = Color.black;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+
 
         if (isLocked == false && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
@@ -78,6 +88,7 @@ public class Door : MonoBehaviour {
             {
                 isLocked = true;
                 isGhostInteracting = false;
+                ghost.GetComponent<GhostController>().losePowerWithoutBlinking(10);
             }
         }
         else if (isPlayerInteracting)

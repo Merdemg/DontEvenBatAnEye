@@ -15,10 +15,20 @@ public class Container : MonoBehaviour {
     bool playerCanInteract = false;
     float timer = 0;
     bool isPlayerInteracting = false;
+    GameObject highlight;
+
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+
+        foreach (Transform child in transform)
+        {
+            if (child.tag == "Highlight")
+            {
+                highlight = child.gameObject;
+            }
+        }
     }
 	
 	// Update is called once per frame
@@ -57,6 +67,7 @@ public class Container : MonoBehaviour {
                 }
 
                 feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+                Destroy(highlight);
                 Destroy(this);
             }
         }
