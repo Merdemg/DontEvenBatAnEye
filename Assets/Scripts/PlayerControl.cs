@@ -29,6 +29,11 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] float wardDropTime = 1.0f;
     bool isDroppingWard = false;
 
+
+    int evidence = 0;
+    int evidenceRequired = 5;
+    [SerializeField] Text evidenceText;
+
     // Use this for initialization
     void Start () {
         updateSanityUI();
@@ -175,6 +180,10 @@ public class PlayerControl : MonoBehaviour {
             {
                 object2interact.GetComponent<Door>().getInteracted(this.gameObject);
             }
+            else if (object2interact.GetComponent<Container>())
+            {
+                object2interact.GetComponent<Container>().getInteracted();
+            }
             // ADD more scripts later, like containers and doors
 
 
@@ -198,6 +207,10 @@ public class PlayerControl : MonoBehaviour {
             else if (object2interact.GetComponent<Door>())
             {
                 object2interact.GetComponent<Door>().stopBeingInteracted(this.gameObject);
+            }
+            else if (object2interact.GetComponent<Container>())
+            {
+                object2interact.GetComponent<Container>().stopBeingInteracted();
             }
             // ADD more scripts later, like containers and doors
 
@@ -239,8 +252,24 @@ public class PlayerControl : MonoBehaviour {
     {
         sanityText.text = "Sanity: " + (int)sanity;
         boozeText.text = "Booze: " + boozeNum;
+        evidenceText.text = "Evidence: " + evidence + "/" + evidenceRequired;
     }
 
+    public void getEvidence()
+    {
+        evidence++;
+        updateSanityUI();
 
+        if (evidence >= evidenceRequired)
+        {   //WIN!!!
+            Time.timeScale = 0;
+        }
+    }
+
+    public void getBooze()
+    {
+        boozeNum++;
+        updateSanityUI();
+    }
 
 }
