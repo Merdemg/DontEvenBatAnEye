@@ -35,7 +35,7 @@ public class Raycaster : MonoBehaviour {
         //Debug.DrawRay(transform.position, (Vector2.up + -Vector2.right) / 1.3f, Color.green);
 
 
-        if (checkGhostVisibility())
+        if (checkGhostVisibility() && ghost.GetComponent<GhostController>().getIfPhasing() == false)
         {
             Debug.Log("Ghost visible");
             Vector2 force = ghost.transform.position - this.transform.position;

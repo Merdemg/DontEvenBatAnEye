@@ -20,4 +20,10 @@ public class lifetime : MonoBehaviour {
             Destroy(this.gameObject);
         }
 	}
+
+
+    public float getLifeTime()
+    {
+        return lifeTime;
+    }
 }

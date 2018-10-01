@@ -7,6 +7,8 @@ public class GhostController : MonoBehaviour {
     [SerializeField] Transform anchor1, anchor2;
     [SerializeField] Text powerText, powerLevelText;
     [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float phasingSpeed = 0;
+    float speedActual;
     [SerializeField] GameObject object2interact;
 
     [SerializeField] float power = 10.0f;
@@ -34,13 +36,20 @@ public class GhostController : MonoBehaviour {
 
     float range = 0.75f;
 
+    bool isTrapped = false;
+    bool isPhasing = false;
+
     [SerializeField] GameObject rangeIndicator;
+
+    [SerializeField] float phasingCost = 25;
+    Color myColor;
 
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         updatePowerLevel();
         updatePowerText();
+        myColor = GetComponent<SpriteRenderer>().color;
 	}
 
     // Update is called once per frame
@@ -65,7 +74,7 @@ public class GhostController : MonoBehaviour {
         }
 
 
-        if (Input.GetButtonDown("Interact2"))
+        if (Input.GetButtonDown("Interact2") && isPhasing == false && isHaunting == false)
         {
             Debug.Log("Button X, ghost");
             isInteracting = true;
@@ -78,7 +87,7 @@ public class GhostController : MonoBehaviour {
             uninteract();
         }
 
-        if (Input.GetButtonDown("Haunt"))
+        if (Input.GetButtonDown("Haunt") && isPhasing == false && isInteracting == false)
         {
             Debug.Log("Buton 1, ghost");
             isHaunting = true;
@@ -88,15 +97,30 @@ public class GhostController : MonoBehaviour {
             isHaunting = false;
         }
 
-        if (Input.GetButtonDown("Fly"))
+        if (isTrapped == false && Input.GetButtonDown("Fly"))
         {
             Debug.Log("Button Y, ghost");
             isFlying = true;
             flyTimer = 0;
-        } else
-        if (Input.GetButtonUp("Interact2"))
+        }
+
+        //else
+        //if (Input.GetButtonUp("Fly"))
+        //{
+        //    isFlying = false;
+        //}
+        
+        if (Input.GetButtonDown("Phase") && isInteracting == false && isHaunting == false && power > (phasingCost))
         {
-            isFlying = false;
+            isPhasing = true;
+            Color temp = this.GetComponent<SpriteRenderer>().color;
+            temp.a = 0.5f;
+            this.GetComponent<SpriteRenderer>().color = temp;
+        }
+        else if (Input.GetButtonUp("Phase"))
+        {
+            isPhasing = false;
+            this.GetComponent<SpriteRenderer>().color = myColor;
         }
 
         if (isFlying)
@@ -111,25 +135,49 @@ public class GhostController : MonoBehaviour {
         }
 
 
+        if (isPhasing)
+        {
+            losePowerWithoutBlinking(Time.deltaTime * phasingCost);
+            if (power < 1)
+            {
+                isPhasing = false;
+                this.GetComponent<SpriteRenderer>().color = myColor;
+            }
+            updatePowerText();
+        }
 
-            if (isInteracting == false && isHaunting == false && (Input.GetAxis("Horizontal2") > 0.1f || Input.GetAxis("Horizontal2") < -0.1f 
+        if (isInteracting == false && isHaunting == false && (Input.GetAxis("Horizontal2") > 0.1f || Input.GetAxis("Horizontal2") < -0.1f 
             || Input.GetAxis("Vertical2") > 0.1f || Input.GetAxis("Vertical2") < -0.1f))
         {
+            if (isPhasing)
+            {
+                speedActual = phasingSpeed;
+            }
+            else
+            {
+                speedActual = moveSpeed;
+            }
+
+
             Vector2 temp = new Vector2(Input.GetAxis("Horizontal2"), -Input.GetAxis("Vertical2"));
             temp.Normalize();
-            temp *= moveSpeed;
+            temp *= speedActual;
             GetComponent<Rigidbody2D>().AddForce(temp);
         }
+
 
         drainSanity();
     }
 
     public void losePower(float amount)
     {
-        losePowerWithoutBlinking(amount);
+        if (isPhasing == false)
+        {
+            losePowerWithoutBlinking(amount);
 
-        if(amount > 0)
-            blinkTimer = blinkTimerMax;
+            if (amount > 0)
+                blinkTimer = blinkTimerMax;
+        }    
     }
 
     public void losePowerWithoutBlinking(float amount)
@@ -144,6 +192,11 @@ public class GhostController : MonoBehaviour {
 
         updatePowerLevel();
         updatePowerText();
+    }
+
+    public bool getIfPhasing()
+    {
+        return isPhasing;
     }
 
     public void getPower(float amount)
@@ -275,5 +328,16 @@ public class GhostController : MonoBehaviour {
     public int getPowerLevel()
     {
         return powerLevel;
+    }
+
+
+    public void getTrapped()
+    {
+        isTrapped = true;
+    }
+
+    public void getUntrapped()
+    {
+        isTrapped = false;
     }
 }

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4367169042860194}
   - component: {fileID: 61166329858456736}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4275099318622690}
   - component: {fileID: 61453227295892116}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: GameObject (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 4521113221691148}
   - component: {fileID: 114945866147360762}
   - component: {fileID: 212679763476848480}
+  - component: {fileID: 114155071689048036}
   m_Layer: 9
   m_Name: GhostTrap
   m_TagString: Untagged
@@ -69,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4624570951167144}
   - component: {fileID: 61870680069512588}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4098973637881562}
   - component: {fileID: 61862289909180014}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: t
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4158084171468754}
   - component: {fileID: 61756376575727820}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: GameObject (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4796763660364538}
   - component: {fileID: 61152420303209926}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: GameObject (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4808235027487384}
   - component: {fileID: 61965071574647602}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4657899658458348}
   - component: {fileID: 61127708880262150}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: GameObject (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1336821003492812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3867908, y: 12.94, z: -0.12890625}
+  m_LocalPosition: {x: -1.1104051, y: -7.580046, z: -0.12890625}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4367169042860194}
@@ -481,6 +482,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &114155071689048036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1336821003492812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78cf4307d98366f449cf527d089ee659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114945866147360762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -492,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a48376065601134cabd0bb223c48a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 30
+  lifeTime: 25
 --- !u!212 &212679763476848480
 SpriteRenderer:
   m_ObjectHideFlags: 1

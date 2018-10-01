@@ -19,7 +19,7 @@ public class ward : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (checkGhostVisibility())
+        if (checkGhostVisibility() && ghost.GetComponent<GhostController>().getIfPhasing() == false)
         {
             Vector2 force = ghost.transform.position - this.transform.position;
             force.Normalize();

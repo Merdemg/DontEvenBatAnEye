@@ -131,18 +131,18 @@ public class PlayerControl : MonoBehaviour {
         }
 
 
-        if (Input.GetButtonDown("Booze") && isInteracting == false && isDroppingMine == false && isDroppingWard == false)
+        if (Input.GetButtonDown("Booze") && isInteracting == false && isDroppingMine == false && isDroppingWard == false && boozeNum>0)
         {
             Debug.Log("Button 3, player");
             isDrinking = true;
             timer = 0;
         }
-        if (Input.GetButtonUp("Booze"))
-        {
-            isDrinking = false;
-        }
+        //if (Input.GetButtonUp("Booze"))
+        //{
+        //    isDrinking = false;
+        //}
 
-        if (isDrinking && boozeNum > 0)
+        if (isDrinking)
         {
             timer += Time.deltaTime;
             if (timer >= drinkingSpeed)
