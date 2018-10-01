@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ee17a82026d22499fc29e2123d758e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapRange: 1.5
+  trapRange: 1
   visibleTime: 3
   trap: {fileID: 1336821003492812, guid: e242156b263c82049a26c67e9b9bc59c, type: 2}
 --- !u!212 &212748737958342564

@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushForce: 15
   powerDrainMultiplier: 60
-  lifeTime: 60
+  lifeTime: 40
 --- !u!212 &212163677817057622
 SpriteRenderer:
   m_ObjectHideFlags: 1
