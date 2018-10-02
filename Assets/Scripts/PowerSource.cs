@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerSource : MonoBehaviour {
     [SerializeField] float powerAmount = 5.0f;
@@ -11,7 +12,8 @@ public class PowerSource : MonoBehaviour {
     [SerializeField] GameObject feedbackObj;
     public bool isActive = false;
     bool feedbackOn = false;
-
+    public Image FeedbackTimer;
+    float Percentage;
 
     bool ghostCanInter = false;
     bool playerCanInter = false;
@@ -33,7 +35,7 @@ public class PowerSource : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         ghost = GameObject.FindGameObjectWithTag("Ghost");
 
-        feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+        feedbackObj.GetComponent<Image>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -111,8 +113,9 @@ public class PowerSource : MonoBehaviour {
         if (isGhostInteracting)
         {
             timer += Time.deltaTime;
-
-            if(timer >= ghostInteractTime)
+            Percentage = timer / ghostInteractTime;
+            FeedbackTimer.fillAmount = 1 - Percentage;
+            if (timer >= ghostInteractTime)
             {
                 isActive = true;
                 timer = 0;
@@ -124,7 +127,8 @@ public class PowerSource : MonoBehaviour {
         if (isPlayerInteracting)
         {
             timer += Time.deltaTime;
-
+            Percentage = timer / playerInteractTime;
+            FeedbackTimer.fillAmount = 1 - Percentage;
             if (timer >= playerInteractTime)
             {
                 isActive = false;
@@ -156,14 +160,14 @@ public class PowerSource : MonoBehaviour {
     {
         Debug.Log("Activating feedback");
         feedbackOn = true;
-        feedbackObj.GetComponent<SpriteRenderer>().enabled = true;
+        feedbackObj.GetComponent<Image>().enabled = true;
     }
 
     void deactivateFeedback()
     {
         Debug.Log("Deactivating feedback");
         feedbackOn = false;
-        feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+        feedbackObj.GetComponent<Image>().enabled = false;
     }
 
 
@@ -190,10 +194,12 @@ public class PowerSource : MonoBehaviour {
         if(obj == player)
         {
             isPlayerInteracting = false;
+            FeedbackTimer.fillAmount = 1;
         }
         else if (obj == ghost)
         {
             isGhostInteracting = false;
+            FeedbackTimer.fillAmount = 1;
         }
 
         timer = 0;

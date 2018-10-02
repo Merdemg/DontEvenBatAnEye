@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Container : MonoBehaviour {
 
     bool hasBooze = false;
     bool hasEvidence = false;
     [SerializeField] float useTime = 4.0f;
-
+    public Image FeedbackTimer;
+    float Percentage;
 
     GameObject player;
     [SerializeField] GameObject feedbackObj;
@@ -20,7 +22,7 @@ public class Container : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+        feedbackObj.GetComponent<Image>().enabled = false;
 
         foreach (Transform child in transform)
         {
@@ -35,7 +37,7 @@ public class Container : MonoBehaviour {
 	void Update () {
         if (Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
-            feedbackObj.GetComponent<SpriteRenderer>().enabled = true;
+            feedbackObj.GetComponent<Image>().enabled = true;
 
             player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
@@ -43,7 +45,7 @@ public class Container : MonoBehaviour {
         }
         else
         {
-            feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+            feedbackObj.GetComponent<Image>().enabled = false;
             playerCanInteract = false;
             timer = 0;
         }
@@ -52,7 +54,8 @@ public class Container : MonoBehaviour {
         if (isPlayerInteracting)
         {
             timer += Time.deltaTime;
-
+            Percentage = timer / useTime;
+            FeedbackTimer.fillAmount = 1 - Percentage;
             if (timer >= useTime)
             {
                 timer = 0;
@@ -66,7 +69,7 @@ public class Container : MonoBehaviour {
                     player.GetComponent<PlayerControl>().getBooze();
                 }
 
-                feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+                feedbackObj.GetComponent<Image>().enabled = false;
                 Destroy(highlight);
                 Destroy(this);
             }
@@ -88,6 +91,7 @@ public class Container : MonoBehaviour {
     {
         timer = 0;
         isPlayerInteracting = false;
+        FeedbackTimer.fillAmount = 1;
     }
 
 

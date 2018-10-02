@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour {
     GameObject player, ghost;
@@ -9,6 +10,8 @@ public class Door : MonoBehaviour {
     [SerializeField] float playerInteractTime = 4.5f;
     [SerializeField] float interactDistance = 2f;
     [SerializeField] GameObject feedbackObj;
+    public Image FeedbackTimer;
+    float Percentage;
 
     const float lockPrice = 15f;
     bool feedbackOn = false;
@@ -25,7 +28,7 @@ public class Door : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         ghost = GameObject.FindGameObjectWithTag("Ghost");
 
-        feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+        feedbackObj.GetComponent<Image>().enabled = false;
     }
 	
 	// Update is called once per frame
@@ -72,18 +75,19 @@ public class Door : MonoBehaviour {
 
         if(playerCanInter || ghostCanInter)
         {
-            feedbackObj.GetComponent<SpriteRenderer>().enabled = true;
+            feedbackObj.GetComponent<Image>().enabled = true;
         }
         else
         {
-            feedbackObj.GetComponent<SpriteRenderer>().enabled = false;
+            feedbackObj.GetComponent<Image>().enabled = false;
         }
 
 
         if (isGhostInteracting)
         {
             timer += Time.deltaTime;
-
+            Percentage = timer / ghostInteractTime;
+            FeedbackTimer.fillAmount = 1 - Percentage;
             if (timer >= ghostInteractTime)
             {
                 isLocked = true;
@@ -94,7 +98,8 @@ public class Door : MonoBehaviour {
         else if (isPlayerInteracting)
         {
             timer += Time.deltaTime;
-
+            Percentage = timer / playerInteractTime;
+            FeedbackTimer.fillAmount = 1 - Percentage;
             if (timer >= playerInteractTime)
             {
                 isLocked = false;
@@ -124,10 +129,12 @@ public class Door : MonoBehaviour {
         if (obj == player)
         {
             isPlayerInteracting = false;
+            FeedbackTimer.fillAmount = 1;
         }
         else if (obj == ghost)
         {
             isGhostInteracting = false;
+            FeedbackTimer.fillAmount = 1;
         }
     }
 
