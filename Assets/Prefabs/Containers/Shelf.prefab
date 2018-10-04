@@ -70,8 +70,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306803145012206}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: -2.7500443, y: -3.1218715, z: 0.0678917}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.1000443, y: -0.41999996, z: 0.0678917}
   m_LocalScale: {x: 1, y: 0.6219332, z: 1}
   m_Children:
   - {fileID: 224178749195555766}
@@ -114,9 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7974b46929a7ab74eb17fc62a4363392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerColor: {r: 0, g: 0, b: 0, a: 1}
   useTime: 4
   FeedbackTimer: {fileID: 114987045209820700}
   feedbackObj: {fileID: 1842015079924608}
+  containerObj: {fileID: 0}
 --- !u!114 &114206647336558696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,14 +168,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.4553149, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d579aff3757a0aa4c84a5963bc9d034c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 345e0383114ebd34ca34de9c1afd9c91, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -252,7 +254,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 13
   m_TargetDisplay: 0
 --- !u!224 &224178749195555766
 RectTransform:
@@ -279,15 +281,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842015079924608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071061, w: 0.7071075}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 0.7125, y: 0.41250002, z: 0.75}
   m_Children: []
   m_Father: {fileID: 224178749195555766}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.2, y: -0}
+  m_AnchoredPosition: {x: 0.20005, y: -0.0000033086}
   m_SizeDelta: {x: 211.9, y: 281.4}
   m_Pivot: {x: 0.5, y: 0.5}

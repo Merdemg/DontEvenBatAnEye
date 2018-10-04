@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484473638546144}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 2.770149, y: -3.7, z: 0.0678917}
+  m_LocalPosition: {x: 2.770149, y: -2.3481283, z: 0.0678917}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224631286270514212}
@@ -114,9 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7974b46929a7ab74eb17fc62a4363392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerColor: {r: 0, g: 0, b: 0, a: 1}
   useTime: 4
   FeedbackTimer: {fileID: 114920013560440590}
   feedbackObj: {fileID: 1630640757366344}
+  containerObj: {fileID: 0}
 --- !u!114 &114746119972008780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,14 +168,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.4553149, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d579aff3757a0aa4c84a5963bc9d034c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 345e0383114ebd34ca34de9c1afd9c91, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -252,7 +254,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 13
   m_TargetDisplay: 0
 --- !u!224 &224631286270514212
 RectTransform:
@@ -260,17 +262,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745208894247580}
-  m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.0000015497205}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.0077799996, z: 0.01}
+  m_LocalScale: {x: 0.0070762, y: 0.0055052834, z: 0.0070762}
   m_Children:
   - {fileID: 224706029613478858}
   m_Father: {fileID: 4272127271833458}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.00002}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.04, y: -0.06}
+  m_AnchoredPosition: {x: -0.009, y: 0.07}
   m_SizeDelta: {x: 75, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224706029613478858

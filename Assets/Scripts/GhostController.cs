@@ -8,8 +8,21 @@ public class GhostController : MonoBehaviour {
     [SerializeField] Text powerText, powerLevelText;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float phasingSpeed = 0;
+
     float speedActual;
     [SerializeField] GameObject object2interact;
+
+    [SerializeField] Image PowUI;
+    [SerializeField] Image HauntImage;
+    [SerializeField] Image PhaseImage;
+    [SerializeField] Image HauntButt;
+    [SerializeField] Image PhaseButt;
+    [SerializeField] Image Pow1;
+    [SerializeField] Image Pow2;
+    [SerializeField] Image Pow3;
+    [SerializeField] Image Pow3a;
+    [SerializeField] Image FlyArrow;
+
 
     [SerializeField] float power = 10.0f;
     int powerLevel = 1;
@@ -41,7 +54,8 @@ public class GhostController : MonoBehaviour {
 
     [SerializeField] GameObject rangeIndicator;
 
-    [SerializeField] float phasingCost = 25;
+    [SerializeField] float phasingCost = 5;
+    [SerializeField] float hauntingCost = 0;
     Color myColor;
 
     // Use this for initialization
@@ -110,7 +124,7 @@ public class GhostController : MonoBehaviour {
         //    isFlying = false;
         //}
         
-        if (Input.GetButtonDown("Phase") && isInteracting == false && isHaunting == false && power > (phasingCost))
+        if (Input.GetButtonDown("Phase") && isInteracting == false && isHaunting == false && powerLevel >= 3 && power > (phasingCost))
         {
             isPhasing = true;
             Color temp = this.GetComponent<SpriteRenderer>().color;
@@ -126,11 +140,12 @@ public class GhostController : MonoBehaviour {
         if (isFlying)
         {
             flyTimer += Time.deltaTime;
-
+            FlyArrow.fillAmount = flyTimer / flyTime;
             if (flyTimer >= flyTime)
             {
                 fly();
                 isFlying = false;
+                FlyArrow.fillAmount = 0;
             }
         }
 
@@ -144,6 +159,12 @@ public class GhostController : MonoBehaviour {
                 this.GetComponent<SpriteRenderer>().color = myColor;
             }
             updatePowerText();
+        }
+
+        if (isHaunting)
+        {
+            Debug.Log("ishaunting");
+            losePowerWithoutBlinking(Time.deltaTime * hauntingCost * (float)powerLevel);
         }
 
         if (isInteracting == false && isHaunting == false && (Input.GetAxis("Horizontal2") > 0.1f || Input.GetAxis("Horizontal2") < -0.1f 
@@ -208,7 +229,7 @@ public class GhostController : MonoBehaviour {
 
     void drainSanity()
     {
-        if (power > 0.1f && isHaunting && Vector3.Distance(this.transform.position, player.transform.position) <= (range * powerLevel))
+        if (powerLevel >= 1 && isHaunting && Vector3.Distance(this.transform.position, player.transform.position) <= (range * powerLevel))
         {
            // RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, 
            //     insanityRange, ghostMask);
@@ -280,18 +301,62 @@ public class GhostController : MonoBehaviour {
         if (power < 50f)
         {
             powerLevel = 0;
+            PhaseButt.color = new Color(PhaseButt.color.r, PhaseButt.color.g, PhaseButt.color.b, 0.2f);
+            PhaseImage.color = new Color(PhaseImage.color.r, PhaseImage.color.g, PhaseImage.color.b, 0.2f);
+            HauntButt.color = new Color(HauntButt.color.r, HauntButt.color.g, HauntButt.color.b, 0.2f);
+            HauntImage.color = new Color(HauntImage.color.r, HauntImage.color.g, HauntImage.color.b, 0.2f);
+            Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 0.2f);
+            Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 0.2f);
+            Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 0.2f);
+            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
         }
-        else if (power < 100)   // Can damage
+        else if (power < 100f)
         {
             powerLevel = 1;
+            PhaseButt.color = new Color(PhaseButt.color.r, PhaseButt.color.g, PhaseButt.color.b, 0.2f);
+            PhaseImage.color = new Color(PhaseImage.color.r, PhaseImage.color.g, PhaseImage.color.b, 0.2f);
+            HauntButt.color = new Color(HauntButt.color.r, HauntButt.color.g, HauntButt.color.b, 1.0f);
+            HauntImage.color = new Color(HauntImage.color.r, HauntImage.color.g, HauntImage.color.b, 1.0f);
+            Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 1.0f);
+            Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 0.2f);
+            Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 0.2f);
+            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
         }
-        else if (power < 250)   // Can lock doors
+        else if (power < 150)   // Can damage
         {
             powerLevel = 2;
+            PhaseButt.color = new Color(PhaseButt.color.r, PhaseButt.color.g, PhaseButt.color.b, 0.2f);
+            PhaseImage.color = new Color(PhaseImage.color.r, PhaseImage.color.g, PhaseImage.color.b, 0.2f);
+            HauntButt.color = new Color(HauntButt.color.r, HauntButt.color.g, HauntButt.color.b, 1.0f);
+            HauntImage.color = new Color(HauntImage.color.r, HauntImage.color.g, HauntImage.color.b, 1.0f);
+            Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 1.0f);
+            Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
+            Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 0.2f);
+            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
+        }
+        else if (power < 200)   // Can lock doors
+        {
+            powerLevel = 3;
+            PhaseButt.color = new Color(PhaseButt.color.r, PhaseButt.color.g, PhaseButt.color.b, 1.0f);
+            PhaseImage.color = new Color(PhaseImage.color.r, PhaseImage.color.g, PhaseImage.color.b, 1.0f);
+            HauntButt.color = new Color(HauntButt.color.r, HauntButt.color.g, HauntButt.color.b, 1.0f);
+            HauntImage.color = new Color(HauntImage.color.r, HauntImage.color.g, HauntImage.color.b, 1.0f);
+            Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 1.0f);
+            Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
+            Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 1.0f);
+            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 1.0f);
         }
         else
         {                       // Can do possession attack
-            powerLevel = 3;
+            powerLevel = 4;
+            PhaseButt.color = new Color(PhaseButt.color.r, PhaseButt.color.g, PhaseButt.color.b, 1.0f);
+            PhaseImage.color = new Color(PhaseImage.color.r, PhaseImage.color.g, PhaseImage.color.b, 1.0f);
+            HauntButt.color = new Color(HauntButt.color.r, HauntButt.color.g, HauntButt.color.b, 1.0f);
+            HauntImage.color = new Color(HauntImage.color.r, HauntImage.color.g, HauntImage.color.b, 1.0f);
+            Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 1.0f);
+            Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
+            Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 1.0f);
+            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 1.0f);
         }
 
         updateRangeIndicator();
@@ -307,8 +372,7 @@ public class GhostController : MonoBehaviour {
 
     void updatePowerText()
     {
-        powerText.text = "Power: " + (int)power;
-        powerLevelText.text = "Power Lvl: " + powerLevel;
+        PowUI.fillAmount = power / 200;
     }
 
     void fly()

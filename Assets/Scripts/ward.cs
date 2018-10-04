@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ward : MonoBehaviour {
     GameObject ghost;
-    [SerializeField] float pushForce = 3f;
-    [SerializeField] float powerDrainMultiplier = 6f;
+    [SerializeField] float pushForce = 15f;
+    [SerializeField] float powerDrainMultiplier = 60f;
 
-    [SerializeField] float lifeTime = 60f;
+    [SerializeField] float lifeTime;
 
     float timer = 0;
 
@@ -15,6 +15,7 @@ public class ward : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ghost = GameObject.FindGameObjectWithTag("Ghost");
+        lifeTime = 25f;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +32,7 @@ public class ward : MonoBehaviour {
 
 
         timer += Time.deltaTime;
-        if (timer >= lifeTime)
+        if (timer > lifeTime)
         {
             Destroy(this.gameObject);
         }

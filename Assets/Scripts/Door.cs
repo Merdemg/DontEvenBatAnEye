@@ -35,11 +35,11 @@ public class Door : MonoBehaviour {
 	void Update () {
         if (isLocked)
         {
-            GetComponent<SpriteRenderer>().color = Color.black;
+            FeedbackTimer.fillAmount = 1;
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = Color.white;
+            FeedbackTimer.fillAmount = 0;
         }
 
 
@@ -76,6 +76,7 @@ public class Door : MonoBehaviour {
         if(playerCanInter || ghostCanInter)
         {
             feedbackObj.GetComponent<Image>().enabled = true;
+
         }
         else
         {
@@ -87,7 +88,7 @@ public class Door : MonoBehaviour {
         {
             timer += Time.deltaTime;
             Percentage = timer / ghostInteractTime;
-            FeedbackTimer.fillAmount = 1 - Percentage;
+            FeedbackTimer.fillAmount = Percentage;
             if (timer >= ghostInteractTime)
             {
                 isLocked = true;
@@ -133,8 +134,8 @@ public class Door : MonoBehaviour {
         }
         else if (obj == ghost)
         {
-            isGhostInteracting = false;
-            FeedbackTimer.fillAmount = 1;
+            isGhostInteracting = false && isLocked == false;
+            FeedbackTimer.fillAmount = 0;
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Container : MonoBehaviour {
+    public Color containerColor;
 
     bool hasBooze = false;
     bool hasEvidence = false;
@@ -18,6 +19,7 @@ public class Container : MonoBehaviour {
     float timer = 0;
     bool isPlayerInteracting = false;
     GameObject highlight;
+    [SerializeField] GameObject containerObj;
 
     // Use this for initialization
     void Start () {
@@ -72,6 +74,7 @@ public class Container : MonoBehaviour {
                 feedbackObj.GetComponent<Image>().enabled = false;
                 Destroy(highlight);
                 Destroy(this);
+                gameObject.GetComponent<SpriteRenderer>().color = containerColor;
             }
         }
     }

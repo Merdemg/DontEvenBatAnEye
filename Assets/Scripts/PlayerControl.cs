@@ -11,9 +11,13 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] float sanity = 100.0f;
     [SerializeField] float drinkingSpeed = 1.0f;
     [SerializeField] float boozeSanity = 33.3f;
+    [SerializeField] Image BoozeProg;
+    [SerializeField] Image WardProg;
+    [SerializeField] Image TrapProg;
     const float maxSanity = 100.0f;
     int boozeNum = 1;
     bool isDrinking = false;
+    public Image SanUI;
 
     public GameObject object2interact;
     bool isInteracting = false;
@@ -41,6 +45,9 @@ public class PlayerControl : MonoBehaviour {
     const float blinkSpeed = 0.2f;
     float blinkSwitchTimer = 0;
 
+
+    [SerializeField] Image iconBooze, iconTrap, iconWard, buttonBooze, buttonTrap, buttonWard;
+
     // Use this for initialization
     void Start () {
         updateSanityUI();
@@ -48,6 +55,41 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(boozeNum > 0)
+        {
+            buttonBooze.color = new Color(buttonBooze.color.r, buttonBooze.color.g, buttonBooze.color.b, 1.0f);
+            iconBooze.color = new Color(iconBooze.color.r, iconBooze.color.g, iconBooze.color.b, 1.0f);
+        }
+        else
+        {
+            buttonBooze.color = new Color(buttonBooze.color.r, buttonBooze.color.g, buttonBooze.color.b, 0.2f);
+            iconBooze.color = new Color(iconBooze.color.r, iconBooze.color.g, iconBooze.color.b, 0.2f);
+
+        }
+
+        if (sanity > wardCost)
+        {
+            buttonWard.color = new Color(buttonWard.color.r, buttonWard.color.g, buttonWard.color.b, 1.0f);
+            iconWard.color = new Color(iconWard.color.r, iconWard.color.g, iconWard.color.b, 1.0f);
+        }
+        else
+        {
+            buttonWard.color = new Color(buttonWard.color.r, buttonWard.color.g, buttonWard.color.b, 0.2f);
+            iconWard.color = new Color(iconWard.color.r, iconWard.color.g, iconWard.color.b,0.2f);
+        }
+
+        if (sanity > mineCost)
+        {
+            buttonTrap.color = new Color(buttonTrap.color.r, buttonTrap.color.g, buttonTrap.color.b, 1.0f);
+            iconTrap.color = new Color(iconTrap.color.r, iconTrap.color.g, iconTrap.color.b, 1.0f);
+        }
+        else
+        {
+            buttonTrap.color = new Color(buttonTrap.color.r, buttonTrap.color.g, buttonTrap.color.b, 0.2f);
+            iconTrap.color = new Color(iconTrap.color.r, iconTrap.color.g, iconTrap.color.b, 0.2f);
+        }
+
         if(blinkTimer > 0)
         {
             blinkTimer -= Time.deltaTime;
@@ -59,8 +101,21 @@ public class PlayerControl : MonoBehaviour {
                 blinkSwitchTimer -= blinkSpeed;
                 GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
             }
-
-
+            if (sanity >= (.6 * maxSanity))
+            {
+                GetComponent<SpriteRenderer>().color = Color.green;
+                SanUI.color = Color.green;
+            }
+            else if (sanity >= (.3 * maxSanity))
+            {
+                GetComponent<SpriteRenderer>().color = Color.yellow;
+                SanUI.color = Color.yellow;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().color = Color.red;
+                SanUI.color = Color.red;
+            }
         }
         else
         {
@@ -92,16 +147,19 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetButtonUp("Mine"))
         {
             isDroppingMine = false;
+            TrapProg.fillAmount = 0;
         }
 
         if (isDroppingMine)
         {
             timer += Time.deltaTime;
+            TrapProg.fillAmount = timer / mineDropTime;
             if (timer >= mineDropTime)
             {
                 isDroppingMine = false;
                 Instantiate(mine, this.transform.position, this.transform.rotation);
                 drainSanity(mineCost);
+                TrapProg.fillAmount = 0;
             }
 
         }
@@ -116,17 +174,19 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetButtonUp("Ward"))
         {
             isDroppingWard = false;
+            WardProg.fillAmount = 0;
         }
 
         if (isDroppingWard)
         {
             timer += Time.deltaTime;
-
+            WardProg.fillAmount = timer / wardDropTime;
             if (timer >= wardDropTime)
             {
                 isDroppingWard = false;
                 Instantiate(ward, this.transform.position, this.transform.rotation);
                 drainSanity(wardCost);
+                WardProg.fillAmount = 0;
             }
         }
 
@@ -145,11 +205,13 @@ public class PlayerControl : MonoBehaviour {
         if (isDrinking)
         {
             timer += Time.deltaTime;
+            BoozeProg.fillAmount = timer / drinkingSpeed;
             if (timer >= drinkingSpeed)
             {
                 isDrinking = false;
                 boozeNum--;
                 gainSanity(boozeSanity);
+                BoozeProg.fillAmount = 0;
             }
         }
 
@@ -167,10 +229,12 @@ public class PlayerControl : MonoBehaviour {
             (Input.GetAxis("Horizontal1") > 0.1f || Input.GetAxis("Horizontal1") < -0.1f 
             || Input.GetAxis("Vertical1") > 0.1f || Input.GetAxis("Vertical1") < -0.1f))
         {
+            Debug.Log(Input.GetAxis("Horizontal1"));
+            Debug.Log(Input.GetAxis("Vertical1"));
             //ROTATION
             float angle = Mathf.Atan2(Input.GetAxis("Horizontal1"), -Input.GetAxis("Vertical1")) * Mathf.Rad2Deg;
             this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
+           // Debug.Log(angle);
             //MOVEMENT
             Vector2 temp = new Vector2(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical1"));
             temp.Normalize();
@@ -284,8 +348,8 @@ public class PlayerControl : MonoBehaviour {
 
     void updateSanityUI()
     {
-        sanityText.text = "Sanity: " + (int)sanity;
-        boozeText.text = "Booze: " + boozeNum;
+        SanUI.fillAmount = sanity / maxSanity;
+        boozeText.text = boozeNum.ToString();
         evidenceText.text = "Evidence: " + evidence + "/" + evidenceRequired;
     }
 

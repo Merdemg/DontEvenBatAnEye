@@ -10,6 +10,8 @@ public class PowerSource : MonoBehaviour {
     [SerializeField] float playerInteractTime = 2f;
     [SerializeField] float interactDistance = 2f;
     [SerializeField] GameObject feedbackObj;
+    [SerializeField] float activationBonus = 0;
+    [SerializeField] float deactivationPenalty = 0;
     public bool isActive = false;
     bool feedbackOn = false;
     public Image FeedbackTimer;
@@ -120,6 +122,8 @@ public class PowerSource : MonoBehaviour {
                 isActive = true;
                 timer = 0;
                 ghost.GetComponent<GhostController>().interactiondone();
+                ghost.GetComponent<GhostController>().getPower(activationBonus);
+                
             }
             
         }
@@ -134,7 +138,8 @@ public class PowerSource : MonoBehaviour {
                 isActive = false;
                 powerTimer = 0;
                 timer = 0;
-                
+                ghost.GetComponent<GhostController>().losePowerWithoutBlinking(deactivationPenalty);
+
             }
         }
 
