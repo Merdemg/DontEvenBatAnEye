@@ -43,26 +43,26 @@ public class Door : MonoBehaviour {
         }
 
 
-
+        // Open the door if player is near enough
         if (isLocked == false && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SpriteRenderer>().enabled = false;
         }
         else if (isLocked == false)
-        {
+        {   // This is expensive, fix later
             GetComponent<BoxCollider2D>().enabled = true;
             GetComponent<SpriteRenderer>().enabled = true;
         }
 
-
+        // Let player script know I'm ready to be unlocked
         if (isLocked == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
             playerCanInter = true;
             player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
         }else if (isLocked == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance 
             && ghost.GetComponent<GhostController>().getPowerLevel() > 1)
-        {
+        {   // Let ghost script know I'm ready to be locked
             ghostCanInter = true;
             ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
         }
