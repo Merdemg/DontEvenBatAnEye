@@ -36,7 +36,7 @@ public class Container : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {    //Check the distance, let player script know I'm in range
         if (Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
             feedbackObj.GetComponent<Image>().enabled = true;
@@ -84,7 +84,6 @@ public class Container : MonoBehaviour {
         if (playerCanInteract)
         {
             isPlayerInteracting = true;
-
         }
 
         timer = 0;

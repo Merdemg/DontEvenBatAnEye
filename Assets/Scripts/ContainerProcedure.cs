@@ -14,7 +14,7 @@ public class ContainerProcedure : MonoBehaviour {
 
 
 
-
+        // Shuffle containers
         for (int i = 0; i < 100; i++)
         {
             int a = Random.Range(0, containers.Length);
@@ -29,12 +29,13 @@ public class ContainerProcedure : MonoBehaviour {
             containers[b] = temp;
         }
 
-
+        //Add booze
         for (int i = 0; i < boozeNum; i++)
         {
             containers[i].GetComponent<Container>().getBooze();
         }
 
+        // Shuffle again
         for (int i = 0; i < 100; i++)
         {
             int a = Random.Range(0, containers.Length);
@@ -48,7 +49,7 @@ public class ContainerProcedure : MonoBehaviour {
             containers[a] = containers[b];
             containers[b] = temp;
         }
-
+        // Add evidence, a container can have both booze and evidence
         for (int i = 0; i < evidenceNum; i++)
         {
             containers[i].GetComponent<Container>().getEvidence();

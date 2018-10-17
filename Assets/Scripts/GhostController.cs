@@ -68,6 +68,7 @@ public class GhostController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        // BLINK when taking power dmg
         if (blinkTimer > 0)
         {
             blinkTimer -= Time.deltaTime;
@@ -78,13 +79,10 @@ public class GhostController : MonoBehaviour {
                 blinkSwitchTimer -= blinkSpeed;
                 GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
             }
-
-
         }
         else
-        {
+        {   //This is expensive, fix later?
             GetComponent<SpriteRenderer>().enabled = true;
-
         }
 
 
@@ -118,11 +116,7 @@ public class GhostController : MonoBehaviour {
             flyTimer = 0;
         }
 
-        //else
-        //if (Input.GetButtonUp("Fly"))
-        //{
-        //    isFlying = false;
-        //}
+
         
         if (Input.GetButtonDown("Phase") && isInteracting == false && isHaunting == false && powerLevel >= 3 && power > (phasingCost))
         {
@@ -171,7 +165,7 @@ public class GhostController : MonoBehaviour {
             || Input.GetAxis("Vertical2") > 0.1f || Input.GetAxis("Vertical2") < -0.1f))
         {
             if (isPhasing)
-            {
+            {   // Get faster when phasing
                 speedActual = phasingSpeed;
             }
             else
@@ -231,20 +225,10 @@ public class GhostController : MonoBehaviour {
     {
         if (powerLevel >= 1 && isHaunting && Vector3.Distance(this.transform.position, player.transform.position) <= (range * powerLevel))
         {
-           // RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, 
-           //     insanityRange, ghostMask);
-           // Debug.DrawRay(this.transform.position, player.transform.position - this.transform.position, Color.red);
-
-            //Debug.Log(temp);
-            //Debug.Log(temp.transform.gameObject);
-            //if (temp && temp.transform.gameObject == player)
             {
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
                 player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
-
-
             }
-
         }
     }
 
@@ -297,7 +281,7 @@ public class GhostController : MonoBehaviour {
 
 
     void updatePowerLevel()
-    {
+    {   // NOT ELEGANT, maybe make it elegant later
         if (power < 50f)
         {
             powerLevel = 0;
@@ -347,7 +331,7 @@ public class GhostController : MonoBehaviour {
             Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 1.0f);
         }
         else
-        {                       // Can do possession attack
+        {                       // Can do possession attack, not implemented yet?
             powerLevel = 4;
             PhaseButt.color = new Color(PhaseButt.color.r, PhaseButt.color.g, PhaseButt.color.b, 1.0f);
             PhaseImage.color = new Color(PhaseImage.color.r, PhaseImage.color.g, PhaseImage.color.b, 1.0f);
@@ -363,7 +347,7 @@ public class GhostController : MonoBehaviour {
     }
 
     void updateRangeIndicator()
-    {
+    {   // Haunting range changes with power levels
         Vector3 temp = rangeIndicator.transform.localScale; 
         temp.x = powerLevel * 3.5f;
         temp.y = powerLevel * 3.5f;
@@ -375,7 +359,7 @@ public class GhostController : MonoBehaviour {
         PowUI.fillAmount = power / 200;
     }
 
-    void fly()
+    void fly()  // Fly between floors
     {
         if(this.transform.position.x <= 0)  //First level
         {

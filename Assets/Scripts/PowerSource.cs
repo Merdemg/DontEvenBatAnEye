@@ -48,13 +48,13 @@ public class PowerSource : MonoBehaviour {
             GetComponent<SpriteRenderer>().color = Color.black;
         }
         else
-        {
+        {   // Expensive, fix later
             GetComponent<SpriteRenderer>().color = Color.white;
         }
 
 
         if(isActive == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance)
-        {
+        {   // Check if ghost can interact
             RaycastHit2D temp = Physics2D.Raycast(this.transform.position, ghost.transform.position - this.transform.position, interactDistance);
             Debug.DrawRay(this.transform.position, ghost.transform.position - this.transform.position);
             if(temp && temp.transform.gameObject == ghost)
@@ -78,7 +78,7 @@ public class PowerSource : MonoBehaviour {
 
         }
         else if (isActive == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
-        {
+        {   // Check if player can interact, raycast probably won't be needed
             //Debug.Log("Playr is nearby");
             RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, interactDistance);
             
@@ -123,7 +123,7 @@ public class PowerSource : MonoBehaviour {
                 timer = 0;
                 ghost.GetComponent<GhostController>().interactiondone();
                 ghost.GetComponent<GhostController>().getPower(activationBonus);
-                
+               
             }
             
         }

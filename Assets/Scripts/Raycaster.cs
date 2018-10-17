@@ -29,10 +29,7 @@ public class Raycaster : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        //Physics2D.Raycast(transform.position, -Vector2.up, 1000.0f);
-        //Debug.DrawRay(transform.position, Vector2.up, Color.green);
-       // Debug.DrawRay(transform.position, (Vector2.up + Vector2.right) / 1.3f, Color.green);
-        //Debug.DrawRay(transform.position, (Vector2.up + -Vector2.right) / 1.3f, Color.green);
+
 
 
         if (checkGhostVisibility() && ghost.GetComponent<GhostController>().getIfPhasing() == false)
@@ -45,9 +42,6 @@ public class Raycaster : MonoBehaviour {
 
             drainGhostPower();
         }
-
-        
-
 
     }
 
