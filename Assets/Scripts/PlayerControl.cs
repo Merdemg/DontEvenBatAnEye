@@ -4,59 +4,54 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour {
+
     [SerializeField] Text sanityText, boozeText;
-
     [SerializeField] float moveSpeed = 1f;
-
     [SerializeField] float sanity = 100.0f;
     [SerializeField] float drinkingSpeed = 1.0f;
     [SerializeField] float boozeSanity = 33.3f;
     [SerializeField] Image BoozeProg;
     [SerializeField] Image WardProg;
     [SerializeField] Image TrapProg;
-    const float maxSanity = 100.0f;
-    int boozeNum = 1;
-    bool isDrinking = false;
-    public Image SanUI;
-
-    public GameObject object2interact;
-    bool isInteracting = false;
-    bool isDroppingMine = false;
     [SerializeField] float mineCost = 25f;
     [SerializeField] float mineDropTime = 2.0f;
     [SerializeField] GameObject mine;
-    float timer = 0;
-
-
     [SerializeField] GameObject ward;
     [SerializeField] float wardCost = 25f;
     [SerializeField] float wardDropTime = 1.0f;
-    bool isDroppingWard = false;
-
-
-    int evidence = 0;
-    int evidenceRequired = 5;
     [SerializeField] Text evidenceText;
-
-
-    float blinkTimer = 0;
-    const float blinkTimerMax = 0.5f;
-    //bool isBlinking = false;
-    const float blinkSpeed = 0.2f;
-    float blinkSwitchTimer = 0;
-
-
     [SerializeField] Image iconBooze, iconTrap, iconWard, buttonBooze, buttonTrap, buttonWard;
 
-    // Use this for initialization
-    void Start () {
+    public Image SanUI;
+    public GameObject object2interact;
+    public Transform offset;
+
+    bool isDrinking = false;
+    bool isDroppingWard = false;
+    bool isInteracting = false;
+    bool isDroppingMine = false;
+    float timer = 0;
+    float blinkTimer = 0;
+    float blinkSwitchTimer = 0;
+    const float maxSanity = 100.0f;
+    const float blinkTimerMax = 0.5f;
+    const float blinkSpeed = 0.2f;
+    int evidence = 0;
+    int evidenceRequired = 5;
+    int boozeNum = 1;
+
+    void Start ()
+    {
         updateSanityUI();
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
-        if(boozeNum > 0)
+        RaycastHit2D hit = Physics2D.Raycast(offset.position, -Vector2.up);
+
+
+        if (boozeNum > 0)
         {
             buttonBooze.color = new Color(buttonBooze.color.r, buttonBooze.color.g, buttonBooze.color.b, 1.0f);
             iconBooze.color = new Color(iconBooze.color.r, iconBooze.color.g, iconBooze.color.b, 1.0f);
@@ -93,7 +88,6 @@ public class PlayerControl : MonoBehaviour {
         if(blinkTimer > 0)
         {
             blinkTimer -= Time.deltaTime;
-            //isBlinking = true;
             blinkSwitchTimer += Time.deltaTime;
 
             if (blinkSwitchTimer >= blinkSpeed)
@@ -124,13 +118,15 @@ public class PlayerControl : MonoBehaviour {
         }
 
 
-
         if (Input.GetButtonDown("Interact1") && isDroppingMine == false && isDroppingWard == false && isDrinking == false)
         {
             Debug.Log("Button X, player");
             isInteracting = true;
-
             interact();
+        }
+        else
+        {
+            print("Not Interactable");
         }
         if (Input.GetButtonUp("Interact1"))
         {
@@ -161,9 +157,7 @@ public class PlayerControl : MonoBehaviour {
                 drainSanity(mineCost);
                 TrapProg.fillAmount = 0;
             }
-
         }
-
 
         if (Input.GetButtonDown("Ward") && isInteracting == false && sanity > wardCost && isDroppingMine == false && isDrinking == false)
         {
@@ -197,10 +191,6 @@ public class PlayerControl : MonoBehaviour {
             isDrinking = true;
             timer = 0;
         }
-        //if (Input.GetButtonUp("Booze"))
-        //{
-        //    isDrinking = false;
-        //}
 
         if (isDrinking)
         {
@@ -215,40 +205,18 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        //Vector3 dir = new Vector3(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical1"), 0);
-        //dir += this.transform.position;
-        //transform.forward = dir;
-
-        // temp += this.transform.position;
-        //transform.LookAt(temp);
-
-        //Debug.Log(Input.GetAxis("Horizontal1"));
-        //Debug.Log(Input.GetAxis("Vertical1"));
-
         if (isInteracting == false && isDroppingMine == false && isDroppingWard == false &&
             (Input.GetAxis("Horizontal1") > 0.1f || Input.GetAxis("Horizontal1") < -0.1f 
             || Input.GetAxis("Vertical1") > 0.1f || Input.GetAxis("Vertical1") < -0.1f))
-        {
-            Debug.Log(Input.GetAxis("Horizontal1"));
-            Debug.Log(Input.GetAxis("Vertical1"));
-            //ROTATION
+        {          
             float angle = Mathf.Atan2(Input.GetAxis("Horizontal1"), -Input.GetAxis("Vertical1")) * Mathf.Rad2Deg;
             this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-           // Debug.Log(angle);
-            //MOVEMENT
             Vector2 temp = new Vector2(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical1"));
             temp.Normalize();
             temp *= moveSpeed;
             GetComponent<Rigidbody2D>().AddForce(temp);
         }
- 
 
-
-        
-        //this.transform.eulerAngles = new Vector3(0, Mathf.Atan2(Input.GetAxis("Vertical1"), Input.GetAxis("Horizontal1")) * 180 / Mathf.PI, 0);
-
-
-        
     }
 
     public void setObject2Interact(GameObject obj)
@@ -258,6 +226,7 @@ public class PlayerControl : MonoBehaviour {
 
     void interact()
     {
+
         if (object2interact)
         {
             if (object2interact.GetComponent<PowerSource>())
@@ -279,10 +248,6 @@ public class PlayerControl : MonoBehaviour {
                 Debug.Log("interaction w CONTAINER");
                 object2interact.GetComponent<Container>().getInteracted();
             }
-            // ADD more scripts later, like containers and doors
-
-
-
         }
     }
 

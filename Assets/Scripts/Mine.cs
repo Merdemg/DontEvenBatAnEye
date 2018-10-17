@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Mine : MonoBehaviour {
+
     [SerializeField] float trapRange = 1.5f;
     [SerializeField] float visibleTime = 3f;
     [SerializeField] GameObject trap;
+
     GameObject ghost;
 
     float timer = 0;
     bool isActive = false;
 
-
-	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         ghost = GameObject.FindGameObjectWithTag("Ghost");
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (isActive == false)
         {
             timer += Time.deltaTime;
@@ -35,9 +36,5 @@ public class Mine : MonoBehaviour {
             Destroy(this.gameObject);
 
         }
-        
-
-
-		
 	}
 }

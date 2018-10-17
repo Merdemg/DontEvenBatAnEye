@@ -7,11 +7,8 @@ public class GhostController : MonoBehaviour {
     [SerializeField] Transform anchor1, anchor2;
     [SerializeField] Text powerText, powerLevelText;
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float phasingSpeed = 0;
-
-    float speedActual;
+    [SerializeField] float phasingSpeed = 0;   
     [SerializeField] GameObject object2interact;
-
     [SerializeField] Image PowUI;
     [SerializeField] Image HauntImage;
     [SerializeField] Image PhaseImage;
@@ -22,43 +19,30 @@ public class GhostController : MonoBehaviour {
     [SerializeField] Image Pow3;
     [SerializeField] Image Pow3a;
     [SerializeField] Image FlyArrow;
-
-
     [SerializeField] float power = 10.0f;
+
     int powerLevel = 1;
     [SerializeField] float insanityMultiplier = 1.0f;
-    //  [SerializeField] float insanityRange = 3.0f;
-
-
     bool isInteracting = false;
     bool isFlying = false;
     [SerializeField] const float flyTime = 1.0f;
     float flyTimer = 0;
-
+    float speedActual;
     GameObject player;
-
     public LayerMask ghostMask;
-
     float blinkTimer = 0;
     const float blinkTimerMax = 0.5f;
     bool isBlinking = false;
     const float blinkSpeed = 0.2f;
     float blinkSwitchTimer = 0;
-
     bool isHaunting;
-
     float range = 0.75f;
-
     bool isTrapped = false;
     bool isPhasing = false;
-
     [SerializeField] GameObject rangeIndicator;
-
     [SerializeField] float phasingCost = 5;
     [SerializeField] float hauntingCost = 0;
     Color myColor;
-
-    // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         updatePowerLevel();
@@ -66,7 +50,6 @@ public class GhostController : MonoBehaviour {
         myColor = GetComponent<SpriteRenderer>().color;
 	}
 
-    // Update is called once per frame
     void Update() {
         if (blinkTimer > 0)
         {
@@ -78,15 +61,11 @@ public class GhostController : MonoBehaviour {
                 blinkSwitchTimer -= blinkSpeed;
                 GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
             }
-
-
         }
         else
         {
             GetComponent<SpriteRenderer>().enabled = true;
-
         }
-
 
         if (Input.GetButtonDown("Interact2") && isPhasing == false && isHaunting == false)
         {
@@ -117,12 +96,6 @@ public class GhostController : MonoBehaviour {
             isFlying = true;
             flyTimer = 0;
         }
-
-        //else
-        //if (Input.GetButtonUp("Fly"))
-        //{
-        //    isFlying = false;
-        //}
         
         if (Input.GetButtonDown("Phase") && isInteracting == false && isHaunting == false && powerLevel >= 3 && power > (phasingCost))
         {
@@ -148,7 +121,6 @@ public class GhostController : MonoBehaviour {
                 FlyArrow.fillAmount = 0;
             }
         }
-
 
         if (isPhasing)
         {
@@ -179,13 +151,11 @@ public class GhostController : MonoBehaviour {
                 speedActual = moveSpeed;
             }
 
-
             Vector2 temp = new Vector2(Input.GetAxis("Horizontal2"), -Input.GetAxis("Vertical2"));
             temp.Normalize();
             temp *= speedActual;
             GetComponent<Rigidbody2D>().AddForce(temp);
         }
-
 
         drainSanity();
     }
@@ -195,64 +165,44 @@ public class GhostController : MonoBehaviour {
         if (isPhasing == false)
         {
             losePowerWithoutBlinking(amount);
-
             if (amount > 0)
                 blinkTimer = blinkTimerMax;
         }    
     }
-
     public void losePowerWithoutBlinking(float amount)
     {
         power -= amount;
-
-
         if (power < 0)
         {
             power = 0;
         }
-
         updatePowerLevel();
         updatePowerText();
     }
-
     public bool getIfPhasing()
     {
         return isPhasing;
     }
-
     public void getPower(float amount)
     {
         power += amount;
         updatePowerLevel();
         updatePowerText();
     }
-
     void drainSanity()
     {
         if (powerLevel >= 1 && isHaunting && Vector3.Distance(this.transform.position, player.transform.position) <= (range * powerLevel))
-        {
-           // RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, 
-           //     insanityRange, ghostMask);
-           // Debug.DrawRay(this.transform.position, player.transform.position - this.transform.position, Color.red);
-
-            //Debug.Log(temp);
-            //Debug.Log(temp.transform.gameObject);
-            //if (temp && temp.transform.gameObject == player)
+        {     
             {
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
                 player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
-
-
             }
-
         }
     }
-
     public void setObject2Interact(GameObject obj)
     {
         object2interact = obj;
     }
-
     void interact()
     {
         if (object2interact)
@@ -265,13 +215,8 @@ public class GhostController : MonoBehaviour {
             {
                 object2interact.GetComponent<Door>().getInteracted(this.gameObject);
             }
-            // ADD more scripts later, like containers and doors
-
-
-
         }
     }
-
     void uninteract()
     {
         if (object2interact)
@@ -284,18 +229,12 @@ public class GhostController : MonoBehaviour {
             {
                 object2interact.GetComponent<Door>().stopBeingInteracted(this.gameObject);
             }
-            // ADD more scripts later, like containers and doors
-
-
         }
     }
-
     public void interactiondone()
     {
         isInteracting = false;
     }
-
-
     void updatePowerLevel()
     {
         if (power < 50f)
@@ -361,7 +300,6 @@ public class GhostController : MonoBehaviour {
 
         updateRangeIndicator();
     }
-
     void updateRangeIndicator()
     {
         Vector3 temp = rangeIndicator.transform.localScale; 
@@ -369,37 +307,29 @@ public class GhostController : MonoBehaviour {
         temp.y = powerLevel * 3.5f;
         rangeIndicator.transform.localScale = temp;
     }
-
     void updatePowerText()
     {
         PowUI.fillAmount = power / 200;
     }
-
     void fly()
     {
         if(this.transform.position.x <= 0)  //First level
         {
             this.transform.position = (this.transform.position - anchor1.transform.position) + anchor2.transform.position;
-
-
         }
         else                                //Second level
         {
             this.transform.position = (this.transform.position - anchor2.transform.position) + anchor1.transform.position;
         }
     }
-
     public int getPowerLevel()
     {
         return powerLevel;
     }
-
-
     public void getTrapped()
     {
         isTrapped = true;
     }
-
     public void getUntrapped()
     {
         isTrapped = false;

@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ward : MonoBehaviour {
+public class Ward : MonoBehaviour {
+
     GameObject ghost;
     [SerializeField] float pushForce = 15f;
     [SerializeField] float powerDrainMultiplier = 60f;
-
     [SerializeField] float lifeTime;
 
     float timer = 0;
 
-
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         ghost = GameObject.FindGameObjectWithTag("Ghost");
         lifeTime = 25f;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void Update ()
+    {
         if (checkGhostVisibility() && ghost.GetComponent<GhostController>().getIfPhasing() == false)
         {
             Vector2 force = ghost.transform.position - this.transform.position;
@@ -29,15 +29,12 @@ public class ward : MonoBehaviour {
             drainGhostPower();
         }
 
-
-
         timer += Time.deltaTime;
         if (timer > lifeTime)
         {
             Destroy(this.gameObject);
         }
 	}
-
 
     bool checkGhostVisibility()
     {
@@ -49,7 +46,6 @@ public class ward : MonoBehaviour {
                 return true;
             }
         }
-
         return false;
     }
 

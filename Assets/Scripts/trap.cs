@@ -2,19 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class trap : MonoBehaviour {
+public class Trap : MonoBehaviour {
+
     GameObject ghost;
 
-
-	// Use this for initialization
-	void Start () {
+    void Start ()
+    {
         ghost = GameObject.FindGameObjectWithTag("Ghost");
         ghost.GetComponent<GhostController>().getTrapped();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     private void OnDestroy()

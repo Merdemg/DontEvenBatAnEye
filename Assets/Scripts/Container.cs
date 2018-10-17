@@ -11,21 +11,22 @@ public class Container : MonoBehaviour {
     [SerializeField] float useTime = 4.0f;
     public Image FeedbackTimer;
     float Percentage;
-
     GameObject player;
-    [SerializeField] GameObject feedbackObj;
+    [SerializeField]GameObject feedbackObj;
     float interactDistance = 0.5f;
     bool playerCanInteract = false;
     float timer = 0;
     bool isPlayerInteracting = false;
     GameObject highlight;
     [SerializeField] GameObject containerObj;
-
-    // Use this for initialization
+    Rigidbody2D rb2D;
+    public static bool playerTouch = false;
     void Start () {
+        rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         feedbackObj.GetComponent<Image>().enabled = false;
-
+        playerCanInteract = false;
+        timer = 0;
         foreach (Transform child in transform)
         {
             if (child.tag == "Highlight")
@@ -34,23 +35,21 @@ public class Container : MonoBehaviour {
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
-        {
-            feedbackObj.GetComponent<Image>().enabled = true;
 
-            player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
-            playerCanInteract = true;
+    void Update()
+    {
 
-        }
-        else
-        {
-            feedbackObj.GetComponent<Image>().enabled = false;
-            playerCanInteract = false;
-            timer = 0;
-        }
+        
+
+     //if (Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
+     //{
+     //    
+     //
+     //}
+     //else
+     //{
+     //    
+     //}
 
 
         if (isPlayerInteracting)
@@ -61,7 +60,6 @@ public class Container : MonoBehaviour {
             if (timer >= useTime)
             {
                 timer = 0;
-                // do stuff
                 if (hasEvidence)
                 {
                     player.GetComponent<PlayerControl>().getEvidence();
@@ -79,6 +77,24 @@ public class Container : MonoBehaviour {
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            feedbackObj.GetComponent<Image>().enabled = true;
+            player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
+            playerCanInteract = true;
+        }
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            feedbackObj.GetComponent<Image>().enabled = false;
+            playerCanInteract = false;
+            timer = 0;
+        }
+    }
     public void getInteracted()
     {
         if (playerCanInteract)
