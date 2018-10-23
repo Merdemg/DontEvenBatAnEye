@@ -55,6 +55,9 @@ MonoBehaviour:
   pushForce: 15
   powerDrainMultiplier: 30
   lifeTime: 15
+  mask:
+    serializedVersion: 2
+    m_Bits: 513
 --- !u!212 &212163677817057622
 SpriteRenderer:
   m_ObjectHideFlags: 1
