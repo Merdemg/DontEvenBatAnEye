@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Door : MonoBehaviour {
+
     GameObject player, ghost;
     bool isLocked = false;
+
     [SerializeField] float ghostInteractTime = 2f;
     [SerializeField] float playerInteractTime = 4.5f;
     [SerializeField] float interactDistance = 2f;
+    [SerializeField] float doorLockedChance = 30f;
+
     [SerializeField] GameObject feedbackObj;
     public Image FeedbackTimer;
     float Percentage;
@@ -25,44 +29,41 @@ public class Door : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        float randomValue = Random.Range(0f, 100f);
+        if (randomValue >= 0 && randomValue <= doorLockedChance)
+        {
+            isLocked = true;
+            Percentage = 0;
+        }
+            
+
         player = GameObject.FindGameObjectWithTag("Player");
         ghost = GameObject.FindGameObjectWithTag("Ghost");
 
         feedbackObj.GetComponent<Image>().enabled = false;
+        Percentage = 0;
     }
 	
-	// Update is called once per frame
 	void Update () {
-        if (isLocked)
-        {
-            FeedbackTimer.fillAmount = 1;
-        }
-        else
-        {
-            FeedbackTimer.fillAmount = 0;
-        }
 
 
-        // Open the door if player is near enough
         if (isLocked == false && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
-            GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<SpriteRenderer>().enabled = false;
+            setOpen(true);
         }
         else if (isLocked == false)
-        {   // This is expensive, fix later
-            GetComponent<BoxCollider2D>().enabled = true;
-            GetComponent<SpriteRenderer>().enabled = true;
+        {   
+            setOpen(false);
         }
 
-        // Let player script know I'm ready to be unlocked
         if (isLocked == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
             playerCanInter = true;
             player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
-        }else if (isLocked == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance 
+        }
+        else if (isLocked == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance 
             && ghost.GetComponent<GhostController>().getPowerLevel() > 1)
-        {   // Let ghost script know I'm ready to be locked
+        {   
             ghostCanInter = true;
             ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
         }
@@ -83,7 +84,6 @@ public class Door : MonoBehaviour {
             feedbackObj.GetComponent<Image>().enabled = false;
         }
 
-
         if (isGhostInteracting)
         {
             timer += Time.deltaTime;
@@ -94,6 +94,9 @@ public class Door : MonoBehaviour {
                 isLocked = true;
                 isGhostInteracting = false;
                 ghost.GetComponent<GhostController>().losePowerWithoutBlinking(10);
+                setOpen(false);
+                timer = 0;
+                Percentage = timer / playerInteractTime;
             }
         }
         else if (isPlayerInteracting)
@@ -105,23 +108,35 @@ public class Door : MonoBehaviour {
             {
                 isLocked = false;
                 isPlayerInteracting = false;
+                timer = 0;
             }
+        }else if (isLocked) // It's locked but no one is interacing.
+        {
+            FeedbackTimer.fillAmount = 1f;  // Perc of being unlocked
+        }
+        else    /// It's not locked and no one is interacting
+        {
+            FeedbackTimer.fillAmount = 0;
         }
 
-	}
+    }
 
+    void setOpen(bool isOpen)
+    {
+        GetComponent<BoxCollider2D>().enabled = !isOpen;
+        GetComponent<SpriteRenderer>().enabled = !isOpen;
+    }
 
     public void getInteracted(GameObject obj)
     {
         if (obj == ghost && ghostCanInter && isGhostInteracting == false)
         {
             isGhostInteracting = true;
-            timer = 0;
+            
         }
         else if (obj == player && playerCanInter && isPlayerInteracting == false)
         {
             isPlayerInteracting = true;
-            timer = 0;
         }
     }
 
@@ -130,12 +145,15 @@ public class Door : MonoBehaviour {
         if (obj == player)
         {
             isPlayerInteracting = false;
-            FeedbackTimer.fillAmount = 1;
+            //FeedbackTimer.fillAmount = 1f - Percentage;
         }
         else if (obj == ghost)
         {
-            isGhostInteracting = false && isLocked == false;
-            FeedbackTimer.fillAmount = 0;
+            isGhostInteracting = false;
+            //isLocked = false;
+            timer = 0;
+            Percentage = timer / ghostInteractTime;
+            //FeedbackTimer.fillAmount = 0;
         }
     }
 

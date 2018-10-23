@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -21,7 +22,10 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] float wardDropTime = 1.0f;
     [SerializeField] Text evidenceText;
     [SerializeField] Image iconBooze, iconTrap, iconWard, buttonBooze, buttonTrap, buttonWard;
+    [SerializeField] float protectionValue = 0.25f;
+    [SerializeField] LayerMask myMask;
 
+    public GameObject[] wards;
     public Image SanUI;
     public GameObject object2interact;
     public Transform offset;
@@ -30,6 +34,8 @@ public class PlayerControl : MonoBehaviour {
     bool isDroppingWard = false;
     bool isInteracting = false;
     bool isDroppingMine = false;
+    bool isProtected = false;
+
     float timer = 0;
     float blinkTimer = 0;
     float blinkSwitchTimer = 0;
@@ -39,6 +45,16 @@ public class PlayerControl : MonoBehaviour {
     int evidence = 0;
     int evidenceRequired = 5;
     int boozeNum = 1;
+
+    private Player player;
+    public int playerId = 0;
+    int indexWard = 0;
+
+
+    private void Awake()
+    {
+        player = ReInput.players.GetPlayer(playerId);
+    }
 
     void Start ()
     {
@@ -50,6 +66,10 @@ public class PlayerControl : MonoBehaviour {
 
         RaycastHit2D hit = Physics2D.Raycast(offset.position, -Vector2.up);
 
+        if (FindObjectOfType<ward>())
+        {
+            isProtected = CheckProtected();
+        }
 
         if (boozeNum > 0)
         {
@@ -118,29 +138,27 @@ public class PlayerControl : MonoBehaviour {
         }
 
 
-        if (Input.GetButtonDown("Interact1") && isDroppingMine == false && isDroppingWard == false && isDrinking == false)
+        if (player.GetButtonDown("Interact") && isDroppingMine == false && isDroppingWard == false && isDrinking == false)
         {
-            Debug.Log("Button X, player");
             isInteracting = true;
             interact();
         }
         else
         {
-            print("Not Interactable");
+            //print("Not Interactable");
         }
-        if (Input.GetButtonUp("Interact1"))
+        if (player.GetButtonUp("Interact"))
         {
             isInteracting = false;
             uninteract();
         }
 
-        if (Input.GetButtonDown("Mine") && isInteracting == false && sanity > mineCost && isDroppingWard == false && isDrinking == false)
+        if (player.GetButtonDown("Mine") && isInteracting == false && sanity > mineCost && isDroppingWard == false && isDrinking == false)
         {
-            Debug.Log("Button O, player");
             isDroppingMine = true;
             timer = 0;
         }
-        if (Input.GetButtonUp("Mine"))
+        if (player.GetButtonUp("Mine"))
         {
             isDroppingMine = false;
             TrapProg.fillAmount = 0;
@@ -159,13 +177,12 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown("Ward") && isInteracting == false && sanity > wardCost && isDroppingMine == false && isDrinking == false)
+        if (player.GetButtonDown("Ward") && isInteracting == false && sanity > wardCost && isDroppingMine == false && isDrinking == false)
         {
-            Debug.Log("Button 1, player");
             isDroppingWard = true;
             timer = 0;
         }
-        if (Input.GetButtonUp("Ward"))
+        if (player.GetButtonUp("Ward"))
         {
             isDroppingWard = false;
             WardProg.fillAmount = 0;
@@ -185,9 +202,8 @@ public class PlayerControl : MonoBehaviour {
         }
 
 
-        if (Input.GetButtonDown("Booze") && isInteracting == false && isDroppingMine == false && isDroppingWard == false && boozeNum>0)
+        if (player.GetButtonDown("Booze") && isInteracting == false && isDroppingMine == false && isDroppingWard == false && boozeNum>0)
         {
-            Debug.Log("Button 3, player");
             isDrinking = true;
             timer = 0;
         }
@@ -205,18 +221,38 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (isInteracting == false && isDroppingMine == false && isDroppingWard == false &&
-            (Input.GetAxis("Horizontal1") > 0.1f || Input.GetAxis("Horizontal1") < -0.1f 
-            || Input.GetAxis("Vertical1") > 0.1f || Input.GetAxis("Vertical1") < -0.1f))
+        if (isInteracting == false && isDroppingMine == false && isDroppingWard == false && (player.GetAxis("Horizontal") > 0.1f || player.GetAxis("Horizontal") < -0.1f
+            /*player.GetAxis("Horizontal1") > 0.1f || player.GetAxis("Horizontal1") < -0.1f*/ || player.GetAxis("Vertical") > 0.1f || player.GetAxis("Vertical") < -0.1f))
         {          
-            float angle = Mathf.Atan2(Input.GetAxis("Horizontal1"), -Input.GetAxis("Vertical1")) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(player.GetAxis("Horizontal"), -player.GetAxis("Vertical")) * Mathf.Rad2Deg;
             this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            Vector2 temp = new Vector2(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical1"));
+            Vector2 temp = new Vector2(player.GetAxis("Horizontal"), player.GetAxis("Vertical"));
             temp.Normalize();
             temp *= moveSpeed;
             GetComponent<Rigidbody2D>().AddForce(temp);
         }
 
+        
+        
+        
+    }
+
+    bool CheckProtected()
+    {
+        ward[] wards = FindObjectsOfType<ward>();
+        
+        foreach (ward ward in wards)
+        {
+            RaycastHit2D temp = Physics2D.Raycast(ward.transform.position, this.transform.position - ward.transform.position, myMask);
+            if (temp.transform.gameObject.GetComponent<PlayerControl>())
+            {
+                print("Player is protected");
+                return true;
+            }
+
+        }
+        print("Player is UNprotected");
+        return false;
     }
 
     public void setObject2Interact(GameObject obj)
@@ -231,12 +267,10 @@ public class PlayerControl : MonoBehaviour {
         {
             if (object2interact.GetComponent<PowerSource>())
             {
-                Debug.Log("interaction w a power s");
                 object2interact.GetComponent<PowerSource>().getInteracted(this.gameObject);
             }
             else if (object2interact.GetComponent<Stairs>())
             {
-                Debug.Log("interaction w stairs");
                 object2interact.GetComponent<Stairs>().getInteracted();
             }
             else if (object2interact.GetComponent<Door>())
@@ -245,7 +279,6 @@ public class PlayerControl : MonoBehaviour {
             }
             else if (object2interact.GetComponent<Container>())
             {
-                Debug.Log("interaction w CONTAINER");
                 object2interact.GetComponent<Container>().getInteracted();
             }
         }
@@ -285,6 +318,9 @@ public class PlayerControl : MonoBehaviour {
 
     public void drainSanity(float amount)
     {
+        if (isProtected)
+            amount *= protectionValue;
+
         sanity -= amount;
         updateSanityUI();
 

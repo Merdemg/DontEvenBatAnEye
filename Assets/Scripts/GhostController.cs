@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 
 public class GhostController : MonoBehaviour {
     [SerializeField] Transform anchor1, anchor2;
@@ -39,10 +40,20 @@ public class GhostController : MonoBehaviour {
     float range = 0.75f;
     bool isTrapped = false;
     bool isPhasing = false;
+
+    private Player ghost;
+    public int playerId = 1;
+
     [SerializeField] GameObject rangeIndicator;
     [SerializeField] float phasingCost = 5;
     [SerializeField] float hauntingCost = 0;
     Color myColor;
+
+    private void Awake()
+    {
+        ghost = ReInput.players.GetPlayer(playerId);
+    }
+
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         updatePowerLevel();
@@ -67,44 +78,44 @@ public class GhostController : MonoBehaviour {
             GetComponent<SpriteRenderer>().enabled = true;
         }
 
-        if (Input.GetButtonDown("Interact2") && isPhasing == false && isHaunting == false)
+        if (ghost.GetButtonDown("Interact") && isPhasing == false && isHaunting == false)
         {
             Debug.Log("Button X, ghost");
             isInteracting = true;
 
             interact();
         } else
-        if (Input.GetButtonUp("Interact2"))
+        if (ghost.GetButtonUp("Interact"))
         {
             isInteracting = false;
             uninteract();
         }
 
-        if (Input.GetButtonDown("Haunt") && isPhasing == false && isInteracting == false)
+        if (ghost.GetButtonDown("Haunt") && isPhasing == false && isInteracting == false)
         {
             Debug.Log("Buton 1, ghost");
             isHaunting = true;
         }
-        else if (Input.GetButtonUp("Haunt"))
+        else if (ghost.GetButtonUp("Haunt"))
         {
             isHaunting = false;
         }
 
-        if (isTrapped == false && Input.GetButtonDown("Fly"))
+        if (isTrapped == false && ghost.GetButtonDown("Fly"))
         {
             Debug.Log("Button Y, ghost");
             isFlying = true;
             flyTimer = 0;
         }
         
-        if (Input.GetButtonDown("Phase") && isInteracting == false && isHaunting == false && powerLevel >= 3 && power > (phasingCost))
+        if (ghost.GetButtonDown("Phase") && isInteracting == false && isHaunting == false && powerLevel >= 3 && power > (phasingCost))
         {
             isPhasing = true;
             Color temp = this.GetComponent<SpriteRenderer>().color;
             temp.a = 0.5f;
             this.GetComponent<SpriteRenderer>().color = temp;
         }
-        else if (Input.GetButtonUp("Phase"))
+        else if (ghost.GetButtonUp("Phase"))
         {
             isPhasing = false;
             this.GetComponent<SpriteRenderer>().color = myColor;
@@ -139,8 +150,8 @@ public class GhostController : MonoBehaviour {
             losePowerWithoutBlinking(Time.deltaTime * hauntingCost * (float)powerLevel);
         }
 
-        if (isInteracting == false && isHaunting == false && (Input.GetAxis("Horizontal2") > 0.1f || Input.GetAxis("Horizontal2") < -0.1f 
-            || Input.GetAxis("Vertical2") > 0.1f || Input.GetAxis("Vertical2") < -0.1f))
+        if (isInteracting == false && isHaunting == false && (ghost.GetAxis("Horizontal") > 0.1f || ghost.GetAxis("Horizontal") < -0.1f 
+            || ghost.GetAxis("Vertical") > 0.1f || ghost.GetAxis("Vertical") < -0.1f))
         {
             if (isPhasing)
             {
@@ -151,7 +162,7 @@ public class GhostController : MonoBehaviour {
                 speedActual = moveSpeed;
             }
 
-            Vector2 temp = new Vector2(Input.GetAxis("Horizontal2"), -Input.GetAxis("Vertical2"));
+            Vector2 temp = new Vector2(ghost.GetAxis("Horizontal"), -ghost.GetAxis("Vertical"));
             temp.Normalize();
             temp *= speedActual;
             GetComponent<Rigidbody2D>().AddForce(temp);

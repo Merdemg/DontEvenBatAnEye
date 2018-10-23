@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ward : MonoBehaviour {
+public class ward : MonoBehaviour {
 
     GameObject ghost;
     [SerializeField] float pushForce = 15f;
     [SerializeField] float powerDrainMultiplier = 60f;
     [SerializeField] float lifeTime;
+    [SerializeField] LayerMask mask;
 
     float timer = 0;
 
@@ -40,7 +41,7 @@ public class Ward : MonoBehaviour {
     {
         if(Physics2D.Raycast(this.transform.position, ghost.transform.position - this.transform.position))
         {
-            RaycastHit2D temp = Physics2D.Raycast(this.transform.position, ghost.transform.position - this.transform.position);
+            RaycastHit2D temp = Physics2D.Raycast(this.transform.position, ghost.transform.position - this.transform.position, mask);
             if (temp.transform.tag == "Ghost")
             {
                 return true;

@@ -36,6 +36,8 @@ public class PowerSource : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        //FeedbackTimer.fillAmount = 1f - Percentage;
+
         if (isActive)
         {
             GetComponent<SpriteRenderer>().color = Color.black;
@@ -53,8 +55,10 @@ public class PowerSource : MonoBehaviour {
             {
                 if (feedbackOn == false)
                 {
+                    FeedbackTimer.fillAmount = 1f - Percentage; // ??????
                     activateFeedback();
                     ghostCanInter = true;
+                    
                     ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
 
                 }
@@ -76,8 +80,10 @@ public class PowerSource : MonoBehaviour {
             {
                 if (feedbackOn == false)
                 {
+                    FeedbackTimer.fillAmount = 1f - Percentage; // ??????
                     activateFeedback();
                     playerCanInter = true;
+                    
                     player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
                 }
             }
@@ -101,15 +107,15 @@ public class PowerSource : MonoBehaviour {
             FeedbackTimer.fillAmount = 1 - Percentage;
             if (timer >= ghostInteractTime)
             {
+                isGhostInteracting = false;
                 isActive = true;
                 timer = 0;
+                Percentage = timer / playerInteractTime;
                 ghost.GetComponent<GhostController>().interactiondone();
                 ghost.GetComponent<GhostController>().getPower(activationBonus);
                 
             }          
-        }
-
-        if (isPlayerInteracting)
+        }else if (isPlayerInteracting)
         {
             timer += Time.deltaTime;
             Percentage = timer / playerInteractTime;
@@ -119,10 +125,20 @@ public class PowerSource : MonoBehaviour {
                 isActive = false;
                 powerTimer = 0;
                 timer = 0;
+                Percentage = timer / playerInteractTime;
                 ghost.GetComponent<GhostController>().losePowerWithoutBlinking(deactivationPenalty);
-
+                isPlayerInteracting = false;
             }
+        }else if (isActive && playerCanInter)
+        {
+            FeedbackTimer.fillAmount = 1f - Percentage;
         }
+        else if (!isActive && ghostCanInter)
+        {
+            FeedbackTimer.fillAmount = 1f - Percentage;
+        }
+
+
         if (isActive)
         {
             powerTimer += Time.deltaTime;
@@ -150,12 +166,12 @@ public class PowerSource : MonoBehaviour {
         if(obj == ghost && ghostCanInter && !isGhostInteracting)
         {
             isGhostInteracting = true;
-            timer = 0;
+            //timer = 0;
         }
         else if(obj == player && playerCanInter && !isPlayerInteracting)
         {
             isPlayerInteracting = true;
-            timer = 0;
+            //timer = 0;
         }
     }
     public void stopBeingInteracted(GameObject obj)
@@ -163,13 +179,15 @@ public class PowerSource : MonoBehaviour {
         if(obj == player)
         {
             isPlayerInteracting = false;
-            FeedbackTimer.fillAmount = 1;
+            //FeedbackTimer.fillAmount = 1f - Percentage;
         }
         else if (obj == ghost)
         {
             isGhostInteracting = false;
-            FeedbackTimer.fillAmount = 1;
+            //FeedbackTimer.fillAmount = 1f - Percentage;
+            //timer = 0;
+            //Percentage = timer / ghostInteractTime;
         }
-        timer = 0;
+        //timer = 0;
     }
 }

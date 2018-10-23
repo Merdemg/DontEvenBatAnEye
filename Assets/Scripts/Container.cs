@@ -22,6 +22,7 @@ public class Container : MonoBehaviour {
     Rigidbody2D rb2D;
     public static bool playerTouch = false;
     void Start () {
+
         rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         feedbackObj.GetComponent<Image>().enabled = false;
@@ -39,18 +40,6 @@ public class Container : MonoBehaviour {
     void Update()
     {
 
-        
-
-     //if (Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
-     //{
-     //    
-     //
-     //}
-     //else
-     //{
-     //    
-     //}
-
 
         if (isPlayerInteracting)
         {
@@ -59,7 +48,6 @@ public class Container : MonoBehaviour {
             FeedbackTimer.fillAmount = 1 - Percentage;
             if (timer >= useTime)
             {
-                timer = 0;
                 if (hasEvidence)
                 {
                     player.GetComponent<PlayerControl>().getEvidence();
@@ -92,7 +80,7 @@ public class Container : MonoBehaviour {
         {
             feedbackObj.GetComponent<Image>().enabled = false;
             playerCanInteract = false;
-            timer = 0;
+            //timer = 0;
         }
     }
     public void getInteracted()
@@ -100,17 +88,18 @@ public class Container : MonoBehaviour {
         if (playerCanInteract)
         {
             isPlayerInteracting = true;
+            //FeedbackTimer.fillAmount = 1 - Percentage;
 
         }
 
-        timer = 0;
+        //timer = 0;
     }
 
     public void stopBeingInteracted()
     {
-        timer = 0;
+        //timer = 0;
         isPlayerInteracting = false;
-        FeedbackTimer.fillAmount = 1;
+        FeedbackTimer.fillAmount = 1 - Percentage;
     }
 
 
