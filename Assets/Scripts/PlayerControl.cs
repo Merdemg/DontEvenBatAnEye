@@ -240,7 +240,7 @@ public class PlayerControl : MonoBehaviour {
     bool CheckProtected()
     {
         ward[] wards = FindObjectsOfType<ward>();
-        
+        Debug.Log("WARDS SIZEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE " + wards.Length);
         foreach (ward ward in wards)
         {
             RaycastHit2D temp = Physics2D.Raycast(ward.transform.position, this.transform.position - ward.transform.position, myMask);
