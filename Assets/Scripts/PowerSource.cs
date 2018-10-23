@@ -26,6 +26,9 @@ public class PowerSource : MonoBehaviour {
     float timer = 0;
     float powerTimer = 0;
 
+    //Pentagram reset
+    [SerializeField] float resetTick = 0.01f;
+
 	void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -36,8 +39,6 @@ public class PowerSource : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //FeedbackTimer.fillAmount = 1f - Percentage;
-
         if (isActive)
         {
             GetComponent<SpriteRenderer>().color = Color.black;
@@ -55,7 +56,7 @@ public class PowerSource : MonoBehaviour {
             {
                 if (feedbackOn == false)
                 {
-                    FeedbackTimer.fillAmount = 1f - Percentage; // ??????
+                    FeedbackTimer.fillAmount = 1f - Percentage; 
                     activateFeedback();
                     ghostCanInter = true;
                     
@@ -100,8 +101,11 @@ public class PowerSource : MonoBehaviour {
             playerCanInter = false;
         }
 
-        if (isGhostInteracting)
+
+       
+        if (isGhostInteracting && ghostCanInter)
         {
+            Debug.Log("GHOST CAN INTERACT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::" + ghostCanInter);
             timer += Time.deltaTime;
             Percentage = timer / ghostInteractTime;
             FeedbackTimer.fillAmount = 1 - Percentage;
@@ -115,7 +119,8 @@ public class PowerSource : MonoBehaviour {
                 ghost.GetComponent<GhostController>().getPower(activationBonus);
                 
             }          
-        }else if (isPlayerInteracting)
+        }
+        else if (isPlayerInteracting && playerCanInter)
         {
             timer += Time.deltaTime;
             Percentage = timer / playerInteractTime;
@@ -129,16 +134,39 @@ public class PowerSource : MonoBehaviour {
                 ghost.GetComponent<GhostController>().losePowerWithoutBlinking(deactivationPenalty);
                 isPlayerInteracting = false;
             }
-        }else if (isActive && playerCanInter)
+        }
+        else if (isActive && playerCanInter)
         {
+            Percentage = timer / playerInteractTime;
             FeedbackTimer.fillAmount = 1f - Percentage;
         }
         else if (!isActive && ghostCanInter)
         {
+            Percentage = timer / ghostInteractTime;
             FeedbackTimer.fillAmount = 1f - Percentage;
         }
 
+        if (isActive && !isPlayerInteracting && timer > 0)
+        {
+            timer -= resetTick * Time.deltaTime;
+            if(timer < 0)
+            {
+                print("MAX RESET");
+                timer = 0;
+            }
+        }
+        if (!isActive && !isGhostInteracting && timer > 0)
+        {
+            timer -= resetTick * Time.deltaTime;
+            if (timer < 0)
+            {
+                print("MAX RESET");
+                timer = 0;
+            }
+        }
 
+
+        // POWER GENERATION
         if (isActive)
         {
             powerTimer += Time.deltaTime;
