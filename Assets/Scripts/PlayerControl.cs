@@ -49,7 +49,8 @@ public class PlayerControl : MonoBehaviour {
     private Player player;
     public int playerId = 0;
     int indexWard = 0;
-
+    public static bool isLit = false;
+    //public Container[] level1, level2;
 
     private void Awake()
     {
@@ -59,7 +60,9 @@ public class PlayerControl : MonoBehaviour {
     void Start ()
     {
         updateSanityUI();
-	}
+        //level1 = GameObject.Find("Floor1").GetComponentsInChildren<Container>();
+        //level2 = GameObject.Find("Floor2").GetComponentsInChildren<Container>();
+    }
 	
 	void Update ()
     {
@@ -221,8 +224,9 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (isInteracting == false && isDroppingMine == false && isDroppingWard == false && (player.GetAxis("Horizontal") > 0.1f || player.GetAxis("Horizontal") < -0.1f
-            /*player.GetAxis("Horizontal1") > 0.1f || player.GetAxis("Horizontal1") < -0.1f*/ || player.GetAxis("Vertical") > 0.1f || player.GetAxis("Vertical") < -0.1f))
+        if (isInteracting == false && isDroppingMine == false && isDroppingWard == false && 
+            (player.GetAxis("Horizontal") > 0.1f || player.GetAxis("Horizontal") < -0.1f
+             || player.GetAxis("Vertical") > 0.1f || player.GetAxis("Vertical") < -0.1f))
         {          
             float angle = Mathf.Atan2(player.GetAxis("Horizontal"), -player.GetAxis("Vertical")) * Mathf.Rad2Deg;
             this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
@@ -232,7 +236,13 @@ public class PlayerControl : MonoBehaviour {
             GetComponent<Rigidbody2D>().AddForce(temp);
         }
 
-        
+        //Highlight Interactable Objects
+        if (player.GetButton("Highlight"))
+        {
+            isLit = true;
+        }
+        else
+            isLit = false;
         
         
     }
@@ -240,18 +250,15 @@ public class PlayerControl : MonoBehaviour {
     bool CheckProtected()
     {
         ward[] wards = FindObjectsOfType<ward>();
-        Debug.Log("WARDS SIZEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE " + wards.Length);
         foreach (ward ward in wards)
         {
             RaycastHit2D temp = Physics2D.Raycast(ward.transform.position, this.transform.position - ward.transform.position, myMask);
             if (temp.transform.gameObject.GetComponent<PlayerControl>())
             {
-                print("Player is protected");
                 return true;
             }
 
         }
-        print("Player is UNprotected");
         return false;
     }
 
@@ -305,8 +312,6 @@ public class PlayerControl : MonoBehaviour {
             {
                 object2interact.GetComponent<Container>().stopBeingInteracted();
             }
-            // ADD more scripts later, like containers and doors
-
 
         }
     }
@@ -326,8 +331,6 @@ public class PlayerControl : MonoBehaviour {
 
         if (sanity <=0)
         {
-            //Player's dead. I mean insane
-
             Time.timeScale = 0;
         }
 

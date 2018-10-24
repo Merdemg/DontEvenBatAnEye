@@ -39,7 +39,10 @@ public class Container : MonoBehaviour {
 
     void Update()
     {
-
+        if (PlayerControl.isLit)
+            feedbackObj.GetComponent<Image>().enabled = true;
+        else if(!playerCanInteract)
+            feedbackObj.GetComponent<Image>().enabled = false;
 
         if (isPlayerInteracting)
         {
