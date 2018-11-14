@@ -59,7 +59,7 @@ public class Door : MonoBehaviour {
         if (isLocked == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
             playerCanInter = true;
-            player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
+            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
         }
         else if (isLocked == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance 
             && ghost.GetComponent<GhostController>().getPowerLevel() > 1)

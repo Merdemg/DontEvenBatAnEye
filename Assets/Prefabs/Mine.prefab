@@ -55,6 +55,9 @@ MonoBehaviour:
   trapRange: 1
   visibleTime: 3
   trap: {fileID: 1336821003492812, guid: e242156b263c82049a26c67e9b9bc59c, type: 2}
+  mask:
+    serializedVersion: 2
+    m_Bits: 513
 --- !u!212 &212748737958342564
 SpriteRenderer:
   m_ObjectHideFlags: 1

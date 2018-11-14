@@ -4,52 +4,61 @@ using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
 
-public class PlayerControl : MonoBehaviour {
+public class LivingController : MonoBehaviour {
 
-    [SerializeField] Text sanityText, boozeText;
+    [Header("Layer Mask")]
+    [SerializeField] LayerMask myMask;
+    [Header("Float Variables")]
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float sanity = 100.0f;
     [SerializeField] float drinkingSpeed = 1.0f;
     [SerializeField] float boozeSanity = 33.3f;
-    [SerializeField] Image BoozeProg;
-    [SerializeField] Image WardProg;
-    [SerializeField] Image TrapProg;
     [SerializeField] float mineCost = 25f;
     [SerializeField] float mineDropTime = 2.0f;
-    [SerializeField] GameObject mine;
-    [SerializeField] GameObject ward;
     [SerializeField] float wardCost = 25f;
     [SerializeField] float wardDropTime = 1.0f;
-    [SerializeField] Text evidenceText;
-    [SerializeField] Image iconBooze, iconTrap, iconWard, buttonBooze, buttonTrap, buttonWard;
     [SerializeField] float protectionValue = 0.25f;
-    [SerializeField] LayerMask myMask;
-
-    public GameObject[] wards;
+    [Header("Images")]
+    [SerializeField] Image BoozeProgress;
+    [SerializeField] Image WardProgress;
+    [SerializeField] Image TrapProg;
+    [SerializeField] Image iconBooze, iconTrap, iconWard, buttonBooze, buttonTrap, buttonWard;
     public Image SanUI;
+    [Header("UI Text")]
+    [SerializeField] Text evidenceText;
+    [SerializeField] Text sanityText, boozeText;
+    [Header("Game Actors")]
+    [SerializeField] GameObject mine;
+    [SerializeField] GameObject ward;
+    [Header("Variable Objects")]
+    public GameObject[] wards;
     public GameObject object2interact;
-    public Transform offset;
 
+    public Transform offset;
+    [Header("Bools")]
     bool isDrinking = false;
     bool isDroppingWard = false;
     bool isInteracting = false;
     bool isDroppingMine = false;
     bool isProtected = false;
+    public static bool isLit = false;
 
     float timer = 0;
     float blinkTimer = 0;
     float blinkSwitchTimer = 0;
+
     const float maxSanity = 100.0f;
     const float blinkTimerMax = 0.5f;
     const float blinkSpeed = 0.2f;
+
     int evidence = 0;
     int evidenceRequired = 5;
     int boozeNum = 1;
+    int indexWard = 0;
 
+    [Header("Rewiered Player Index")]
     private Player player;
     public int playerId = 0;
-    int indexWard = 0;
-    public static bool isLit = false;
 
     private void Awake()
     {
@@ -185,19 +194,19 @@ public class PlayerControl : MonoBehaviour {
         if (player.GetButtonUp("Ward"))
         {
             isDroppingWard = false;
-            WardProg.fillAmount = 0;
+            WardProgress.fillAmount = 0;
         }
 
         if (isDroppingWard)
         {
             timer += Time.deltaTime;
-            WardProg.fillAmount = timer / wardDropTime;
+            WardProgress.fillAmount = timer / wardDropTime;
             if (timer >= wardDropTime)
             {
                 isDroppingWard = false;
                 Instantiate(ward, this.transform.position, this.transform.rotation);
                 drainSanity(wardCost);
-                WardProg.fillAmount = 0;
+                WardProgress.fillAmount = 0;
             }
         }
 
@@ -211,13 +220,13 @@ public class PlayerControl : MonoBehaviour {
         if (isDrinking)
         {
             timer += Time.deltaTime;
-            BoozeProg.fillAmount = timer / drinkingSpeed;
+            BoozeProgress.fillAmount = timer / drinkingSpeed;
             if (timer >= drinkingSpeed)
             {
                 isDrinking = false;
                 boozeNum--;
                 gainSanity(boozeSanity);
-                BoozeProg.fillAmount = 0;
+                BoozeProgress.fillAmount = 0;
             }
         }
 
@@ -250,7 +259,7 @@ public class PlayerControl : MonoBehaviour {
         foreach (ward ward in wards)
         {
             RaycastHit2D temp = Physics2D.Raycast(ward.transform.position, this.transform.position - ward.transform.position, myMask);
-            if (temp.transform.gameObject.GetComponent<PlayerControl>())
+            if (temp.transform.gameObject.GetComponent<LivingController>())
             {
                 return true;
             }
