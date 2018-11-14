@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap : MonoBehaviour {
+public class trap : MonoBehaviour {
 
-    GameObject ghost;
-
-    void Start ()
+    void Update ()
     {
-        ghost = GameObject.FindGameObjectWithTag("Ghost");
-        ghost.GetComponent<GhostController>().getTrapped();
-	}
+
+    }
 
     private void OnDestroy()
     {
-        ghost.GetComponent<GhostController>().getUntrapped();
     }
 }

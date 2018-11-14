@@ -49,12 +49,15 @@ public class GhostController : MonoBehaviour {
     [SerializeField] float hauntingCost = 0;
     Color myColor;
 
+    Rigidbody2D rb;
+
     private void Awake()
     {
         ghost = ReInput.players.GetPlayer(playerId);
     }
 
     void Start () {
+        rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         updatePowerLevel();
         updatePowerText();
@@ -206,7 +209,7 @@ public class GhostController : MonoBehaviour {
         {     
             {
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
-                player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
+                player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
             }
         }
     }
@@ -340,9 +343,11 @@ public class GhostController : MonoBehaviour {
     public void getTrapped()
     {
         isTrapped = true;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }
     public void getUntrapped()
     {
         isTrapped = false;
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 }
