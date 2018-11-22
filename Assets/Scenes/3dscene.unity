@@ -6652,7 +6652,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 7989
+    m_Bits: 1845
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 566bf0b4455e99649a8431a2f36a2377, type: 2}
   m_TargetDisplay: 0
@@ -27699,7 +27699,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.28
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -27718,7 +27718,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -27732,13 +27732,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128574106}
-  m_LocalRotation: {x: 0.5093182, y: -0.01103248, z: -0.002882204, w: 0.8605027}
+  m_LocalRotation: {x: -0.24986057, y: 0.7198382, z: -0.60111696, w: 0.24095887}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 61.22, y: -2.6100001, z: -1.9280001}
+  m_LocalEulerAnglesHint: {x: 131.841, y: -76.01599, z: -256.788}
 --- !u!1 &2129708010
 GameObject:
   m_ObjectHideFlags: 0
