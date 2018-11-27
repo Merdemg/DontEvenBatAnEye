@@ -209,7 +209,7 @@ public class GhostController : MonoBehaviour {
         {     
             {
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
-                player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
+                player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
             }
         }
     }
