@@ -34,6 +34,8 @@ public class LivingController : MonoBehaviour {
     private Player player;
     [SerializeField] LayerMask myMask;
 
+    public GameObject altar;
+
     void Start ()
     {
         updateSanityUI();
@@ -161,8 +163,11 @@ public class LivingController : MonoBehaviour {
         updateSanityUI();
 
         if (evidence >= evidenceRequired)
-        {   //WIN!!!
-            Time.timeScale = 0;
+        {
+            //WIN!!!
+            EndGame.isActive = true;
+
+
         }
     }
 
