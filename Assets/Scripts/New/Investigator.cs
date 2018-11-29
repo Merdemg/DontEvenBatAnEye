@@ -8,7 +8,7 @@ public class Investigator : MonoBehaviour {
 
     private Player player;
     public Transform offset;
-    int boozeNum = 1;
+    public static int boozeNum = 1;
     [SerializeField] Image iconBooze, iconTrap, iconxObject, buttonBooze, buttonTrap, buttonxObject;
     [Header("Float Variables")]
     [SerializeField] float sanity = 100.0f;
@@ -198,6 +198,7 @@ public class Investigator : MonoBehaviour {
             BoozeProgress.fillAmount = timer / drinkingSpeed;
             if (timer >= drinkingSpeed)
             {
+                print("BOOZE DRANK");
                 yAbility = false;
                 boozeNum--;
                 this.GetComponent<LivingController>().gainSanity(boozeSanity);

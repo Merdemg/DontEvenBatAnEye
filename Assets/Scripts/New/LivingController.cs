@@ -29,7 +29,6 @@ public class LivingController : MonoBehaviour {
 
     int evidence = 0;
     int evidenceRequired = 5;
-    int boozeNum = 1;
     int indexWard = 0;
     private Player player;
     [SerializeField] LayerMask myMask;
@@ -57,6 +56,8 @@ public class LivingController : MonoBehaviour {
         }
         else
             isLit = false;
+
+
 
     }
 
@@ -153,7 +154,7 @@ public class LivingController : MonoBehaviour {
     void updateSanityUI()
     {
         SanUI.fillAmount = sanity / maxSanity;
-        boozeText.text = boozeNum.ToString();
+        boozeText.text = Investigator.boozeNum.ToString();
         evidenceText.text = "Evidence: " + evidence + "/" + evidenceRequired;
     }
 
@@ -166,14 +167,12 @@ public class LivingController : MonoBehaviour {
         {
             //WIN!!!
             EndGame.isActive = true;
-
-
         }
     }
 
     public void getBooze()
     {
-        boozeNum++;
+        Investigator.boozeNum++;
         updateSanityUI();
     }
     bool CheckProtected()
