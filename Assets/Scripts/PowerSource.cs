@@ -85,7 +85,7 @@ public class PowerSource : MonoBehaviour {
                     activateFeedback();
                     playerCanInter = true;
                     
-                    player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
+                    player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
                 }
             }
             else if (feedbackOn)

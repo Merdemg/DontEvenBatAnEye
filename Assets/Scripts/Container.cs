@@ -39,7 +39,7 @@ public class Container : MonoBehaviour {
 
     void Update()
     {
-        if (PlayerControl.isLit)
+        if (LivingController.isLit)
             feedbackObj.GetComponent<Image>().enabled = true;
         else if(!playerCanInteract)
             feedbackObj.GetComponent<Image>().enabled = false;
@@ -53,11 +53,11 @@ public class Container : MonoBehaviour {
             {
                 if (hasEvidence)
                 {
-                    player.GetComponent<PlayerControl>().getEvidence();
+                    player.GetComponent<LivingController>().getEvidence();
                 }
                 if (hasBooze)
                 {
-                    player.GetComponent<PlayerControl>().getBooze();
+                    player.GetComponent<LivingController>().getBooze();
                 }
 
                 feedbackObj.GetComponent<Image>().enabled = false;
@@ -73,7 +73,7 @@ public class Container : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             feedbackObj.GetComponent<Image>().enabled = true;
-            player.GetComponent<PlayerControl>().setObject2Interact(this.gameObject);
+            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
         }
     }

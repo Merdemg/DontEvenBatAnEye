@@ -50,7 +50,6 @@ public class PlayerControl : MonoBehaviour {
     public int playerId = 0;
     int indexWard = 0;
     public static bool isLit = false;
-    //public Container[] level1, level2;
 
     private void Awake()
     {
@@ -60,8 +59,6 @@ public class PlayerControl : MonoBehaviour {
     void Start ()
     {
         updateSanityUI();
-        //level1 = GameObject.Find("Floor1").GetComponentsInChildren<Container>();
-        //level2 = GameObject.Find("Floor2").GetComponentsInChildren<Container>();
     }
 	
 	void Update ()
