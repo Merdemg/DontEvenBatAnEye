@@ -209,8 +209,13 @@ public class GhostController : MonoBehaviour {
         {     
             {
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
-                player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
+                //player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
+                player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
             }
+        }
+        else
+        {
+            Debug.Log(powerLevel + " " + isHaunting + " " + Vector3.Distance(this.transform.position, player.transform.position));
         }
     }
     public void setObject2Interact(GameObject obj)
