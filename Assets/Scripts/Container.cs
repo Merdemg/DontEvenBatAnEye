@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Container : MonoBehaviour {
+public class Container : MonoBehaviour
+{
     public Color containerColor;
 
     bool hasBooze = false;
@@ -12,7 +13,7 @@ public class Container : MonoBehaviour {
     public Image FeedbackTimer;
     float Percentage;
     GameObject player;
-    [SerializeField]GameObject feedbackObj;
+    [SerializeField] GameObject feedbackObj;
     float interactDistance = 0.5f;
     bool playerCanInteract = false;
     float timer = 0;
@@ -21,8 +22,17 @@ public class Container : MonoBehaviour {
     [SerializeField] GameObject containerObj;
     Rigidbody2D rb2D;
     public static bool playerTouch = false;
-    void Start () {
+    private Outline outline;
 
+    float outlineThicc = 3f;
+
+
+    void Start()
+    {
+        outline = gameObject.AddComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineAll;
+        outline.OutlineColor = Color.red;
+        outline.OutlineWidth = 0f;
         rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         feedbackObj.GetComponent<Image>().enabled = false;
@@ -39,10 +49,24 @@ public class Container : MonoBehaviour {
 
     void Update()
     {
+        //When Investigator presses LT and LT sticks
         if (LivingController.isLit)
+        {
             feedbackObj.GetComponent<Image>().enabled = true;
-        else if(!playerCanInteract)
+            outline.OutlineWidth = outlineThicc;
+
+        }
+        //Player cannot interact with object anymore
+        else if (!playerCanInteract)
+        {
             feedbackObj.GetComponent<Image>().enabled = false;
+            outline.OutlineWidth = 0f;
+        }
+        //Player has stopped presing LT and RT
+        else
+            outline.OutlineWidth = 0f;
+
+
 
         if (isPlayerInteracting)
         {
