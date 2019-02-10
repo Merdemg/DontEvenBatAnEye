@@ -33,13 +33,16 @@ public class LivingController : MonoBehaviour {
     private Player player;
     [SerializeField] LayerMask myMask;
 
-    public GameObject altar;
+    //public GameObject altar;
+    EndGame altarScript;
 
     void Start ()
     {
         updateSanityUI();
         int playerIdentity = Movement.playerId;
         player = ReInput.players.GetPlayer(playerIdentity);
+
+        altarScript = FindObjectOfType<EndGame>();
     }
 	
 	void Update ()
@@ -166,7 +169,8 @@ public class LivingController : MonoBehaviour {
         if (evidence >= evidenceRequired)
         {
             //WIN!!!
-            EndGame.isActive = true;
+            //EndGame.isActive = true;
+            altarScript.endGameIsHere();
         }
     }
 

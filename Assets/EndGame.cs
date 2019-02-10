@@ -14,11 +14,16 @@ public class EndGame : MonoBehaviour {
     Player player;
     public float useTime = 2.0f;
     public static bool isActive = false;
+
+    //bool isEndTimes = false;
+    GameObject playerObj;
     private void Start()
     {
         int playerIdentity = Movement.playerId;
         player = ReInput.players.GetPlayer(playerIdentity);
         feedbackObj.GetComponent<Image>().enabled = false;
+
+        playerObj = GameObject.FindGameObjectWithTag("Player");
     }
     void Update ()
     {
@@ -42,6 +47,7 @@ public class EndGame : MonoBehaviour {
         if (collision.gameObject.tag == "Player" && isActive)
         {
             feedbackObj.GetComponent<Image>().enabled = true;
+            //playerObj.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             isInteracting = true;
         }
     }
@@ -54,4 +60,12 @@ public class EndGame : MonoBehaviour {
             isInteracting = false;
         }
     }
+
+
+    public void endGameIsHere()
+    {
+        isActive = true;
+    }
+
+
 }
