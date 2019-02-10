@@ -51,6 +51,10 @@ public class GhostController : MonoBehaviour {
 
     Rigidbody2D rb;
 
+    GameObject hauntEffect;
+    GameObject defaultHauntEffect;
+
+
     private void Awake()
     {
         ghost = ReInput.players.GetPlayer(playerId);
@@ -62,6 +66,11 @@ public class GhostController : MonoBehaviour {
         updatePowerLevel();
         updatePowerText();
         myColor = GetComponent<SpriteRenderer>().color;
+
+        hauntEffect = GameObject.FindGameObjectWithTag("Distortion");
+        hauntEffect.SetActive(false);
+
+        defaultHauntEffect = GameObject.FindGameObjectWithTag("DefaultDistortion");
 	}
 
     void Update() {
@@ -98,10 +107,14 @@ public class GhostController : MonoBehaviour {
         {
             Debug.Log("Buton 1, ghost");
             isHaunting = true;
+            hauntEffect.SetActive(true);
+            defaultHauntEffect.SetActive(false);
         }
         else if (ghost.GetButtonUp("Haunt"))
         {
             isHaunting = false;
+            hauntEffect.SetActive(false);
+            defaultHauntEffect.SetActive(true);
         }
 
         if (isTrapped == false && ghost.GetButtonDown("Fly"))

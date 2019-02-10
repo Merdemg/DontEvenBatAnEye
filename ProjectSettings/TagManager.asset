@@ -9,6 +9,8 @@ TagManager:
   - Container
   - Wall
   - Highlight
+  - Distortion
+  - DefaultDistortion
   layers:
   - Default
   - TransparentFX
