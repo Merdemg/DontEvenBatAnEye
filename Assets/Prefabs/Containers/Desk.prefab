@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 1344255679869240}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071059, w: 0.7071077}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.0077799996, z: 0.01}
+  m_LocalScale: {x: 0.0071408693, y: 0.0061728847, z: 0.007934299}
   m_Children:
   - {fileID: 224689323412554206}
   m_Father: {fileID: 4890144203657994}
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.009999819, y: -0.079999916}
-  m_SizeDelta: {x: 153.62, y: 132.7}
+  m_SizeDelta: {x: 151.98, y: 132.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &223485861972777230
 Canvas:
@@ -126,7 +126,7 @@ RectTransform:
   m_GameObject: {fileID: 1696190979213418}
   m_LocalRotation: {x: -0, y: -0, z: -0.00000017881393, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224291227642033346}
   m_RootOrder: 0
@@ -331,6 +331,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d123acf34b4d3914494fcedb63f26c1d, type: 3}
       propertyPath: m_Name
       value: Model_Desk_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d123acf34b4d3914494fcedb63f26c1d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d123acf34b4d3914494fcedb63f26c1d, type: 3}
       propertyPath: m_LocalPosition.x
