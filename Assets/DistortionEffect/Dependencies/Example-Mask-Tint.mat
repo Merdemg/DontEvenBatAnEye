@@ -32,9 +32,9 @@ Material:
     - _MASK: 1
     - _MIRROR_EDGE: 0
     m_Colors:
-    - _DistanceFade: {r: -59.4, g: 20, b: -270.7, a: 0}
+    - _DistanceFade: {r: 0, g: 80, b: -270.7, a: 0}
     - _Intensity: {r: 0.1, g: 0.1, b: 0.1, a: 0.5}
-    - _IntensityAndScrolling: {r: 0.1, g: 1, b: 0.06, a: 0.15}
+    - _IntensityAndScrolling: {r: 0.01, g: 0.1, b: 0.6, a: 1.5}
     - _NearFarParams: {r: 0, g: 50, b: 0, a: 0}
     - _PivotAndAngle: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _Tint: {r: 0.4392157, g: 0.7058824, b: 0.56078434, a: 1}

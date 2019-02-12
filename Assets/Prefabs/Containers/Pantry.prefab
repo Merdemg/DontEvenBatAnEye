@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &224646077550839596
 RectTransform:
@@ -115,7 +115,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &224686848982893958
 RectTransform:
@@ -124,7 +124,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666780250936454}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
@@ -190,7 +190,7 @@ GameObject:
   m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4320276068662594
 Transform:
@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 1674707697815112}
   m_LocalRotation: {x: 0, y: -0, z: 1, w: -0.0000001872535}
   m_LocalPosition: {x: -7.93, y: -1.0281285, z: 0.0678917}
-  m_LocalScale: {x: 1.2812505, y: 0.41817525, z: 1}
+  m_LocalScale: {x: 1.5770912, y: 0.47709614, z: 1}
   m_Children:
   - {fileID: 224646077550839596}
   - {fileID: 1536491918776599030}
@@ -310,6 +310,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Credenza_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950866771879486011, guid: ed30a0c337565174c9c72644ce3af914,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5430650992015872072, guid: ed30a0c337565174c9c72644ce3af914,
         type: 3}
