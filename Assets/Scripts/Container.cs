@@ -24,14 +24,17 @@ public class Container : MonoBehaviour
     public static bool playerTouch = false;
     private Outline outline;
 
-    float outlineThicc = 3f;
+    [Range(0.0f, 10.0f)]
+    public float shimmerSpeed = 5f;
+    [Range(0.0f, 5.0f)]
+    public float outlineThicc = 2f;
 
 
     void Start()
     {
         outline = gameObject.AddComponent<Outline>();
         outline.OutlineMode = Outline.Mode.OutlineAll;
-        outline.OutlineColor = Color.red;
+        outline.OutlineColor = Color.yellow;
         outline.OutlineWidth = 0f;
         rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -53,7 +56,7 @@ public class Container : MonoBehaviour
         if (LivingController.isLit)
         {
             feedbackObj.GetComponent<Image>().enabled = true;
-            outline.OutlineWidth = outlineThicc;
+            outline.OutlineWidth = Mathf.PingPong(Time.time * shimmerSpeed, outlineThicc);
 
         }
         //Player cannot interact with object anymore
@@ -86,6 +89,7 @@ public class Container : MonoBehaviour
 
                 feedbackObj.GetComponent<Image>().enabled = false;
                 Destroy(highlight);
+                outline.enabled = false; //Object cannot be highlighted once search is complete
                 Destroy(this);
                 gameObject.GetComponent<SpriteRenderer>().color = containerColor;
             }
