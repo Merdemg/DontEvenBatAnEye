@@ -22,17 +22,20 @@ public class Container : MonoBehaviour
     [SerializeField] GameObject containerObj;
     Rigidbody2D rb2D;
     public static bool playerTouch = false;
-    //private Outline outline;
+    private Outline outline;
 
-    float outlineThicc = 3f;
+    [Range(0.0f, 10.0f)]
+    public float shimmerSpeed = 5f;
+    [Range(0.0f, 5.0f)]
+    public float outlineThicc = 2f;
 
 
     void Start()
     {
-        //outline = gameObject.AddComponent<Outline>();
-        //outline.OutlineMode = Outline.Mode.OutlineAll;
-        //outline.OutlineColor = Color.red;
-        //outline.OutlineWidth = 0f;
+        outline = gameObject.AddComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineAll;
+        outline.OutlineColor = Color.yellow;
+        outline.OutlineWidth = 0f;
         rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         feedbackObj.GetComponent<Image>().enabled = false;
@@ -53,18 +56,18 @@ public class Container : MonoBehaviour
         if (LivingController.isLit)
         {
             feedbackObj.GetComponent<Image>().enabled = true;
-            //outline.OutlineWidth = outlineThicc;
+            outline.OutlineWidth = Mathf.PingPong(Time.time * shimmerSpeed, outlineThicc);
 
         }
         //Player cannot interact with object anymore
         else if (!playerCanInteract)
         {
             feedbackObj.GetComponent<Image>().enabled = false;
-            //outline.OutlineWidth = 0f;
+            outline.OutlineWidth = 0f;
         }
         //Player has stopped presing LT and RT
         else
-            //outline.OutlineWidth = 0f;
+            outline.OutlineWidth = 0f;
 
 
 
@@ -86,6 +89,7 @@ public class Container : MonoBehaviour
 
                 feedbackObj.GetComponent<Image>().enabled = false;
                 Destroy(highlight);
+                outline.enabled = false; //Object cannot be highlighted once search is complete
                 Destroy(this);
                 gameObject.GetComponent<SpriteRenderer>().color = containerColor;
             }
