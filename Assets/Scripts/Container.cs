@@ -32,7 +32,8 @@ public class Container : MonoBehaviour
 
     void Start()
     {
-        outline = gameObject.AddComponent<Outline>();
+        //outline = gameObject.AddComponent<Outline>();
+        outline = GetComponent<Outline>();
         outline.OutlineMode = Outline.Mode.OutlineAll;
         outline.OutlineColor = Color.yellow;
         outline.OutlineWidth = 0f;
