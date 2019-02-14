@@ -126,6 +126,7 @@ public class Investigator : MonoBehaviour {
         {
             interactButton = true;
             this.GetComponent<LivingController>().interact();
+
         }
         else
         {
@@ -150,6 +151,7 @@ public class Investigator : MonoBehaviour {
 
         if (bAbility)
         {
+            LoadTexture.isTrap = true;
             timer += Time.deltaTime;
             TrapProg.fillAmount = timer / bObjectDropTime;
             if (timer >= bObjectDropTime)
@@ -158,6 +160,8 @@ public class Investigator : MonoBehaviour {
                 Instantiate(bObject, this.transform.position, this.transform.rotation);
                 this.GetComponent<LivingController>().drainSanity(bObjectCost);
                 TrapProg.fillAmount = 0;
+                LoadTexture.isTrap = false;
+
             }
         }
 
@@ -174,6 +178,8 @@ public class Investigator : MonoBehaviour {
 
         if (xAbility)
         {
+            LoadTexture.isWard = true;
+
             timer += Time.deltaTime;
             WardProgress.fillAmount = timer / xObjectDropTime;
             if (timer >= xObjectDropTime)
@@ -182,6 +188,8 @@ public class Investigator : MonoBehaviour {
                 Instantiate(xObject, this.transform.position, this.transform.rotation);
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
                 WardProgress.fillAmount = 0;
+                LoadTexture.isWard = false;
+
             }
         }
 
@@ -194,6 +202,8 @@ public class Investigator : MonoBehaviour {
 
         if (yAbility)
         {
+            LoadTexture.isBooze = true;
+
             timer += Time.deltaTime;
             BoozeProgress.fillAmount = timer / drinkingSpeed;
             if (timer >= drinkingSpeed)
@@ -203,6 +213,8 @@ public class Investigator : MonoBehaviour {
                 boozeNum--;
                 this.GetComponent<LivingController>().gainSanity(boozeSanity);
                 BoozeProgress.fillAmount = 0;
+                LoadTexture.isBooze = false;
+
             }
         }
 

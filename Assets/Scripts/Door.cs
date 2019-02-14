@@ -50,10 +50,13 @@ public class Door : MonoBehaviour {
         if (isLocked == false && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
             setOpen(true);
+            
+
         }
         else if (isLocked == false)
         {   
             setOpen(false);
+
         }
 
         if (isLocked == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
@@ -71,10 +74,11 @@ public class Door : MonoBehaviour {
         {
             playerCanInter = false;
             ghostCanInter = false;
+
         }
 
 
-        if(playerCanInter || ghostCanInter)
+        if (playerCanInter || ghostCanInter)
         {
             feedbackObj.GetComponent<Image>().enabled = true;
 
@@ -101,6 +105,7 @@ public class Door : MonoBehaviour {
         }
         else if (isPlayerInteracting)
         {
+
             timer += Time.deltaTime;
             Percentage = timer / playerInteractTime;
             FeedbackTimer.fillAmount = 1 - Percentage;
@@ -109,8 +114,10 @@ public class Door : MonoBehaviour {
                 isLocked = false;
                 isPlayerInteracting = false;
                 timer = 0;
+
             }
-        }else if (isLocked) // It's locked but no one is interacing.
+        }
+        else if (isLocked) // It's locked but no one is interacing.
         {
             FeedbackTimer.fillAmount = 1f;  // Perc of being unlocked
         }

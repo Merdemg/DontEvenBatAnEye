@@ -31,6 +31,8 @@ public class Stairs : MonoBehaviour {
     {
         if (Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
+            LoadTexture.isStairs = true;
+
             feedbackObj.GetComponent<Image>().enabled = true;
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
@@ -40,6 +42,7 @@ public class Stairs : MonoBehaviour {
             feedbackObj.GetComponent<Image>().enabled = false;
             playerCanInteract = false;
             timer = 0;
+            LoadTexture.isStairs = false;
         }
 
         if (isPlayerInteracting)

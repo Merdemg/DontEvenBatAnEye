@@ -112,6 +112,7 @@ public class Container : MonoBehaviour
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
             playerIsColliding = true;
+            LoadTexture.isContainer = true;
             outline.OutlineColor = Color.white;
         }
     }
@@ -122,6 +123,8 @@ public class Container : MonoBehaviour
             feedbackObj.GetComponent<Image>().enabled = false;
             playerCanInteract = false;
             playerIsColliding = false;
+            LoadTexture.isContainer = false;
+
             outline.OutlineColor = Color.yellow;
             //timer = 0;
         }

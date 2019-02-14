@@ -228,7 +228,6 @@ public class GhostController : MonoBehaviour {
         }
         else
         {
-            Debug.Log(powerLevel + " " + isHaunting + " " + Vector3.Distance(this.transform.position, player.transform.position));
         }
     }
     public void setObject2Interact(GameObject obj)

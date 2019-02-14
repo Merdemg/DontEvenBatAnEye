@@ -73,7 +73,6 @@ public class LivingController : MonoBehaviour {
 
     public void interact()
     {
-
         if (object2interact)
         {
             if (object2interact.GetComponent<PowerSource>())
