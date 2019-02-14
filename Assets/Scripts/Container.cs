@@ -29,6 +29,8 @@ public class Container : MonoBehaviour
     [Range(0.0f, 5.0f)]
     public float outlineThicc = 2f;
 
+    bool playerIsColliding = false;
+
 
     void Start()
     {
@@ -54,7 +56,7 @@ public class Container : MonoBehaviour
     void Update()
     {
         //When Investigator presses LT and LT sticks
-        if (LivingController.isLit)
+        if (LivingController.isLit && !playerIsColliding)
         {
             feedbackObj.GetComponent<Image>().enabled = true;
             outline.OutlineWidth = Mathf.PingPong(Time.time * shimmerSpeed, outlineThicc);
@@ -66,10 +68,15 @@ public class Container : MonoBehaviour
             feedbackObj.GetComponent<Image>().enabled = false;
             outline.OutlineWidth = 0f;
         }
+        else if (playerIsColliding)
+        {
+            outline.OutlineWidth = 2f;
+        }
         //Player has stopped presing LT and RT
         else
+        {
             outline.OutlineWidth = 0f;
-
+        }
 
 
         if (isPlayerInteracting)
@@ -104,6 +111,8 @@ public class Container : MonoBehaviour
             feedbackObj.GetComponent<Image>().enabled = true;
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
+            playerIsColliding = true;
+            outline.OutlineColor = Color.white;
         }
     }
     void OnCollisionExit2D(Collision2D collision)
@@ -112,6 +121,8 @@ public class Container : MonoBehaviour
         {
             feedbackObj.GetComponent<Image>().enabled = false;
             playerCanInteract = false;
+            playerIsColliding = false;
+            outline.OutlineColor = Color.yellow;
             //timer = 0;
         }
     }
