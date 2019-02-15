@@ -37,12 +37,17 @@ public class LivingController : MonoBehaviour {
     //public GameObject altar;
     EndGame altarScript;
 
+    public RawImage feedbackUI;
+
+    public Texture[] images;
+
     void Start ()
     {
         updateSanityUI();
         int playerIdentity = Movement.playerId;
         player = ReInput.players.GetPlayer(playerIdentity);
-
+        feedbackUI = GameObject.Find("PlayerFeedbackUI").GetComponent<RawImage>();
+        feedbackUI.texture = images[7];
         altarScript = FindObjectOfType<EndGame>();
     }
 	

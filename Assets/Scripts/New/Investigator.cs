@@ -41,6 +41,8 @@ public class Investigator : MonoBehaviour {
     public GameObject[] wards;
     int indexWard = 0;
 
+    public static bool interacting = false;
+
 
     // Use this for initialization
     void Start () {
@@ -126,11 +128,11 @@ public class Investigator : MonoBehaviour {
         {
             interactButton = true;
             this.GetComponent<LivingController>().interact();
-
+            interacting = true;
         }
         else
         {
-            //print("Not Interactable");
+            interacting = false; //print("Not Interactable");
         }
         if (player.GetButtonUp("Interact"))
         {
