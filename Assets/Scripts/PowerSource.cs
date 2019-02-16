@@ -182,12 +182,14 @@ public class PowerSource : MonoBehaviour {
         Debug.Log("Activating feedback");
         feedbackOn = true;
         feedbackObj.GetComponent<Image>().enabled = true;
+        LivingController.isPentagram = true;
     }
     void deactivateFeedback()
     {
         Debug.Log("Deactivating feedback");
         feedbackOn = false;
         feedbackObj.GetComponent<Image>().enabled = false;
+        LivingController.isPentagram = false;
     }
     public void getInteracted(GameObject obj)
     {   

@@ -34,6 +34,7 @@ public class Stairs : MonoBehaviour {
             LoadTexture.isStairs = true;
 
             feedbackObj.GetComponent<Image>().enabled = true;
+            LivingController.isStairs = true;
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
         }
@@ -43,6 +44,7 @@ public class Stairs : MonoBehaviour {
             playerCanInteract = false;
             timer = 0;
             LoadTexture.isStairs = false;
+            LivingController.isStairs = false;
         }
 
         if (isPlayerInteracting)

@@ -114,6 +114,7 @@ public class Container : MonoBehaviour
             playerIsColliding = true;
             LoadTexture.isContainer = true;
             outline.OutlineColor = Color.white;
+            LivingController.isContainer = true;
         }
     }
     void OnCollisionExit2D(Collision2D collision)
@@ -124,7 +125,7 @@ public class Container : MonoBehaviour
             playerCanInteract = false;
             playerIsColliding = false;
             LoadTexture.isContainer = false;
-
+            LivingController.isContainer = false;
             outline.OutlineColor = Color.yellow;
             //timer = 0;
         }

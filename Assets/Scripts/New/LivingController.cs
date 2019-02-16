@@ -41,6 +41,9 @@ public class LivingController : MonoBehaviour {
 
     public Texture[] images;
 
+    public static bool isContainer, isStairs, isPentagram, isDoor, isDrinking,
+       isTrap, isWard = false;
+
     void Start ()
     {
         updateSanityUI();
@@ -66,8 +69,49 @@ public class LivingController : MonoBehaviour {
         else
             isLit = false;
 
+        if (isContainer) //Works
+        {
+            feedbackUI.texture = images[6];
+            print("Container");
+        }
+        else if (isStairs)
+        {
+            feedbackUI.texture = images[1];
+            print("Stairs");
 
+        }
+        else if (isPentagram) //Pentagram Works
+        {
+            feedbackUI.texture = images[4];
+            print("Pentagram");
 
+        }
+        else if (isDoor) //Works
+        {
+            feedbackUI.texture = images[5];
+            print("Door");
+
+        }
+        else if (isDrinking) //Works
+        {
+            feedbackUI.texture = images[3];
+            print("Door");
+
+        }
+        else if (isTrap) //Works
+        {
+            feedbackUI.texture = images[2];
+            print("Door");
+
+        }
+        else if (isWard) //Works
+        {
+            feedbackUI.texture = images[0];
+            print("Door");
+
+        }
+        else
+            feedbackUI.texture = images[7];
     }
 
 
