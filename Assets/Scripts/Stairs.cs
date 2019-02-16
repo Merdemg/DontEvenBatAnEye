@@ -34,8 +34,7 @@ public class Stairs : MonoBehaviour {
             LoadTexture.isStairs = true;
 
             feedbackObj.GetComponent<Image>().enabled = true;
-            LivingController.isStairs = true;
-            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+           player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
         }
         else
@@ -44,7 +43,6 @@ public class Stairs : MonoBehaviour {
             playerCanInteract = false;
             timer = 0;
             LoadTexture.isStairs = false;
-            LivingController.isStairs = false;
         }
 
         if (isPlayerInteracting)
@@ -76,4 +74,18 @@ public class Stairs : MonoBehaviour {
         isPlayerInteracting = false;
         FeedbackTimer.fillAmount = 1;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        LivingController.isStairs = true;
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        LivingController.isStairs = false;
+
+    }
+
+
 }
