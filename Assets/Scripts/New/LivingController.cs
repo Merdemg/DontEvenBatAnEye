@@ -7,7 +7,7 @@ using Rewired;
 public class LivingController : MonoBehaviour {
 
 
-    [SerializeField] float sanity = 100.0f;
+    public static float sanity = 100.0f;
     public Image SanUI;
     public Image SanUIPlayer;
     [Header("UI Text")]
