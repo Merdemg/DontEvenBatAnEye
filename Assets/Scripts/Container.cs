@@ -37,7 +37,10 @@ public class Container : MonoBehaviour
         //outline = gameObject.AddComponent<Outline>();
         outline = GetComponent<Outline>();
         outline.OutlineMode = Outline.Mode.OutlineAll;
-        outline.OutlineColor = Color.yellow;
+        Color myColor = Color.green;
+        //Color myColor = new Color(46, 176, 110);
+        myColor.a = 0.5f;
+        outline.OutlineColor = myColor;
         outline.OutlineWidth = 0f;
         rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -112,7 +115,7 @@ public class Container : MonoBehaviour
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
             playerIsColliding = true;
-            LoadTexture.isContainer = true;
+            //LoadTexture.isContainer = true;
             outline.OutlineColor = Color.white;
             LivingController.isContainer = true;
         }
@@ -124,7 +127,7 @@ public class Container : MonoBehaviour
             feedbackObj.GetComponent<Image>().enabled = false;
             playerCanInteract = false;
             playerIsColliding = false;
-            LoadTexture.isContainer = false;
+            //LoadTexture.isContainer = false;
             LivingController.isContainer = false;
             outline.OutlineColor = Color.yellow;
             //timer = 0;

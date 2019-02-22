@@ -31,7 +31,7 @@ public class Stairs : MonoBehaviour {
     {
         if (Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
-            LoadTexture.isStairs = true;
+           // LoadTexture.isStairs = true;
 
             feedbackObj.GetComponent<Image>().enabled = true;
            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
@@ -42,7 +42,7 @@ public class Stairs : MonoBehaviour {
             feedbackObj.GetComponent<Image>().enabled = false;
             playerCanInteract = false;
             timer = 0;
-            LoadTexture.isStairs = false;
+           // LoadTexture.isStairs = false;
         }
 
         if (isPlayerInteracting)
@@ -77,14 +77,18 @@ public class Stairs : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        LivingController.isStairs = true;
-
+        if (collision.GetComponent<LivingController>())
+        {
+            LivingController.isStairs = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        LivingController.isStairs = false;
-
+        if (collision.GetComponent<LivingController>())
+        {
+            LivingController.isStairs = false;
+        }
     }
 
 
