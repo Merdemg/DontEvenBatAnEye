@@ -97,7 +97,7 @@ public class Container : MonoBehaviour
                 {
                     player.GetComponent<LivingController>().getBooze();
                 }
-
+                LivingController.isContainer = false;
                 feedbackObj.GetComponent<Image>().enabled = false;
                 Destroy(highlight);
                 outline.enabled = false; //Object cannot be highlighted once search is complete

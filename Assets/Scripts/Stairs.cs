@@ -53,6 +53,7 @@ public class Stairs : MonoBehaviour {
             if (timer >= useTime)
             {               
                 player.transform.position = myPair.transform.position;
+                LookAtCamera.changedFloors = !LookAtCamera.changedFloors;
                 timer = 0;
             }
         }
