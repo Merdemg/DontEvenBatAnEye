@@ -61,14 +61,6 @@ public class LivingController : MonoBehaviour {
 	void Update ()
     {
 
-        if(Input.GetKey(KeyCode.L))
-        {
-            GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
-        }
-        else
-        {
-            GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
-        }
 
         if (FindObjectOfType<ward>())
         {

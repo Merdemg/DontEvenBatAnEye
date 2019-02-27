@@ -46,6 +46,9 @@ public class Investigator : MonoBehaviour {
 
     public float vibTimer = 3.0f;
 
+    float vibrateTime = 3f;
+    float startTime = 0f;
+
     // Use this for initialization
     void Start () {
 
@@ -53,12 +56,28 @@ public class Investigator : MonoBehaviour {
         player = ReInput.players.GetPlayer(playerIdentity);
     }
 	
+    IEnumerator ControllerVibration()
+    {
+        GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
+        yield return new WaitForSeconds(1f);
+        GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
         RaycastHit2D hit = Physics2D.Raycast(offset.position, -Vector2.up);
 
-        
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
+        }
+        else if(Input.GetKeyUp(KeyCode.L))
+        {
+            GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+        }
+
         if (boozeNum > 0)
         {
             buttonBooze.color = new Color(buttonBooze.color.r, buttonBooze.color.g, buttonBooze.color.b, 1.0f);
@@ -167,8 +186,9 @@ public class Investigator : MonoBehaviour {
                 TrapProg.fillAmount = 0;
                 //LoadTexture.isTrap = false;
                 LivingController.isTrap = false;
+                StartCoroutine(ControllerVibration());
             }
-            
+
         }
         else
         {
@@ -198,6 +218,7 @@ public class Investigator : MonoBehaviour {
                 Instantiate(xObject, this.transform.position, this.transform.rotation);
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
                 WardProgress.fillAmount = 0;
+                StartCoroutine(ControllerVibration());
                 //LoadTexture.isWard = false;
             }
 
