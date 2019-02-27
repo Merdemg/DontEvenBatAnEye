@@ -197,7 +197,6 @@ public class Investigator : MonoBehaviour {
                 xAbility = false;
                 Instantiate(xObject, this.transform.position, this.transform.rotation);
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
-                GamePad.SetVibration(PlayerIndex.One, 5.0f, 5.0f);
                 WardProgress.fillAmount = 0;
                 //LoadTexture.isWard = false;
             }

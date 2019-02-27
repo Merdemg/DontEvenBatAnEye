@@ -193,6 +193,7 @@ public class LivingController : MonoBehaviour {
             amount *= protectionValue;
 
         sanity -= amount;
+        StartCoroutine(ControllerVibrate());
         updateSanityUI();
 
         if (sanity <=0)
@@ -202,6 +203,13 @@ public class LivingController : MonoBehaviour {
 
         if(amount >0)
         blinkTimer = blinkTimerMax;
+    }
+
+    IEnumerator ControllerVibrate()
+    {
+        GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
+        yield return new WaitForSeconds(3f);
+        GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
     }
 
     public void gainSanity(float amount)
