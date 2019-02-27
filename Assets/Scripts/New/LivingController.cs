@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
-
+using XInputDotNetPure;
 public class LivingController : MonoBehaviour {
 
 
@@ -28,6 +28,8 @@ public class LivingController : MonoBehaviour {
     const float blinkTimerMax = 0.5f;
     const float blinkSpeed = 0.2f;
 
+    public static bool isHaunted = false;
+
     int evidence = 0;
     int evidenceRequired = 5;
     int indexWard = 0;
@@ -44,6 +46,8 @@ public class LivingController : MonoBehaviour {
     public static bool isContainer, isStairs, isPentagram, isDoor, isDrinking,
        isTrap, isWard = false;
 
+    PlayerIndex pIndex;
+
     void Start ()
     {
         updateSanityUI();
@@ -56,6 +60,15 @@ public class LivingController : MonoBehaviour {
 	
 	void Update ()
     {
+
+        if(Input.GetKey(KeyCode.L))
+        {
+            GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
+        }
+        else
+        {
+            GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+        }
 
         if (FindObjectOfType<ward>())
         {

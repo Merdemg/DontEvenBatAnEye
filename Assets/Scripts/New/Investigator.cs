@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using UnityEngine.UI;
+using XInputDotNetPure;
 
 public class Investigator : MonoBehaviour {
 
@@ -43,6 +44,7 @@ public class Investigator : MonoBehaviour {
 
     public static bool interacting = false;
 
+    public float vibTimer = 3.0f;
 
     // Use this for initialization
     void Start () {
@@ -166,6 +168,11 @@ public class Investigator : MonoBehaviour {
                 //LoadTexture.isTrap = false;
                 LivingController.isTrap = false;
             }
+            
+        }
+        else
+        {
+            LivingController.isTrap = false;
         }
 
         if (player.GetButtonDown("Ward") && interactButton == false && sanity > xObjectCost && bAbility == false && yAbility == false)
@@ -190,10 +197,15 @@ public class Investigator : MonoBehaviour {
                 xAbility = false;
                 Instantiate(xObject, this.transform.position, this.transform.rotation);
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
+                GamePad.SetVibration(PlayerIndex.One, 5.0f, 5.0f);
                 WardProgress.fillAmount = 0;
                 //LoadTexture.isWard = false;
-                LivingController.isWard = false;
             }
+
+        }
+        else
+        {
+            LivingController.isWard = false;
         }
 
 
@@ -219,6 +231,10 @@ public class Investigator : MonoBehaviour {
                 //LoadTexture.isBooze = false;
                 LivingController.isDrinking = false;
             }
+        }
+        else
+        {
+            LivingController.isDrinking = false;
         }
 
     }
