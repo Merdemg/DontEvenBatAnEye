@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
-
+using XInputDotNetPure;
 public class LivingController : MonoBehaviour {
 
 
@@ -29,6 +29,8 @@ public class LivingController : MonoBehaviour {
     const float blinkTimerMax = 0.5f;
     const float blinkSpeed = 0.2f;
 
+    public static bool isHaunted = false;
+
     int evidence = 0;
     int evidenceRequired = 5;
     int indexWard = 0;
@@ -45,6 +47,8 @@ public class LivingController : MonoBehaviour {
     public static bool isContainer, isStairs, isPentagram, isDoor, isDrinking,
        isTrap, isWard = false;
 
+    PlayerIndex pIndex;
+
     void Start ()
     {
         updateSanityUI();
@@ -58,7 +62,10 @@ public class LivingController : MonoBehaviour {
 	void Update ()
     {
 
+<<<<<<< HEAD
         staticSanity = sanity;
+=======
+>>>>>>> origin/NaveenDevBranch_2
 
         if (FindObjectOfType<ward>())
         {
@@ -183,6 +190,7 @@ public class LivingController : MonoBehaviour {
             amount *= protectionValue;
 
         sanity -= amount;
+        StartCoroutine(ControllerVibrate());
         updateSanityUI();
 
         if (sanity <=0)
@@ -192,6 +200,13 @@ public class LivingController : MonoBehaviour {
 
         if(amount >0)
         blinkTimer = blinkTimerMax;
+    }
+
+    IEnumerator ControllerVibrate()
+    {
+        GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
+        yield return new WaitForSeconds(3f);
+        GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
     }
 
     public void gainSanity(float amount)

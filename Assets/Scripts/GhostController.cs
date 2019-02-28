@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
+using XInputDotNetPure;
 
 public class GhostController : MonoBehaviour {
     [SerializeField] Transform anchor1, anchor2;
@@ -105,14 +106,14 @@ public class GhostController : MonoBehaviour {
             uninteract();
         }
 
-        if (ghost.GetButtonDown("Haunt") && isPhasing == false && isInteracting == false)
+        if ((ghost.GetButtonDown("Haunt") || Input.GetKeyDown(KeyCode.H)) && isPhasing == false && isInteracting == false)
         {
             Debug.Log("Buton 1, ghost");
             isHaunting = true;
             hauntEffect.SetActive(true);
             defaultHauntEffect.SetActive(false);
         }
-        else if (ghost.GetButtonUp("Haunt"))
+        else if (ghost.GetButtonUp("Haunt") || Input.GetKeyUp(KeyCode.H))
         {
             isHaunting = false;
             hauntEffect.SetActive(false);
@@ -228,10 +229,8 @@ public class GhostController : MonoBehaviour {
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
                 //player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
                 player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
+                
             }
-        }
-        else
-        {
         }
     }
     public void setObject2Interact(GameObject obj)
