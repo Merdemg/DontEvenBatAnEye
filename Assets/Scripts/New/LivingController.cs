@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
-using XInputDotNetPure;
+//using XInputDotNetPure;
+
 public class LivingController : MonoBehaviour {
 
 
@@ -47,7 +48,7 @@ public class LivingController : MonoBehaviour {
     public static bool isContainer, isStairs, isPentagram, isDoor, isDrinking,
        isTrap, isWard = false;
 
-    PlayerIndex pIndex;
+    //PlayerIndex pIndex;
 
     void Start ()
     {
@@ -62,10 +63,9 @@ public class LivingController : MonoBehaviour {
 	void Update ()
     {
 
-<<<<<<< HEAD
+
         staticSanity = sanity;
-=======
->>>>>>> origin/NaveenDevBranch_2
+
 
         if (FindObjectOfType<ward>())
         {
@@ -204,9 +204,9 @@ public class LivingController : MonoBehaviour {
 
     IEnumerator ControllerVibrate()
     {
-        GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
+        //GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
         yield return new WaitForSeconds(3f);
-        GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
+        //GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
     }
 
     public void gainSanity(float amount)

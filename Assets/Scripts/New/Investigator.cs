@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using UnityEngine.UI;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 
 public class Investigator : MonoBehaviour {
 
@@ -58,9 +58,9 @@ public class Investigator : MonoBehaviour {
 	
     IEnumerator ControllerVibration()
     {
-        GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
+        //GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
         yield return new WaitForSeconds(1f);
-        GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
+        //GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
     }
 
 	// Update is called once per frame
@@ -69,14 +69,14 @@ public class Investigator : MonoBehaviour {
         RaycastHit2D hit = Physics2D.Raycast(offset.position, -Vector2.up);
 
 
-        if (Input.GetKey(KeyCode.L))
-        {
-            GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
-        }
-        else if(Input.GetKeyUp(KeyCode.L))
-        {
-            GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
-        }
+        //if (Input.GetKey(KeyCode.L))
+        //{
+        //    GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
+        //}
+        //else if(Input.GetKeyUp(KeyCode.L))
+        //{
+        //    GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+        //}
 
         if (boozeNum > 0)
         {
