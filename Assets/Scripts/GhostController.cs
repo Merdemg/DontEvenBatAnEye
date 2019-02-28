@@ -21,7 +21,7 @@ public class GhostController : MonoBehaviour {
     [SerializeField] Image Pow3a;
     [SerializeField] Image FlyArrow;
     [SerializeField] float power = 10.0f;
-
+    public static float staticPower;
     int powerLevel = 1;
     [SerializeField] float insanityMultiplier = 1.0f;
     bool isInteracting = false;
@@ -74,6 +74,8 @@ public class GhostController : MonoBehaviour {
 	}
 
     void Update() {
+
+
         if (blinkTimer > 0)
         {
             blinkTimer -= Time.deltaTime;
@@ -185,6 +187,8 @@ public class GhostController : MonoBehaviour {
         }
 
         drainSanity();
+        power = staticPower;
+
     }
 
     public void losePower(float amount)

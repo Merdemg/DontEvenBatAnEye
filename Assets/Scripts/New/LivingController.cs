@@ -8,6 +8,7 @@ public class LivingController : MonoBehaviour {
 
 
     [SerializeField] float sanity = 100.0f;
+    public static float staticSanity;
     public Image SanUI;
     public Image SanUIPlayer;
     [Header("UI Text")]
@@ -56,6 +57,8 @@ public class LivingController : MonoBehaviour {
 	
 	void Update ()
     {
+
+        staticSanity = sanity;
 
         if (FindObjectOfType<ward>())
         {
