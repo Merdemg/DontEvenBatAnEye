@@ -77,49 +77,36 @@ public class LivingController : MonoBehaviour {
         if (isContainer) //Works
         {
             feedbackUI.texture = images[6];
-            print("Container");
         }
         else if (isStairs)
         {
             feedbackUI.texture = images[1];
-            print("Stairs");
-
         }
         else if (isPentagram) //Pentagram Works
         {
             feedbackUI.texture = images[4];
-            print("Pentagram");
-
         }
         else if (isDoor) //Works
         {
             feedbackUI.texture = images[5];
-            print("Door");
-
         }
         else if (isDrinking) //Works
         {
             feedbackUI.texture = images[3];
-            print("Door");
-
         }
         else if (isTrap) //Works
         {
             feedbackUI.texture = images[2];
-            print("Door");
-
         }
         else if (isWard) //Works
         {
             feedbackUI.texture = images[0];
-            print("Door");
-
         }
         else
             feedbackUI.texture = images[7];
     }
 
-
+    
     public void setObject2Interact(GameObject obj)
     {
         object2interact = obj;
