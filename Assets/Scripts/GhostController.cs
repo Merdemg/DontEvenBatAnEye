@@ -118,6 +118,7 @@ public class GhostController : MonoBehaviour {
             isHaunting = false;
             hauntEffect.SetActive(false);
             defaultHauntEffect.SetActive(true);
+            GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
         }
 
         if (isTrapped == false && ghost.GetButtonDown("Fly"))
@@ -224,14 +225,17 @@ public class GhostController : MonoBehaviour {
     void drainSanity()
     {
         if (powerLevel >= 1 && isHaunting && Vector3.Distance(this.transform.position, player.transform.position) <= (range * powerLevel))
-        {     
+        {
             {
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
                 //player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
                 player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
-                
+                GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
             }
+
         }
+        //else
+        //    GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
     }
     public void setObject2Interact(GameObject obj)
     {
