@@ -8,6 +8,7 @@ public class LivingController : MonoBehaviour {
 
 
     [SerializeField] float sanity = 100.0f;
+    public static float staticSanity;
     public Image SanUI;
     public Image SanUIPlayer;
     [Header("UI Text")]
@@ -62,6 +63,7 @@ public class LivingController : MonoBehaviour {
     {
 
 
+        staticSanity = sanity;
         if (FindObjectOfType<ward>())
         {
            isProtected = CheckProtected();
@@ -172,6 +174,7 @@ public class LivingController : MonoBehaviour {
             amount *= protectionValue;
 
         sanity -= amount;
+        StartCoroutine(ControllerVibrate());
         updateSanityUI();
 
         if (sanity <=0)
@@ -183,6 +186,12 @@ public class LivingController : MonoBehaviour {
         blinkTimer = blinkTimerMax;
     }
 
+    IEnumerator ControllerVibrate()
+    {
+        GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
+        yield return new WaitForSeconds(3f);
+        GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
+    }
     public void gainSanity(float amount)
     {
         sanity += amount;

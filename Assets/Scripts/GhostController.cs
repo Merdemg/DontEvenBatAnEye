@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
-//using XInputDotNetPure;
+using XInputDotNetPure;
 
 public class GhostController : MonoBehaviour {
     [SerializeField] Transform anchor1, anchor2;
