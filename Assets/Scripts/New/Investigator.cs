@@ -182,6 +182,8 @@ public class Investigator : MonoBehaviour {
             {
                 bAbility = false;
                 Instantiate(bObject, this.transform.position, this.transform.rotation);
+                TutorialManager.playerTrapCount++;
+                print(TutorialManager.playerTrapCount);
                 this.GetComponent<LivingController>().drainSanity(bObjectCost);
                 TrapProg.fillAmount = 0;
                 //LoadTexture.isTrap = false;
@@ -216,6 +218,7 @@ public class Investigator : MonoBehaviour {
             {
                 xAbility = false;
                 Instantiate(xObject, this.transform.position, this.transform.rotation);
+                TutorialManager.playerWardCount++;
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
                 WardProgress.fillAmount = 0;
                 StartCoroutine(ControllerVibration());

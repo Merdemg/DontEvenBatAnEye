@@ -189,7 +189,7 @@ public class GhostController : MonoBehaviour {
         }
 
         drainSanity();
-        power = staticPower;
+        staticPower = power;
 
     }
 
@@ -231,6 +231,7 @@ public class GhostController : MonoBehaviour {
                 //player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
                 player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
                 GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
+                TutorialManager.playerHauntedbyGhost += 0.1f;
             }
 
         }

@@ -40,6 +40,7 @@ public class TutorialManager : MonoBehaviour
         if (playerWardCount == 0)
         {
             print(textArray[2]);
+            print(playerWardCount);
         }
         yield return new WaitForSeconds(waitTimer);
         if (playerEvidenceCount == 0)
