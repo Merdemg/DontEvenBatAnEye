@@ -114,6 +114,7 @@ public class Door : MonoBehaviour {
                 isLocked = false;
                 isPlayerInteracting = false;
                 timer = 0;
+                TutorialManager.playerDoorCount += 1;
 
             }
         }

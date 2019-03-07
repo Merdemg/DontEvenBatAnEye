@@ -133,6 +133,7 @@ public class PowerSource : MonoBehaviour {
                 Percentage = timer / playerInteractTime;
                 ghost.GetComponent<GhostController>().losePowerWithoutBlinking(deactivationPenalty);
                 isPlayerInteracting = false;
+                TutorialManager.playerPentagramCount += 1;
             }
         }
         else if (isActive && playerCanInter)
@@ -179,14 +180,12 @@ public class PowerSource : MonoBehaviour {
     }
     void activateFeedback()
     {
-        Debug.Log("Activating feedback");
         feedbackOn = true;
         feedbackObj.GetComponent<Image>().enabled = true;
         LivingController.isPentagram = true;
     }
     void deactivateFeedback()
     {
-        Debug.Log("Deactivating feedback");
         feedbackOn = false;
         feedbackObj.GetComponent<Image>().enabled = false;
         LivingController.isPentagram = false;

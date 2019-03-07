@@ -5,11 +5,12 @@ using UnityEngine.UI;
 using Rewired;
 using XInputDotNetPure;
 
-public class GhostController : MonoBehaviour {
+public class GhostController : MonoBehaviour
+{
     [SerializeField] Transform anchor1, anchor2;
     [SerializeField] Text powerText, powerLevelText;
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float phasingSpeed = 0;   
+    [SerializeField] float phasingSpeed = 0;
     [SerializeField] GameObject object2interact;
     [SerializeField] Image PowUI;
     [SerializeField] Image HauntImage;
@@ -22,7 +23,7 @@ public class GhostController : MonoBehaviour {
     [SerializeField] Image Pow3a;
     [SerializeField] Image FlyArrow;
     [SerializeField] float power = 10.0f;
-    public static float staticPower;
+
     int powerLevel = 1;
     [SerializeField] float insanityMultiplier = 1.0f;
     bool isInteracting = false;
@@ -55,13 +56,15 @@ public class GhostController : MonoBehaviour {
     GameObject hauntEffect;
     GameObject defaultHauntEffect;
 
+    public static float staticPower;
 
     private void Awake()
     {
         ghost = ReInput.players.GetPlayer(playerId);
     }
 
-    void Start () {
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         updatePowerLevel();
@@ -72,11 +75,10 @@ public class GhostController : MonoBehaviour {
         hauntEffect.SetActive(false);
 
         defaultHauntEffect = GameObject.FindGameObjectWithTag("DefaultDistortion");
-	}
+    }
 
-    void Update() {
-
-
+    void Update()
+    {
         if (blinkTimer > 0)
         {
             blinkTimer -= Time.deltaTime;
@@ -99,7 +101,8 @@ public class GhostController : MonoBehaviour {
             isInteracting = true;
 
             interact();
-        } else
+        }
+        else
         if (ghost.GetButtonUp("Interact"))
         {
             isInteracting = false;
@@ -108,7 +111,6 @@ public class GhostController : MonoBehaviour {
 
         if ((ghost.GetButtonDown("Haunt") || Input.GetKeyDown(KeyCode.H)) && isPhasing == false && isInteracting == false)
         {
-            Debug.Log("Buton 1, ghost");
             isHaunting = true;
             hauntEffect.SetActive(true);
             defaultHauntEffect.SetActive(false);
@@ -123,11 +125,10 @@ public class GhostController : MonoBehaviour {
 
         if (isTrapped == false && ghost.GetButtonDown("Fly"))
         {
-            Debug.Log("Button Y, ghost");
             isFlying = true;
             flyTimer = 0;
         }
-        
+
         if (ghost.GetButtonDown("Phase") && isInteracting == false && isHaunting == false && powerLevel >= 3 && power > (phasingCost))
         {
             isPhasing = true;
@@ -166,11 +167,10 @@ public class GhostController : MonoBehaviour {
 
         if (isHaunting)
         {
-            Debug.Log("ishaunting");
             losePowerWithoutBlinking(Time.deltaTime * hauntingCost * (float)powerLevel);
         }
 
-        if (isInteracting == false && isHaunting == false && (ghost.GetAxis("Horizontal") > 0.1f || ghost.GetAxis("Horizontal") < -0.1f 
+        if (isInteracting == false && isHaunting == false && (ghost.GetAxis("Horizontal") > 0.1f || ghost.GetAxis("Horizontal") < -0.1f
             || ghost.GetAxis("Vertical") > 0.1f || ghost.GetAxis("Vertical") < -0.1f))
         {
             if (isPhasing)
@@ -189,8 +189,7 @@ public class GhostController : MonoBehaviour {
         }
 
         drainSanity();
-        power = staticPower;
-
+        staticPower = power;
     }
 
     public void losePower(float amount)
@@ -200,7 +199,7 @@ public class GhostController : MonoBehaviour {
             losePowerWithoutBlinking(amount);
             if (amount > 0)
                 blinkTimer = blinkTimerMax;
-        }    
+        }
     }
     public void losePowerWithoutBlinking(float amount)
     {
@@ -227,10 +226,10 @@ public class GhostController : MonoBehaviour {
         if (powerLevel >= 1 && isHaunting && Vector3.Distance(this.transform.position, player.transform.position) <= (range * powerLevel))
         {
             {
-                Debug.Log("Almost draining. my soul and motivation to live, i mean.");
                 //player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
                 player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
                 GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
+                TutorialManager.playerHauntedbyGhost += 0.1f;
             }
 
         }
@@ -340,7 +339,7 @@ public class GhostController : MonoBehaviour {
     }
     void updateRangeIndicator()
     {
-        Vector3 temp = rangeIndicator.transform.localScale; 
+        Vector3 temp = rangeIndicator.transform.localScale;
         temp.x = powerLevel * 3.5f;
         temp.y = powerLevel * 3.5f;
         rangeIndicator.transform.localScale = temp;
@@ -351,7 +350,7 @@ public class GhostController : MonoBehaviour {
     }
     void fly()
     {
-        if(this.transform.position.x <= 0)  //First level
+        if (this.transform.position.x <= 0)  //First level
         {
             this.transform.position = (this.transform.position - anchor1.transform.position) + anchor2.transform.position;
         }

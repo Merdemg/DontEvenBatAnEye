@@ -70,5 +70,6 @@ public class Raycaster : MonoBehaviour {
     void drainGhostPower()
     {
         ghost.GetComponent<GhostController>().losePower(Time.deltaTime * powerDrainMultiplier);
+        TutorialManager.playerHasDamagedGhostValue += 0.1f;
     }
 }

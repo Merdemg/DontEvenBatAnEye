@@ -68,16 +68,6 @@ public class Investigator : MonoBehaviour {
     {
         RaycastHit2D hit = Physics2D.Raycast(offset.position, -Vector2.up);
 
-
-        //if (Input.GetKey(KeyCode.L))
-        //{
-        //    GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
-        //}
-        //else if(Input.GetKeyUp(KeyCode.L))
-        //{
-        //    GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
-        //}
-
         if (boozeNum > 0)
         {
             buttonBooze.color = new Color(buttonBooze.color.r, buttonBooze.color.g, buttonBooze.color.b, 1.0f);
@@ -182,6 +172,7 @@ public class Investigator : MonoBehaviour {
             {
                 bAbility = false;
                 Instantiate(bObject, this.transform.position, this.transform.rotation);
+                TutorialManager.playerTrapCount += 1;
                 this.GetComponent<LivingController>().drainSanity(bObjectCost);
                 TrapProg.fillAmount = 0;
                 //LoadTexture.isTrap = false;
@@ -216,6 +207,7 @@ public class Investigator : MonoBehaviour {
             {
                 xAbility = false;
                 Instantiate(xObject, this.transform.position, this.transform.rotation);
+                TutorialManager.playerWardCount += 1;
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
                 WardProgress.fillAmount = 0;
                 StartCoroutine(ControllerVibration());
@@ -246,6 +238,7 @@ public class Investigator : MonoBehaviour {
                 print("BOOZE DRANK");
                 yAbility = false;
                 boozeNum--;
+                TutorialManager.playerBoozeCount += 1;
                 this.GetComponent<LivingController>().gainSanity(boozeSanity);
                 BoozeProgress.fillAmount = 0;
                 //LoadTexture.isBooze = false;

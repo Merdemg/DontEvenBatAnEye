@@ -215,6 +215,7 @@ public class LivingController : MonoBehaviour {
     public void getEvidence()
     {
         evidence++;
+        TutorialManager.playerEvidenceCount += 1;
         updateSanityUI();
 
         if (evidence >= evidenceRequired)
