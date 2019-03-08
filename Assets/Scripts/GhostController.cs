@@ -56,6 +56,7 @@ public class GhostController : MonoBehaviour {
     GameObject defaultHauntEffect;
 
 
+    
     private void Awake()
     {
         ghost = ReInput.players.GetPlayer(playerId);
@@ -200,8 +201,20 @@ public class GhostController : MonoBehaviour {
             losePowerWithoutBlinking(amount);
             if (amount > 0)
                 blinkTimer = blinkTimerMax;
-        }    
+        }
+
+        StartCoroutine(ControllerVibrate());
+
     }
+
+    IEnumerator ControllerVibrate()
+    {
+        Debug.Log("Ghost vibrate");
+        GamePad.SetVibration(PlayerIndex.Two, 1f, 1f);
+        yield return new WaitForSeconds(0.2f);
+        GamePad.SetVibration(PlayerIndex.Two, 0f, 0f);
+    }
+
     public void losePowerWithoutBlinking(float amount)
     {
         power -= amount;
