@@ -34,40 +34,39 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         if(playerTrapCount == 0)
         {
-            print(textArray[1]);
+            displayUI(textArray[1]);
+            yield return new WaitForSeconds(waitTimer);
         }
-        yield return new WaitForSeconds(waitTimer);
         if (playerWardCount == 0)
         {
-            print(textArray[2]);
-            print(playerWardCount);
+            displayUI(textArray[2]);
+            yield return new WaitForSeconds(waitTimer);
         }
-        yield return new WaitForSeconds(waitTimer);
         if (playerEvidenceCount == 0)
         {
-            print(textArray[3]);
+            displayUI(textArray[3]);
+            yield return new WaitForSeconds(waitTimer);
         }
-        yield return new WaitForSeconds(waitTimer);
         if (playerDoorCount == 0)
         {
-            print(textArray[4]);
+            displayUI(textArray[4]);
+            yield return new WaitForSeconds(waitTimer);
         }
-        yield return new WaitForSeconds(waitTimer);
         if (playerPentagramCount == 0)
         {
-            print(textArray[5]);
+            displayUI(textArray[5]);
+            yield return new WaitForSeconds(waitTimer);
         }
-        yield return new WaitForSeconds(waitTimer);
         if (playerHasDamagedGhostValue == 0)
         {
-            print(textArray[6]);
+            displayUI(textArray[6]);
+            yield return new WaitForSeconds(waitTimer);
         }
-        yield return new WaitForSeconds(waitTimer);
         if (playerHauntedbyGhost > 0 && playerBoozeCount == 0)
         {
-            print(textArray[7]);
+            displayUI(textArray[7]);
+            yield return new WaitForSeconds(waitTimer);
         }
-        yield return new WaitForSeconds(waitTimer);
         print("TUTORIAL COMPELETE");
     }
 
@@ -84,6 +83,11 @@ public class TutorialManager : MonoBehaviour
     void ResetStats()
     {
         //Reset player preff values to 0
+    }
+
+    void displayUI(string infoText) //Info text is a parameter that will be passed to UI.Text
+    {
+        print(infoText);
     }
 
 }
