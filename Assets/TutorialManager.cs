@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
-    GameObject investigator;
-    GameObject ghost;
+
     public static int playerWardCount = 0;
     public static int playerTrapCount = 0;
     public static int playerBoozeCount = 0;
@@ -16,59 +15,104 @@ public class TutorialManager : MonoBehaviour
     public static float playerHauntedbyGhost = 0f; //Round the number later
     public static float playerHasDamagedGhostValue = 0f; //Round the number later
 
-    float waitTimer = 10f;
-
+    //float waitTimer = 10f;
+    float timeElapsed = 0f;
     public string[] textArray;
 
-    // Start is called before the first frame update
+    float WARD_CHECK_TIME = 10F;
+    float TRAP_CHECK_TIME = 20F;
+    float BOOZE_CHECK_TIME = 30F;
+    float EVIDENCE_CHECK_TIME = 40f;
+    float DOOR_CHECK_TIME = 50f;
+    float PENTAGRAM_CHECK_TIME = 60f;
+    float pHAUNT_CHECK_TIME = 70f;
+    float pDAMAGE_CHECK_TIME = 80F;
+
+    bool isUIDisplayed = false;
+
     void Start()
     {
-        investigator = GameObject.FindGameObjectWithTag("Player");       
-        ghost = GameObject.FindGameObjectWithTag("Ghost");
-        StartCoroutine(StartTutorial());
+        //StartCoroutine(StartTutorial());
     }
 
-    IEnumerator StartTutorial()
+    void Update()
     {
-        print(textArray[0]);
-        yield return new WaitForSeconds(waitTimer);
-        if(playerTrapCount == 0)
+        timeElapsed += Time.deltaTime;
+        print(Mathf.Round(timeElapsed));
+
+        if (timeElapsed >= WARD_CHECK_TIME && playerWardCount == 0 && isUIDisplayed == false)
         {
-            displayUI(textArray[1]);
-            yield return new WaitForSeconds(waitTimer);
+            print("START PLACING WARDS");
         }
-        if (playerWardCount == 0)
+        if (timeElapsed >= TRAP_CHECK_TIME && playerTrapCount == 0 && isUIDisplayed == false)
         {
-            displayUI(textArray[2]);
-            yield return new WaitForSeconds(waitTimer);
+            print("START PLACING TRAPS");
         }
-        if (playerEvidenceCount == 0)
+        if (timeElapsed >= EVIDENCE_CHECK_TIME && playerEvidenceCount == 0 && isUIDisplayed == false)
         {
-            displayUI(textArray[3]);
-            yield return new WaitForSeconds(waitTimer);
+            print("START FINDING EVIDENCE");
         }
-        if (playerDoorCount == 0)
+        if (timeElapsed >= DOOR_CHECK_TIME && playerDoorCount == 0 && isUIDisplayed == false)
         {
-            displayUI(textArray[4]);
-            yield return new WaitForSeconds(waitTimer);
+            print("START UNLOCKING ROOMS");
         }
-        if (playerPentagramCount == 0)
+        if (timeElapsed >= PENTAGRAM_CHECK_TIME && playerPentagramCount == 0 && isUIDisplayed == false)
         {
-            displayUI(textArray[5]);
-            yield return new WaitForSeconds(waitTimer);
+            print("START DEPOWERING THE GHOST");
         }
-        if (playerHasDamagedGhostValue == 0)
+        if (timeElapsed >= pDAMAGE_CHECK_TIME && playerHasDamagedGhostValue == 0 && isUIDisplayed == false)
         {
-            displayUI(textArray[6]);
-            yield return new WaitForSeconds(waitTimer);
+            print("ATTACK THE GHOST");
         }
-        if (playerHauntedbyGhost > 0 && playerBoozeCount == 0)
+        if (timeElapsed >= pHAUNT_CHECK_TIME && playerHauntedbyGhost > 0 && playerBoozeCount == 0 && isUIDisplayed == false)
         {
-            displayUI(textArray[7]);
-            yield return new WaitForSeconds(waitTimer);
+            print("DRINK BOOZE, YOUR SANITY IS LOW");
         }
-        print("TUTORIAL COMPELETE");
+        
+
     }
+
+    //IEnumerator StartTutorial()
+    //{
+    //    print(textArray[0]);
+    //    yield return new WaitForSeconds(waitTimer);
+    //    if(playerTrapCount == 0)
+    //    {
+    //        displayUI(textArray[1]);
+    //        yield return new WaitForSeconds(waitTimer);
+    //    }
+    //    if (playerWardCount == 0)
+    //    {
+    //        displayUI(textArray[2]);
+    //        yield return new WaitForSeconds(waitTimer);
+    //    }
+    //    if (playerEvidenceCount == 0)
+    //    {
+    //        displayUI(textArray[3]);
+    //        yield return new WaitForSeconds(waitTimer);
+    //    }
+    //    if (playerDoorCount == 0)
+    //    {
+    //        displayUI(textArray[4]);
+    //        yield return new WaitForSeconds(waitTimer);
+    //    }
+    //    if (playerPentagramCount == 0)
+    //    {
+    //        displayUI(textArray[5]);
+    //        yield return new WaitForSeconds(waitTimer);
+    //    }
+    //    if (playerHasDamagedGhostValue == 0)
+    //    {
+    //        displayUI(textArray[6]);
+    //        yield return new WaitForSeconds(waitTimer);
+    //    }
+    //    if (playerHauntedbyGhost > 0 && playerBoozeCount == 0)
+    //    {
+    //        displayUI(textArray[7]);
+    //        yield return new WaitForSeconds(waitTimer);
+    //    }
+    //    print("TUTORIAL COMPELETE");
+    //}
 
     void SaveStats()
     {
