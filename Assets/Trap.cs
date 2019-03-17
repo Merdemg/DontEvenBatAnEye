@@ -7,7 +7,10 @@ public class Trap : MonoBehaviour
 
     public float delayTimer;
     public GameObject bolt;
-
+	private AudioSource ActivateSound;
+	void Start(){
+		ActivateSound = GetComponent<AudioSource> ();
+	}
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ghost")
@@ -18,6 +21,7 @@ public class Trap : MonoBehaviour
 
     IEnumerator TrapGhost()
     {
+		ActivateSound.Play ();
         print("Trapped Ghost!");
         SimpleControl.isTrapped = true;
         bolt.SetActive(true);

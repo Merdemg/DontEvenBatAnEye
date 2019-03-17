@@ -1,0 +1,13 @@
+diff a/Assets/Scripts/DoorScript.cs b/Assets/Scripts/DoorScript.cs	(rejected hunks)
+@@ -3,9 +3,9 @@
+ using UnityEngine;
+ using UnityEngine.UI;
+ 
+-public class Door : MonoBehaviour {
++public class DoorScript : MonoBehaviour {
+ 
+-    GameObject player, ghost;
++    public GameObject player, ghost;
+     bool isLocked = false;
+ 
+     [SerializeField] float ghostInteractTime = 2f;

@@ -55,6 +55,7 @@ public class GhostController : MonoBehaviour {
     GameObject hauntEffect;
     GameObject defaultHauntEffect;
 
+	private AudioSource HauntingSound;
 
     
     private void Awake()
@@ -73,6 +74,8 @@ public class GhostController : MonoBehaviour {
         hauntEffect.SetActive(false);
 
         defaultHauntEffect = GameObject.FindGameObjectWithTag("DefaultDistortion");
+
+		HauntingSound = GetComponent<AudioSource> ();
 	}
 
     void Update() {
@@ -167,6 +170,9 @@ public class GhostController : MonoBehaviour {
 
         if (isHaunting)
         {
+			if (!HauntingSound.isPlaying) {
+				HauntingSound.Play ();
+			}
             Debug.Log("ishaunting");
             losePowerWithoutBlinking(Time.deltaTime * hauntingCost * (float)powerLevel);
         }
@@ -240,6 +246,7 @@ public class GhostController : MonoBehaviour {
         if (powerLevel >= 1 && isHaunting && Vector3.Distance(this.transform.position, player.transform.position) <= (range * powerLevel))
         {
             {
+				
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
                 //player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
                 player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
