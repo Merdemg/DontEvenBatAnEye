@@ -114,7 +114,7 @@ public class Door : MonoBehaviour {
                 isLocked = false;
                 isPlayerInteracting = false;
                 timer = 0;
-
+                InvestigatorAnimations.isUnlocking = false;
             }
         }
         else if (isLocked) // It's locked but no one is interacing.
@@ -144,6 +144,7 @@ public class Door : MonoBehaviour {
         else if (obj == player && playerCanInter && isPlayerInteracting == false)
         {
             isPlayerInteracting = true;
+            InvestigatorAnimations.isUnlocking = true;
         }
     }
 
@@ -152,6 +153,7 @@ public class Door : MonoBehaviour {
         if (obj == player)
         {
             isPlayerInteracting = false;
+            InvestigatorAnimations.isUnlocking = false;
             //FeedbackTimer.fillAmount = 1f - Percentage;
         }
         else if (obj == ghost)
@@ -177,6 +179,8 @@ public class Door : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             LivingController.isDoor = false;
+            InvestigatorAnimations.isUnlocking = false;
+
 
         }
     }
