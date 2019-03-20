@@ -27,12 +27,6 @@ public class Door : MonoBehaviour {
 
     float timer = 0;
 
-	private AudioSource OpenSound;
-	private AudioSource CloseSound;
-	private AudioSource LockSound;
-	private AudioSource UnlockSound;
-	bool OnLoadSoundBlock = false;
-
     // Use this for initialization
     void Start () {
         float randomValue = Random.Range(0f, 100f);
@@ -48,12 +42,6 @@ public class Door : MonoBehaviour {
 
         feedbackObj.GetComponent<Image>().enabled = false;
         Percentage = 0;
-
-		AudioSource[] AudioSources = GetComponents<AudioSource>();
-		OpenSound = AudioSources [0];
-		CloseSound = AudioSources [1];
-		LockSound = AudioSources [2];
-		UnlockSound = AudioSources [3];
     }
 	
 	void Update () {
@@ -68,6 +56,7 @@ public class Door : MonoBehaviour {
         else if (isLocked == false)
         {   
             setOpen(false);
+
         }
 
         if (isLocked == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
@@ -112,7 +101,6 @@ public class Door : MonoBehaviour {
                 setOpen(false);
                 timer = 0;
                 Percentage = timer / playerInteractTime;
-				LockSound.Play ();
             }
         }
         else if (isPlayerInteracting)
@@ -125,9 +113,8 @@ public class Door : MonoBehaviour {
             {
                 isLocked = false;
                 isPlayerInteracting = false;
-				timer = 0;
-				UnlockSound.Play ();
-
+                timer = 0;
+                InvestigatorAnimations.isUnlocking = false;
             }
         }
         else if (isLocked) // It's locked but no one is interacing.
@@ -138,14 +125,13 @@ public class Door : MonoBehaviour {
         {
             FeedbackTimer.fillAmount = 0;
         }
-		OnLoadSoundBlock = true;
+
     }
 
     void setOpen(bool isOpen)
     {
         GetComponent<BoxCollider2D>().enabled = !isOpen;
         GetComponent<SpriteRenderer>().enabled = !isOpen;
-	
     }
 
     public void getInteracted(GameObject obj)
@@ -158,6 +144,7 @@ public class Door : MonoBehaviour {
         else if (obj == player && playerCanInter && isPlayerInteracting == false)
         {
             isPlayerInteracting = true;
+            InvestigatorAnimations.isUnlocking = true;
         }
     }
 
@@ -166,6 +153,7 @@ public class Door : MonoBehaviour {
         if (obj == player)
         {
             isPlayerInteracting = false;
+            InvestigatorAnimations.isUnlocking = false;
             //FeedbackTimer.fillAmount = 1f - Percentage;
         }
         else if (obj == ghost)
@@ -183,14 +171,7 @@ public class Door : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             LivingController.isDoor = true;
-		}
-		if (OnLoadSoundBlock) {
-			if (isLocked == false) {
-				CloseSound.Play ();
-				print ("Close");
-			}
-		}
-
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -198,12 +179,10 @@ public class Door : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             LivingController.isDoor = false;
+            InvestigatorAnimations.isUnlocking = false;
+
 
         }
-		if (isLocked == false) {
-			OpenSound.Play ();
-			print ("Open");
-		}
     }
 
 

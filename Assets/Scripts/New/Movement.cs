@@ -33,7 +33,10 @@ public class Movement : MonoBehaviour {
             temp.Normalize();
             temp *= moveSpeed;
             GetComponent<Rigidbody2D>().AddForce(temp);
+            InvestigatorAnimations.isWalking = true;
         }
+        else
+            InvestigatorAnimations.isWalking = false;
 
     }
 }
