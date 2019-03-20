@@ -31,7 +31,8 @@ public class Container : MonoBehaviour
 
     bool playerIsColliding = false;
 
-
+	private AudioSource SearchSound;
+	public AudioClip clip;
     void Start()
     {
         //outline = gameObject.AddComponent<Outline>();
@@ -54,6 +55,10 @@ public class Container : MonoBehaviour
                 highlight = child.gameObject;
             }
         }
+
+		SearchSound = gameObject.AddComponent (typeof(AudioSource)) as AudioSource;
+		SearchSound.clip = clip; 
+		
     }
 
     void Update()
@@ -87,6 +92,10 @@ public class Container : MonoBehaviour
             timer += Time.deltaTime;
             Percentage = timer / useTime;
             FeedbackTimer.fillAmount = 1 - Percentage;
+			if (!SearchSound.isPlaying) {
+				SearchSound.Play ();
+			}
+
             if (timer >= useTime)
             {
                 if (hasEvidence)

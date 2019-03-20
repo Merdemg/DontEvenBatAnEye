@@ -49,6 +49,9 @@ public class LivingController : MonoBehaviour {
 
     PlayerIndex pIndex;
 
+	AudioSource FindBooze;
+	AudioSource FindEvidence;
+
     void Start ()
     {
         updateSanityUI();
@@ -57,6 +60,10 @@ public class LivingController : MonoBehaviour {
         feedbackUI = GameObject.Find("PlayerFeedbackUI").GetComponent<RawImage>();
         feedbackUI.texture = images[7];
         altarScript = FindObjectOfType<EndGame>();
+
+		AudioSource[] Sources = GetComponents<AudioSource>();
+		FindBooze = Sources [0];
+		FindEvidence = Sources [1];
     }
 	
 	void Update ()
@@ -215,6 +222,7 @@ public class LivingController : MonoBehaviour {
     public void getEvidence()
     {
         evidence++;
+		FindEvidence.Play ();
         TutorialManager.playerEvidenceCount += 1;
         updateSanityUI();
 
@@ -229,6 +237,7 @@ public class LivingController : MonoBehaviour {
     public void getBooze()
     {
         Investigator.boozeNum++;
+		FindBooze.Play ();
         updateSanityUI();
     }
     bool CheckProtected()

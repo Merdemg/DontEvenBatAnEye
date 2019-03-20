@@ -8,7 +8,7 @@ public class Mine : MonoBehaviour {
     [SerializeField] float visibleTime = 3f;
     [SerializeField] GameObject trap;
     [SerializeField] LayerMask mask;
-
+	private AudioSource ActivateSound;
 
     GameObject ghost;
 
@@ -18,6 +18,7 @@ public class Mine : MonoBehaviour {
 	void Start ()
     {
         ghost = GameObject.FindGameObjectWithTag("Ghost");
+		ActivateSound = GetComponent<AudioSource> ();
 	}
 	
 	void Update ()
@@ -35,6 +36,10 @@ public class Mine : MonoBehaviour {
         }
         else if (CheckGhostValid() && Vector3.Distance(this.transform.position, ghost.transform.position) < trapRange)
         {
+			if (!ActivateSound.isPlaying) {
+				ActivateSound.Play ();
+			}
+
             ghost.GetComponent<GhostController>().getTrapped();
             GetComponent<SpriteRenderer>().enabled = true;
             timer += Time.deltaTime;
