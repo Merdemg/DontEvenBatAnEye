@@ -38,7 +38,6 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         timeElapsed += Time.deltaTime;
-        print(Mathf.Round(timeElapsed));
 
         if (timeElapsed >= WARD_CHECK_TIME && playerWardCount == 0 && isUIDisplayed == false)
         {
