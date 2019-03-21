@@ -26,26 +26,56 @@ public class PowerSource : MonoBehaviour {
     float timer = 0;
     float powerTimer = 0;
 
+    GameObject pLight1;
+    GameObject pLight2;
+    public GameObject[] fire; //Set to 5 in editor
+
     //Pentagram reset
     [SerializeField] float resetTick = 0.01f;
 
-	void Start ()
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         ghost = GameObject.FindGameObjectWithTag("Ghost");
         feedbackObj.GetComponent<Image>().enabled = false;
-	}
-	
+        pLight1 = this.transform.Find("Point Light1").gameObject;
+        pLight2 = this.transform.Find("Point Light2").gameObject;
+
+        LoadCandles();
+
+    }
+
+    void LoadCandles()
+    {
+        for (int i = 0; i <= 4; i++)
+        {
+            fire[i] = this.transform.Find("Candles/candle" + i + "/Fire_B" + i).gameObject;
+            print(fire[i]);
+        }
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
         if (isActive)
         {
             GetComponent<SpriteRenderer>().color = Color.black;
+            pLight1.SetActive(true);
+            pLight2.SetActive(true);
+            for (int i = 0; i <= 4; i++)
+            {
+                fire[i].SetActive(true);
+            }
         }
         else
         {
             GetComponent<SpriteRenderer>().color = Color.white;
+            pLight1.SetActive(false);
+            pLight2.SetActive(false);
+            for (int i = 0; i <= 4; i++)
+            {
+                fire[i].SetActive(false);
+            }
         }
 
         if(isActive == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance)
