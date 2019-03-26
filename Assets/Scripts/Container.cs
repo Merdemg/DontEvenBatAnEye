@@ -33,6 +33,9 @@ public class Container : MonoBehaviour
 
 	private AudioSource SearchSound;
 	public AudioClip clip;
+
+	private float HighlightRadius;
+
     void Start()
     {
         //outline = gameObject.AddComponent<Outline>();
@@ -58,7 +61,7 @@ public class Container : MonoBehaviour
 
 		SearchSound = gameObject.AddComponent (typeof(AudioSource)) as AudioSource;
 		SearchSound.clip = clip; 
-		
+		HighlightRadius = 1;
     }
 
     void Update()
@@ -70,6 +73,8 @@ public class Container : MonoBehaviour
             outline.OutlineWidth = Mathf.PingPong(Time.time * shimmerSpeed, outlineThicc);
 
         }
+
+
         //Player cannot interact with object anymore
         else if (!playerCanInteract)
         {
@@ -85,7 +90,9 @@ public class Container : MonoBehaviour
         {
             outline.OutlineWidth = 0f;
         }
-
+		if (Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position) < HighlightRadius) {
+			feedbackObj.GetComponent<Image> ().enabled = true;
+		}
 
         if (isPlayerInteracting)
         {
@@ -114,6 +121,12 @@ public class Container : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().color = containerColor;
             }
         }
+
+		if (Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position) < HighlightRadius) {
+			feedbackObj.GetComponent<Image> ().enabled = true;
+			//print(Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position));
+		}
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
