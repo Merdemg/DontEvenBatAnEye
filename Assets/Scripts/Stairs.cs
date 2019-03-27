@@ -21,6 +21,7 @@ public class Stairs : MonoBehaviour {
 
     float timer = 0;
 
+	float HighlightRadius = 1;
     void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -57,6 +58,11 @@ public class Stairs : MonoBehaviour {
                 timer = 0;
             }
         }
+		//Proximity icons
+		if (Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position) < HighlightRadius) {
+			feedbackObj.GetComponent<Image> ().enabled = true;
+			//print(Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position));
+		}
 	}
 
     public void getInteracted()

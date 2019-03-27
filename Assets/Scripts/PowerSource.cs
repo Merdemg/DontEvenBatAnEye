@@ -30,6 +30,9 @@ public class PowerSource : MonoBehaviour {
     GameObject pLight2;
     public GameObject[] fire; //Set to 5 in editor
 
+
+	float HighlightRadius = 1;
+
     //Pentagram reset
     [SerializeField] float resetTick = 0.01f;
 
@@ -207,6 +210,11 @@ public class PowerSource : MonoBehaviour {
                 ghost.GetComponent<GhostController>().getPower(powerAmount);
             }
         }
+		//Proximity icons
+		if (Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position) < HighlightRadius) {
+			feedbackObj.GetComponent<Image> ().enabled = true;
+			//print(Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position));
+		}
     }
     void activateFeedback()
     {

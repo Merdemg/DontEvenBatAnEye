@@ -121,7 +121,7 @@ public class Container : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().color = containerColor;
             }
         }
-
+		//Proximity icons
 		if (Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position) < HighlightRadius) {
 			feedbackObj.GetComponent<Image> ().enabled = true;
 			//print(Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position));

@@ -27,6 +27,8 @@ public class Door : MonoBehaviour {
 
     float timer = 0;
 
+	float HighlightRadius = 1;
+
     // Use this for initialization
     void Start () {
         float randomValue = Random.Range(0f, 100f);
@@ -125,6 +127,12 @@ public class Door : MonoBehaviour {
         {
             FeedbackTimer.fillAmount = 0;
         }
+
+		/* //Proximity icons 
+		if (Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position) < HighlightRadius) {
+			feedbackObj.GetComponent<Image> ().enabled = true;
+			//print(Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position));
+		}*/
 
     }
 
