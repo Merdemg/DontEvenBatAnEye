@@ -180,8 +180,8 @@ public class Door : MonoBehaviour {
         {
             LivingController.isDoor = false;
             InvestigatorAnimations.isUnlocking = false;
-
-
+            isPlayerInteracting = false; //BUG SOLVED
+            playerCanInter = false; //BUG SOLVED
         }
     }
 
