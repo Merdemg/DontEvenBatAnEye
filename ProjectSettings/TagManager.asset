@@ -12,6 +12,8 @@ TagManager:
   - Distortion
   - DefaultDistortion
   - Altar
+  - frontDoor
+  - backDoor
   layers:
   - Default
   - TransparentFX

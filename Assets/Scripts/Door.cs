@@ -22,7 +22,7 @@ public class Door : MonoBehaviour {
     bool ghostCanInter = false;
     bool playerCanInter = false;
 
-    bool isPlayerInteracting = false;
+    public static bool isPlayerInteracting = false;
     bool isGhostInteracting = false;
 
     float timer = 0;
