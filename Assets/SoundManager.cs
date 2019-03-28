@@ -5,13 +5,20 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public AudioSource mainAud;
-    public AudioSource lowSanityAud;
-    public AudioSource maxPowerAud;
+    public AudioSource invAud;
+    public AudioSource ghostAud;
+
+    GhostController ghost;
 
     // Start is called before the first frame update
     void Start()
     {
-        mainAud.volume = 1.0f;
+        if (mainAud)
+        {
+            mainAud.volume = 1.0f;
+        }
+
+        ghost = FindObjectOfType<GhostController>();
     }
 
 
@@ -30,33 +37,19 @@ public class SoundManager : MonoBehaviour
             GhostController.staticPower = 100.0f;
         }
 
+        float sanInvAdvantage = LivingController.staticSanity / 2.0f;   /// 0 - 50
+        float powerInvAdvantage = (4.0f - ghost.getPowerLevel()) * 12.5f;   /// 0 - 50
+        float invAdvantage = (sanInvAdvantage + powerInvAdvantage) / 100f;
 
-        if (LivingController.staticSanity <= 25.0f )
-        {
-            SetVolume(0.0f, 1.0f, 0.0f);
-        }
-        else if(GhostController.staticPower >= 220.0f)
-        {
-            SetVolume(0.0f, 0.0f, 1.0f);
-
-        }
-        else if (LivingController.staticSanity > 25f && GhostController.staticPower < 220f)
-        {
-            SetVolume(1.0f, 0.0f, 0.0f);
-
-        }
-        else
-        {
-            print("DEFAULT CASE");
-        }
+        SetVolume(invAdvantage);
 
     }
 
-    void SetVolume(float mainAudioVlume, float lowSanityVolume, float maxGhostPower)
+    void SetVolume(float invAdv)
     {
-        mainAud.volume = mainAudioVlume;
-        lowSanityAud.volume = lowSanityVolume;
-        maxPowerAud.volume = maxGhostPower;
+        //mainAud.volume = mainAudioVlume;
+        invAud.volume = invAdv;
+        ghostAud.volume = 1.0f - invAdv;
     }
 
 
