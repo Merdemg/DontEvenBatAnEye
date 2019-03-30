@@ -27,6 +27,9 @@ public class Door : MonoBehaviour {
 
     float timer = 0;
 
+    public GameObject front;
+    public GameObject back;
+
     // Use this for initialization
     void Start () {
         float randomValue = Random.Range(0f, 100f);
@@ -39,6 +42,10 @@ public class Door : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player");
         ghost = GameObject.FindGameObjectWithTag("Ghost");
+
+        front = gameObject.transform.Find("Front").gameObject;
+        back = gameObject.transform.Find("Back").gameObject;
+
 
         feedbackObj.GetComponent<Image>().enabled = false;
         Percentage = 0;
@@ -144,6 +151,24 @@ public class Door : MonoBehaviour {
         else if (obj == player && playerCanInter && isPlayerInteracting == false)
         {
             isPlayerInteracting = true;
+
+            float dist1 = Vector3.Distance(player.transform.position, front.transform.position);
+            float dist2 = Vector3.Distance(player.transform.position, back.transform.position);
+            print(dist1 + "AND" + dist2);
+            if (dist1 < dist2)
+            {
+                print("PLAYER IS IN FRONT");
+                player.transform.position = front.transform.position;
+                player.transform.rotation = front.transform.rotation;
+            }
+            else if (dist2 < dist1)
+            {
+                print("PLAYER IS BACK");
+                player.transform.position = back.transform.position;
+                player.transform.rotation = back.transform.rotation;
+
+            }
+
             InvestigatorAnimations.isUnlocking = true;
         }
     }

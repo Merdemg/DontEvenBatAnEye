@@ -50,7 +50,6 @@ public class PowerSource : MonoBehaviour {
         for (int i = 0; i <= 4; i++)
         {
             fire[i] = this.transform.Find("Candles/candle" + i + "/Fire_B" + i).gameObject;
-            print(fire[i]);
         }
     }
 
