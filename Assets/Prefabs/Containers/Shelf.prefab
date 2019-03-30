@@ -129,6 +129,7 @@ MonoBehaviour:
   containerObj: {fileID: 0}
   shimmerSpeed: 5
   outlineThicc: 3
+  clip: {fileID: 0}
 --- !u!114 &1721483892640945981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,7 +818,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842015079924608}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071061, w: 0.7071075}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -110.2}
   m_LocalScale: {x: 0.7125, y: 0.41250002, z: 0.75}
   m_Children: []
   m_Father: {fileID: 224178749195555766}
