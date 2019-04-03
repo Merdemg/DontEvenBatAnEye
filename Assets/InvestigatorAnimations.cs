@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class InvestigatorAnimations : MonoBehaviour
 {
-    private Animator anim;
-    public static bool isWalking, isUnlocking;
+    public Animator anim;
+    public static bool isWalking, isUnlocking, isSearching, 
+        isFireplace, isStairs, isTrap;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,6 @@ public class InvestigatorAnimations : MonoBehaviour
         if (isWalking)
         {
             anim.SetBool("isWalking", true);
-            print("is Walking!");
         }
         else
             anim.SetBool("isWalking", false);
@@ -26,11 +27,42 @@ public class InvestigatorAnimations : MonoBehaviour
         if(isUnlocking)
         {
             anim.SetBool("isUnlocking", true);
-            print("is Unlocking!");
 
         }
         else
             anim.SetBool("isUnlocking", false);
+
+        if (isSearching)
+        {
+            anim.SetBool("isSearching", true);
+        }
+        else
+            anim.SetBool("isSearching", false);
+
+
+        if (isFireplace)
+        {
+            anim.SetBool("isFireplace", true);
+
+        }
+        else
+            anim.SetBool("isFireplace", false);
+
+
+        if (isStairs)
+        {
+            anim.SetBool("isStairs", true);
+        }
+        else
+            anim.SetBool("isStairs", false);
+
+        if (isTrap)
+        {
+            anim.SetBool("isTrap", true);
+
+        }
+        else
+            anim.SetBool("isTrap", false);
 
     }
 }

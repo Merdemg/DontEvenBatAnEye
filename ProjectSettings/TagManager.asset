@@ -12,6 +12,8 @@ TagManager:
   - Distortion
   - DefaultDistortion
   - Altar
+  - Fireplace
+  - Stairs
   layers:
   - Default
   - TransparentFX

@@ -96,6 +96,7 @@ public class Container : MonoBehaviour
 
         if (isPlayerInteracting)
         {
+            InvestigatorAnimations.isSearching = true;
             timer += Time.deltaTime;
             Percentage = timer / useTime;
             FeedbackTimer.fillAmount = 1 - Percentage;
@@ -119,6 +120,7 @@ public class Container : MonoBehaviour
                 outline.enabled = false; //Object cannot be highlighted once search is complete
                 Destroy(this);
                 gameObject.GetComponent<SpriteRenderer>().color = containerColor;
+                InvestigatorAnimations.isSearching = false;
             }
         }
 
