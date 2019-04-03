@@ -178,6 +178,9 @@ public class Investigator : MonoBehaviour {
             LivingController.isTrap = true;
             timer += Time.deltaTime;
             TrapProg.fillAmount = timer / bObjectDropTime;
+
+            InvestigatorAnimations.isTrap = true;
+
             if (timer >= bObjectDropTime)
             {
                 bAbility = false;
@@ -189,6 +192,7 @@ public class Investigator : MonoBehaviour {
                 //LoadTexture.isTrap = false;
                 LivingController.isTrap = false;
                 StartCoroutine(ControllerVibration());
+                InvestigatorAnimations.isTrap = false;
             }
 
         }
