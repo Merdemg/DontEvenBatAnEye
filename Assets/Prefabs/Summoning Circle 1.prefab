@@ -664,6 +664,7 @@ MonoBehaviour:
   feedbackObj: {fileID: 1094869068989814}
   activationBonus: 5
   deactivationPenalty: 5
+  anim_Pentagram: {fileID: 5300330727442462395}
   isActive: 0
   FeedbackTimer: {fileID: 114051108739117142}
   fire:
