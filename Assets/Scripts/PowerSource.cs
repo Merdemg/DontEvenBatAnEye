@@ -14,6 +14,8 @@ public class PowerSource : MonoBehaviour {
     [SerializeField] float activationBonus = 0;
     [SerializeField] float deactivationPenalty = 0;
 
+	[SerializeField] Animator anim_Pentagram;
+
     public bool isActive = false;
     bool feedbackOn = false;
     public Image FeedbackTimer;
@@ -26,7 +28,7 @@ public class PowerSource : MonoBehaviour {
     float timer = 0;
     float powerTimer = 0;
 
-    GameObject pLight1;
+   // GameObject pLight1;
     GameObject pLight2;
     public GameObject[] fire; //Set to 5 in editor
 
@@ -38,8 +40,8 @@ public class PowerSource : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         ghost = GameObject.FindGameObjectWithTag("Ghost");
         feedbackObj.GetComponent<Image>().enabled = false;
-        pLight1 = this.transform.Find("Point Light1").gameObject;
-        pLight2 = this.transform.Find("Point Light2").gameObject;
+//        pLight1 = this.transform.Find("Point Light1").gameObject;
+        pLight2 = this.transform.Find("Activated_Light").gameObject;
 
         LoadCandles();
 
@@ -58,8 +60,11 @@ public class PowerSource : MonoBehaviour {
     {
         if (isActive)
         {
-            GetComponent<SpriteRenderer>().color = Color.black;
-            pLight1.SetActive(true);
+         //   GetComponent<SpriteRenderer>().color = Color.black;
+         //   pLight1.SetActive(true);
+
+			anim_Pentagram.SetBool ("Active", true);
+
             pLight2.SetActive(true);
             for (int i = 0; i <= 4; i++)
             {
@@ -68,8 +73,8 @@ public class PowerSource : MonoBehaviour {
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = Color.white;
-            pLight1.SetActive(false);
+           // GetComponent<SpriteRenderer>().color = Color.white;
+//            pLight1.SetActive(false);
             pLight2.SetActive(false);
             for (int i = 0; i <= 4; i++)
             {
@@ -209,6 +214,7 @@ public class PowerSource : MonoBehaviour {
     }
     void activateFeedback()
     {
+		anim_Pentagram.SetBool ("Interact", true);
         feedbackOn = true;
         feedbackObj.GetComponent<Image>().enabled = true;
         LivingController.isPentagram = true;
