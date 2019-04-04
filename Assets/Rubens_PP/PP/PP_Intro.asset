@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1393,13 +1393,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.26
+    value: 0.747
   size:
     overrideState: 1
-    value: 0.47
+    value: 0.55
   lumContrib:
     overrideState: 0
-    value: 0.8
+    value: 0.889
 --- !u!114 &114967630915850364
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1418,13 +1418,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 10
+    value: 4
   threshold:
     overrideState: 1
     value: 1
   softKnee:
     overrideState: 1
-    value: 0.52
+    value: 0.592
   clamp:
     overrideState: 0
     value: 65472

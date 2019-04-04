@@ -664,6 +664,7 @@ MonoBehaviour:
   feedbackObj: {fileID: 1094869068989814}
   activationBonus: 5
   deactivationPenalty: 5
+  anim_Pentagram: {fileID: 5300330727442462395}
   isActive: 0
   FeedbackTimer: {fileID: 114051108739117142}
   fire:
@@ -715,8 +716,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 0, b: 0.105882645, a: 1}
-  m_Intensity: 12
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Intensity: 8
   m_Range: 1
   m_SpotAngle: 85
   m_CookieSize: 10
@@ -734,7 +735,7 @@ Light:
   m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4294967295
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
@@ -803,10 +804,10 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 0.9339623, g: 0.38431373, b: 0.030838395, a: 1}
+  m_Intensity: 2.5
   m_Range: 2
-  m_SpotAngle: 118
+  m_SpotAngle: 99.9
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0

@@ -170,9 +170,9 @@ public class GhostController : MonoBehaviour {
 
         if (isHaunting)
         {
-			if (!HauntingSound.isPlaying) {
-				HauntingSound.Play ();
-			}
+			//if (!HauntingSound.isPlaying) {
+				//HauntingSound.Play ();
+			//}
             Debug.Log("ishaunting");
             losePowerWithoutBlinking(Time.deltaTime * hauntingCost * (float)powerLevel);
         }
