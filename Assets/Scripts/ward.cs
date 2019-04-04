@@ -56,7 +56,7 @@ public class ward : MonoBehaviour {
         if(Physics2D.Raycast(this.transform.position, ghost.transform.position - this.transform.position))
         {
             RaycastHit2D temp = Physics2D.Raycast(this.transform.position, ghost.transform.position - this.transform.position, mask);
-            if (temp.transform.tag == "Ghost")
+            if (temp && temp.transform.tag == "Ghost")
             {
                 return true;
             }

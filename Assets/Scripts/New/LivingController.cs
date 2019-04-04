@@ -57,8 +57,8 @@ public class LivingController : MonoBehaviour {
         updateSanityUI();
         int playerIdentity = Movement.playerId;
         player = ReInput.players.GetPlayer(playerIdentity);
-        feedbackUI = GameObject.Find("PlayerFeedbackUI").GetComponent<RawImage>();
-        feedbackUI.texture = images[7];
+        //feedbackUI = GameObject.Find("PlayerFeedbackUI").GetComponent<RawImage>();
+        //feedbackUI.texture = images[7];
         altarScript = FindObjectOfType<EndGame>();
 
 		AudioSource[] Sources = GetComponents<AudioSource>();
@@ -83,36 +83,36 @@ public class LivingController : MonoBehaviour {
         else
             isLit = false;
 
-        if (isContainer) //Works
-        {
-            feedbackUI.texture = images[6];
-        }
-        else if (isStairs)
-        {
-            feedbackUI.texture = images[1];
-        }
-        else if (isPentagram) //Pentagram Works
-        {
-            feedbackUI.texture = images[4];
-        }
-        else if (isDoor) //Works
-        {
-            feedbackUI.texture = images[5];
-        }
-        else if (isDrinking) //Works
-        {
-            feedbackUI.texture = images[3];
-        }
-        else if (isTrap) //Works
-        {
-            feedbackUI.texture = images[2];
-        }
-        else if (isWard) //Works
-        {
-            feedbackUI.texture = images[0];
-        }
-        else
-            feedbackUI.texture = images[7];
+        //if (isContainer) //Works
+        //{
+        //    feedbackUI.texture = images[6];
+        //}
+        //else if (isStairs)
+        //{
+        //    feedbackUI.texture = images[1];
+        //}
+        //else if (isPentagram) //Pentagram Works
+        //{
+        //    feedbackUI.texture = images[4];
+        //}
+        //else if (isDoor) //Works
+        //{
+        //    feedbackUI.texture = images[5];
+        //}
+        //else if (isDrinking) //Works
+        //{
+        //    feedbackUI.texture = images[3];
+        //}
+        //else if (isTrap) //Works
+        //{
+        //    feedbackUI.texture = images[2];
+        //}
+        //else if (isWard) //Works
+        //{
+        //    feedbackUI.texture = images[0];
+        //}
+        //else
+        //    feedbackUI.texture = images[7];
     }
 
     

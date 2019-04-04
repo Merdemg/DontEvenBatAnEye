@@ -39,7 +39,7 @@ public class PowerSource : MonoBehaviour {
     {
         player = GameObject.FindGameObjectWithTag("Player");
         ghost = GameObject.FindGameObjectWithTag("Ghost");
-        feedbackObj.GetComponent<Image>().enabled = false;
+        //feedbackObj.GetComponent<Image>().enabled = false;
 //        pLight1 = this.transform.Find("Point Light1").gameObject;
         pLight2 = this.transform.Find("Activated_Light").gameObject;
 
@@ -91,7 +91,7 @@ public class PowerSource : MonoBehaviour {
             {
                 if (feedbackOn == false)
                 {
-                    FeedbackTimer.fillAmount = 1f - Percentage; 
+                    //FeedbackTimer.fillAmount = 1f - Percentage; 
                     activateFeedback();
                     ghostCanInter = true;
                     
@@ -116,7 +116,7 @@ public class PowerSource : MonoBehaviour {
             {
                 if (feedbackOn == false)
                 {
-                    FeedbackTimer.fillAmount = 1f - Percentage; // ??????
+                    //FeedbackTimer.fillAmount = 1f - Percentage; // ??????
                     activateFeedback();
                     playerCanInter = true;
                     
@@ -143,7 +143,7 @@ public class PowerSource : MonoBehaviour {
             Debug.Log("GHOST CAN INTERACT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::" + ghostCanInter);
             timer += Time.deltaTime;
             Percentage = timer / ghostInteractTime;
-            FeedbackTimer.fillAmount = 1 - Percentage;
+            //FeedbackTimer.fillAmount = 1 - Percentage;
 
             if (timer >= ghostInteractTime)
             {
@@ -160,7 +160,7 @@ public class PowerSource : MonoBehaviour {
         {
             timer += Time.deltaTime;
             Percentage = timer / playerInteractTime;
-            FeedbackTimer.fillAmount = 1 - Percentage;
+            //FeedbackTimer.fillAmount = 1 - Percentage;
 
             if (timer >= playerInteractTime)
             {
@@ -175,12 +175,12 @@ public class PowerSource : MonoBehaviour {
         else if (isActive && playerCanInter)
         {
             Percentage = timer / playerInteractTime;
-            FeedbackTimer.fillAmount = 1f - Percentage;
+            //FeedbackTimer.fillAmount = 1f - Percentage;
         }
         else if (!isActive && ghostCanInter)
         {
             Percentage = timer / ghostInteractTime;
-            FeedbackTimer.fillAmount = 1f - Percentage;
+            //FeedbackTimer.fillAmount = 1f - Percentage;
         }
 
         if (isActive && !isPlayerInteracting && timer > 0)
@@ -217,13 +217,13 @@ public class PowerSource : MonoBehaviour {
     void activateFeedback()
     {
         feedbackOn = true;
-        feedbackObj.GetComponent<Image>().enabled = true;
+        //feedbackObj.GetComponent<Image>().enabled = true;
         LivingController.isPentagram = true;
     }
     void deactivateFeedback()
     {
         feedbackOn = false;
-        feedbackObj.GetComponent<Image>().enabled = false;
+        //feedbackObj.GetComponent<Image>().enabled = false;
         LivingController.isPentagram = false;
     }
     public void getInteracted(GameObject obj)
@@ -243,16 +243,17 @@ public class PowerSource : MonoBehaviour {
     }
     public void stopBeingInteracted(GameObject obj)
     {
-        if(obj == player)
+        if(obj == player && isPlayerInteracting)
         {
             isPlayerInteracting = false;
-			anim_Pentagram.SetTrigger ("Stop");
+			anim_Pentagram.SetTrigger ("PStop");
             //FeedbackTimer.fillAmount = 1f - Percentage;
         }
-        else if (obj == ghost)
+        else if (obj == ghost & isGhostInteracting)
         {
             isGhostInteracting = false;
-			anim_Pentagram.SetTrigger ("Stop");
+			anim_Pentagram.SetTrigger ("GStop");
+            //print ("interactttttttttt")
             //FeedbackTimer.fillAmount = 1f - Percentage;
             //timer = 0;
             //Percentage = timer / ghostInteractTime;
