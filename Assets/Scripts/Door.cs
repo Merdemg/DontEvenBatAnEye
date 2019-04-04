@@ -139,6 +139,7 @@ public class Door : MonoBehaviour {
     {
         GetComponent<BoxCollider2D>().enabled = !isOpen;
         GetComponent<SpriteRenderer>().enabled = !isOpen;
+		GetComponentInChildren<MeshRenderer> ().enabled = !isOpen;
     }
 
     public void getInteracted(GameObject obj)
