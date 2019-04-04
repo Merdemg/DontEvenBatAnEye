@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Rewired;
 
 public class Intro_behavior : MonoBehaviour
 {

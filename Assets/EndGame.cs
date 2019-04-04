@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
+using TMPro;
 
 public class EndGame : MonoBehaviour {
 
@@ -15,10 +16,18 @@ public class EndGame : MonoBehaviour {
     public float useTime = 2.0f;
     public static bool isActive = false;
 
+    Outline outline;
+    float counter = 0;
+    float blinkTime = 0.33f;
+
+    [SerializeField] GameObject finalText;
+
     //bool isEndTimes = false;
     GameObject playerObj;
     private void Start()
     {
+        outline = GetComponent<Outline>();
+
         int playerIdentity = Movement.playerId;
         player = ReInput.players.GetPlayer(playerIdentity);
         feedbackObj.GetComponent<Image>().enabled = false;
@@ -40,6 +49,17 @@ public class EndGame : MonoBehaviour {
                 Time.timeScale = 0;
             }
         }
+
+        if (isActive)
+        {
+            counter += Time.deltaTime;
+            if (counter >= blinkTime)
+            {
+                counter -= blinkTime;
+                outline.enabled = !outline.enabled;
+            }
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -65,6 +85,7 @@ public class EndGame : MonoBehaviour {
     public void endGameIsHere()
     {
         isActive = true;
+        finalText.SetActive(true);
     }
 
 
