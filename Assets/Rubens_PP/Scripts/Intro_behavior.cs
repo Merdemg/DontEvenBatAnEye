@@ -47,9 +47,8 @@ public class Intro_behavior : MonoBehaviour
 
 	void Update ()
 	{
-		if (isInsReady&&isGhostReady) {
+		if ((isInsReady&&isGhostReady) || Input.GetKeyDown(KeyCode.Return)) {
 			SceneManager.LoadScene("Intro_02");
-		
 		}
 
 		#region Inspector Inputs

@@ -14,7 +14,7 @@ public class Start_behavior : MonoBehaviour
     void Update()
     {
 
-		if (ins_Bar.value == 5 && ghost_Bar.value == 5) {
+		if ((ins_Bar.value == 5 && ghost_Bar.value == 5) || Input.GetKeyDown(KeyCode.Return)) {
 		
 			SceneManager.LoadScene ("3dKinda");
 		}
