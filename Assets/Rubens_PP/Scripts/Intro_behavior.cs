@@ -119,8 +119,9 @@ public class Intro_behavior : MonoBehaviour
 		ins_Trap.SetActive (false);
 		ins_Booze.SetActive (false);
 		ins_Interaction.SetActive (false);
-		ins_Description.text = "Ward - Creates a barrier that prevents ghosts from entering the room and consumes the ghost power when in contact."; 
-	}
+        //ins_Description.text = "Ward - Creates a barrier that prevents ghosts from entering the room and consumes the ghost power when in contact."; 
+        ins_Description.text = "Ward - Pushes the Ghost away and protects the Investigator. Doesnt work through WALLS.";
+    }
 
 	public void Trap (){
 
@@ -150,7 +151,7 @@ public class Intro_behavior : MonoBehaviour
 		ins_Trap.SetActive (false);
 		ins_Booze.SetActive (false);
 		ins_Interaction.SetActive (true);
-		ins_Description.text = "Interaction - Use it to interect with the objects whitin the scene."; 
+		ins_Description.text = "Interaction - Use it to interect with the objects whitin the scene. Works on pentagrams, containers, stairs, doors and fireplaces."; 
 
 
 	}
@@ -173,7 +174,7 @@ public class Intro_behavior : MonoBehaviour
 		ghost_Haunt.SetActive (true);
 		ghost_Phase.SetActive (false);
 		ghost_Interaction.SetActive (false);
-		ghost_Description.text = "Teleport - Move between floors in the same position you currently are."; 
+		ghost_Description.text = "Haunt - Damage the investigator sanity. Works through WALLS."; 
 
 	}
 
@@ -183,7 +184,7 @@ public class Intro_behavior : MonoBehaviour
 		ghost_Haunt.SetActive (false);
 		ghost_Phase.SetActive (true);
 		ghost_Interaction.SetActive (false);
-		ghost_Description.text = "Teleport - Move between floors in the same position you currently are."; 
+		ghost_Description.text = "Phase - Become invulnerable to investigator's GAZE and WARD. Also move faster."; 
 
 	}
 
@@ -193,7 +194,7 @@ public class Intro_behavior : MonoBehaviour
 		ghost_Haunt.SetActive (false);
 		ghost_Phase.SetActive (false);
 		ghost_Interaction.SetActive (true);
-		ghost_Description.text = "Interaction - Use it to interect with the objects whitin the scene."; 
+		ghost_Description.text = "Interaction - Use it to interect with the objects whitin the scene. Works on pentagrams and doors."; 
 
 	}
 	#endregion
