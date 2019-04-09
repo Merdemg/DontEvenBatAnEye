@@ -288,7 +288,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _EmissionColor: {r: 7.920303, g: 8.138794, b: 10.432951, a: 1}
+    - _EmissionColor: {r: 1.306363, g: 1.3424006, b: 1.7207954, a: 1}
     - _EmissiveColor: {r: 0.6247775, g: 0.9623504, b: 0.9811321, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}

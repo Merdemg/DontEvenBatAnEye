@@ -4,96 +4,106 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Rewired;
 
 public class Intro_behavior : MonoBehaviour
 {
- 
-	[SerializeField] GameObject ins_Booze;
-	[SerializeField] GameObject ins_Trap;
-	[SerializeField] GameObject ins_Ward;
-	[SerializeField] GameObject ins_Interaction;
-	[SerializeField] TextMeshProUGUI ins_Description;
-	[SerializeField] GameObject ins_PressStart;
-	[SerializeField] GameObject ins_Ready;
+
+    [SerializeField] GameObject ins_Booze;
+    [SerializeField] GameObject ins_Trap;
+    [SerializeField] GameObject ins_Ward;
+    [SerializeField] GameObject ins_Interaction;
+    [SerializeField] TextMeshProUGUI ins_Description;
+    [SerializeField] GameObject ins_PressStart;
+    [SerializeField] GameObject ins_Ready;
 
 
-	[SerializeField] bool isInsReady;
+    [SerializeField] bool isInsReady;
 
-	[SerializeField] GameObject ghost_Teleport;
-	[SerializeField] GameObject ghost_Phase;
-	[SerializeField] GameObject ghost_Haunt;
-	[SerializeField] GameObject ghost_Interaction;
-	[SerializeField] TextMeshProUGUI ghost_Description;
-	[SerializeField] GameObject ghost_PressStart;
-	[SerializeField] GameObject ghost_Ready;
-	[SerializeField] bool isGhostReady;
+    [SerializeField] GameObject ghost_Teleport;
+    [SerializeField] GameObject ghost_Phase;
+    [SerializeField] GameObject ghost_Haunt;
+    [SerializeField] GameObject ghost_Interaction;
+    [SerializeField] TextMeshProUGUI ghost_Description;
+    [SerializeField] GameObject ghost_PressStart;
+    [SerializeField] GameObject ghost_Ready;
+    [SerializeField] bool isGhostReady;
 
+    private Player investigator;
+    private Player ghost;
+    public static int invesID = 0;
+    public static int ghostID = 1;
 
-	private void Awake (){
-	
-		ins_Ward.SetActive (false);
-		ins_Trap.SetActive (false);
-		ins_Booze.SetActive (false);
-		ins_Interaction.SetActive (false);
-		ins_Ready.SetActive (false);
+    private void Awake()
+    {
 
-		ghost_Teleport.SetActive (false);
-		ghost_Phase.SetActive (false);
-		ghost_Haunt.SetActive (false);
-		ghost_Interaction.SetActive (false);
-		ghost_Ready.SetActive (false);
-	
-	}
+        ins_Ward.SetActive(false);
+        ins_Trap.SetActive(false);
+        ins_Booze.SetActive(false);
+        ins_Interaction.SetActive(false);
+        ins_Ready.SetActive(false);
 
-	void Update ()
-	{
-		if (isInsReady&&isGhostReady) {
-			SceneManager.LoadScene("Intro_02");
-		
-		}
+        ghost_Teleport.SetActive(false);
+        ghost_Phase.SetActive(false);
+        ghost_Haunt.SetActive(false);
+        ghost_Interaction.SetActive(false);
+        ghost_Ready.SetActive(false);
 
-		#region Inspector Inputs
-	
-		if (Input.GetKeyDown (KeyCode.Joystick1Button0)) {
-			InspectorInteraction ();
-		}
+        investigator = ReInput.players.GetPlayer(invesID);
+        ghost = ReInput.players.GetPlayer(ghostID);
+        print(investigator);
+        print(ghost);
+    }
 
-		if (Input.GetKeyDown (KeyCode.Joystick1Button1)) {
-			Trap ();
-		}
+    void Update()
+    {
+        if ((isInsReady && isGhostReady) || Input.GetKeyDown(KeyCode.Return)) {
+            SceneManager.LoadScene("Intro_02");
+        }
 
-		if (Input.GetKeyDown (KeyCode.Joystick1Button3)) {
-			Booze ();
-		}
+        #region Inspector Inputs
 
-		if (Input.GetKeyDown (KeyCode.Joystick1Button2)) {
+        if (/*Input.GetKeyDown (KeyCode.Joystick1Button0) || */ investigator.GetButtonDown("Interact")) {
+            print("INTERACT");
+            InspectorInteraction();
+        }
+
+        if (/*Input.GetKeyDown(KeyCode.Joystick1Button1) ||*/ investigator.GetButtonDown("Mine")) {
+            Trap();
+        }
+
+        if (/*Input.GetKeyDown(KeyCode.Joystick1Button3) ||*/ investigator.GetButtonDown("Booze")) {
+            Booze();
+        }
+
+        if (/*Input.GetKeyDown(KeyCode.Joystick1Button2) ||*/ investigator.GetButtonDown("Trap")) {
 			Ward ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Joystick1Button7)) {
+		if (/*Input.GetKeyDown (KeyCode.Joystick1Button7) ||*/ investigator.GetButtonDown("Start")) {
 			InspectorReady ();
 		}
 		#endregion
 
 		#region Ghost Inputs
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button0)) {
+		if (Input.GetKeyDown (KeyCode.Joystick2Button0) || ghost.GetButtonDown("Interact")) {
 			GhostInteraction ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button1)) {
+		if (Input.GetKeyDown (KeyCode.Joystick2Button1) || ghost.GetButtonDown("Phase")) {
 			Phase ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button2)) {
+		if (Input.GetKeyDown (KeyCode.Joystick2Button2) || ghost.GetButtonDown("Haunt")) {
 			Haunt ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button3)) {
+		if (Input.GetKeyDown (KeyCode.Joystick2Button3) || ghost.GetButtonDown("Fly")) {
 			Teleport ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button7)) {
+		if (Input.GetKeyDown (KeyCode.Joystick2Button7) || ghost.GetButtonDown("Start")) {
 			GhostReady ();
 		}
 		#endregion
@@ -120,8 +130,9 @@ public class Intro_behavior : MonoBehaviour
 		ins_Trap.SetActive (false);
 		ins_Booze.SetActive (false);
 		ins_Interaction.SetActive (false);
-		ins_Description.text = "Ward - Creates a barrier that prevents ghosts from entering the room and consumes the ghost power when in contact."; 
-	}
+        //ins_Description.text = "Ward - Creates a barrier that prevents ghosts from entering the room and consumes the ghost power when in contact."; 
+        ins_Description.text = "Ward - Pushes the Ghost away and protects the Investigator. Doesnt work through WALLS.";
+    }
 
 	public void Trap (){
 
@@ -151,7 +162,7 @@ public class Intro_behavior : MonoBehaviour
 		ins_Trap.SetActive (false);
 		ins_Booze.SetActive (false);
 		ins_Interaction.SetActive (true);
-		ins_Description.text = "Interaction - Use it to interect with the objects whitin the scene."; 
+		ins_Description.text = "Interaction - Use it to interect with the objects whitin the scene. Works on pentagrams, containers, stairs, doors and fireplaces."; 
 
 
 	}
@@ -174,7 +185,7 @@ public class Intro_behavior : MonoBehaviour
 		ghost_Haunt.SetActive (true);
 		ghost_Phase.SetActive (false);
 		ghost_Interaction.SetActive (false);
-		ghost_Description.text = "Teleport - Move between floors in the same position you currently are."; 
+		ghost_Description.text = "Haunt - Damage the investigator sanity. Works through WALLS."; 
 
 	}
 
@@ -184,7 +195,7 @@ public class Intro_behavior : MonoBehaviour
 		ghost_Haunt.SetActive (false);
 		ghost_Phase.SetActive (true);
 		ghost_Interaction.SetActive (false);
-		ghost_Description.text = "Teleport - Move between floors in the same position you currently are."; 
+		ghost_Description.text = "Phase - Become invulnerable to investigator's GAZE and WARD. Also move faster."; 
 
 	}
 
@@ -194,7 +205,7 @@ public class Intro_behavior : MonoBehaviour
 		ghost_Haunt.SetActive (false);
 		ghost_Phase.SetActive (false);
 		ghost_Interaction.SetActive (true);
-		ghost_Description.text = "Interaction - Use it to interect with the objects whitin the scene."; 
+		ghost_Description.text = "Interaction - Use it to interect with the objects whitin the scene. Works on pentagrams and doors."; 
 
 	}
 	#endregion

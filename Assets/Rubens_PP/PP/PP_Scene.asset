@@ -37,7 +37,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2.24
+    value: 3.12
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -55,7 +55,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 10
+    value: 7.52
   directLightingStrength:
     overrideState: 0
     value: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 15
+    value: 5
   threshold:
     overrideState: 1
     value: 1
@@ -101,17 +101,17 @@ MonoBehaviour:
     value: -0.39
   color:
     overrideState: 0
-    value: {r: 2.143547, g: 2.143547, b: 2.143547, a: 1}
+    value: {r: 1.1868302, g: 1.0980952, b: 1.0980952, a: 1}
   fastMode:
     overrideState: 0
     value: 0
   dirtTexture:
     overrideState: 0
-    value: {fileID: 0}
+    value: {fileID: 2800000, guid: ab50eddfd4deefb4c84f38f813189326, type: 3}
     defaultState: 1
   dirtIntensity:
     overrideState: 0
-    value: 0
+    value: 28.96
 --- !u!114 &114878524712493930
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -129,14 +129,14 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   colored:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0
   intensity:
     overrideState: 1
-    value: 0.25
+    value: 0.508
   size:
     overrideState: 1
-    value: 0.38
+    value: 0.48
   lumContrib:
     overrideState: 0
     value: 0.8
