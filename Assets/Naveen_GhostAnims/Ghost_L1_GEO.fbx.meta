@@ -1,0 +1,211 @@
+fileFormatVersion: 2
+guid: 751fe277950e8334286d40bb2de4c334
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: body_rig_grp
+    100002: body_root
+    100004: eye_01
+    100006: eye_02
+    100008: fk_body_root
+    100010: fk_body_root_anim
+    100012: fk_body_root_anim_grp
+    100014: fk_body_root_driver_grp
+    100016: ghost_01_geo
+    100018: ghost_01_geo_grp
+    100020: ghost_01_rig_grp
+    100022: //RootNode
+    100024: master_anim
+    100026: master_anim_grp
+    100028: spine_01
+    100030: spine_02
+    100032: spine_03
+    100034: spine_04
+    100036: t_b_l_01
+    100038: t_b_l_02
+    100040: t_b_l_03
+    100042: t_b_l_04
+    100044: t_b_m_01
+    100046: t_b_m_02
+    100048: t_b_m_03
+    100050: t_b_m_04
+    100052: t_b_m_l_01
+    100054: t_b_m_l_02
+    100056: t_b_m_l_03
+    100058: t_b_m_l_04
+    100060: t_b_m_r_01
+    100062: t_b_m_r_02
+    100064: t_b_m_r_03
+    100066: t_b_m_r_04
+    100068: t_b_r_01
+    100070: t_b_r_02
+    100072: t_b_r_03
+    100074: t_b_r_04
+    100076: t_f_l_01
+    100078: t_f_l_02
+    100080: t_f_l_03
+    100082: t_f_l_04
+    100084: t_f_m_01
+    100086: t_f_m_02
+    100088: t_f_m_03
+    100090: t_f_m_04
+    100092: t_f_m_l_01
+    100094: t_f_m_l_02
+    100096: t_f_m_l_03
+    100098: t_f_m_l_04
+    100100: t_f_m_r_01
+    100102: t_f_m_r_02
+    100104: t_f_m_r_03
+    100106: t_f_m_r_04
+    100108: t_f_r_01
+    100110: t_f_r_02
+    100112: t_f_r_03
+    100114: t_f_r_04
+    400000: body_rig_grp
+    400002: body_root
+    400004: eye_01
+    400006: eye_02
+    400008: fk_body_root
+    400010: fk_body_root_anim
+    400012: fk_body_root_anim_grp
+    400014: fk_body_root_driver_grp
+    400016: ghost_01_geo
+    400018: ghost_01_geo_grp
+    400020: ghost_01_rig_grp
+    400022: //RootNode
+    400024: master_anim
+    400026: master_anim_grp
+    400028: spine_01
+    400030: spine_02
+    400032: spine_03
+    400034: spine_04
+    400036: t_b_l_01
+    400038: t_b_l_02
+    400040: t_b_l_03
+    400042: t_b_l_04
+    400044: t_b_m_01
+    400046: t_b_m_02
+    400048: t_b_m_03
+    400050: t_b_m_04
+    400052: t_b_m_l_01
+    400054: t_b_m_l_02
+    400056: t_b_m_l_03
+    400058: t_b_m_l_04
+    400060: t_b_m_r_01
+    400062: t_b_m_r_02
+    400064: t_b_m_r_03
+    400066: t_b_m_r_04
+    400068: t_b_r_01
+    400070: t_b_r_02
+    400072: t_b_r_03
+    400074: t_b_r_04
+    400076: t_f_l_01
+    400078: t_f_l_02
+    400080: t_f_l_03
+    400082: t_f_l_04
+    400084: t_f_m_01
+    400086: t_f_m_02
+    400088: t_f_m_03
+    400090: t_f_m_04
+    400092: t_f_m_l_01
+    400094: t_f_m_l_02
+    400096: t_f_m_l_03
+    400098: t_f_m_l_04
+    400100: t_f_m_r_01
+    400102: t_f_m_r_02
+    400104: t_f_m_r_03
+    400106: t_f_m_r_04
+    400108: t_f_r_01
+    400110: t_f_r_02
+    400112: t_f_r_03
+    400114: t_f_r_04
+    2100000: lambert2
+    4300000: ghost_01_geo
+    9500000: //RootNode
+    13700000: ghost_01_geo
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
