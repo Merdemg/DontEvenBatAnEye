@@ -70,8 +70,8 @@ public class Stairs : MonoBehaviour {
             else if (this.tag == "Stairs")
                 InvestigatorAnimations.isStairs = true;
 
-            print("DONE FIREPLACE" + InvestigatorAnimations.isFireplace);
-            print("DONE STAIRS" + InvestigatorAnimations.isStairs);
+            print("DONE FIREPLACE " + InvestigatorAnimations.isFireplace);
+            print("DONE STAIRS " + InvestigatorAnimations.isStairs);
 
         }
 
@@ -86,8 +86,8 @@ public class Stairs : MonoBehaviour {
 
         InvestigatorAnimations.isFireplace = false;
         InvestigatorAnimations.isStairs = false;
-        print("DONE FIREPLACE" + InvestigatorAnimations.isFireplace);
-        print("DONE STAIRS" + InvestigatorAnimations.isStairs);
+        print("DONE FIREPLACE " + InvestigatorAnimations.isFireplace);
+        print("DONE STAIRS " + InvestigatorAnimations.isStairs);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
