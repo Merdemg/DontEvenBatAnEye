@@ -64,6 +64,15 @@ public class Stairs : MonoBehaviour {
         if (playerCanInteract)
         {
             isPlayerInteracting = true;
+
+            if (this.tag == "Fireplace")
+                InvestigatorAnimations.isFireplace = true;
+            else if (this.tag == "Stairs")
+                InvestigatorAnimations.isStairs = true;
+
+            print("DONE FIREPLACE" + InvestigatorAnimations.isFireplace);
+            print("DONE STAIRS" + InvestigatorAnimations.isStairs);
+
         }
 
         timer = 0;
@@ -74,6 +83,11 @@ public class Stairs : MonoBehaviour {
         timer = 0;
         isPlayerInteracting = false;
         FeedbackTimer.fillAmount = 1;
+
+        InvestigatorAnimations.isFireplace = false;
+        InvestigatorAnimations.isStairs = false;
+        print("DONE FIREPLACE" + InvestigatorAnimations.isFireplace);
+        print("DONE STAIRS" + InvestigatorAnimations.isStairs);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

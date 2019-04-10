@@ -178,6 +178,9 @@ public class Investigator : MonoBehaviour {
             LivingController.isTrap = true;
             timer += Time.deltaTime;
             TrapProg.fillAmount = timer / bObjectDropTime;
+
+            InvestigatorAnimations.isTrap = true;
+
             if (timer >= bObjectDropTime)
             {
                 bAbility = false;
@@ -189,6 +192,7 @@ public class Investigator : MonoBehaviour {
                 //LoadTexture.isTrap = false;
                 LivingController.isTrap = false;
                 StartCoroutine(ControllerVibration());
+                InvestigatorAnimations.isTrap = false;
             }
 
         }
@@ -214,6 +218,8 @@ public class Investigator : MonoBehaviour {
             LivingController.isWard = true;
             timer += Time.deltaTime;
             WardProgress.fillAmount = timer / xObjectDropTime;
+            InvestigatorAnimations.isTrap = true;
+
             if (timer >= xObjectDropTime)
             {
                 xAbility = false;
@@ -222,6 +228,8 @@ public class Investigator : MonoBehaviour {
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
                 WardProgress.fillAmount = 0;
                 StartCoroutine(ControllerVibration());
+                InvestigatorAnimations.isTrap = false;
+
                 //LoadTexture.isWard = false;
             }
 
