@@ -218,7 +218,7 @@ public class Investigator : MonoBehaviour {
             LivingController.isWard = true;
             timer += Time.deltaTime;
             WardProgress.fillAmount = timer / xObjectDropTime;
-            InvestigatorAnimations.isTrap = true;
+            InvestigatorAnimations.isWard = true;
 
             if (timer >= xObjectDropTime)
             {
@@ -228,7 +228,7 @@ public class Investigator : MonoBehaviour {
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
                 WardProgress.fillAmount = 0;
                 StartCoroutine(ControllerVibration());
-                InvestigatorAnimations.isTrap = false;
+                InvestigatorAnimations.isWard = false;
 
                 //LoadTexture.isWard = false;
             }
