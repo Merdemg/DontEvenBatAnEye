@@ -57,7 +57,16 @@ public class GhostController : MonoBehaviour {
 
 	private AudioSource HauntingSound;
 
-    
+
+    public GameObject ghostLevel1;
+    public GameObject ghostLevel2;
+    public GameObject ghostLevel3;
+
+    public GameObject ghostHolder;
+
+    bool isPentagramGhost = false;
+
+
     private void Awake()
     {
         ghost = ReInput.players.GetPlayer(playerId);
@@ -76,9 +85,23 @@ public class GhostController : MonoBehaviour {
         defaultHauntEffect = GameObject.FindGameObjectWithTag("DefaultDistortion");
 
 		HauntingSound = GetComponent<AudioSource> ();
+
+        ghostLevel1.SetActive(true);
+        ghostLevel2.SetActive(false);
+        ghostLevel3.SetActive(false);
+
 	}
 
     void Update() {
+
+        if(isPentagramGhost)
+        {
+            GhostAnimController.isHaunt = true;
+        }
+        else
+        {
+            GhostAnimController.isHaunt = false;
+        }
 
 
         if (blinkTimer > 0)
@@ -116,6 +139,7 @@ public class GhostController : MonoBehaviour {
             isHaunting = true;
             hauntEffect.SetActive(true);
             defaultHauntEffect.SetActive(false);
+            print("GHOST IS HAUNTING");
         }
         else if (ghost.GetButtonUp("Haunt") || Input.GetKeyUp(KeyCode.H))
         {
@@ -123,6 +147,7 @@ public class GhostController : MonoBehaviour {
             hauntEffect.SetActive(false);
             defaultHauntEffect.SetActive(true);
             GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
+            
         }
 
         if (isTrapped == false && ghost.GetButtonDown("Fly"))
@@ -174,8 +199,14 @@ public class GhostController : MonoBehaviour {
 				//HauntingSound.Play ();
 			//}
             Debug.Log("ishaunting");
+            GhostAnimController.isHaunt = true;
             losePowerWithoutBlinking(Time.deltaTime * hauntingCost * (float)powerLevel);
         }
+        else
+        {
+            GhostAnimController.isHaunt = false;
+        }
+
 
         if (isInteracting == false && isHaunting == false && (ghost.GetAxis("Horizontal") > 0.1f || ghost.GetAxis("Horizontal") < -0.1f 
             || ghost.GetAxis("Vertical") > 0.1f || ghost.GetAxis("Vertical") < -0.1f))
@@ -190,9 +221,20 @@ public class GhostController : MonoBehaviour {
             }
 
             Vector2 temp = new Vector2(ghost.GetAxis("Horizontal"), -ghost.GetAxis("Vertical"));
+            float angle = Mathf.Atan2(-ghost.GetAxis("Horizontal"), -ghost.GetAxis("Vertical")) * Mathf.Rad2Deg;
+            //ghostLevel1.transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+            //ghostLevel2.transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+            //ghostLevel3.transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+            ghostHolder.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
             temp.Normalize();
             temp *= speedActual;
             GetComponent<Rigidbody2D>().AddForce(temp);
+            GhostAnimController.isWalk = true; 
+        }
+        else
+        {
+            GhostAnimController.isWalk = false;
         }
 
         drainSanity();
@@ -269,6 +311,8 @@ public class GhostController : MonoBehaviour {
             if (object2interact.GetComponent<PowerSource>())
             {
                 object2interact.GetComponent<PowerSource>().getInteracted(this.gameObject);
+                isPentagramGhost = true;
+
             }
             else if (object2interact.GetComponent<Door>())
             {
@@ -283,6 +327,8 @@ public class GhostController : MonoBehaviour {
             if (object2interact.GetComponent<PowerSource>())
             {
                 object2interact.GetComponent<PowerSource>().stopBeingInteracted(this.gameObject);
+                isPentagramGhost = false;
+
             }
             else if (object2interact.GetComponent<Door>())
             {
@@ -307,6 +353,9 @@ public class GhostController : MonoBehaviour {
             Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 0.2f);
             Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 0.2f);
             Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
+            ghostLevel1.SetActive(true);
+            ghostLevel2.SetActive(false);
+            ghostLevel3.SetActive(false);
         }
         else if (power < 100f)
         {
@@ -319,6 +368,9 @@ public class GhostController : MonoBehaviour {
             Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 0.2f);
             Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 0.2f);
             Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
+            ghostLevel1.SetActive(true);
+            ghostLevel2.SetActive(false);
+            ghostLevel3.SetActive(false);
         }
         else if (power < 150)   // Can damage
         {
@@ -331,6 +383,9 @@ public class GhostController : MonoBehaviour {
             Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
             Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 0.2f);
             Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
+            ghostLevel1.SetActive(false);
+            ghostLevel2.SetActive(true);
+            ghostLevel3.SetActive(false);
         }
         else if (power < 200)   // Can lock doors
         {
@@ -343,6 +398,9 @@ public class GhostController : MonoBehaviour {
             Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
             Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 1.0f);
             Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 1.0f);
+            ghostLevel1.SetActive(false);
+            ghostLevel2.SetActive(false);
+            ghostLevel3.SetActive(true);
         }
         else
         {                       // Can do possession attack
@@ -355,6 +413,9 @@ public class GhostController : MonoBehaviour {
             Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
             Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 1.0f);
             Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 1.0f);
+            ghostLevel1.SetActive(false);
+            ghostLevel2.SetActive(false);
+            ghostLevel3.SetActive(true);
         }
 
         updateRangeIndicator();

@@ -94,7 +94,7 @@ public class PowerSource : MonoBehaviour {
                     //FeedbackTimer.fillAmount = 1f - Percentage; 
                     activateFeedback();
                     ghostCanInter = true;
-                    
+                    GhostAnimController.isHaunt = true;
                     ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
 
                 }
@@ -103,7 +103,7 @@ public class PowerSource : MonoBehaviour {
             {
                 deactivateFeedback();
                 ghostCanInter = false;
-
+                GhostAnimController.isHaunt = false;
             }
         }
         else if (isActive == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
@@ -144,6 +144,7 @@ public class PowerSource : MonoBehaviour {
             timer += Time.deltaTime;
             Percentage = timer / ghostInteractTime;
             //FeedbackTimer.fillAmount = 1 - Percentage;
+            GhostAnimController.isHaunt = true;
 
             if (timer >= ghostInteractTime)
             {
@@ -153,7 +154,7 @@ public class PowerSource : MonoBehaviour {
                 Percentage = timer / playerInteractTime;
                 ghost.GetComponent<GhostController>().interactiondone();
                 ghost.GetComponent<GhostController>().getPower(activationBonus);
-                
+                GhostAnimController.isHaunt = false;
             }          
         }
         else if (isPlayerInteracting && playerCanInter)
@@ -232,13 +233,19 @@ public class PowerSource : MonoBehaviour {
         {
             isGhostInteracting = true;
 			anim_Pentagram.SetTrigger ("GInteract");
+            GhostAnimController.isHaunt = true;
+            print("GHOST - POWERSOURCE");
             //timer = 0;
         }
-        else if(obj == player && playerCanInter && !isPlayerInteracting)
+        else  if(obj == player && playerCanInter && !isPlayerInteracting)
         {
             isPlayerInteracting = true;
 			anim_Pentagram.SetTrigger ("PInteract");
             //timer = 0;
+        }
+        else
+        {
+            GhostAnimController.isHaunt = false;
         }
     }
     public void stopBeingInteracted(GameObject obj)
@@ -253,6 +260,7 @@ public class PowerSource : MonoBehaviour {
         {
             isGhostInteracting = false;
 			anim_Pentagram.SetTrigger ("GStop");
+            GhostAnimController.isHaunt = false;
             //print ("interactttttttttt")
             //FeedbackTimer.fillAmount = 1f - Percentage;
             //timer = 0;

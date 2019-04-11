@@ -218,6 +218,8 @@ public class Investigator : MonoBehaviour {
             LivingController.isWard = true;
             timer += Time.deltaTime;
             WardProgress.fillAmount = timer / xObjectDropTime;
+            InvestigatorAnimations.isWard = true;
+
             if (timer >= xObjectDropTime)
             {
                 xAbility = false;
@@ -226,6 +228,8 @@ public class Investigator : MonoBehaviour {
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
                 WardProgress.fillAmount = 0;
                 StartCoroutine(ControllerVibration());
+                InvestigatorAnimations.isWard = false;
+
                 //LoadTexture.isWard = false;
             }
 

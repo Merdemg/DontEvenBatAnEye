@@ -6,15 +6,13 @@ public class InvestigatorAnimations : MonoBehaviour
 {
     public Animator anim;
     public static bool isWalking, isUnlocking, isSearching, 
-        isFireplace, isStairs, isTrap;
+        isFireplace, isStairs, isTrap, isWard;
     
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isWalking)
@@ -63,6 +61,14 @@ public class InvestigatorAnimations : MonoBehaviour
         }
         else
             anim.SetBool("isTrap", false);
+
+        if (isWard)
+        {
+            anim.SetBool("isWard", true);
+
+        }
+        else
+            anim.SetBool("isWard", false);
 
     }
 }
