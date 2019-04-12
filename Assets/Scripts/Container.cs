@@ -7,6 +7,8 @@ public class Container : MonoBehaviour
 {
     public Color containerColor;
 
+    BoxCollider2D triggerBox;
+
     bool hasBooze = false;
     bool hasEvidence = false;
     [SerializeField] float useTime = 4.0f;
@@ -38,6 +40,8 @@ public class Container : MonoBehaviour
 
     void Start()
     {
+        
+
         //outline = gameObject.AddComponent<Outline>();
         outline = GetComponent<Outline>();
         outline.OutlineMode = Outline.Mode.OutlineAll;
@@ -133,6 +137,33 @@ public class Container : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //if (collision.gameObject.tag == "Player")
+        //{
+        //    feedbackObj.GetComponent<Image>().enabled = true;
+        //    player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+        //    playerCanInteract = true;
+        //    playerIsColliding = true;
+        //    //LoadTexture.isContainer = true;
+        //    outline.OutlineColor = Color.white;
+        //    LivingController.isContainer = true;
+        //}
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        //if (collision.gameObject.tag == "Player")
+        //{
+        //    feedbackObj.GetComponent<Image>().enabled = false;
+        //    playerCanInteract = false;
+        //    playerIsColliding = false;
+        //    //LoadTexture.isContainer = false;
+        //    LivingController.isContainer = false;
+        //    outline.OutlineColor = Color.yellow;
+        //    //timer = 0;
+        //}
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "Player")
         {
             feedbackObj.GetComponent<Image>().enabled = true;
@@ -144,7 +175,8 @@ public class Container : MonoBehaviour
             LivingController.isContainer = true;
         }
     }
-    void OnCollisionExit2D(Collision2D collision)
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -157,6 +189,7 @@ public class Container : MonoBehaviour
             //timer = 0;
         }
     }
+
     public void getInteracted()
     {
         if (playerCanInteract)

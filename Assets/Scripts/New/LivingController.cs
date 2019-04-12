@@ -11,8 +11,8 @@ public class LivingController : MonoBehaviour {
 
     [SerializeField] float sanity = 100.0f;
     public static float staticSanity;
-    public Image SanUI;
-    public Image SanUIPlayer;
+    public Slider SanUI;
+    public Slider SanUIPlayer;
     [Header("UI Text")]
     [SerializeField] TextMeshProUGUI evidenceText;
     [SerializeField] TextMeshProUGUI sanityText, boozeText;
@@ -220,8 +220,10 @@ public class LivingController : MonoBehaviour {
 
     void updateSanityUI()
     {
-        SanUI.fillAmount = sanity / maxSanity;
-        SanUIPlayer.fillAmount = sanity / maxSanity;
+        //SanUI.fillAmount = sanity / maxSanity;
+        //SanUIPlayer.fillAmount = sanity / maxSanity;
+        SanUI.value = sanity;
+        SanUIPlayer.value = sanity;
         boozeText.text = Investigator.boozeNum.ToString();
         evidenceText.text = "Evidence: " + evidence + "/" + evidenceRequired;
     }

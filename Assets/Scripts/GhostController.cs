@@ -22,6 +22,7 @@ public class GhostController : MonoBehaviour {
     [SerializeField] Image Pow3a;
     [SerializeField] Image FlyArrow;
     [SerializeField] float power = 10.0f;
+    float maxPower = 200;
     public static float staticPower;
     int powerLevel = 1;
     [SerializeField] float insanityMultiplier = 1.0f;
@@ -288,6 +289,11 @@ public class GhostController : MonoBehaviour {
     public void getPower(float amount)
     {
         power += amount;
+
+        if (power > maxPower)
+        {
+            power = maxPower;
+        }
         updatePowerLevel();
         updatePowerText();
     }
