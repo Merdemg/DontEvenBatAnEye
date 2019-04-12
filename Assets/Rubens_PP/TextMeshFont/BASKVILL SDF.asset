@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: BASKVILL SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1609744405
   material: {fileID: 21715084346860134}
-  materialHashCode: 0
+  materialHashCode: -1904531842
   fontAssetType: 1
   m_fontInfo:
     Name: Baskerville Old Face
     PointSize: 172
-    Scale: 0
+    Scale: 1
     CharacterCount: 97
     LineHeight: 172
     Baseline: 0
     Ascender: 129
-    CapHeight: 0
+    CapHeight: 114.625
     Descender: -43
     CenterLine: 0
     SuperscriptOffset: 129
@@ -34,7 +34,7 @@ MonoBehaviour:
     UnderlineThickness: 7.5585938
     strikethrough: 31.272728
     strikethroughThickness: 7.5585938
-    TabWidth: 0
+    TabWidth: 430
     Padding: 5
     AtlasWidth: 1024
     AtlasHeight: 1024
@@ -43,10 +43,10 @@ MonoBehaviour:
   - id: 32
     x: 6
     y: 1029
-    width: 0
-    height: 0
+    width: 43
+    height: 172
     xOffset: 0
-    yOffset: 0
+    yOffset: 129
     xAdvance: 43
     scale: 1
   - id: 33
@@ -1041,9 +1041,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
