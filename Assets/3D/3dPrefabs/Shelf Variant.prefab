@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1306803145012206, guid: ccf25e2b0707833489db69923f5d4286, type: 3}
       propertyPath: m_Name
-      value: Shelf
+      value: Shelf Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4640395370539866, guid: ccf25e2b0707833489db69923f5d4286, type: 3}
       propertyPath: m_LocalPosition.x

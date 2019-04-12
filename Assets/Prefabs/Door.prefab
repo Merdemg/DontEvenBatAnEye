@@ -955,11 +955,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4011670468464834}
     m_Modifications:
-    - target: {fileID: 7322128371865321269, guid: 0daaa4ea649e415419612077b57bf86f,
-        type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
     - target: {fileID: 1171125349803292373, guid: 0daaa4ea649e415419612077b57bf86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1029,6 +1024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322128371865321269, guid: 0daaa4ea649e415419612077b57bf86f,
+        type: 3}
+      propertyPath: m_Name
+      value: Door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daaa4ea649e415419612077b57bf86f, type: 3}

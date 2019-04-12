@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Rubens_PP/New_Scene/Scenes/Intro_02.unity
     guid: 90beef43cc31c304192f6d7d97c69cbb
   - enabled: 1
-    path: Assets/Scenes/3dKinda.unity
+    path: Assets/Scenes/3D_Old.unity
     guid: a03570892e489d34bbcee9573d3ea1a7
   m_configObjects: {}

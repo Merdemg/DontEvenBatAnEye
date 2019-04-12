@@ -5931,16 +5931,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4320276068662594}
     m_Modifications:
-    - target: {fileID: 7950866771879486011, guid: ed30a0c337565174c9c72644ce3af914,
-        type: 3}
-      propertyPath: m_Name
-      value: Credenza_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7950866771879486011, guid: ed30a0c337565174c9c72644ce3af914,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 5430650992015872072, guid: ed30a0c337565174c9c72644ce3af914,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6010,6 +6000,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.23001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950866771879486011, guid: ed30a0c337565174c9c72644ce3af914,
+        type: 3}
+      propertyPath: m_Name
+      value: Credenza_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950866771879486011, guid: ed30a0c337565174c9c72644ce3af914,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed30a0c337565174c9c72644ce3af914, type: 3}

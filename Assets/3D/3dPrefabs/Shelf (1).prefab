@@ -203,6 +203,7 @@ MonoBehaviour:
   containerObj: {fileID: 0}
   shimmerSpeed: 5
   outlineThicc: 3
+  clip: {fileID: 0}
 --- !u!114 &776440360
 MonoBehaviour:
   m_ObjectHideFlags: 0
