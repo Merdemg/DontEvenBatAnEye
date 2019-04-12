@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
 using XInputDotNetPure;
+using TMPro;
+
 public class LivingController : MonoBehaviour {
 
 
@@ -12,8 +14,8 @@ public class LivingController : MonoBehaviour {
     public Image SanUI;
     public Image SanUIPlayer;
     [Header("UI Text")]
-    [SerializeField] Text evidenceText;
-    [SerializeField] Text sanityText, boozeText;
+    [SerializeField] TextMeshProUGUI evidenceText;
+    [SerializeField] TextMeshProUGUI sanityText, boozeText;
     public GameObject object2interact;
     public float protectionValue = 0.25f;
     public static bool isProtected = false;
