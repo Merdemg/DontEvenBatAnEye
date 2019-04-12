@@ -211,6 +211,11 @@ public class LivingController : MonoBehaviour {
         updateSanityUI();
     }
 
+    public float getSanity()
+    {
+        return sanity;
+    }
+
     void updateSanityUI()
     {
         SanUI.fillAmount = sanity / maxSanity;

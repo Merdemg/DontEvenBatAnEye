@@ -12,7 +12,7 @@ public class Investigator : MonoBehaviour {
     public static int boozeNum = 1;
     [SerializeField] Image iconBooze, iconTrap, iconxObject, buttonBooze, buttonTrap, buttonxObject;
     [Header("Float Variables")]
-    [SerializeField] float sanity = 100.0f;
+    //[SerializeField] float sanity = 100.0f;
     [SerializeField] float drinkingSpeed = 1.0f;
     [SerializeField] float boozeSanity = 33.3f;
     [SerializeField] float bObjectCost = 25f;
@@ -49,9 +49,11 @@ public class Investigator : MonoBehaviour {
     float vibrateTime = 3f;
     float startTime = 0f;
 
+    LivingController livController;
+
     // Use this for initialization
     void Start () {
-
+        livController = GetComponent<LivingController>();
         int playerIdentity = Movement.playerId;
         player = ReInput.players.GetPlayer(playerIdentity);
     }
@@ -90,7 +92,7 @@ public class Investigator : MonoBehaviour {
 
         }
 
-        if (sanity > xObjectCost)
+        if (livController.getSanity() > xObjectCost)
         {
             buttonxObject.color = new Color(buttonxObject.color.r, buttonxObject.color.g, buttonxObject.color.b, 1.0f);
             iconxObject.color = new Color(iconxObject.color.r, iconxObject.color.g, iconxObject.color.b, 1.0f);
@@ -101,7 +103,7 @@ public class Investigator : MonoBehaviour {
             iconxObject.color = new Color(iconxObject.color.r, iconxObject.color.g, iconxObject.color.b, 0.2f);
         }
 
-        if (sanity > bObjectCost)
+        if (livController.getSanity() > bObjectCost)
         {
             buttonTrap.color = new Color(buttonTrap.color.r, buttonTrap.color.g, buttonTrap.color.b, 1.0f);
             iconTrap.color = new Color(iconTrap.color.r, iconTrap.color.g, iconTrap.color.b, 1.0f);
@@ -122,12 +124,12 @@ public class Investigator : MonoBehaviour {
                 blinkSwitchTimer -= blinkSpeed;
                 GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
             }
-            if (sanity >= (.6 * maxSanity))
+            if (livController.getSanity() >= (.6 * maxSanity))
             {
                 GetComponent<SpriteRenderer>().color = Color.green;
                 SanUI.color = Color.green;
             }
-            else if (sanity >= (.3 * maxSanity))
+            else if (livController.getSanity() >= (.3 * maxSanity))
             {
                 GetComponent<SpriteRenderer>().color = Color.yellow;
                 SanUI.color = Color.yellow;
@@ -161,7 +163,7 @@ public class Investigator : MonoBehaviour {
             this.GetComponent<LivingController>().uninteract();
         }
 
-        if (player.GetButtonDown("Mine") && interactButton == false && sanity > bObjectCost && xAbility == false && yAbility == false)
+        if (player.GetButtonDown("Mine") && interactButton == false && livController.getSanity() > bObjectCost && xAbility == false && yAbility == false)
         {
             bAbility = true;
             timer = 0;
@@ -201,7 +203,7 @@ public class Investigator : MonoBehaviour {
             LivingController.isTrap = false;
         }
 
-        if (player.GetButtonDown("Ward") && interactButton == false && sanity > xObjectCost && bAbility == false && yAbility == false)
+        if (player.GetButtonDown("Ward") && interactButton == false && livController.getSanity() > xObjectCost && bAbility == false && yAbility == false)
         {
             xAbility = true;
             timer = 0;
