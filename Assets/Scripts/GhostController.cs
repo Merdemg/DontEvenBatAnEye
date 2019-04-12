@@ -11,7 +11,7 @@ public class GhostController : MonoBehaviour {
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float phasingSpeed = 0;   
     [SerializeField] GameObject object2interact;
-    [SerializeField] Image PowUI;
+    [SerializeField] Slider PowUI;
     [SerializeField] Image HauntImage;
     [SerializeField] Image PhaseImage;
     [SerializeField] Image HauntButt;
@@ -443,7 +443,8 @@ public class GhostController : MonoBehaviour {
     }
     void updatePowerText()
     {
-        PowUI.fillAmount = power / 200;
+        //PowUI.fillAmount = power / 200;
+        PowUI.value = power;
     }
     void fly()
     {
