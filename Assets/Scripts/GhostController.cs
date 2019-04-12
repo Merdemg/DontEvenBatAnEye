@@ -66,6 +66,7 @@ public class GhostController : MonoBehaviour {
 
     bool isPentagramGhost = false;
 
+    Vector2 movementVec;
 
     private void Awake()
     {
@@ -229,17 +230,24 @@ public class GhostController : MonoBehaviour {
 
             temp.Normalize();
             temp *= speedActual;
-            GetComponent<Rigidbody2D>().AddForce(temp);
+            movementVec = temp;
+            //GetComponent<Rigidbody2D>().AddForce(temp);
             GhostAnimController.isWalk = true; 
         }
         else
         {
             GhostAnimController.isWalk = false;
+            movementVec = Vector2.zero;
         }
 
         drainSanity();
         staticPower = power;
 
+    }
+
+    private void FixedUpdate()
+    {
+        GetComponent<Rigidbody2D>().AddForce(movementVec);
     }
 
     public void losePower(float amount)

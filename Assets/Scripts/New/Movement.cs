@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour {
     public static int playerId = 0;
 
     [SerializeField] float moveSpeed = 1f;
+    Vector2 movementVec;
 
     private void Awake()
     {
@@ -32,11 +33,22 @@ public class Movement : MonoBehaviour {
             Vector2 temp = new Vector2(player.GetAxis("Horizontal"), player.GetAxis("Vertical"));
             temp.Normalize();
             temp *= moveSpeed;
-            GetComponent<Rigidbody2D>().AddForce(temp);
+            movementVec = temp;
+            
             InvestigatorAnimations.isWalking = true;
         }
         else
+        {
             InvestigatorAnimations.isWalking = false;
+            movementVec = Vector2.zero;
+        }
+            
 
+    }
+
+
+    private void FixedUpdate()
+    {
+        GetComponent<Rigidbody2D>().AddForce(movementVec);
     }
 }
