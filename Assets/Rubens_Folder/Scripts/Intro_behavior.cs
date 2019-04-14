@@ -87,23 +87,23 @@ public class Intro_behavior : MonoBehaviour
 
 		#region Ghost Inputs
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button0) || ghost.GetButtonDown("Interact")) {
+		if (/*Input.GetKeyDown (KeyCode.Joystick2Button0) ||*/ ghost.GetButtonDown("Interact")) {
 			GhostInteraction ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button1) || ghost.GetButtonDown("Phase")) {
+		if (/*Input.GetKeyDown (KeyCode.Joystick2Button1) ||*/ ghost.GetButtonDown("Phase")) {
 			Phase ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button2) || ghost.GetButtonDown("Haunt")) {
+		if (/*Input.GetKeyDown (KeyCode.Joystick2Button2) ||*/ ghost.GetButtonDown("Haunt")) {
 			Haunt ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button3) || ghost.GetButtonDown("Fly")) {
+		if (/*Input.GetKeyDown (KeyCode.Joystick2Button3) ||*/ ghost.GetButtonDown("Fly")) {
 			Teleport ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Joystick2Button7) || ghost.GetButtonDown("Start")) {
+		if (/*Input.GetKeyDown (KeyCode.Joystick2Button7) ||*/ ghost.GetButtonDown("Start")) {
 			GhostReady ();
 		}
 		#endregion
