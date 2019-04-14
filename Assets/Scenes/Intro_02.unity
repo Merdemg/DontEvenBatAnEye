@@ -255,8 +255,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: The investigator needs to find 5 pieces of evidence of the Ghost's past
-    Identity and do a ritual at the altar
+  m_text: The investigator needs to find 5 pieces of insight and commence a ritual
+    at the altar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -325,12 +325,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 115365126}
-    characterCount: 109
+    characterCount: 85
     spriteCount: 0
-    spaceCount: 20
-    wordCount: 21
+    spaceCount: 15
+    wordCount: 16
     linkCount: 0
-    lineCount: 3
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -418,7 +418,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'Inspector - Can use stairs or fireplaces to move between floors
 
-    Ghost - Doesn''t need to use stairs. Its fly ability moves it between floors'
+    Entity - Doesn''t need to use stairs. Its fly ability moves it between floors
+    freely'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -487,10 +488,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 178697027}
-    characterCount: 139
+    characterCount: 147
     spriteCount: 0
-    spaceCount: 24
-    wordCount: 25
+    spaceCount: 25
+    wordCount: 26
     linkCount: 0
     lineCount: 4
     pageCount: 1
@@ -1653,10 +1654,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Inspector - Can deactivate to slow down Ghost power progress.
+  m_text: 'Inspector - Can deactivate to slow down Entity''s power progress.
 
 
-    Ghost - Activate them to get power over time while activated. '
+    Entity - Activate them to get power over time while activated. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1725,7 +1726,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 938024810}
-    characterCount: 125
+    characterCount: 129
     spriteCount: 0
     spaceCount: 22
     wordCount: 21
@@ -2056,7 +2057,7 @@ MonoBehaviour:
   m_text: 'Inspector - Can pick locks to gain access
 
 
-    Ghost - Can lock doors to slow investigator down if it has enough power to do
+    Entity - Can lock doors to slow investigator down if it has enough power to do
     so'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2126,7 +2127,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 975863922}
-    characterCount: 123
+    characterCount: 124
     spriteCount: 0
     spaceCount: 25
     wordCount: 25

@@ -131,7 +131,7 @@ public class Intro_behavior : MonoBehaviour
 		ins_Booze.SetActive (false);
 		ins_Interaction.SetActive (false);
         //ins_Description.text = "Ward - Creates a barrier that prevents ghosts from entering the room and consumes the ghost power when in contact."; 
-        ins_Description.text = "Ward - Pushes the Ghost away and protects the Investigator. Doesnt work through WALLS.";
+        ins_Description.text = "Ward - Pushes the Entity away and protects the Investigator. Doesn't work through WALLS.";
     }
 
 	public void Trap (){
@@ -140,7 +140,7 @@ public class Intro_behavior : MonoBehaviour
 		ins_Trap.SetActive (true);
 		ins_Booze.SetActive (false);
 		ins_Interaction.SetActive (false);
-		ins_Description.text = "Trap - Snares ghosts for a small period of time."; 
+		ins_Description.text = "Trap - Snares the Entity for a small period of time, creating an opportunity to gaze on it."; 
 
 
 	}
@@ -151,7 +151,7 @@ public class Intro_behavior : MonoBehaviour
 		ins_Trap.SetActive (false);
 		ins_Booze.SetActive (true);
 		ins_Interaction.SetActive (false);
-		ins_Description.text = "Booze - Regains a percentage of your Sanity."; 
+		ins_Description.text = "Booze - Regains a percentage of the Investigator's Sanity."; 
 
 
 	}
@@ -162,7 +162,7 @@ public class Intro_behavior : MonoBehaviour
 		ins_Trap.SetActive (false);
 		ins_Booze.SetActive (false);
 		ins_Interaction.SetActive (true);
-		ins_Description.text = "Interaction - Use it to interect with the objects whitin the scene. Works on pentagrams, containers, stairs, doors and fireplaces."; 
+		ins_Description.text = "Interaction - Use it to interect with the objects within the scene. Works on pentagrams, containers, stairs, doors and fireplaces."; 
 
 
 	}
@@ -175,7 +175,7 @@ public class Intro_behavior : MonoBehaviour
 		ghost_Haunt.SetActive (false);
 		ghost_Phase.SetActive (false);
 		ghost_Interaction.SetActive (false);
-		ghost_Description.text = "Teleport - Move between floors in the same position you currently are."; 
+		ghost_Description.text = "Teleport - Fly between floors freely."; 
 
 	}
 
@@ -185,7 +185,7 @@ public class Intro_behavior : MonoBehaviour
 		ghost_Haunt.SetActive (true);
 		ghost_Phase.SetActive (false);
 		ghost_Interaction.SetActive (false);
-		ghost_Description.text = "Haunt - Damage the investigator sanity. Works through WALLS."; 
+		ghost_Description.text = "Haunt - Damage the Investigator's sanity. Works through WALLS."; 
 
 	}
 
@@ -205,7 +205,7 @@ public class Intro_behavior : MonoBehaviour
 		ghost_Haunt.SetActive (false);
 		ghost_Phase.SetActive (false);
 		ghost_Interaction.SetActive (true);
-		ghost_Description.text = "Interaction - Use it to interect with the objects whitin the scene. Works on pentagrams and doors."; 
+		ghost_Description.text = "Interaction - Use it to interect with the objects within the scene. Works on pentagrams and doors."; 
 
 	}
 	#endregion
