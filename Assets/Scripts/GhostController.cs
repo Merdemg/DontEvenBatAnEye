@@ -7,7 +7,7 @@ using XInputDotNetPure;
 
 public class GhostController : MonoBehaviour {
     [SerializeField] Transform anchor1, anchor2;
-    [SerializeField] Text powerText, powerLevelText;
+    //[SerializeField] Text powerText, powerLevelText;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float phasingSpeed = 0;   
     [SerializeField] GameObject object2interact;
@@ -32,7 +32,7 @@ public class GhostController : MonoBehaviour {
     float flyTimer = 0;
     float speedActual;
     GameObject player;
-    public LayerMask ghostMask;
+    //public LayerMask ghostMask;
     float blinkTimer = 0;
     const float blinkTimerMax = 0.5f;
     bool isBlinking = false;
@@ -366,7 +366,7 @@ public class GhostController : MonoBehaviour {
             Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 0.2f);
             Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 0.2f);
             Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 0.2f);
-            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
+            //Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
             ghostLevel1.SetActive(true);
             ghostLevel2.SetActive(false);
             ghostLevel3.SetActive(false);
@@ -381,7 +381,7 @@ public class GhostController : MonoBehaviour {
             Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 1.0f);
             Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 0.2f);
             Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 0.2f);
-            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
+            //Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
             ghostLevel1.SetActive(true);
             ghostLevel2.SetActive(false);
             ghostLevel3.SetActive(false);
@@ -396,12 +396,12 @@ public class GhostController : MonoBehaviour {
             Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 1.0f);
             Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
             Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 0.2f);
-            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
+            //Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 0.2f);
             ghostLevel1.SetActive(false);
             ghostLevel2.SetActive(true);
             ghostLevel3.SetActive(false);
         }
-        else if (power < 200)   // Can lock doors
+        else //if (power < 200)   // Can lock doors
         {
             powerLevel = 3;
             PhaseButt.color = new Color(PhaseButt.color.r, PhaseButt.color.g, PhaseButt.color.b, 1.0f);
@@ -411,26 +411,26 @@ public class GhostController : MonoBehaviour {
             Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 1.0f);
             Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
             Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 1.0f);
-            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 1.0f);
+            //Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 1.0f);
             ghostLevel1.SetActive(false);
             ghostLevel2.SetActive(false);
             ghostLevel3.SetActive(true);
         }
-        else
-        {                       // Can do possession attack
-            powerLevel = 4;
-            PhaseButt.color = new Color(PhaseButt.color.r, PhaseButt.color.g, PhaseButt.color.b, 1.0f);
-            PhaseImage.color = new Color(PhaseImage.color.r, PhaseImage.color.g, PhaseImage.color.b, 1.0f);
-            HauntButt.color = new Color(HauntButt.color.r, HauntButt.color.g, HauntButt.color.b, 1.0f);
-            HauntImage.color = new Color(HauntImage.color.r, HauntImage.color.g, HauntImage.color.b, 1.0f);
-            Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 1.0f);
-            Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
-            Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 1.0f);
-            Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 1.0f);
-            ghostLevel1.SetActive(false);
-            ghostLevel2.SetActive(false);
-            ghostLevel3.SetActive(true);
-        }
+        //else
+        //{                       // Can do possession attack
+        //    powerLevel = 4;
+        //    PhaseButt.color = new Color(PhaseButt.color.r, PhaseButt.color.g, PhaseButt.color.b, 1.0f);
+        //    PhaseImage.color = new Color(PhaseImage.color.r, PhaseImage.color.g, PhaseImage.color.b, 1.0f);
+        //    HauntButt.color = new Color(HauntButt.color.r, HauntButt.color.g, HauntButt.color.b, 1.0f);
+        //    HauntImage.color = new Color(HauntImage.color.r, HauntImage.color.g, HauntImage.color.b, 1.0f);
+        //    Pow1.color = new Color(Pow1.color.r, Pow1.color.g, Pow1.color.b, 1.0f);
+        //    Pow2.color = new Color(Pow2.color.r, Pow2.color.g, Pow2.color.b, 1.0f);
+        //    Pow3.color = new Color(Pow3.color.r, Pow3.color.g, Pow3.color.b, 1.0f);
+        //    Pow3a.color = new Color(Pow3a.color.r, Pow3a.color.g, Pow3a.color.b, 1.0f);
+        //    ghostLevel1.SetActive(false);
+        //    ghostLevel2.SetActive(false);
+        //    ghostLevel3.SetActive(true);
+        //}
 
         updateRangeIndicator();
     }

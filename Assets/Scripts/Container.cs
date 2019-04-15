@@ -7,7 +7,7 @@ public class Container : MonoBehaviour
 {
     public Color containerColor;
 
-    [SerializeField] BoxCollider2D triggerBox;
+    //[SerializeField] BoxCollider2D triggerBox;
 
     bool hasBooze = false;
     bool hasEvidence = false;
@@ -22,7 +22,7 @@ public class Container : MonoBehaviour
     float timer = 0;
     bool isPlayerInteracting = false;
     GameObject highlight;
-    [SerializeField] GameObject containerObj;
+    //[SerializeField] GameObject containerObj;
     Rigidbody2D rb2D;
     public static bool playerTouch = false;
     private Outline outline;
