@@ -30,21 +30,21 @@ public class Stairs : MonoBehaviour {
 	
 	void Update ()
     {
-        if (Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
-        {
-           // LoadTexture.isStairs = true;
+        //if (Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
+        //{
+        //   // LoadTexture.isStairs = true;
 
-            feedbackObj.SetActive(true);
-           player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
-            playerCanInteract = true;
-        }
-        else
-        {
-            feedbackObj.SetActive(false);
-            playerCanInteract = false;
-            timer = 0;
-           // LoadTexture.isStairs = false;
-        }
+        //    feedbackObj.SetActive(true);
+        //   player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+        //    playerCanInteract = true;
+        //}
+        //else
+        //{
+        //    feedbackObj.SetActive(false);
+        //    playerCanInteract = false;
+        //    timer = 0;
+        //   // LoadTexture.isStairs = false;
+        //}
 
         if (isPlayerInteracting)
         {
@@ -53,13 +53,65 @@ public class Stairs : MonoBehaviour {
             FeedbackTimerBase.fillAmount = 1 - Percentage;
             FeedbackTimerIcon.fillAmount = 1 - Percentage;
             if (timer >= useTime)
-            {               
+            {
+                isPlayerInteracting = false;
+                player.GetComponent<LivingController>().setObject2Interact(null);
                 player.transform.position = myPair.transform.position;
                 LookAtCamera.changedFloors = !LookAtCamera.changedFloors;
                 timer = 0;
             }
         }
 	}
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Colliding");
+        //if (collision.GetComponent<LivingController>())
+        //{
+        //    LivingController.isStairs = true;
+        //}
+        if (collision.gameObject.tag == "Player")
+        {
+            feedbackObj.SetActive(true);
+            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+            playerCanInteract = true;
+            //playerIsColliding = true;
+            //LoadTexture.isContainer = true;
+            //outline.OutlineColor = Color.white;
+            //LivingController.isStairs = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //if (collision.GetComponent<LivingController>())
+        //{
+        //    LivingController.isStairs = false;
+        //}
+
+        if (collision.gameObject.tag == "Player")
+        {
+            feedbackObj.SetActive(false);
+            playerCanInteract = false;
+            player.GetComponent<LivingController>().setObject2Interact(null);
+            //playerIsColliding = false;
+            //LoadTexture.isContainer = false;
+            //LivingController.isStairs = false;
+            //outline.OutlineColor = Color.yellow;
+            //timer = 0;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && player.GetComponent<LivingController>().getObj2Interact() == null)
+        {
+            feedbackObj.SetActive(true);
+            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+            playerCanInteract = true;
+        }
+    }
 
     public void getInteracted()
     {
@@ -91,22 +143,6 @@ public class Stairs : MonoBehaviour {
         InvestigatorAnimations.isStairs = false;
         print("DONE FIREPLACE " + InvestigatorAnimations.isFireplace);
         print("DONE STAIRS " + InvestigatorAnimations.isStairs);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<LivingController>())
-        {
-            LivingController.isStairs = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.GetComponent<LivingController>())
-        {
-            LivingController.isStairs = false;
-        }
     }
 
 

@@ -123,11 +123,12 @@ public class Container : MonoBehaviour
                 }
                 LivingController.isContainer = false;
                 feedbackObj.SetActive(false);
-                Destroy(highlight);
                 outline.enabled = false; //Object cannot be highlighted once search is complete
-                Destroy(this);
-                gameObject.GetComponent<SpriteRenderer>().color = containerColor;
+                Destroy(highlight);
                 InvestigatorAnimations.isSearching = false;
+                player.GetComponent<LivingController>().setObject2Interact(null);
+                Destroy(this);
+                //gameObject.GetComponent<SpriteRenderer>().color = containerColor;
             }
         }
 
@@ -190,7 +191,22 @@ public class Container : MonoBehaviour
             //LoadTexture.isContainer = false;
             LivingController.isContainer = false;
             outline.OutlineColor = Color.yellow;
+            player.GetComponent<LivingController>().setObject2Interact(null);
             //timer = 0;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && player.GetComponent<LivingController>().getObj2Interact() == null)
+        {
+            feedbackObj.SetActive(true);
+            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+            playerCanInteract = true;
+            playerIsColliding = true;
+            //LoadTexture.isContainer = true;
+            outline.OutlineColor = Color.white;
+            LivingController.isContainer = true;
         }
     }
 

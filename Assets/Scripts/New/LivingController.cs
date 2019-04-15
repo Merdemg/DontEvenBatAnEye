@@ -123,6 +123,11 @@ public class LivingController : MonoBehaviour {
         object2interact = obj;
     }
 
+    public GameObject getObj2Interact()
+    {
+        return object2interact;
+    }
+
     public void interact()
     {
         if (object2interact)
