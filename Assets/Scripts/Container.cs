@@ -186,6 +186,7 @@ public class Container : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             feedbackObj.SetActive(false);
+            isPlayerInteracting = false;
             playerCanInteract = false;
             playerIsColliding = false;
             //LoadTexture.isContainer = false;
