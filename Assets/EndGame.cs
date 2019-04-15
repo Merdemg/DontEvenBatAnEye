@@ -8,7 +8,8 @@ using TMPro;
 public class EndGame : MonoBehaviour {
 
     private bool isInteracting = false;
-    public Image feedbackTimer;
+    public Image feedbackTimerBase;
+    public Image feedbackTimerIcon;
     public GameObject feedbackObj;
     float percentage;
     float timer = 0.0f;
@@ -30,18 +31,21 @@ public class EndGame : MonoBehaviour {
 
         int playerIdentity = Movement.playerId;
         player = ReInput.players.GetPlayer(playerIdentity);
-        feedbackObj.GetComponent<Image>().enabled = false;
+
+        feedbackObj.SetActive(false);
 
         playerObj = GameObject.FindGameObjectWithTag("Player");
     }
     void Update ()
     {
+        //feedbackObj.SetActive(false);
         if (player.GetButton("Interact") && isInteracting && isActive)
         {
             timer += Time.deltaTime;
             print(timer);
             percentage = timer / useTime;
-            feedbackTimer.fillAmount = 1 - percentage;
+            feedbackTimerBase.fillAmount = 1 - percentage;
+            feedbackTimerIcon.fillAmount = 1 - percentage;
             if (timer >= useTime)
             {
                 print("GAME OVER! Investigator Wins!");
@@ -66,7 +70,7 @@ public class EndGame : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player" && isActive)
         {
-            feedbackObj.GetComponent<Image>().enabled = true;
+            feedbackObj.SetActive(true);
             //playerObj.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             isInteracting = true;
         }
@@ -76,7 +80,7 @@ public class EndGame : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player" && isActive)
         {
-            feedbackObj.GetComponent<Image>().enabled = false;
+            feedbackObj.SetActive(false);
             isInteracting = false;
         }
     }

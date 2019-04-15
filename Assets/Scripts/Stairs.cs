@@ -9,7 +9,8 @@ public class Stairs : MonoBehaviour {
     [SerializeField] GameObject feedbackObj;
     [SerializeField] float interactDistance = 1.0f;
 
-    public Image FeedbackTimer;
+    public Image FeedbackTimerBase;
+    public Image FeedbackTimerIcon;
     float Percentage;
 
     [SerializeField] GameObject myPair;
@@ -24,7 +25,7 @@ public class Stairs : MonoBehaviour {
     void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        feedbackObj.GetComponent<Image>().enabled = false;
+        feedbackObj.SetActive(false);
     }
 	
 	void Update ()
@@ -33,13 +34,13 @@ public class Stairs : MonoBehaviour {
         {
            // LoadTexture.isStairs = true;
 
-            feedbackObj.GetComponent<Image>().enabled = true;
+            feedbackObj.SetActive(true);
            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
         }
         else
         {
-            feedbackObj.GetComponent<Image>().enabled = false;
+            feedbackObj.SetActive(false);
             playerCanInteract = false;
             timer = 0;
            // LoadTexture.isStairs = false;
@@ -49,7 +50,8 @@ public class Stairs : MonoBehaviour {
         {
             timer += Time.deltaTime;
             Percentage = timer / useTime;
-            FeedbackTimer.fillAmount = 1 - Percentage;
+            FeedbackTimerBase.fillAmount = 1 - Percentage;
+            FeedbackTimerIcon.fillAmount = 1 - Percentage;
             if (timer >= useTime)
             {               
                 player.transform.position = myPair.transform.position;
@@ -82,7 +84,8 @@ public class Stairs : MonoBehaviour {
     {
         timer = 0;
         isPlayerInteracting = false;
-        FeedbackTimer.fillAmount = 1;
+        FeedbackTimerBase.fillAmount = 1;
+        FeedbackTimerIcon.fillAmount = 1;
 
         InvestigatorAnimations.isFireplace = false;
         InvestigatorAnimations.isStairs = false;

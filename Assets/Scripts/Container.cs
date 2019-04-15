@@ -7,12 +7,13 @@ public class Container : MonoBehaviour
 {
     public Color containerColor;
 
-    BoxCollider2D triggerBox;
+    [SerializeField] BoxCollider2D triggerBox;
 
     bool hasBooze = false;
     bool hasEvidence = false;
     [SerializeField] float useTime = 4.0f;
-    public Image FeedbackTimer;
+    public Image FeedbackTimerBase;
+    public Image FeedbackTimerIcon;
     float Percentage;
     GameObject player;
     [SerializeField] GameObject feedbackObj;
@@ -52,7 +53,7 @@ public class Container : MonoBehaviour
         outline.OutlineWidth = 0f;
         rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        feedbackObj.GetComponent<Image>().enabled = false;
+        feedbackObj.SetActive(false);
         playerCanInteract = false;
         timer = 0;
         foreach (Transform child in transform)
@@ -65,7 +66,7 @@ public class Container : MonoBehaviour
 
 		SearchSound = gameObject.AddComponent (typeof(AudioSource)) as AudioSource;
 		SearchSound.clip = clip; 
-		HighlightRadius = 1;
+		HighlightRadius = 0;
     }
 
     void Update()
@@ -73,7 +74,7 @@ public class Container : MonoBehaviour
         //When Investigator presses LT and LT sticks
         if (LivingController.isLit && !playerIsColliding)
         {
-            feedbackObj.GetComponent<Image>().enabled = true;
+            feedbackObj.SetActive(true);
             outline.OutlineWidth = Mathf.PingPong(Time.time * shimmerSpeed, outlineThicc);
 
         }
@@ -82,7 +83,7 @@ public class Container : MonoBehaviour
         //Player cannot interact with object anymore
         else if (!playerCanInteract)
         {
-            feedbackObj.GetComponent<Image>().enabled = false;
+            feedbackObj.SetActive(false);
             outline.OutlineWidth = 0f;
         }
         else if (playerIsColliding)
@@ -95,7 +96,7 @@ public class Container : MonoBehaviour
             outline.OutlineWidth = 0f;
         }
 		if (Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position) < HighlightRadius) {
-			feedbackObj.GetComponent<Image> ().enabled = true;
+            feedbackObj.SetActive(true);
 		}
 
         if (isPlayerInteracting)
@@ -103,8 +104,10 @@ public class Container : MonoBehaviour
             InvestigatorAnimations.isSearching = true;
             timer += Time.deltaTime;
             Percentage = timer / useTime;
-            FeedbackTimer.fillAmount = 1 - Percentage;
-			if (!SearchSound.isPlaying) {
+            FeedbackTimerBase.fillAmount = 1 - Percentage;
+            FeedbackTimerIcon.fillAmount = 1 - Percentage;
+
+            if (!SearchSound.isPlaying) {
 				SearchSound.Play ();
 			}
 
@@ -119,7 +122,7 @@ public class Container : MonoBehaviour
                     player.GetComponent<LivingController>().getBooze();
                 }
                 LivingController.isContainer = false;
-                feedbackObj.GetComponent<Image>().enabled = false;
+                feedbackObj.SetActive(false);
                 Destroy(highlight);
                 outline.enabled = false; //Object cannot be highlighted once search is complete
                 Destroy(this);
@@ -129,7 +132,7 @@ public class Container : MonoBehaviour
         }
 
 		if (Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position) < HighlightRadius) {
-			feedbackObj.GetComponent<Image> ().enabled = true;
+			feedbackObj.SetActive(true);
 			//print(Vector3.Distance (gameObject.transform.position, player.gameObject.transform.position));
 		}
 
@@ -164,9 +167,10 @@ public class Container : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Colliding");
         if (collision.gameObject.tag == "Player")
         {
-            feedbackObj.GetComponent<Image>().enabled = true;
+            feedbackObj.SetActive(true);
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             playerCanInteract = true;
             playerIsColliding = true;
@@ -180,7 +184,7 @@ public class Container : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            feedbackObj.GetComponent<Image>().enabled = false;
+            feedbackObj.SetActive(false);
             playerCanInteract = false;
             playerIsColliding = false;
             //LoadTexture.isContainer = false;
@@ -206,7 +210,8 @@ public class Container : MonoBehaviour
     {
         //timer = 0;
         isPlayerInteracting = false;
-        FeedbackTimer.fillAmount = 1 - Percentage;
+        FeedbackTimerBase.fillAmount = 1 - Percentage;
+        FeedbackTimerIcon.fillAmount = 1 - Percentage;
     }
 
 
