@@ -12,11 +12,11 @@ public class Lightning_Behavior : MonoBehaviour
     private void Awake()
     {
         
-        timer = Random.Range(50f, 550f);
+        timer = Random.Range(450f, 3000f);
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        transform.Rotate(0,1,0,Space.World);
+        transform.Rotate(0, 0, 1 * speed, Space.World);
         timer -= 1 / (Time.deltaTime /speed);
         if (timer < 0) {
             print("Thunder");
@@ -28,7 +28,7 @@ public class Lightning_Behavior : MonoBehaviour
 
     void ResetTimer()
     {
-        timer = Random.Range(25f, 150f);
+        timer = Random.Range(800f, 3000f);
         
     }
 }
