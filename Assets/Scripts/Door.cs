@@ -47,7 +47,7 @@ public class Door : MonoBehaviour {
         back = gameObject.transform.Find("Back").gameObject;
 
 
-        feedbackObj.GetComponent<Image>().enabled = false;
+        feedbackObj.SetActive(false);
         Percentage = 0;
     }
 	
@@ -87,12 +87,12 @@ public class Door : MonoBehaviour {
 
         if (playerCanInter || ghostCanInter)
         {
-            feedbackObj.GetComponent<Image>().enabled = true;
+            feedbackObj.SetActive(true);
 
         }
         else
         {
-            feedbackObj.GetComponent<Image>().enabled = false;
+            feedbackObj.SetActive(false);
         }
 
         if (isGhostInteracting)
@@ -138,7 +138,7 @@ public class Door : MonoBehaviour {
     void setOpen(bool isOpen)
     {
         GetComponent<BoxCollider2D>().enabled = !isOpen;
-        GetComponent<SpriteRenderer>().enabled = !isOpen;
+        //GetComponent<SpriteRenderer>().enabled = !isOpen;
         GetComponentInChildren<MeshRenderer>().enabled = !isOpen;
     }
 
@@ -192,25 +192,70 @@ public class Door : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        LivingController.isDoor = true;
+    //    }
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        LivingController.isDoor = false;
+    //        InvestigatorAnimations.isUnlocking = false;
+
+
+    //    }
+    //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            LivingController.isDoor = true;
+            LivingController.isDoor = true; //ANim?
+
+            //feedbackObj.SetActive(true);
+            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+            //playerCanInteract = true;
+            //playerIsColliding = true;
+            //LoadTexture.isContainer = true;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             LivingController.isDoor = false;
             InvestigatorAnimations.isUnlocking = false;
 
-
+            //feedbackObj.SetActive(false);
+            isPlayerInteracting = false;
+            //playerCanInteract = false;
+            //playerIsColliding = false;
+            //LoadTexture.isContainer = false;
+            //outline.OutlineColor = Color.yellow;
+            player.GetComponent<LivingController>().setObject2Interact(null);
+            //timer = 0;
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && player.GetComponent<LivingController>().getObj2Interact() == null)
+        {
+            LivingController.isDoor = true; //ANim?
 
+//feedbackObj.SetActive(true);
+            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+            //playerCanInteract = true;
+            //playerIsColliding = true;
+            //LoadTexture.isContainer = true;
+            //outline.OutlineColor = Color.white;
+        }
+    }
 
 }
