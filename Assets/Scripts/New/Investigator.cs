@@ -27,18 +27,18 @@ public class Investigator : MonoBehaviour {
     const float maxSanity = 100.0f;
     const float blinkTimerMax = 0.5f;
     const float blinkSpeed = 0.2f;
-    public Image SanUI;
+    //public Image SanUI;
 
     [Header("Bools")]
     bool yAbility = false;
     bool xAbility = false;
     bool interactButton = false;
     bool bAbility = false;
-    [SerializeField] Image TrapProg;
+   // [SerializeField] Image TrapProg;
     [SerializeField] GameObject bObject;
     [SerializeField] GameObject xObject;
-    [SerializeField] Image BoozeProgress;
-    [SerializeField] Image WardProgress;
+    //[SerializeField] Image BoozeProgress;
+    //[SerializeField] Image WardProgress;
     public GameObject[] wards;
     int indexWard = 0;
 
@@ -114,37 +114,37 @@ public class Investigator : MonoBehaviour {
             iconTrap.color = new Color(iconTrap.color.r, iconTrap.color.g, iconTrap.color.b, 0.2f);
         }
 
-        if (blinkTimer > 0)
-        {
-            blinkTimer -= Time.deltaTime;
-            blinkSwitchTimer += Time.deltaTime;
+        //if (blinkTimer > 0)
+        //{
+        //    blinkTimer -= Time.deltaTime;
+        //    blinkSwitchTimer += Time.deltaTime;
 
-            if (blinkSwitchTimer >= blinkSpeed)
-            {
-                blinkSwitchTimer -= blinkSpeed;
-                GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
-            }
-            if (livController.getSanity() >= (.6 * maxSanity))
-            {
-                GetComponent<SpriteRenderer>().color = Color.green;
-                SanUI.color = Color.green;
-            }
-            else if (livController.getSanity() >= (.3 * maxSanity))
-            {
-                GetComponent<SpriteRenderer>().color = Color.yellow;
-                SanUI.color = Color.yellow;
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().color = Color.red;
-                SanUI.color = Color.red;
-            }
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().enabled = true;
+        //    if (blinkSwitchTimer >= blinkSpeed)
+        //    {
+        //        blinkSwitchTimer -= blinkSpeed;
+        //        GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+        //    }
+        //    if (livController.getSanity() >= (.6 * maxSanity))
+        //    {
+        //        GetComponent<SpriteRenderer>().color = Color.green;
+        //        SanUI.color = Color.green;
+        //    }
+        //    else if (livController.getSanity() >= (.3 * maxSanity))
+        //    {
+        //        GetComponent<SpriteRenderer>().color = Color.yellow;
+        //        SanUI.color = Color.yellow;
+        //    }
+        //    else
+        //    {
+        //        GetComponent<SpriteRenderer>().color = Color.red;
+        //        SanUI.color = Color.red;
+        //    }
+        //}
+        //else
+        //{
+        //    GetComponent<SpriteRenderer>().enabled = true;
 
-        }
+        //}
 
 
         if (player.GetButtonDown("Interact") && bAbility == false && xAbility == false && yAbility == false)
@@ -171,7 +171,7 @@ public class Investigator : MonoBehaviour {
         if (player.GetButtonUp("Mine"))
         {
             bAbility = false;
-            TrapProg.fillAmount = 0;
+            //TrapProg.fillAmount = 0;
         }
 
         if (bAbility)
@@ -179,7 +179,7 @@ public class Investigator : MonoBehaviour {
             //LoadTexture.isTrap = true;
             LivingController.isTrap = true;
             timer += Time.deltaTime;
-            TrapProg.fillAmount = timer / bObjectDropTime;
+            //TrapProg.fillAmount = timer / bObjectDropTime;
 
             InvestigatorAnimations.isTrap = true;
 
@@ -190,7 +190,7 @@ public class Investigator : MonoBehaviour {
                 TutorialManager.playerTrapCount++;
                 print(TutorialManager.playerTrapCount);
                 this.GetComponent<LivingController>().drainSanity(bObjectCost);
-                TrapProg.fillAmount = 0;
+                //TrapProg.fillAmount = 0;
                 //LoadTexture.isTrap = false;
                 LivingController.isTrap = false;
                 StartCoroutine(ControllerVibration());
@@ -211,7 +211,7 @@ public class Investigator : MonoBehaviour {
         if (player.GetButtonUp("Ward"))
         {
             xAbility = false;
-            WardProgress.fillAmount = 0;
+            //WardProgress.fillAmount = 0;
         }
 
         if (xAbility)
@@ -219,7 +219,7 @@ public class Investigator : MonoBehaviour {
             //LoadTexture.isWard = true;
             LivingController.isWard = true;
             timer += Time.deltaTime;
-            WardProgress.fillAmount = timer / xObjectDropTime;
+            //WardProgress.fillAmount = timer / xObjectDropTime;
             InvestigatorAnimations.isWard = true;
 
             if (timer >= xObjectDropTime)
@@ -228,7 +228,7 @@ public class Investigator : MonoBehaviour {
                 Instantiate(xObject, this.transform.position, this.transform.rotation);
                 TutorialManager.playerWardCount++;
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
-                WardProgress.fillAmount = 0;
+                //WardProgress.fillAmount = 0;
                 StartCoroutine(ControllerVibration());
                 InvestigatorAnimations.isWard = false;
 
@@ -253,14 +253,14 @@ public class Investigator : MonoBehaviour {
             //LoadTexture.isBooze = true;
             LivingController.isDrinking = true;
             timer += Time.deltaTime;
-            BoozeProgress.fillAmount = timer / drinkingSpeed;
+            //BoozeProgress.fillAmount = timer / drinkingSpeed;
             if (timer >= drinkingSpeed)
             {
                 print("BOOZE DRANK");
                 yAbility = false;
                 boozeNum--;
                 this.GetComponent<LivingController>().gainSanity(boozeSanity);
-                BoozeProgress.fillAmount = 0;
+                //BoozeProgress.fillAmount = 0;
                 //LoadTexture.isBooze = false;
                 LivingController.isDrinking = false;
             }

@@ -15,7 +15,7 @@ public class LivingController : MonoBehaviour {
     public Slider SanUIPlayer;
     [Header("UI Text")]
     [SerializeField] TextMeshProUGUI evidenceText;
-    [SerializeField] TextMeshProUGUI sanityText, boozeText;
+    [SerializeField] TextMeshProUGUI boozeText;
     public GameObject object2interact;
     public float protectionValue = 0.25f;
     public static bool isProtected = false;
@@ -42,9 +42,9 @@ public class LivingController : MonoBehaviour {
     //public GameObject altar;
     EndGame altarScript;
 
-    public RawImage feedbackUI;
+    //public RawImage feedbackUI;
 
-    public Texture[] images;
+    //public Texture[] images;
 
     public static bool isContainer, isStairs, isPentagram, isDoor, isDrinking,
        isTrap, isWard = false;
@@ -223,7 +223,10 @@ public class LivingController : MonoBehaviour {
         //SanUI.fillAmount = sanity / maxSanity;
         //SanUIPlayer.fillAmount = sanity / maxSanity;
         SanUI.value = sanity;
+
+        if(SanUIPlayer)
         SanUIPlayer.value = sanity;
+
         boozeText.text = Investigator.boozeNum.ToString();
         evidenceText.text = "Evidence: " + evidence + "/" + evidenceRequired;
     }
