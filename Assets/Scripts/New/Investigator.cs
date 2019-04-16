@@ -186,7 +186,7 @@ public class Investigator : MonoBehaviour {
             if (timer >= bObjectDropTime)
             {
                 bAbility = false;
-                Instantiate(bObject, this.transform.position, this.transform.rotation);
+                Instantiate(bObject, this.transform.position + new Vector3(0,0,-0.1f), this.transform.rotation);
                 TutorialManager.playerTrapCount++;
                 print(TutorialManager.playerTrapCount);
                 this.GetComponent<LivingController>().drainSanity(bObjectCost);
@@ -225,7 +225,7 @@ public class Investigator : MonoBehaviour {
             if (timer >= xObjectDropTime)
             {
                 xAbility = false;
-                Instantiate(xObject, this.transform.position, this.transform.rotation);
+                Instantiate(xObject, this.transform.position + new Vector3(0,0,-0.1f), this.transform.rotation);
                 TutorialManager.playerWardCount++;
                 this.GetComponent<LivingController>().drainSanity(xObjectCost);
                 //WardProgress.fillAmount = 0;

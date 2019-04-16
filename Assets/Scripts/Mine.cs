@@ -6,9 +6,12 @@ public class Mine : MonoBehaviour {
 
     [SerializeField] float trapRange = 1.5f;
     [SerializeField] float visibleTime = 3f;
+    float trapTime = 4f;
     [SerializeField] GameObject trap;
     [SerializeField] LayerMask mask;
 	private AudioSource ActivateSound;
+
+    [SerializeField] GameObject animHolder;
 
     GameObject ghost;
 
@@ -30,7 +33,9 @@ public class Mine : MonoBehaviour {
             if (timer >= visibleTime)
             {
                 isActive = true;
-                GetComponent<SpriteRenderer>().enabled = false;
+                //GetComponent<SpriteRenderer>().enabled = false;
+                animHolder.SetActive(false);
+
                 timer = 0;
             }
         }
@@ -41,9 +46,9 @@ public class Mine : MonoBehaviour {
 			}
 
             ghost.GetComponent<GhostController>().getTrapped();
-            GetComponent<SpriteRenderer>().enabled = true;
+            //GetComponent<SpriteRenderer>().enabled = true;
             timer += Time.deltaTime;
-            if (timer >= visibleTime)
+            if (timer >= trapTime)
             {
                 ghost.GetComponent<GhostController>().getUntrapped();
                 Destroy(gameObject);
