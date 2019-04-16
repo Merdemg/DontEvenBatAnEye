@@ -51,6 +51,9 @@ public class Investigator : MonoBehaviour {
 
     LivingController livController;
 
+    [SerializeField] AudioSource drinkBooze;
+    [SerializeField] AudioSource trapSound;
+    [SerializeField] AudioSource wardSound;
     // Use this for initialization
     void Start () {
         livController = GetComponent<LivingController>();
@@ -195,7 +198,7 @@ public class Investigator : MonoBehaviour {
                 LivingController.isTrap = false;
                 StartCoroutine(ControllerVibration());
                 InvestigatorAnimations.isTrap = false;
-
+                trapSound.Play();
             }
 
         }
@@ -232,7 +235,7 @@ public class Investigator : MonoBehaviour {
                 //WardProgress.fillAmount = 0;
                 StartCoroutine(ControllerVibration());
                 InvestigatorAnimations.isWard = false;
-
+                wardSound.Play();
                 //LoadTexture.isWard = false;
             }
 
@@ -247,6 +250,7 @@ public class Investigator : MonoBehaviour {
         {
             yAbility = true;
             timer = 0;
+            drinkBooze.Play();
         }
 
         if (yAbility)

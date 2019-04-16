@@ -56819,7 +56819,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3966639630111106332}
   - component: {fileID: 7628792372098298530}
-  m_Layer: 10
+  - component: {fileID: 5949545942202797767}
+  m_Layer: 11
   m_Name: 'Pentagram_Prefab '
   m_TagString: Pentagram
   m_Icon: {fileID: 0}
@@ -56872,6 +56873,22 @@ MonoBehaviour:
   isActive: 0
   FeedbackTimer: {fileID: 0}
   resetTick: 0.01
+--- !u!58 &5949545942202797767
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657353131723097705}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32
 --- !u!1 &4657895550641396283
 GameObject:
   m_ObjectHideFlags: 0

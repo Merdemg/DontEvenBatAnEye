@@ -474,6 +474,9 @@ MonoBehaviour:
   xObject: {fileID: 3781257386521724740, guid: bb0b7ec8b104aec45801ba02408a0aac, type: 3}
   wards: []
   vibTimer: 3
+  drinkBooze: {fileID: 0}
+  trapSound: {fileID: 0}
+  wardSound: {fileID: 0}
 --- !u!1 &390254100808457466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,6 +1579,10 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 8275830058255117539}
+    - target: {fileID: 13700006, guid: ef754613665008949ad8b228404ea708, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0202d2da634fc3248bac0c3a0cbf79db, type: 2}
     - target: {fileID: 13700004, guid: ef754613665008949ad8b228404ea708, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 
@@ -1584,6 +1591,10 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 8275830058255117639}
+    - target: {fileID: 13700004, guid: ef754613665008949ad8b228404ea708, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0202d2da634fc3248bac0c3a0cbf79db, type: 2}
     - target: {fileID: 13700002, guid: ef754613665008949ad8b228404ea708, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 
@@ -1592,6 +1603,14 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 8275830058255117639}
+    - target: {fileID: 13700002, guid: ef754613665008949ad8b228404ea708, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0202d2da634fc3248bac0c3a0cbf79db, type: 2}
+    - target: {fileID: 13700000, guid: ef754613665008949ad8b228404ea708, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: ef754613665008949ad8b228404ea708, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 
@@ -1764,6 +1783,26 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 8275830058255117539}
+    - target: {fileID: 13700000, guid: ef754613665008949ad8b228404ea708, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0202d2da634fc3248bac0c3a0cbf79db, type: 2}
+    - target: {fileID: 13700000, guid: ef754613665008949ad8b228404ea708, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0202d2da634fc3248bac0c3a0cbf79db, type: 2}
+    - target: {fileID: 13700000, guid: ef754613665008949ad8b228404ea708, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0202d2da634fc3248bac0c3a0cbf79db, type: 2}
+    - target: {fileID: 13700000, guid: ef754613665008949ad8b228404ea708, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0202d2da634fc3248bac0c3a0cbf79db, type: 2}
+    - target: {fileID: 13700000, guid: ef754613665008949ad8b228404ea708, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0202d2da634fc3248bac0c3a0cbf79db, type: 2}
     - target: {fileID: 400540, guid: ef754613665008949ad8b228404ea708, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -7.7831025

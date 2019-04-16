@@ -55,6 +55,7 @@ public class LivingController : MonoBehaviour {
 
 	AudioSource FindBooze;
 	AudioSource FindEvidence;
+    AudioSource DrinkBooze;
 
     void Start ()
     {
@@ -68,6 +69,7 @@ public class LivingController : MonoBehaviour {
 		AudioSource[] Sources = GetComponents<AudioSource>();
 		FindBooze = Sources [0];
 		FindEvidence = Sources [1];
+        DrinkBooze = Sources[2];
     }
 	
 	void Update ()

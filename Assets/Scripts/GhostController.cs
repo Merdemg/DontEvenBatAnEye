@@ -71,6 +71,8 @@ public class GhostController : MonoBehaviour {
 
     Vector2 movementVec;
 
+    [SerializeField] AudioSource shriek;
+
     private void Awake()
     {
         ghost = ReInput.players.GetPlayer(playerId);
@@ -102,7 +104,7 @@ public class GhostController : MonoBehaviour {
         {
             GhostAnimController.isHaunt = true;
         }
-        else
+        else if(!isHaunting)
         {
             GhostAnimController.isHaunt = false;
         }
@@ -206,7 +208,7 @@ public class GhostController : MonoBehaviour {
             GhostAnimController.isHaunt = true;
             losePowerWithoutBlinking(Time.deltaTime * hauntingCost * (float)powerLevel);
         }
-        else
+        else if(!isInteracting)
         {
             GhostAnimController.isHaunt = false;
         }
@@ -323,6 +325,11 @@ public class GhostController : MonoBehaviour {
     {
         object2interact = obj;
     }
+
+    public GameObject getObj2Interact()
+    {
+        return object2interact;
+    }
     void interact()
     {
         if (object2interact)
@@ -361,6 +368,8 @@ public class GhostController : MonoBehaviour {
     }
     void updatePowerLevel()
     {
+        int oldPowerLvl = powerLevel;
+
         if (power < 50f)
         {
             powerLevel = 0;
@@ -436,6 +445,11 @@ public class GhostController : MonoBehaviour {
         //    ghostLevel2.SetActive(false);
         //    ghostLevel3.SetActive(true);
         //}
+
+        if (oldPowerLvl < powerLevel)
+        {
+            shriek.Play();
+        }
 
         updateRangeIndicator();
     }

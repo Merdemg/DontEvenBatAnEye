@@ -9,7 +9,7 @@ public class PowerSource : MonoBehaviour {
     [SerializeField] float powerInterval = 10.0f;
     [SerializeField] float ghostInteractTime = 4.5f;
     [SerializeField] float playerInteractTime = 2f;
-    [SerializeField] float interactDistance = 2f;
+    [SerializeField] float interactDistance = 2.5f;
     [SerializeField] GameObject feedbackObj;
     [SerializeField] float activationBonus = 0;
     [SerializeField] float deactivationPenalty = 0;
@@ -94,58 +94,84 @@ public class PowerSource : MonoBehaviour {
             }
         }
 
-        if(isActive == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance)
+        if (!isActive && isGhostInteracting && Vector3.Distance(this.transform.position, ghost.transform.position) > interactDistance)
         {
-            RaycastHit2D temp = Physics2D.Raycast(this.transform.position, ghost.transform.position - this.transform.position, interactDistance);
-            Debug.DrawRay(this.transform.position, ghost.transform.position - this.transform.position);
-            if(temp && temp.transform.gameObject == ghost)
-            {
-                if (feedbackOn == false)
-                {
-                    //FeedbackTimer.fillAmount = 1f - Percentage; 
-                    activateFeedback();
-                    ghostCanInter = true;
-                    GhostAnimController.isHaunt = true;
-                    ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
-
-                }
-            }
-            else if (feedbackOn)
-            {
-                deactivateFeedback();
-                ghostCanInter = false;
-                GhostAnimController.isHaunt = false;
-            }
-        }
-        else if (isActive == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
-        {
-            
-            RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, interactDistance);
-            Debug.DrawRay(this.transform.position, player.transform.position - this.transform.position);
-
-            if (temp && temp.transform.gameObject == player)
-            {
-                if (feedbackOn == false)
-                {
-                    //FeedbackTimer.fillAmount = 1f - Percentage; // ??????
-                    activateFeedback();
-                    playerCanInter = true;
-                    
-                    player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
-                }
-            }
-            else if (feedbackOn)
-            {
-                deactivateFeedback();
-                ghostCanInter = false;
-            }
-        }
-        else if (feedbackOn)
-        {
-            deactivateFeedback();
+            isGhostInteracting = false;
+            anim_Pentagram.SetTrigger("GStop");
             ghostCanInter = false;
-            playerCanInter = false;
+
+            if (ghost.GetComponent<GhostController>().getObj2Interact() == this.gameObject)
+            {
+                ghost.GetComponent<GhostController>().setObject2Interact(null);
+                //GhostAnimController.isHaunt = false;
+            }
+
+            if (feedbackOn)
+            {
+                deactivateFeedback();
+            }
+
+            if (!playerCanInter)
+            {
+                feedbackOn = false;
+            }
+
+            
+            
         }
+
+        //if(isActive == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance)
+        //{
+        //    RaycastHit2D temp = Physics2D.Raycast(this.transform.position, ghost.transform.position - this.transform.position, interactDistance);
+        //    Debug.DrawRay(this.transform.position, ghost.transform.position - this.transform.position);
+        //    if(temp && temp.transform.gameObject == ghost)
+        //    {
+        //        if (feedbackOn == false)
+        //        {
+        //            //FeedbackTimer.fillAmount = 1f - Percentage; 
+        //            activateFeedback();
+        //            ghostCanInter = true;
+        //            GhostAnimController.isHaunt = true;
+        //            ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
+
+        //        }
+        //    }
+        //    else if (feedbackOn)
+        //    {
+        //        deactivateFeedback();
+        //        ghostCanInter = false;
+        //        GhostAnimController.isHaunt = false;
+        //    }
+        //}
+        //else if (isActive == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
+        //{
+            
+        //    RaycastHit2D temp = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, interactDistance);
+        //    Debug.DrawRay(this.transform.position, player.transform.position - this.transform.position);
+
+        //    if (temp && temp.transform.gameObject == player)
+        //    {
+        //        if (feedbackOn == false)
+        //        {
+        //            //FeedbackTimer.fillAmount = 1f - Percentage; // ??????
+        //            activateFeedback();
+        //            playerCanInter = true;
+                    
+        //            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+        //        }
+        //    }
+        //    else if (feedbackOn)
+        //    {
+        //        deactivateFeedback();
+        //        ghostCanInter = false;
+        //    }
+        //}
+        //else if (feedbackOn)
+        //{
+        //    deactivateFeedback();
+        //    ghostCanInter = false;
+        //    playerCanInter = false;
+        //}
 
 
        
@@ -165,7 +191,7 @@ public class PowerSource : MonoBehaviour {
                 Percentage = timer / playerInteractTime;
                 ghost.GetComponent<GhostController>().interactiondone();
                 ghost.GetComponent<GhostController>().getPower(activationBonus);
-                GhostAnimController.isHaunt = false;
+                //GhostAnimController.isHaunt = false;
             }          
         }
         else if (isPlayerInteracting && playerCanInter)
@@ -223,9 +249,73 @@ public class PowerSource : MonoBehaviour {
             {
                 powerTimer -= powerInterval;
                 ghost.GetComponent<GhostController>().getPower(powerAmount);
+
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("hi. ima a pentagram.");
+        if (collision.gameObject.tag == "Player" && isActive)
+        {
+            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+            //activateFeedback();
+            LivingController.isPentagram = true;
+            feedbackOn = true;
+            playerCanInter = true;
+        }
+        else if (collision.gameObject.tag == "Ghost" && !isActive)
+        {
+            feedbackOn = true;
+            ghostCanInter = true;
+            GhostAnimController.isHaunt = true;
+            ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Ghost"){
+            ghostCanInter = false;
+            //GhostAnimController.isHaunt = false;
+            ghost.GetComponent<GhostController>().setObject2Interact(null);
+            if (!playerCanInter)
+            {
+                feedbackOn = false;
+            }
+        }
+        else if (collision.gameObject.tag == "Player")
+        {
+            playerCanInter = false;
+            //LivingController.isPentagram = false;
+            player.GetComponent<LivingController>().setObject2Interact(null);
+            if (!ghostCanInter)
+            {
+                feedbackOn = true;
+            }
+        }      
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && isActive && player.GetComponent<LivingController>().getObj2Interact() == null)
+        {
+            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+            //activateFeedback();
+            LivingController.isPentagram = true;
+            feedbackOn = true;
+            playerCanInter = true;
+        }
+        else if (collision.gameObject.tag == "Ghost" && !isActive && ghost.GetComponent<GhostController>().getObj2Interact() == null)
+        {
+            feedbackOn = true;
+            ghostCanInter = true;
+            GhostAnimController.isHaunt = true;
+            ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
+        }
+    }
+
     void activateFeedback()
     {
         feedbackOn = true;
@@ -256,7 +346,7 @@ public class PowerSource : MonoBehaviour {
         }
         else
         {
-            GhostAnimController.isHaunt = false;
+            //GhostAnimController.isHaunt = false;
         }
     }
     public void stopBeingInteracted(GameObject obj)
@@ -271,7 +361,7 @@ public class PowerSource : MonoBehaviour {
         {
             isGhostInteracting = false;
 			anim_Pentagram.SetTrigger ("GStop");
-            GhostAnimController.isHaunt = false;
+            //GhostAnimController.isHaunt = false;
             //print ("interactttttttttt")
             //FeedbackTimer.fillAmount = 1f - Percentage;
             //timer = 0;
