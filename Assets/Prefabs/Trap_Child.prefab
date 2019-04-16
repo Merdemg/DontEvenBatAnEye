@@ -60,7 +60,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: faf6a1d0b42143144bd520ac08fe1ae1, type: 3}
       propertyPath: m_Name
-      value: Trap
+      value: Trap_anim
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: faf6a1d0b42143144bd520ac08fe1ae1, type: 3}
       propertyPath: m_LocalPosition.x
