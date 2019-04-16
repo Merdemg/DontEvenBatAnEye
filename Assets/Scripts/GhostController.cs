@@ -81,7 +81,7 @@ public class GhostController : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         updatePowerLevel();
         updatePowerText();
-        myColor = GetComponent<SpriteRenderer>().color;
+        //myColor = GetComponent<SpriteRenderer>().color;
 
         hauntEffect = GameObject.FindGameObjectWithTag("Distortion");
         hauntEffect.SetActive(false);
@@ -108,21 +108,21 @@ public class GhostController : MonoBehaviour {
         }
 
 
-        if (blinkTimer > 0)
-        {
-            blinkTimer -= Time.deltaTime;
-            blinkSwitchTimer += Time.deltaTime;
+        //if (blinkTimer > 0)
+        //{
+        //    blinkTimer -= Time.deltaTime;
+        //    blinkSwitchTimer += Time.deltaTime;
 
-            if (blinkSwitchTimer >= blinkSpeed)
-            {
-                blinkSwitchTimer -= blinkSpeed;
-                GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
-            }
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().enabled = true;
-        }
+        //    if (blinkSwitchTimer >= blinkSpeed)
+        //    {
+        //        blinkSwitchTimer -= blinkSpeed;
+        //        GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+        //    }
+        //}
+        //else
+        //{
+        //    //GetComponent<SpriteRenderer>().enabled = true;
+        //}
 
         if (ghost.GetButtonDown("Interact") && isPhasing == false && isHaunting == false)
         {
@@ -164,14 +164,14 @@ public class GhostController : MonoBehaviour {
         if (ghost.GetButtonDown("Phase") && isInteracting == false && isHaunting == false && powerLevel >= 3 && power > (phasingCost))
         {
             isPhasing = true;
-            Color temp = this.GetComponent<SpriteRenderer>().color;
-            temp.a = 0.5f;
-            this.GetComponent<SpriteRenderer>().color = temp;
+            //Color temp = this.GetComponent<SpriteRenderer>().color;
+            //temp.a = 0.5f;
+            //this.GetComponent<SpriteRenderer>().color = temp;
         }
         else if (ghost.GetButtonUp("Phase"))
         {
             isPhasing = false;
-            this.GetComponent<SpriteRenderer>().color = myColor;
+            //this.GetComponent<SpriteRenderer>().color = myColor;
         }
 
         if (isFlying)
@@ -192,7 +192,7 @@ public class GhostController : MonoBehaviour {
             if (power < 1)
             {
                 isPhasing = false;
-                this.GetComponent<SpriteRenderer>().color = myColor;
+                //this.GetComponent<SpriteRenderer>().color = myColor;
             }
             updatePowerText();
         }

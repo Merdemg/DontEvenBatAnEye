@@ -29,8 +29,9 @@ public class Start_behavior : MonoBehaviour
     {
 
 		if ((ins_Bar.value == 5 && ghost_Bar.value == 5) || Input.GetKeyDown(KeyCode.Return)) {
-
-            SceneManager.LoadScene ("3dKinda");
+            //SceneManager.UnloadScene("Intro_01");
+            SceneManager.UnloadScene("Intro_02");
+            SceneManager.LoadScene ("3D_Final");
             //StartCoroutine(LoadYourAsyncScene());
         }
 		#region Inspector
@@ -79,7 +80,7 @@ public class Start_behavior : MonoBehaviour
         // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
         // a sceneBuildIndex of 1 as shown in Build Settings.
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("3DKinda");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("3D_Final");
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
