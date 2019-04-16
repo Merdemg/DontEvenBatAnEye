@@ -9,8 +9,8 @@ public class Container : MonoBehaviour
 
     //[SerializeField] BoxCollider2D triggerBox;
 
-    bool hasBooze = false;
-    bool hasEvidence = false;
+    public bool hasBooze = false;
+    public bool hasEvidence = false;
     [SerializeField] float useTime = 4.0f;
     public Image FeedbackTimerBase;
     public Image FeedbackTimerIcon;
@@ -126,7 +126,8 @@ public class Container : MonoBehaviour
                 outline.enabled = false; //Object cannot be highlighted once search is complete
                 Destroy(highlight);
                 InvestigatorAnimations.isSearching = false;
-                player.GetComponent<LivingController>().setObject2Interact(null);
+                player.GetComponentInChildren<LivingController>().setObject2Interact(null);
+                isPlayerInteracting = false;
                 Destroy(this);
                 //gameObject.GetComponent<SpriteRenderer>().color = containerColor;
             }
@@ -185,6 +186,7 @@ public class Container : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            InvestigatorAnimations.isSearching = false;
             feedbackObj.SetActive(false);
             isPlayerInteracting = false;
             playerCanInteract = false;
@@ -193,6 +195,7 @@ public class Container : MonoBehaviour
             LivingController.isContainer = false;
             outline.OutlineColor = Color.yellow;
             player.GetComponent<LivingController>().setObject2Interact(null);
+            player.GetComponentInChildren<Animator>().SetBool("isSearching", false);
             //timer = 0;
         }
     }

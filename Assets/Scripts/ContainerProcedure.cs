@@ -14,7 +14,7 @@ public class ContainerProcedure : MonoBehaviour {
         level2 = GameObject.Find("Floor2").GetComponentsInChildren<Container>();
 
         //Booze Loop
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 50; i++)
         {
             int a = Random.Range(0, containers.Length);
             int b;
@@ -38,7 +38,7 @@ public class ContainerProcedure : MonoBehaviour {
         {
             if (m == 1)
             {
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     int a = Random.Range(0, level1.Length);
                     int b;
@@ -47,9 +47,9 @@ public class ContainerProcedure : MonoBehaviour {
                         b = Random.Range(0, level1.Length);
                     } while (a == b);
 
-                    GameObject temp = containers[a];
-                    containers[a] = containers[b];
-                    containers[b] = temp;
+                    Container temp = level1[a];
+                    level1[a] = level1[b];
+                    level1[b] = temp;
                 }
 
                 for (int i = 0; i < evidenceNum; i++)
@@ -59,7 +59,7 @@ public class ContainerProcedure : MonoBehaviour {
             }
             if(m==2)
             {
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     int a = Random.Range(0, level2.Length);
                     int b;
@@ -68,9 +68,9 @@ public class ContainerProcedure : MonoBehaviour {
                         b = Random.Range(0, level2.Length);
                     } while (a == b);
 
-                    GameObject temp = containers[a];
-                    containers[a] = containers[b];
-                    containers[b] = temp;
+                    Container temp = level2[a];
+                    level2[a] = level2[b];
+                    level2[b] = temp;
                 }
 
                 for (int i = 0; i < evidenceNum; i++)
