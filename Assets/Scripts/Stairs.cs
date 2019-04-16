@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Stairs : MonoBehaviour {
-
+    [SerializeField] Transform pos;
     [SerializeField] float useTime = 2.0f;
     [SerializeField] GameObject feedbackObj;
     [SerializeField] float interactDistance = 1.0f;
@@ -56,7 +56,9 @@ public class Stairs : MonoBehaviour {
             {
                 isPlayerInteracting = false;
                 player.GetComponent<LivingController>().setObject2Interact(null);
-                player.transform.position = myPair.transform.position;
+
+
+                player.transform.position = myPair.GetComponent<Stairs>().getPos().position;
                 LookAtCamera.changedFloors = !LookAtCamera.changedFloors;
                 timer = 0;
             }
@@ -146,4 +148,12 @@ public class Stairs : MonoBehaviour {
     }
 
 
+    public Transform getPos()
+    {
+        if (pos)
+        {
+            return pos;
+        }
+        return this.transform;
+    }
 }

@@ -963,6 +963,11 @@ PrefabInstance:
       propertyPath: myPair
       value: 
       objectReference: {fileID: 672008235}
+    - target: {fileID: 7404176169213352870, guid: c33e501549c208c4cb8be253af830dc0,
+        type: 3}
+      propertyPath: pos
+      value: 
+      objectReference: {fileID: 553781994}
     - target: {fileID: 7404176169213352871, guid: c33e501549c208c4cb8be253af830dc0,
         type: 3}
       propertyPath: m_Offset.x
@@ -6328,6 +6333,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd2a85ae1d4d9fd4a8e724d5608271a1, type: 3}
+--- !u!1 &553781993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 553781994}
+  m_Layer: 8
+  m_Name: Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &553781994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553781993}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
+  m_LocalPosition: {x: -0.5386598, y: 0.023753632, z: -0.4970001}
+  m_LocalScale: {x: 1.0666666, y: 1.3573579, z: 0.8000009}
+  m_Children: []
+  m_Father: {fileID: 67026847}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &555433072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7990,6 +8025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324b15729e9b5a4db57607e0ceb7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   useTime: 3.5
   feedbackObj: {fileID: 1428638678}
   interactDistance: 1
@@ -8189,6 +8225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324b15729e9b5a4db57607e0ceb7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   useTime: 3.5
   feedbackObj: {fileID: 2115194291}
   interactDistance: 1
@@ -8647,6 +8684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324b15729e9b5a4db57607e0ceb7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   useTime: 3.5
   feedbackObj: {fileID: 2129746711}
   interactDistance: 1
@@ -12859,6 +12897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324b15729e9b5a4db57607e0ceb7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   useTime: 3.5
   feedbackObj: {fileID: 1545049762}
   interactDistance: 1
@@ -14309,15 +14348,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4182467335962762, guid: af3a336f5983aeb45a7279c6437db81d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.551
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4182467335962762, guid: af3a336f5983aeb45a7279c6437db81d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4182467335962762, guid: af3a336f5983aeb45a7279c6437db81d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.129
+      value: 0.024
       objectReference: {fileID: 0}
     - target: {fileID: 4182467335962762, guid: af3a336f5983aeb45a7279c6437db81d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -14845,6 +14884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324b15729e9b5a4db57607e0ceb7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   useTime: 2
   feedbackObj: {fileID: 987838874}
   interactDistance: 1
@@ -18046,6 +18086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324b15729e9b5a4db57607e0ceb7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   useTime: 3.5
   feedbackObj: {fileID: 249286432}
   interactDistance: 1
@@ -24264,6 +24305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324b15729e9b5a4db57607e0ceb7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   useTime: 3.5
   feedbackObj: {fileID: 1827808621}
   interactDistance: 1
@@ -24688,6 +24730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324b15729e9b5a4db57607e0ceb7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   useTime: 2
   feedbackObj: {fileID: 1343965400}
   interactDistance: 1
