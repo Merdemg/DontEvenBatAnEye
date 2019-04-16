@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6310786195633800239}
   - component: {fileID: 4080741781456871854}
   m_Layer: 0
-  m_Name: Trap_parent
+  m_Name: Trap_Child
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ Animator:
   m_GameObject: {fileID: 4080741781456871853}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6e6c3a389b66f6543b331126eb3fc577, type: 2}
+  m_Controller: {fileID: 9100000, guid: 157ad8d53a8c6304788b8ba8edc18005, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
