@@ -30,13 +30,16 @@ public class PowerSource : MonoBehaviour {
 
    // GameObject pLight1;
     GameObject pLight2;
-    public GameObject[] fire; //Set to 5 in editor
+    //public GameObject[] fire; //Set to 5 in editor
+    ParticleSystem[] particles;
 
     //Pentagram reset
     [SerializeField] float resetTick = 0.01f;
 
     void Start()
     {
+        particles = GetComponentsInChildren<ParticleSystem>();
+
         player = GameObject.FindGameObjectWithTag("Player");
         ghost = GameObject.FindGameObjectWithTag("Ghost");
         //feedbackObj.GetComponent<Image>().enabled = false;
@@ -49,10 +52,10 @@ public class PowerSource : MonoBehaviour {
 
     void LoadCandles()
     {
-        for (int i = 0; i <= 4; i++)
-        {
-            fire[i] = this.transform.Find("Candles/candle" + i + "/Fire_B" + i).gameObject;
-        }
+        //for (int i = 0; i <= 4; i++)
+        //{
+        //    fire[i] = this.transform.Find("Candles/candle" + i + "/Fire_B" + i).gameObject;
+        //}
     }
 
 	// Update is called once per frame
@@ -68,7 +71,11 @@ public class PowerSource : MonoBehaviour {
             pLight2.SetActive(true);
             for (int i = 0; i <= 4; i++)
             {
-                fire[i].SetActive(true);
+                //fire[i].SetActive(true);
+                foreach (ParticleSystem partcle in particles)
+                {
+                    partcle.Play();
+                }
             }
         }
         else
@@ -77,9 +84,13 @@ public class PowerSource : MonoBehaviour {
 //            pLight1.SetActive(false);
             pLight2.SetActive(false);
 			anim_Pentagram.SetBool ("Active", false);
-            for (int i = 0; i <= 4; i++)
+            //for (int i = 0; i <= 4; i++)
+            //{
+            //    //fire[i].SetActive(false);
+            //}
+            foreach (ParticleSystem partcle in particles)
             {
-                fire[i].SetActive(false);
+                partcle.Stop();
             }
         }
 
