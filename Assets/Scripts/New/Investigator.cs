@@ -186,7 +186,7 @@ public class Investigator : MonoBehaviour {
             if (timer >= bObjectDropTime)
             {
                 bAbility = false;
-                Instantiate(bObject, this.transform.position + new Vector3(0,0,-0.1f), this.transform.rotation);
+                Instantiate(bObject, this.transform.position + new Vector3(0,0,-0.1f), bObject.transform.rotation);
                 TutorialManager.playerTrapCount++;
                 print(TutorialManager.playerTrapCount);
                 this.GetComponent<LivingController>().drainSanity(bObjectCost);
@@ -195,12 +195,13 @@ public class Investigator : MonoBehaviour {
                 LivingController.isTrap = false;
                 StartCoroutine(ControllerVibration());
                 InvestigatorAnimations.isTrap = false;
+
             }
 
         }
         else
         {
-            LivingController.isTrap = false;
+            InvestigatorAnimations.isTrap = false;
         }
 
         if (player.GetButtonDown("Ward") && interactButton == false && livController.getSanity() > xObjectCost && bAbility == false && yAbility == false)
