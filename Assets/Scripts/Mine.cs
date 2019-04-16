@@ -34,8 +34,8 @@ public class Mine : MonoBehaviour {
             {
                 isActive = true;
                 //GetComponent<SpriteRenderer>().enabled = false;
-               // animHolder.SetActive(false);
-
+                // animHolder.SetActive(false);
+                transform.GetChild(0).gameObject.SetActive(false);
                 timer = 0;
             }
         }

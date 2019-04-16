@@ -50,6 +50,7 @@ public class EndGame : MonoBehaviour {
             {
                 print("GAME OVER! Investigator Wins!");
                 timer = 0;
+                FindObjectOfType<GameEndingScript>().PlayerWin();
                 Time.timeScale = 0;
             }
         }

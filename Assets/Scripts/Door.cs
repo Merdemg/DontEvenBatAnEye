@@ -72,11 +72,12 @@ public class Door : MonoBehaviour {
 
         if (isLocked == true && Vector3.Distance(this.transform.position, player.transform.position) <= interactDistance)
         {
-            playerCanInter = true;
-            player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+            //playerCanInter = true;
+            //player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             blueLock.transform.gameObject.SetActive(false);
         }
-        else if (isLocked == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance 
+        else 
+        if (isLocked == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance 
             && ghost.GetComponent<GhostController>().getPowerLevel() > 1)
         {   
             ghostCanInter = true;
@@ -86,7 +87,7 @@ public class Door : MonoBehaviour {
         }
         else
         {
-            playerCanInter = false;
+            //playerCanInter = false;
             ghostCanInter = false;
             blueLock.transform.gameObject.SetActive(false);
 
@@ -239,6 +240,7 @@ public class Door : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player" && isLocked)
         {
+            playerCanInter = true;
             LivingController.isDoor = true; //ANim?
             GetComponent<Outline>().enabled = true;
             //feedbackObj.SetActive(true);
@@ -253,6 +255,7 @@ public class Door : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
+            playerCanInter = false;
             LivingController.isDoor = false;
             InvestigatorAnimations.isUnlocking = false;
             GetComponent<Outline>().enabled = false;
@@ -273,7 +276,7 @@ public class Door : MonoBehaviour {
         {
             LivingController.isDoor = true; //ANim?
             GetComponent<Outline>().enabled = true;
-
+            playerCanInter = true;
             //feedbackObj.SetActive(true);
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             //playerCanInteract = true;

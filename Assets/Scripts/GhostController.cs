@@ -310,7 +310,7 @@ public class GhostController : MonoBehaviour {
 				
                 Debug.Log("Almost draining. my soul and motivation to live, i mean.");
                 //player.GetComponent<PlayerControl>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
-                player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * powerLevel);
+                player.GetComponent<LivingController>().drainSanity(Time.deltaTime * insanityMultiplier * (1.0f + (0.25f * powerLevel)));
                 GamePad.SetVibration(PlayerIndex.One, 1f, 1f);
                 TutorialManager.playerHauntedbyGhost += 0.1f;
             }

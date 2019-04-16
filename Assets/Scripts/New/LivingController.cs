@@ -197,6 +197,7 @@ public class LivingController : MonoBehaviour {
 
         if (sanity <=0)
         {
+            FindObjectOfType<GameEndingScript>().GhostWin();
             Time.timeScale = 0;
         }
 

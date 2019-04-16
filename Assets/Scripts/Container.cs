@@ -193,7 +193,7 @@ public class Container : MonoBehaviour
             playerIsColliding = false;
             //LoadTexture.isContainer = false;
             LivingController.isContainer = false;
-            outline.OutlineColor = Color.yellow;
+            outline.OutlineColor = Color.green;
             player.GetComponent<LivingController>().setObject2Interact(null);
             player.GetComponentInChildren<Animator>().SetBool("isSearching", false);
             //timer = 0;

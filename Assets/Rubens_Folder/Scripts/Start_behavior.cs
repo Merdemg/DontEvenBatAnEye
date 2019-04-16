@@ -30,8 +30,8 @@ public class Start_behavior : MonoBehaviour
 
 		if ((ins_Bar.value == 5 && ghost_Bar.value == 5) || Input.GetKeyDown(KeyCode.Return)) {
             //SceneManager.UnloadScene("Intro_01");
-            SceneManager.UnloadScene("Intro_02");
-            SceneManager.LoadScene ("3D_Final");
+         //   SceneManager.UnloadScene("Intro_02");
+            SceneManager.LoadScene ("Intro_02");
             //StartCoroutine(LoadYourAsyncScene());
         }
 		#region Inspector
@@ -39,17 +39,18 @@ public class Start_behavior : MonoBehaviour
 		
 			ins_Bar.value += 0.2f;
 			print ("adding");
-		} 
+		} else if (ins_Bar.value < 5f)
+        {
 
-		if (ins_Bar.value > 5f) {
+            ins_Bar.value -= Time.deltaTime;
+        }
+
+        if (ins_Bar.value > 5f) {
 		
 			ins_Bar.value = 5f;
 		}
 
-		if (ins_Bar.value < 5f) {
-
-			ins_Bar.value -= Time.deltaTime;
-		} 
+		
 		#endregion
 
 		#region Ghost
@@ -57,20 +58,24 @@ public class Start_behavior : MonoBehaviour
 
 			ghost_Bar.value += 0.2f;
 			print ("adding");
-		} 
+		}else
+        if (ghost_Bar.value < 5f)
+        {
 
-		if (ghost_Bar.value > 5f) {
+            ghost_Bar.value -= Time.deltaTime;
+        }
+
+        if (ghost_Bar.value > 5f) {
 
 			ghost_Bar.value = 5f;
 		}
 
-		if (ghost_Bar.value < 5f) {
-
-			ghost_Bar.value -= Time.deltaTime;
-		} 
+		
 		#endregion
 
         
+
+
     }
 
     IEnumerator LoadYourAsyncScene()

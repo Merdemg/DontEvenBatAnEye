@@ -50,6 +50,11 @@ public class GameEndingScript : MonoBehaviour
                 //Debug.Log("Button Pressed");
                // Invoke("RestartGame", 2);
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Intro_01");
+        }
         
     }
 
