@@ -19,7 +19,7 @@ public class Raycaster : MonoBehaviour {
 
     [SerializeField] float powerDrainMultiplier = 1.5f;
 
-    GameObject ghost;
+    [SerializeField] GameObject ghost;
 
     public LayerMask playerMask;
     
@@ -51,6 +51,13 @@ public class Raycaster : MonoBehaviour {
 
     bool checkGhostVisibility()
     {
+        //Debug.Log(Vector2.Angle(this.transform.position, ghost.transform.position) + "Angle");
+        //if (Vector2.Angle(this.transform.position, ghost.transform.position) < 60)
+        //{
+
+        //}
+
+
         for (int i = 0; i < positions.Count; i++)
         {
             Debug.DrawRay(this.transform.position, positions[i].position - this.transform.position, Color.red);
@@ -59,6 +66,7 @@ public class Raycaster : MonoBehaviour {
                 RaycastHit2D temp = Physics2D.Raycast(this.transform.position, positions[i].position - this.transform.position, rayDistance, playerMask);
                 if (temp.transform.tag == "Ghost")
                 {
+                    Debug.Log("Ghost hit by gaze.");
                     ghost = temp.transform.gameObject;
                     return true;
                 }

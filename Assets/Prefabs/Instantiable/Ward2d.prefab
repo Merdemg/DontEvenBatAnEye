@@ -101,7 +101,7 @@ MonoBehaviour:
   lifeTime: 5
   mask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 524800
 --- !u!82 &6927790949702636521
 AudioSource:
   m_ObjectHideFlags: 0
@@ -444,6 +444,26 @@ PrefabInstance:
     - target: {fileID: 1697132323, guid: 2b0d096f9c28efa4fa236cd230186a40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697132322, guid: 2b0d096f9c28efa4fa236cd230186a40, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697132322, guid: 2b0d096f9c28efa4fa236cd230186a40, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697132322, guid: 2b0d096f9c28efa4fa236cd230186a40, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697132322, guid: 2b0d096f9c28efa4fa236cd230186a40, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697132322, guid: 2b0d096f9c28efa4fa236cd230186a40, type: 3}
+      propertyPath: lengthInSec
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b0d096f9c28efa4fa236cd230186a40, type: 3}

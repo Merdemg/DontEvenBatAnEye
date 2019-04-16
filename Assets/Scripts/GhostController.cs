@@ -6,6 +6,7 @@ using Rewired;
 using XInputDotNetPure;
 
 public class GhostController : MonoBehaviour {
+    [SerializeField] GameObject trapFeedback;
     [SerializeField] Animator dmgUIanim, dmgAnim;
     [SerializeField] Transform anchor1, anchor2;
     //[SerializeField] Text powerText, powerLevelText;
@@ -469,10 +470,12 @@ public class GhostController : MonoBehaviour {
     {
         isTrapped = true;
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        trapFeedback.SetActive(true);
     }
     public void getUntrapped()
     {
         isTrapped = false;
         rb.constraints = RigidbodyConstraints2D.None;
+        trapFeedback.SetActive(false);
     }
 }
