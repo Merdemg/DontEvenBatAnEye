@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Door : MonoBehaviour {
 
     GameObject player, ghost;
-    bool isLocked = false;
+    [SerializeField] bool isLocked = false;
 
     [SerializeField] float ghostInteractTime = 2f;
     [SerializeField] float playerInteractTime = 4.5f;
@@ -15,6 +15,7 @@ public class Door : MonoBehaviour {
 
     [SerializeField] GameObject feedbackObj;
     public Image FeedbackTimer;
+    [SerializeField] Image FeedbackBG;
     float Percentage;
 
     const float lockPrice = 15f;
@@ -27,8 +28,8 @@ public class Door : MonoBehaviour {
 
     float timer = 0;
 
-    public GameObject front;
-    public GameObject back;
+    //public GameObject front;
+    //public GameObject back;
 
     // Use this for initialization
     void Start () {
@@ -43,11 +44,11 @@ public class Door : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         ghost = GameObject.FindGameObjectWithTag("Ghost");
 
-        front = gameObject.transform.Find("Front").gameObject;
-        back = gameObject.transform.Find("Back").gameObject;
+        //front = gameObject.transform.Find("Front").gameObject;
+        //back = gameObject.transform.Find("Back").gameObject;
 
 
-        feedbackObj.SetActive(false);
+        //feedbackObj.SetActive(false);
         Percentage = 0;
     }
 	
@@ -87,19 +88,20 @@ public class Door : MonoBehaviour {
 
         if (playerCanInter || ghostCanInter)
         {
-            feedbackObj.SetActive(true);
+            //feedbackObj.SetActive(true);
 
         }
-        else
-        {
-            feedbackObj.SetActive(false);
-        }
+        //else
+        //{
+        //    feedbackObj.SetActive(false);
+        //}
 
         if (isGhostInteracting)
         {
             timer += Time.deltaTime;
             Percentage = timer / ghostInteractTime;
             FeedbackTimer.fillAmount = Percentage;
+            FeedbackBG.fillAmount = Percentage;
             if (timer >= ghostInteractTime)
             {
                 isLocked = true;
@@ -116,6 +118,7 @@ public class Door : MonoBehaviour {
             timer += Time.deltaTime;
             Percentage = timer / playerInteractTime;
             FeedbackTimer.fillAmount = 1 - Percentage;
+            FeedbackBG.fillAmount = 1 - Percentage;
             if (timer >= playerInteractTime)
             {
                 isLocked = false;
@@ -127,10 +130,12 @@ public class Door : MonoBehaviour {
         else if (isLocked) // It's locked but no one is interacing.
         {
             FeedbackTimer.fillAmount = 1f;  // Perc of being unlocked
+            FeedbackBG.fillAmount = 1;
         }
         else    /// It's not locked and no one is interacting
         {
             FeedbackTimer.fillAmount = 0;
+            FeedbackBG.fillAmount = 0;
         }
 
     }
@@ -153,22 +158,22 @@ public class Door : MonoBehaviour {
         {
             isPlayerInteracting = true;
 
-            float dist1 = Vector3.Distance(player.transform.position, front.transform.position);
-            float dist2 = Vector3.Distance(player.transform.position, back.transform.position);
-            print(dist1 + "AND" + dist2);
-            if (dist1 < dist2)
-            {
-                print("PLAYER IS IN FRONT");
-                player.transform.position = front.transform.position;
-                player.transform.rotation = front.transform.rotation;
-            }
-            else if (dist2 < dist1)
-            {
-                print("PLAYER IS BACK");
-                player.transform.position = back.transform.position;
-                player.transform.rotation = back.transform.rotation;
+            //float dist1 = Vector3.Distance(player.transform.position, front.transform.position);
+            //float dist2 = Vector3.Distance(player.transform.position, back.transform.position);
+            //print(dist1 + "AND" + dist2);
+            //if (dist1 < dist2)
+            //{
+            //    print("PLAYER IS IN FRONT");
+            //    player.transform.position = front.transform.position;
+            //    player.transform.rotation = front.transform.rotation;
+            //}
+            //else if (dist2 < dist1)
+            //{
+            //    print("PLAYER IS BACK");
+            //    player.transform.position = back.transform.position;
+            //    player.transform.rotation = back.transform.rotation;
 
-            }
+            //}
 
             InvestigatorAnimations.isUnlocking = true;
         }
@@ -213,10 +218,10 @@ public class Door : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && isLocked)
         {
             LivingController.isDoor = true; //ANim?
-
+            GetComponent<Outline>().enabled = true;
             //feedbackObj.SetActive(true);
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             //playerCanInteract = true;
@@ -231,7 +236,7 @@ public class Door : MonoBehaviour {
         {
             LivingController.isDoor = false;
             InvestigatorAnimations.isUnlocking = false;
-
+            GetComponent<Outline>().enabled = false;
             //feedbackObj.SetActive(false);
             isPlayerInteracting = false;
             //playerCanInteract = false;
@@ -245,11 +250,12 @@ public class Door : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && player.GetComponent<LivingController>().getObj2Interact() == null)
+        if (collision.gameObject.tag == "Player" && player.GetComponent<LivingController>().getObj2Interact() == null && isLocked)
         {
             LivingController.isDoor = true; //ANim?
+            GetComponent<Outline>().enabled = true;
 
-//feedbackObj.SetActive(true);
+            //feedbackObj.SetActive(true);
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
             //playerCanInteract = true;
             //playerIsColliding = true;
