@@ -11,7 +11,7 @@ public class Mine : MonoBehaviour {
     [SerializeField] LayerMask mask;
 	private AudioSource ActivateSound;
 
-    [SerializeField] GameObject animHolder;
+    //[SerializeField] GameObject animHolder;
 
     GameObject ghost;
 
@@ -34,7 +34,7 @@ public class Mine : MonoBehaviour {
             {
                 isActive = true;
                 //GetComponent<SpriteRenderer>().enabled = false;
-                animHolder.SetActive(false);
+               // animHolder.SetActive(false);
 
                 timer = 0;
             }
