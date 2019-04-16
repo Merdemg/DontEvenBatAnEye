@@ -16,6 +16,7 @@ public class Door : MonoBehaviour {
     [SerializeField] GameObject feedbackObj;
     public Image FeedbackTimer;
     [SerializeField] Image FeedbackBG;
+    [SerializeField] Image blueLock;
     float Percentage;
 
     const float lockPrice = 15f;
@@ -33,6 +34,8 @@ public class Door : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        blueLock.transform.rotation = FeedbackTimer.transform.rotation;
+
         float randomValue = Random.Range(0f, 100f);
         if (randomValue >= 0 && randomValue <= doorLockedChance)
         {
@@ -71,17 +74,21 @@ public class Door : MonoBehaviour {
         {
             playerCanInter = true;
             player.GetComponent<LivingController>().setObject2Interact(this.gameObject);
+            blueLock.transform.gameObject.SetActive(false);
         }
         else if (isLocked == false && Vector3.Distance(this.transform.position, ghost.transform.position) <= interactDistance 
             && ghost.GetComponent<GhostController>().getPowerLevel() > 1)
         {   
             ghostCanInter = true;
             ghost.GetComponent<GhostController>().setObject2Interact(this.gameObject);
+            FeedbackBG.fillAmount = 1;
+            blueLock.transform.gameObject.SetActive(true);
         }
         else
         {
             playerCanInter = false;
             ghostCanInter = false;
+            blueLock.transform.gameObject.SetActive(false);
 
         }
 
@@ -134,8 +141,20 @@ public class Door : MonoBehaviour {
         }
         else    /// It's not locked and no one is interacting
         {
-            FeedbackTimer.fillAmount = 0;
-            FeedbackBG.fillAmount = 0;
+            if (ghostCanInter)
+            {
+                FeedbackTimer.fillAmount = 0;
+                FeedbackBG.fillAmount = 1;
+                blueLock.enabled = true;
+                blueLock.fillAmount = 1;
+            }
+            else
+            {
+                FeedbackTimer.fillAmount = 0;
+                FeedbackBG.fillAmount = 0;
+                blueLock.fillAmount = 0;
+            }
+            
         }
 
     }
