@@ -1157,10 +1157,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghostlevel2
       objectReference: {fileID: 0}
-    - target: {fileID: 100028, guid: 28ccc2997457e72419eabab7bf8e89aa, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 28ccc2997457e72419eabab7bf8e89aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2113,7 +2109,7 @@ PrefabInstance:
     - target: {fileID: 6310786195633800239, guid: e9a42d287f7d123469a0189408d3f5d5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9399998
+      value: -1.78
       objectReference: {fileID: 0}
     - target: {fileID: 6310786195633800239, guid: e9a42d287f7d123469a0189408d3f5d5,
         type: 3}
@@ -2179,10 +2175,6 @@ PrefabInstance:
     - target: {fileID: 100034, guid: 22632e6fd96b64d4385ae173deb4180c, type: 3}
       propertyPath: m_Name
       value: Ghostlevel3
-      objectReference: {fileID: 0}
-    - target: {fileID: 100034, guid: 22632e6fd96b64d4385ae173deb4180c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400034, guid: 22632e6fd96b64d4385ae173deb4180c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3615,10 +3607,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghostlevel1
       objectReference: {fileID: 0}
-    - target: {fileID: 100022, guid: 751fe277950e8334286d40bb2de4c334, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 751fe277950e8334286d40bb2de4c334, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4052,6 +4040,10 @@ PrefabInstance:
       value: 1.851721e-18
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 751fe277950e8334286d40bb2de4c334, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dcc1f67e624f983479ec9a07346a1be0, type: 2}
+    - target: {fileID: 13700000, guid: 751fe277950e8334286d40bb2de4c334, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 
       objectReference: {fileID: 7502036084533534953}
@@ -4239,10 +4231,6 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 7502036084533534953}
-    - target: {fileID: 13700000, guid: 751fe277950e8334286d40bb2de4c334, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: dcc1f67e624f983479ec9a07346a1be0, type: 2}
     - target: {fileID: 400104, guid: 751fe277950e8334286d40bb2de4c334, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
