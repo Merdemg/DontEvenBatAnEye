@@ -8,6 +8,8 @@ using TMPro;
 
 public class LivingController : MonoBehaviour {
 
+    [SerializeField] Animator dmgAnimController;
+    [SerializeField] Animator dmgAC_UI;
 
     [SerializeField] float sanity = 100.0f;
     public static float staticSanity;
@@ -183,7 +185,9 @@ public class LivingController : MonoBehaviour {
 
     public void drainSanity(float amount)
     {
-        
+        dmgAnimController.SetTrigger("Dmg");
+        dmgAC_UI.SetTrigger("Dmg");
+
         if (isProtected)
             amount *= protectionValue;
 

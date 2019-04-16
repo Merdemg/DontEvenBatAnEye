@@ -6,6 +6,7 @@ using Rewired;
 using XInputDotNetPure;
 
 public class GhostController : MonoBehaviour {
+    [SerializeField] Animator dmgUIanim, dmgAnim;
     [SerializeField] Transform anchor1, anchor2;
     //[SerializeField] Text powerText, powerLevelText;
     [SerializeField] float moveSpeed = 1f;
@@ -253,6 +254,9 @@ public class GhostController : MonoBehaviour {
 
     public void losePower(float amount)
     {
+        dmgAnim.SetTrigger("Dmg");
+        dmgUIanim.SetTrigger("Dmg");
+
         if (isPhasing == false)
         {
             losePowerWithoutBlinking(amount);

@@ -1,0 +1,2110 @@
+fileFormatVersion: 2
+guid: 6b638ce733918a14893db83637169b00
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: BND_Head1_JNT
+    100002: BND_Head2_JNT
+    100004: BND_Jack_JNT001
+    100006: BND_Jack_JNT002
+    100008: BND_Jack_JNT003
+    100010: BND_Jack_JNT004
+    100012: BND_L_Ankle_JNT
+    100014: BND_L_BOF_JNT
+    100016: BND_L_Clavicle_JNT
+    100018: BND_L_Elbow_JNT
+    100020: BND_L_Finger1_JNT
+    100022: BND_L_Finger2_JNT
+    100024: BND_L_Finger3_JNT
+    100026: BND_L_Finger4_JNT
+    100028: BND_L_Hip_JNT
+    100030: BND_L_Knee_JNT
+    100032: BND_L_Shoulder_JNT
+    100034: BND_L_Thumb1_JNT
+    100036: BND_L_Thumb2_JNT
+    100038: BND_L_Thumb3_JNT
+    100040: BND_L_Thumb4_JNT
+    100042: BND_L_Toe_JNT
+    100044: BND_L_Wrist_JNT
+    100046: BND_Neck1_JNT
+    100048: BND_Neck2_JNT
+    100050: BND_R_Ankle_JNT
+    100052: BND_R_BOF_JNT
+    100054: BND_R_Clavicle_JNT
+    100056: BND_R_Elbow_JNT
+    100058: BND_R_Finger1_JNT
+    100060: BND_R_Finger2_JNT
+    100062: BND_R_Finger3_JNT
+    100064: BND_R_Finger4_JNT
+    100066: BND_R_Hip_JNT
+    100068: BND_R_Jack_JNT001
+    100070: BND_R_Jack_JNT0010
+    100072: BND_R_Jack_JNT0011
+    100074: BND_R_Jack_JNT0012
+    100076: BND_R_Jack_JNT002
+    100078: BND_R_Jack_JNT002 1
+    100080: BND_R_Jack_JNT002 2
+    100082: BND_R_Jack_JNT002 3
+    100084: BND_R_Jack_JNT002 4
+    100086: BND_R_Jack_JNT002 5
+    100088: BND_R_Jack_JNT002 6
+    100090: BND_R_Jack_JNT002 7
+    100092: BND_R_Jack_JNT002 8
+    100094: BND_R_Jack_JNT003
+    100096: BND_R_Jack_JNT003 1
+    100098: BND_R_Jack_JNT003 2
+    100100: BND_R_Jack_JNT003 3
+    100102: BND_R_Jack_JNT003 4
+    100104: BND_R_Jack_JNT003 5
+    100106: BND_R_Jack_JNT003 6
+    100108: BND_R_Jack_JNT003 7
+    100110: BND_R_Jack_JNT004
+    100112: BND_R_Jack_JNT004 1
+    100114: BND_R_Jack_JNT004 2
+    100116: BND_R_Jack_JNT004 3
+    100118: BND_R_Jack_JNT004 4
+    100120: BND_R_Jack_JNT004 5
+    100122: BND_R_Jack_JNT004 6
+    100124: BND_R_Jack_JNT004 7
+    100126: BND_R_Jack_JNT005
+    100128: BND_R_Jack_JNT005 1
+    100130: BND_R_Jack_JNT005 2
+    100132: BND_R_Jack_JNT005 3
+    100134: BND_R_Jack_JNT005 4
+    100136: BND_R_Jack_JNT005 5
+    100138: BND_R_Jack_JNT006
+    100140: BND_R_Jack_JNT007
+    100142: BND_R_Jack_JNT008
+    100144: BND_R_Jack_JNT009
+    100146: BND_R_Jack_JNT_SPEC
+    100148: BND_R_Knee_JNT
+    100150: BND_R_Shoulder_JNT
+    100152: BND_R_Thumb1_JNT
+    100154: BND_R_Thumb2_JNT
+    100156: BND_R_Thumb3_JNT
+    100158: BND_R_Thumb4_JNT
+    100160: BND_R_Toe_JNT
+    100162: BND_R_Wrist_JNT
+    100164: BND_ROOT_JNT
+    100166: BND_Spine1_JNT
+    100168: BND_Spine2_JNT
+    100170: BND_Spine3_JNT
+    100172: Body
+    100174: CC_Master
+    100176: CTRL_Head1_JNT
+    100178: CTRL_Head1_JNT_CTRL
+    100180: CTRL_Head1_JNT_CTRL_grp
+    100182: CTRL_Head2_JNT
+    100184: CTRL_Jack_JNT001
+    100186: CTRL_Jack_JNT002
+    100188: CTRL_Jack_JNT003
+    100190: CTRL_Jack_JNT004
+    100192: CTRL_L_Ankle_JNT
+    100194: CTRL_L_BOF_JNT
+    100196: CTRL_L_Clavicle_JNT
+    100198: CTRL_L_Clavicle_JNT_CTRL
+    100200: CTRL_L_Clavicle_JNT_CTRL_grp
+    100202: CTRL_L_Elbow_JNT
+    100204: CTRL_L_Elbow_JNT_CTRL
+    100206: CTRL_L_Elbow_JNT_CTRL_grp
+    100208: CTRL_L_Finger1_JNT
+    100210: CTRL_L_Finger1_JNT_CTRL
+    100212: CTRL_L_Finger1_JNT_CTRL_grp
+    100214: CTRL_L_Finger2_JNT
+    100216: CTRL_L_Finger2_JNT_CTRL
+    100218: CTRL_L_Finger2_JNT_CTRL_grp
+    100220: CTRL_L_Finger3_JNT
+    100222: CTRL_L_Finger3_JNT_CTRL
+    100224: CTRL_L_Finger3_JNT_CTRL_grp
+    100226: CTRL_L_Finger4_JNT
+    100228: CTRL_L_Hip_JNT
+    100230: CTRL_L_Jack_JNT001
+    100232: CTRL_L_Jack_JNT001_CTRL
+    100234: CTRL_L_Jack_JNT001_CTRL_grp
+    100236: CTRL_L_Jack_JNT001_joint46_CTRL
+    100238: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL
+    100240: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+    100242: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+    100244: CTRL_L_Jack_JNT002
+    100246: CTRL_L_Jack_JNT002 1
+    100248: CTRL_L_Jack_JNT002 2
+    100250: CTRL_L_Jack_JNT002 3
+    100252: CTRL_L_Jack_JNT003
+    100254: CTRL_L_Jack_JNT003 1
+    100256: CTRL_L_Jack_JNT003 2
+    100258: CTRL_L_Jack_JNT003 3
+    100260: CTRL_L_Jack_JNT004
+    100262: CTRL_L_Jack_JNT004 1
+    100264: CTRL_L_Jack_JNT004 2
+    100266: CTRL_L_Jack_JNT004 3
+    100268: CTRL_L_Jack_JNT005
+    100270: CTRL_L_Jack_JNT005 1
+    100272: CTRL_L_Jack_JNT005 2
+    100274: CTRL_L_Jack_JNT006
+    100276: CTRL_L_Jack_JNT006_CTRL
+    100278: CTRL_L_Jack_JNT006_CTRL_grp
+    100280: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL
+    100282: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+    100284: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+    100286: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL_L_Jack_JNT005_CTRL
+    100288: CTRL_L_Jack_JNT007
+    100290: CTRL_L_Jack_JNT007_CTRL
+    100292: CTRL_L_Jack_JNT007_CTRL_grp
+    100294: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL
+    100296: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+    100298: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+    100300: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL_L_Jack_JNT005_CTRL
+    100302: CTRL_L_Jack_JNT008
+    100304: CTRL_L_Jack_JNT008_CTRL
+    100306: CTRL_L_Jack_JNT008_CTRL_grp
+    100308: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL
+    100310: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+    100312: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+    100314: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL_L_Jack_JNT005_CTRL
+    100316: CTRL_L_Jack_JNT_SPEC
+    100318: CTRL_L_Knee_JNT
+    100320: CTRL_L_Shoulder_JNT
+    100322: CTRL_L_Shoulder_JNT_CTRL
+    100324: CTRL_L_Shoulder_JNT_CTRL_grp
+    100326: CTRL_L_Thumb1_JNT
+    100328: CTRL_L_Thumb1_JNT_CTRL
+    100330: CTRL_L_Thumb1_JNT_CTRL_grp
+    100332: CTRL_L_Thumb2_JNT
+    100334: CTRL_L_Thumb2_JNT_CTRL
+    100336: CTRL_L_Thumb2_JNT_CTRL_grp
+    100338: CTRL_L_Thumb3_JNT
+    100340: CTRL_L_Thumb3_JNT_CTRL
+    100342: CTRL_L_Thumb3_JNT_CTRL_grp
+    100344: CTRL_L_Thumb4_JNT
+    100346: CTRL_L_Toe_JNT
+    100348: CTRL_L_Wrist_JNT
+    100350: CTRL_L_Wrist_JNT_CTRL
+    100352: CTRL_L_Wrist_JNT_CTRL_grp
+    100354: CTRL_Neck1_JNT
+    100356: CTRL_Neck1_JNT_CTRL
+    100358: CTRL_Neck1_JNT_CTRL_grp
+    100360: CTRL_Neck2_JNT
+    100362: CTRL_Neck2_JNT_CTRL
+    100364: CTRL_Neck2_JNT_CTRL_grp
+    100366: CTRL_R_Ankle_JNT
+    100368: CTRL_R_BOF_JNT
+    100370: CTRL_R_Clavicle_JNT
+    100372: CTRL_R_Clavicle_JNT_CTRL
+    100374: CTRL_R_Clavicle_JNT_CTRL_grp
+    100376: CTRL_R_Elbow_JNT
+    100378: CTRL_R_Elbow_JNT_CTRL
+    100380: CTRL_R_Elbow_JNT_CTRL_grp
+    100382: CTRL_R_Finger1_JNT
+    100384: CTRL_R_Finger1_JNT_CTRL
+    100386: CTRL_R_Finger1_JNT_CTRL_grp
+    100388: CTRL_R_Finger2_JNT
+    100390: CTRL_R_Finger2_JNT_CTRL
+    100392: CTRL_R_Finger2_JNT_CTRL_grp
+    100394: CTRL_R_Finger3_JNT
+    100396: CTRL_R_Finger3_JNT_CTRL
+    100398: CTRL_R_Finger3_JNT_CTRL_grp
+    100400: CTRL_R_Finger4_JNT
+    100402: CTRL_R_Hip_JNT
+    100404: CTRL_R_Jack_JNT001
+    100406: CTRL_R_Jack_JNT001_CTRL
+    100408: CTRL_R_Jack_JNT001_CTRL_grp
+    100410: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL
+    100412: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+    100414: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+    100416: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL_R_Jack_JNT005_CTRL
+    100418: CTRL_R_Jack_JNT002
+    100420: CTRL_R_Jack_JNT002 1
+    100422: CTRL_R_Jack_JNT002 2
+    100424: CTRL_R_Jack_JNT002 3
+    100426: CTRL_R_Jack_JNT002 4
+    100428: CTRL_R_Jack_JNT003
+    100430: CTRL_R_Jack_JNT003 1
+    100432: CTRL_R_Jack_JNT003 2
+    100434: CTRL_R_Jack_JNT003 3
+    100436: CTRL_R_Jack_JNT004
+    100438: CTRL_R_Jack_JNT004 1
+    100440: CTRL_R_Jack_JNT004 2
+    100442: CTRL_R_Jack_JNT004 3
+    100444: CTRL_R_Jack_JNT005
+    100446: CTRL_R_Jack_JNT005 1
+    100448: CTRL_R_Jack_JNT005 2
+    100450: CTRL_R_Jack_JNT006
+    100452: CTRL_R_Jack_JNT006_CTRL
+    100454: CTRL_R_Jack_JNT006_CTRL_grp
+    100456: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL
+    100458: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+    100460: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+    100462: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL_R_Jack_JNT005_CTRL
+    100464: CTRL_R_Jack_JNT007
+    100466: CTRL_R_Jack_JNT007_CTRL
+    100468: CTRL_R_Jack_JNT007_CTRL_grp
+    100470: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL
+    100472: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+    100474: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+    100476: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL_R_Jack_JNT005_CTRL
+    100478: CTRL_R_Jack_JNT008
+    100480: CTRL_R_Jack_JNT008_CTRL
+    100482: CTRL_R_Jack_JNT008_CTRL_grp
+    100484: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL
+    100486: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL
+    100488: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+    100490: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+    100492: CTRL_R_Knee_JNT
+    100494: CTRL_R_Shoulder_JNT
+    100496: CTRL_R_Shoulder_JNT_CTRL
+    100498: CTRL_R_Shoulder_JNT_CTRL_grp
+    100500: CTRL_R_Thumb1_JNT
+    100502: CTRL_R_Thumb1_JNT_CTRL
+    100504: CTRL_R_Thumb1_JNT_CTRL_grp
+    100506: CTRL_R_Thumb2_JNT
+    100508: CTRL_R_Thumb2_JNT_CTRL
+    100510: CTRL_R_Thumb2_JNT_CTRL_grp
+    100512: CTRL_R_Thumb3_JNT
+    100514: CTRL_R_Thumb3_JNT_CTRL
+    100516: CTRL_R_Thumb3_JNT_CTRL_grp
+    100518: CTRL_R_Thumb4_JNT
+    100520: CTRL_R_Toe_JNT
+    100522: CTRL_R_Wrist_JNT
+    100524: CTRL_R_Wrist_JNT_CTRL
+    100526: CTRL_R_Wrist_JNT_CTRL_grp
+    100528: CTRL_ROOT_JNT
+    100530: CTRL_ROOT_JNT_CTRL
+    100532: CTRL_ROOT_JNT_CTRL1_G
+    100534: CTRL_Spine1_JNT
+    100536: CTRL_Spine1_JNT_CTRL
+    100538: CTRL_Spine1_JNT_CTRL_grp
+    100540: CTRL_Spine2_JNT
+    100542: CTRL_Spine2_JNT_CTRL
+    100544: CTRL_Spine2_JNT_CTRL_grp
+    100546: CTRL_Spine3_JNT
+    100548: CTRL_Spine3_JNT_CTRL
+    100550: CTRL_Spine3_JNT_CTRL_grp
+    100552: Hair
+    100554: Hat
+    100556: Jacket
+    100558: JOINT_GRP
+    100560: Mesh_GRP
+    100562: //RootNode
+    400000: BND_Head1_JNT
+    400002: BND_Head2_JNT
+    400004: BND_Jack_JNT001
+    400006: BND_Jack_JNT002
+    400008: BND_Jack_JNT003
+    400010: BND_Jack_JNT004
+    400012: BND_L_Ankle_JNT
+    400014: BND_L_BOF_JNT
+    400016: BND_L_Clavicle_JNT
+    400018: BND_L_Elbow_JNT
+    400020: BND_L_Finger1_JNT
+    400022: BND_L_Finger2_JNT
+    400024: BND_L_Finger3_JNT
+    400026: BND_L_Finger4_JNT
+    400028: BND_L_Hip_JNT
+    400030: BND_L_Knee_JNT
+    400032: BND_L_Shoulder_JNT
+    400034: BND_L_Thumb1_JNT
+    400036: BND_L_Thumb2_JNT
+    400038: BND_L_Thumb3_JNT
+    400040: BND_L_Thumb4_JNT
+    400042: BND_L_Toe_JNT
+    400044: BND_L_Wrist_JNT
+    400046: BND_Neck1_JNT
+    400048: BND_Neck2_JNT
+    400050: BND_R_Ankle_JNT
+    400052: BND_R_BOF_JNT
+    400054: BND_R_Clavicle_JNT
+    400056: BND_R_Elbow_JNT
+    400058: BND_R_Finger1_JNT
+    400060: BND_R_Finger2_JNT
+    400062: BND_R_Finger3_JNT
+    400064: BND_R_Finger4_JNT
+    400066: BND_R_Hip_JNT
+    400068: BND_R_Jack_JNT001
+    400070: BND_R_Jack_JNT0010
+    400072: BND_R_Jack_JNT0011
+    400074: BND_R_Jack_JNT0012
+    400076: BND_R_Jack_JNT002
+    400078: BND_R_Jack_JNT002 1
+    400080: BND_R_Jack_JNT002 2
+    400082: BND_R_Jack_JNT002 3
+    400084: BND_R_Jack_JNT002 4
+    400086: BND_R_Jack_JNT002 5
+    400088: BND_R_Jack_JNT002 6
+    400090: BND_R_Jack_JNT002 7
+    400092: BND_R_Jack_JNT002 8
+    400094: BND_R_Jack_JNT003
+    400096: BND_R_Jack_JNT003 1
+    400098: BND_R_Jack_JNT003 2
+    400100: BND_R_Jack_JNT003 3
+    400102: BND_R_Jack_JNT003 4
+    400104: BND_R_Jack_JNT003 5
+    400106: BND_R_Jack_JNT003 6
+    400108: BND_R_Jack_JNT003 7
+    400110: BND_R_Jack_JNT004
+    400112: BND_R_Jack_JNT004 1
+    400114: BND_R_Jack_JNT004 2
+    400116: BND_R_Jack_JNT004 3
+    400118: BND_R_Jack_JNT004 4
+    400120: BND_R_Jack_JNT004 5
+    400122: BND_R_Jack_JNT004 6
+    400124: BND_R_Jack_JNT004 7
+    400126: BND_R_Jack_JNT005
+    400128: BND_R_Jack_JNT005 1
+    400130: BND_R_Jack_JNT005 2
+    400132: BND_R_Jack_JNT005 3
+    400134: BND_R_Jack_JNT005 4
+    400136: BND_R_Jack_JNT005 5
+    400138: BND_R_Jack_JNT006
+    400140: BND_R_Jack_JNT007
+    400142: BND_R_Jack_JNT008
+    400144: BND_R_Jack_JNT009
+    400146: BND_R_Jack_JNT_SPEC
+    400148: BND_R_Knee_JNT
+    400150: BND_R_Shoulder_JNT
+    400152: BND_R_Thumb1_JNT
+    400154: BND_R_Thumb2_JNT
+    400156: BND_R_Thumb3_JNT
+    400158: BND_R_Thumb4_JNT
+    400160: BND_R_Toe_JNT
+    400162: BND_R_Wrist_JNT
+    400164: BND_ROOT_JNT
+    400166: BND_Spine1_JNT
+    400168: BND_Spine2_JNT
+    400170: BND_Spine3_JNT
+    400172: Body
+    400174: CC_Master
+    400176: CTRL_Head1_JNT
+    400178: CTRL_Head1_JNT_CTRL
+    400180: CTRL_Head1_JNT_CTRL_grp
+    400182: CTRL_Head2_JNT
+    400184: CTRL_Jack_JNT001
+    400186: CTRL_Jack_JNT002
+    400188: CTRL_Jack_JNT003
+    400190: CTRL_Jack_JNT004
+    400192: CTRL_L_Ankle_JNT
+    400194: CTRL_L_BOF_JNT
+    400196: CTRL_L_Clavicle_JNT
+    400198: CTRL_L_Clavicle_JNT_CTRL
+    400200: CTRL_L_Clavicle_JNT_CTRL_grp
+    400202: CTRL_L_Elbow_JNT
+    400204: CTRL_L_Elbow_JNT_CTRL
+    400206: CTRL_L_Elbow_JNT_CTRL_grp
+    400208: CTRL_L_Finger1_JNT
+    400210: CTRL_L_Finger1_JNT_CTRL
+    400212: CTRL_L_Finger1_JNT_CTRL_grp
+    400214: CTRL_L_Finger2_JNT
+    400216: CTRL_L_Finger2_JNT_CTRL
+    400218: CTRL_L_Finger2_JNT_CTRL_grp
+    400220: CTRL_L_Finger3_JNT
+    400222: CTRL_L_Finger3_JNT_CTRL
+    400224: CTRL_L_Finger3_JNT_CTRL_grp
+    400226: CTRL_L_Finger4_JNT
+    400228: CTRL_L_Hip_JNT
+    400230: CTRL_L_Jack_JNT001
+    400232: CTRL_L_Jack_JNT001_CTRL
+    400234: CTRL_L_Jack_JNT001_CTRL_grp
+    400236: CTRL_L_Jack_JNT001_joint46_CTRL
+    400238: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL
+    400240: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+    400242: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+    400244: CTRL_L_Jack_JNT002
+    400246: CTRL_L_Jack_JNT002 1
+    400248: CTRL_L_Jack_JNT002 2
+    400250: CTRL_L_Jack_JNT002 3
+    400252: CTRL_L_Jack_JNT003
+    400254: CTRL_L_Jack_JNT003 1
+    400256: CTRL_L_Jack_JNT003 2
+    400258: CTRL_L_Jack_JNT003 3
+    400260: CTRL_L_Jack_JNT004
+    400262: CTRL_L_Jack_JNT004 1
+    400264: CTRL_L_Jack_JNT004 2
+    400266: CTRL_L_Jack_JNT004 3
+    400268: CTRL_L_Jack_JNT005
+    400270: CTRL_L_Jack_JNT005 1
+    400272: CTRL_L_Jack_JNT005 2
+    400274: CTRL_L_Jack_JNT006
+    400276: CTRL_L_Jack_JNT006_CTRL
+    400278: CTRL_L_Jack_JNT006_CTRL_grp
+    400280: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL
+    400282: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+    400284: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+    400286: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL_L_Jack_JNT005_CTRL
+    400288: CTRL_L_Jack_JNT007
+    400290: CTRL_L_Jack_JNT007_CTRL
+    400292: CTRL_L_Jack_JNT007_CTRL_grp
+    400294: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL
+    400296: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+    400298: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+    400300: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL_L_Jack_JNT005_CTRL
+    400302: CTRL_L_Jack_JNT008
+    400304: CTRL_L_Jack_JNT008_CTRL
+    400306: CTRL_L_Jack_JNT008_CTRL_grp
+    400308: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL
+    400310: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+    400312: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+    400314: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL_L_Jack_JNT005_CTRL
+    400316: CTRL_L_Jack_JNT_SPEC
+    400318: CTRL_L_Knee_JNT
+    400320: CTRL_L_Shoulder_JNT
+    400322: CTRL_L_Shoulder_JNT_CTRL
+    400324: CTRL_L_Shoulder_JNT_CTRL_grp
+    400326: CTRL_L_Thumb1_JNT
+    400328: CTRL_L_Thumb1_JNT_CTRL
+    400330: CTRL_L_Thumb1_JNT_CTRL_grp
+    400332: CTRL_L_Thumb2_JNT
+    400334: CTRL_L_Thumb2_JNT_CTRL
+    400336: CTRL_L_Thumb2_JNT_CTRL_grp
+    400338: CTRL_L_Thumb3_JNT
+    400340: CTRL_L_Thumb3_JNT_CTRL
+    400342: CTRL_L_Thumb3_JNT_CTRL_grp
+    400344: CTRL_L_Thumb4_JNT
+    400346: CTRL_L_Toe_JNT
+    400348: CTRL_L_Wrist_JNT
+    400350: CTRL_L_Wrist_JNT_CTRL
+    400352: CTRL_L_Wrist_JNT_CTRL_grp
+    400354: CTRL_Neck1_JNT
+    400356: CTRL_Neck1_JNT_CTRL
+    400358: CTRL_Neck1_JNT_CTRL_grp
+    400360: CTRL_Neck2_JNT
+    400362: CTRL_Neck2_JNT_CTRL
+    400364: CTRL_Neck2_JNT_CTRL_grp
+    400366: CTRL_R_Ankle_JNT
+    400368: CTRL_R_BOF_JNT
+    400370: CTRL_R_Clavicle_JNT
+    400372: CTRL_R_Clavicle_JNT_CTRL
+    400374: CTRL_R_Clavicle_JNT_CTRL_grp
+    400376: CTRL_R_Elbow_JNT
+    400378: CTRL_R_Elbow_JNT_CTRL
+    400380: CTRL_R_Elbow_JNT_CTRL_grp
+    400382: CTRL_R_Finger1_JNT
+    400384: CTRL_R_Finger1_JNT_CTRL
+    400386: CTRL_R_Finger1_JNT_CTRL_grp
+    400388: CTRL_R_Finger2_JNT
+    400390: CTRL_R_Finger2_JNT_CTRL
+    400392: CTRL_R_Finger2_JNT_CTRL_grp
+    400394: CTRL_R_Finger3_JNT
+    400396: CTRL_R_Finger3_JNT_CTRL
+    400398: CTRL_R_Finger3_JNT_CTRL_grp
+    400400: CTRL_R_Finger4_JNT
+    400402: CTRL_R_Hip_JNT
+    400404: CTRL_R_Jack_JNT001
+    400406: CTRL_R_Jack_JNT001_CTRL
+    400408: CTRL_R_Jack_JNT001_CTRL_grp
+    400410: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL
+    400412: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+    400414: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+    400416: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL_R_Jack_JNT005_CTRL
+    400418: CTRL_R_Jack_JNT002
+    400420: CTRL_R_Jack_JNT002 1
+    400422: CTRL_R_Jack_JNT002 2
+    400424: CTRL_R_Jack_JNT002 3
+    400426: CTRL_R_Jack_JNT002 4
+    400428: CTRL_R_Jack_JNT003
+    400430: CTRL_R_Jack_JNT003 1
+    400432: CTRL_R_Jack_JNT003 2
+    400434: CTRL_R_Jack_JNT003 3
+    400436: CTRL_R_Jack_JNT004
+    400438: CTRL_R_Jack_JNT004 1
+    400440: CTRL_R_Jack_JNT004 2
+    400442: CTRL_R_Jack_JNT004 3
+    400444: CTRL_R_Jack_JNT005
+    400446: CTRL_R_Jack_JNT005 1
+    400448: CTRL_R_Jack_JNT005 2
+    400450: CTRL_R_Jack_JNT006
+    400452: CTRL_R_Jack_JNT006_CTRL
+    400454: CTRL_R_Jack_JNT006_CTRL_grp
+    400456: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL
+    400458: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+    400460: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+    400462: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL_R_Jack_JNT005_CTRL
+    400464: CTRL_R_Jack_JNT007
+    400466: CTRL_R_Jack_JNT007_CTRL
+    400468: CTRL_R_Jack_JNT007_CTRL_grp
+    400470: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL
+    400472: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+    400474: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+    400476: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL_R_Jack_JNT005_CTRL
+    400478: CTRL_R_Jack_JNT008
+    400480: CTRL_R_Jack_JNT008_CTRL
+    400482: CTRL_R_Jack_JNT008_CTRL_grp
+    400484: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL
+    400486: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL
+    400488: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+    400490: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+    400492: CTRL_R_Knee_JNT
+    400494: CTRL_R_Shoulder_JNT
+    400496: CTRL_R_Shoulder_JNT_CTRL
+    400498: CTRL_R_Shoulder_JNT_CTRL_grp
+    400500: CTRL_R_Thumb1_JNT
+    400502: CTRL_R_Thumb1_JNT_CTRL
+    400504: CTRL_R_Thumb1_JNT_CTRL_grp
+    400506: CTRL_R_Thumb2_JNT
+    400508: CTRL_R_Thumb2_JNT_CTRL
+    400510: CTRL_R_Thumb2_JNT_CTRL_grp
+    400512: CTRL_R_Thumb3_JNT
+    400514: CTRL_R_Thumb3_JNT_CTRL
+    400516: CTRL_R_Thumb3_JNT_CTRL_grp
+    400518: CTRL_R_Thumb4_JNT
+    400520: CTRL_R_Toe_JNT
+    400522: CTRL_R_Wrist_JNT
+    400524: CTRL_R_Wrist_JNT_CTRL
+    400526: CTRL_R_Wrist_JNT_CTRL_grp
+    400528: CTRL_ROOT_JNT
+    400530: CTRL_ROOT_JNT_CTRL
+    400532: CTRL_ROOT_JNT_CTRL1_G
+    400534: CTRL_Spine1_JNT
+    400536: CTRL_Spine1_JNT_CTRL
+    400538: CTRL_Spine1_JNT_CTRL_grp
+    400540: CTRL_Spine2_JNT
+    400542: CTRL_Spine2_JNT_CTRL
+    400544: CTRL_Spine2_JNT_CTRL_grp
+    400546: CTRL_Spine3_JNT
+    400548: CTRL_Spine3_JNT_CTRL
+    400550: CTRL_Spine3_JNT_CTRL_grp
+    400552: Hair
+    400554: Hat
+    400556: Jacket
+    400558: JOINT_GRP
+    400560: Mesh_GRP
+    400562: //RootNode
+    2100000: HairShd
+    2100002: PentShd
+    2100004: ShirtShd
+    2100006: BlazerShd
+    2100008: SkinShd
+    2100010: ShoesShd
+    4300000: Hair
+    4300002: Body
+    4300004: Jacket
+    4300006: Hat
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Body
+    13700002: Hair
+    13700004: Hat
+    13700006: Jacket
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 19.9
+      lastFrame: 20.1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton:
+    - name: IdlePlaceholder(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mesh_GRP
+      parentName: IdlePlaceholder(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hair
+      parentName: Mesh_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body
+      parentName: Mesh_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Jacket
+      parentName: Mesh_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.01, y: 1, z: 1.01}
+    - name: Hat
+      parentName: Mesh_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CC_Master
+      parentName: IdlePlaceholder(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_ROOT_JNT_CTRL1_G
+      parentName: CC_Master
+      position: {x: 1.0658141e-16, y: 0.10561838, z: -0.0014799858}
+      rotation: {x: -0.48921382, y: 0.51055837, z: -0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_ROOT_JNT_CTRL
+      parentName: CTRL_ROOT_JNT_CTRL1_G
+      position: {x: 0.004939349, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0.018453738, w: 0.99982977}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT007_CTRL_grp
+      parentName: CTRL_ROOT_JNT_CTRL
+      position: {x: -0.0031670192, y: -0.0070389756, z: 0.01571245}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT007_CTRL
+      parentName: CTRL_R_Jack_JNT007_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.3195601, y: 0.27393946, z: 0.20184019, w: 0.88436365}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL
+      parentName: CTRL_R_Jack_JNT007_CTRL
+      position: {x: 0.00004854679, y: -0.008173819, z: -0.0002381593}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+      parentName: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL
+      position: {x: 0.0008291614, y: -0.01139615, z: 0.000040980576}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+      parentName: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+      position: {x: 0.00037674425, y: -0.018779935, z: -0.000621221}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL_R_Jack_JNT005_CTRL
+      parentName: CTRL_R_Jack_JNT007_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+      position: {x: 0.0014653086, y: -0.020635046, z: -0.0011325073}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT006_CTRL_grp
+      parentName: CTRL_ROOT_JNT_CTRL
+      position: {x: -0.002678102, y: 0.0067441263, z: 0.015687859}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT006_CTRL
+      parentName: CTRL_R_Jack_JNT006_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.048012037, y: -0.043437805, z: 0.075628825, w: 0.99503183}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL
+      parentName: CTRL_R_Jack_JNT006_CTRL
+      position: {x: 0.000048547983, y: -0.008341398, z: -0.00023632764}
+      rotation: {x: -0.05555273, y: 0.38584656, z: -0.26024696, w: 0.8833504}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+      parentName: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL
+      position: {x: 0.00083924294, y: -0.011360531, z: -0.0002886611}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+      parentName: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+      position: {x: 0.00039381027, y: -0.019233126, z: -0.00023165702}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL_R_Jack_JNT005_CTRL
+      parentName: CTRL_R_Jack_JNT006_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+      position: {x: 0.0014381623, y: -0.022318859, z: 0.00015730798}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT001_CTRL_grp
+      parentName: CTRL_ROOT_JNT_CTRL
+      position: {x: 0.0013273318, y: 0.013281518, z: -0.007198218}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT001_CTRL
+      parentName: CTRL_L_Jack_JNT001_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.11121459, y: -0.012934819, z: -0.0643384, w: 0.9916273}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT001_joint46_CTRL
+      parentName: CTRL_L_Jack_JNT001_CTRL
+      position: {x: -0.00007533669, y: -0.009437742, z: 0.00021223426}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL
+      parentName: CTRL_L_Jack_JNT001_joint46_CTRL
+      position: {x: -0.00009471352, y: -0.009740756, z: -0.00007226256}
+      rotation: {x: 0.13639766, y: -0, z: -0, w: 0.9906542}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+      parentName: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL
+      position: {x: -0.00018327951, y: -0.017529696, z: -0.00030883908}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+      parentName: CTRL_L_Jack_JNT001_joint46_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+      position: {x: -0.00017830312, y: -0.022325553, z: -0.00057270646}
+      rotation: {x: 0.22494942, y: -0.09190793, z: -0.16246475, w: 0.95632416}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT006_CTRL_grp
+      parentName: CTRL_ROOT_JNT_CTRL
+      position: {x: -0.002678102, y: 0.0067441263, z: -0.015687857}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT006_CTRL
+      parentName: CTRL_L_Jack_JNT006_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL
+      parentName: CTRL_L_Jack_JNT006_CTRL
+      position: {x: -0.000048547983, y: -0.008341398, z: -0.00023632764}
+      rotation: {x: 0.018309478, y: -0.026600763, z: -0.059474796, w: 0.99770737}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+      parentName: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL
+      position: {x: -0.00083924294, y: -0.011360531, z: -0.0002886611}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+      parentName: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+      position: {x: -0.00039381027, y: -0.019233126, z: -0.00023165702}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL_L_Jack_JNT005_CTRL
+      parentName: CTRL_L_Jack_JNT006_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+      position: {x: -0.0014381623, y: -0.022318859, z: 0.00015730798}
+      rotation: {x: 0, y: 0.020226918, z: -0, w: 0.99979544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT007_CTRL_grp
+      parentName: CTRL_ROOT_JNT_CTRL
+      position: {x: -0.0031670192, y: -0.0070389756, z: -0.015712447}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT007_CTRL
+      parentName: CTRL_L_Jack_JNT007_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL
+      parentName: CTRL_L_Jack_JNT007_CTRL
+      position: {x: -0.00004854679, y: -0.008173819, z: -0.0002381593}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+      parentName: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL
+      position: {x: -0.000020225049, y: -0.011919441, z: -0.000047374964}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+      parentName: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+      position: {x: -0.0011856806, y: -0.018256646, z: -0.0005328655}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL_L_Jack_JNT005_CTRL
+      parentName: CTRL_L_Jack_JNT007_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+      position: {x: -0.0014653086, y: -0.020635046, z: -0.0011325073}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT008_CTRL_grp
+      parentName: CTRL_ROOT_JNT_CTRL
+      position: {x: 0.0018115855, y: -0.012222392, z: -0.006468364}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT008_CTRL
+      parentName: CTRL_L_Jack_JNT008_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.055375017, y: -0.03218607, z: -0.026268538, w: 0.9976009}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL
+      parentName: CTRL_L_Jack_JNT008_CTRL
+      position: {x: -0.000075336095, y: -0.008437863, z: -0.00026109695}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+      parentName: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL
+      position: {x: -0.0000919646, y: -0.008948526, z: 0.000010563135}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+      parentName: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL
+      position: {x: -0.00015569328, y: -0.016690169, z: -0.00067271705}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL_L_Jack_JNT005_CTRL
+      parentName: CTRL_L_Jack_JNT008_CTRL_L_Jack_JNT002_CTRL_L_Jack_JNT003_CTRL_L_Jack_JNT004_CTRL
+      position: {x: -0.00022218286, y: -0.018709889, z: -0.00047899364}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT008_CTRL_grp
+      parentName: CTRL_ROOT_JNT_CTRL
+      position: {x: 0.0018115855, y: -0.012222392, z: 0.0064683645}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT008_CTRL
+      parentName: CTRL_R_Jack_JNT008_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL
+      parentName: CTRL_R_Jack_JNT008_CTRL
+      position: {x: 0.000075336095, y: -0.008437863, z: -0.00026109695}
+      rotation: {x: -0.41711286, y: 0.3518376, z: 0.120636776, w: 0.82926106}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL
+      parentName: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL
+      position: {x: 0.0000919646, y: -0.008948526, z: 0.000010563135}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+      parentName: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL
+      position: {x: 0.00015569328, y: -0.016690169, z: -0.00067271705}
+      rotation: {x: -0.04716748, y: 0.1764408, z: 0.05888025, w: 0.98141587}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+      parentName: CTRL_R_Jack_JNT008_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+      position: {x: 0.00022218286, y: -0.018709889, z: -0.00047899364}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT001_CTRL_grp
+      parentName: CTRL_ROOT_JNT_CTRL
+      position: {x: 0.0013273318, y: 0.013281518, z: 0.0071982187}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT001_CTRL
+      parentName: CTRL_R_Jack_JNT001_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.06823263, y: -0.004080991, z: -0.03660894, w: 0.9969892}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL
+      parentName: CTRL_R_Jack_JNT001_CTRL
+      position: {x: 0.00007533669, y: -0.009437742, z: 0.00021223426}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+      parentName: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL
+      position: {x: 0.00010825872, y: -0.009444417, z: -0.00035224436}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+      parentName: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL
+      position: {x: 0.00018327951, y: -0.017529696, z: -0.00030883908}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL_R_Jack_JNT005_CTRL
+      parentName: CTRL_R_Jack_JNT001_CTRL_R_Jack_JNT002_CTRL_R_Jack_JNT003_CTRL_R_Jack_JNT004_CTRL
+      position: {x: 0.00017830312, y: -0.022325553, z: -0.00057270646}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Spine1_JNT_CTRL_grp
+      parentName: CTRL_ROOT_JNT_CTRL
+      position: {x: -0.014923218, y: 6.661338e-18, z: 3.31362e-18}
+      rotation: {x: 0, y: -0, z: -0.04852497, w: 0.998822}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Spine1_JNT_CTRL
+      parentName: CTRL_Spine1_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Spine2_JNT_CTRL_grp
+      parentName: CTRL_Spine1_JNT_CTRL
+      position: {x: -0.01571925, y: 0, z: 2.147608e-19}
+      rotation: {x: 0, y: -0, z: -0.08353457, w: 0.9965049}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Spine2_JNT_CTRL
+      parentName: CTRL_Spine2_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0.015711, w: 0.9998766}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Spine3_JNT_CTRL_grp
+      parentName: CTRL_Spine2_JNT_CTRL
+      position: {x: -0.014193254, y: -8.881784e-18, z: -4.983697e-18}
+      rotation: {x: 0, y: 0, z: 0.010673846, w: 0.9999431}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Spine3_JNT_CTRL
+      parentName: CTRL_Spine3_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0.03138457, w: 0.9995074}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Clavicle_JNT_CTRL_grp
+      parentName: CTRL_Spine3_JNT_CTRL
+      position: {x: -0.011544505, y: 0.000566243, z: 0.00484358}
+      rotation: {x: -0.44750008, y: -0.5474886, z: -0.44750008, w: 0.5474886}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Clavicle_JNT_CTRL
+      parentName: CTRL_R_Clavicle_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.053474743, y: -0.17830111, z: 0.098444164, w: 0.97757757}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Shoulder_JNT_CTRL_grp
+      parentName: CTRL_R_Clavicle_JNT_CTRL
+      position: {x: 0.01508302, y: 0, z: 8.881784e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Shoulder_JNT_CTRL
+      parentName: CTRL_R_Shoulder_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.15662089, y: -0.038713645, z: 0.53808045, w: 0.82730925}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Elbow_JNT_CTRL_grp
+      parentName: CTRL_R_Shoulder_JNT_CTRL
+      position: {x: 0.028568046, y: 0.0000006850012, z: 2.720961e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Elbow_JNT_CTRL
+      parentName: CTRL_R_Elbow_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.12291861, y: 0.2775707, z: -0.03583378, w: 0.95213526}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Wrist_JNT_CTRL_grp
+      parentName: CTRL_R_Elbow_JNT_CTRL
+      position: {x: 0.02683815, y: -0.00000025376585, z: 0.0000000052338867}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Wrist_JNT_CTRL
+      parentName: CTRL_R_Wrist_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.04375525, y: 0.06739813, z: 0.002958602, w: 0.99676186}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb1_JNT_CTRL_grp
+      parentName: CTRL_R_Wrist_JNT_CTRL
+      position: {x: 0.0023816095, y: 0.00013881554, z: -0.0015349449}
+      rotation: {x: 0.6759599, y: 0.2789584, z: -0.2857127, w: 0.6193777}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb1_JNT_CTRL
+      parentName: CTRL_R_Thumb1_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb2_JNT_CTRL_grp
+      parentName: CTRL_R_Thumb1_JNT_CTRL
+      position: {x: 0.004149096, y: 0.000000025395906, z: -0.00000014961752}
+      rotation: {x: -0.027667284, y: -0.022480465, z: 0.06193437, w: 0.9974434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb2_JNT_CTRL
+      parentName: CTRL_R_Thumb2_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb3_JNT_CTRL_grp
+      parentName: CTRL_R_Thumb2_JNT_CTRL
+      position: {x: 0.004757927, y: -0.00000006176096, z: 0.0000002555238}
+      rotation: {x: -5.574195e-10, y: -0.000008813715, z: -0.00006324456, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb3_JNT_CTRL
+      parentName: CTRL_R_Thumb3_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger1_JNT_CTRL_grp
+      parentName: CTRL_R_Wrist_JNT_CTRL
+      position: {x: 0.00910963, y: -0.000000025330957, z: -0.000000009500198}
+      rotation: {x: -2.1742412e-11, y: 0.0000010280555, z: 0.000021149066, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger1_JNT_CTRL
+      parentName: CTRL_R_Finger1_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger2_JNT_CTRL_grp
+      parentName: CTRL_R_Finger1_JNT_CTRL
+      position: {x: 0.00511198, y: -0.00000023457181, z: -7.25549e-11}
+      rotation: {x: -5.7958867e-11, y: 0.000001678505, z: 0.000034530054, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger2_JNT_CTRL
+      parentName: CTRL_R_Finger2_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger3_JNT_CTRL_grp
+      parentName: CTRL_R_Finger2_JNT_CTRL
+      position: {x: 0.0035558473, y: 0.00000019939782, z: 2.8143424e-10}
+      rotation: {x: -6.55166e-10, y: -0.000005643368, z: -0.00011609485, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger3_JNT_CTRL
+      parentName: CTRL_R_Finger3_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Clavicle_JNT_CTRL_grp
+      parentName: CTRL_Spine3_JNT_CTRL
+      position: {x: -0.011544202, y: 0.0005663045, z: -0.004843579}
+      rotation: {x: 0.5474886, y: -0.44750008, z: 0.5474886, w: 0.44750008}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Clavicle_JNT_CTRL
+      parentName: CTRL_L_Clavicle_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.013251556, y: 0.18379064, z: 0.070683226, w: 0.98033124}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Shoulder_JNT_CTRL_grp
+      parentName: CTRL_L_Clavicle_JNT_CTRL
+      position: {x: -0.015083046, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Shoulder_JNT_CTRL
+      parentName: CTRL_L_Shoulder_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.062798575, y: 0.06747155, z: 0.5419834, w: 0.8353191}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Elbow_JNT_CTRL_grp
+      parentName: CTRL_L_Shoulder_JNT_CTRL
+      position: {x: -0.028567825, y: -3.5527136e-17, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Elbow_JNT_CTRL
+      parentName: CTRL_L_Elbow_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.057832066, y: 0.14456528, z: -0.028574694, w: 0.9873904}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Wrist_JNT_CTRL_grp
+      parentName: CTRL_L_Elbow_JNT_CTRL
+      position: {x: -0.026838176, y: 3.5527136e-17, z: 1.3322676e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Wrist_JNT_CTRL
+      parentName: CTRL_L_Wrist_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0.19332795, z: -0, w: 0.98113424}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger1_JNT_CTRL_grp
+      parentName: CTRL_L_Wrist_JNT_CTRL
+      position: {x: -0.009109725, y: 0, z: -1.11022296e-17}
+      rotation: {x: -2.1742412e-11, y: 0.0000010280555, z: 0.000021149066, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger1_JNT_CTRL
+      parentName: CTRL_L_Finger1_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger2_JNT_CTRL_grp
+      parentName: CTRL_L_Finger1_JNT_CTRL
+      position: {x: -0.0051121158, y: -1.538325e-14, z: 7.5717207e-16}
+      rotation: {x: -5.7958867e-11, y: 0.000001678505, z: 0.000034530054, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger2_JNT_CTRL
+      parentName: CTRL_L_Finger2_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger3_JNT_CTRL_grp
+      parentName: CTRL_L_Finger2_JNT_CTRL
+      position: {x: -0.003555705, y: 7.105427e-17, z: -1.11022296e-17}
+      rotation: {x: -6.55166e-10, y: -0.000005643368, z: -0.00011609486, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger3_JNT_CTRL
+      parentName: CTRL_L_Finger3_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb1_JNT_CTRL_grp
+      parentName: CTRL_L_Wrist_JNT_CTRL
+      position: {x: -0.002381788, y: -0.00013907976, z: 0.001534949}
+      rotation: {x: 0.6759599, y: 0.2789584, z: -0.2857127, w: 0.6193777}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb1_JNT_CTRL
+      parentName: CTRL_L_Thumb1_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb2_JNT_CTRL_grp
+      parentName: CTRL_L_Thumb1_JNT_CTRL
+      position: {x: -0.0041490416, y: -1.7763568e-17, z: -5.3290704e-17}
+      rotation: {x: -0.027667284, y: -0.022480465, z: 0.06193437, w: 0.9974434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb2_JNT_CTRL
+      parentName: CTRL_L_Thumb2_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb3_JNT_CTRL_grp
+      parentName: CTRL_L_Thumb2_JNT_CTRL
+      position: {x: -0.0047580185, y: -4.4408918e-17, z: 1.0658141e-16}
+      rotation: {x: -5.574195e-10, y: -0.000008813715, z: -0.00006324456, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb3_JNT_CTRL
+      parentName: CTRL_L_Thumb3_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Neck1_JNT_CTRL_grp
+      parentName: CTRL_Spine3_JNT_CTRL
+      position: {x: -0.0149186645, y: -1.7763568e-17, z: -8.938893e-18}
+      rotation: {x: 0, y: 0, z: 0.19627158, w: 0.9805496}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Neck1_JNT_CTRL
+      parentName: CTRL_Neck1_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Neck2_JNT_CTRL_grp
+      parentName: CTRL_Neck1_JNT_CTRL
+      position: {x: -0.013342994, y: -2.6645352e-17, z: 7.01846e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Neck2_JNT_CTRL
+      parentName: CTRL_Neck2_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Head1_JNT_CTRL_grp
+      parentName: CTRL_Neck2_JNT_CTRL
+      position: {x: -0.009896538, y: 0.00000008545447, z: 4.7802466e-18}
+      rotation: {x: 0, y: -0, z: -0.09724434, w: 0.99526054}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Head1_JNT_CTRL
+      parentName: CTRL_Head1_JNT_CTRL_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JOINT_GRP
+      parentName: IdlePlaceholder(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_ROOT_JNT
+      parentName: JOINT_GRP
+      position: {x: 7.882583e-17, y: 0.100683525, z: -0.0016907942}
+      rotation: {x: -0.4797088, y: 0.51949924, z: -0.4797088, w: 0.51949924}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Spine1_JNT
+      parentName: CTRL_ROOT_JNT
+      position: {x: -0.014923218, y: 5.5511148e-18, z: 3.31362e-18}
+      rotation: {x: 0, y: -0, z: -0.04852497, w: 0.998822}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Spine2_JNT
+      parentName: CTRL_Spine1_JNT
+      position: {x: -0.01571925, y: -1.110223e-18, z: -3.4447848e-18}
+      rotation: {x: 0, y: -0, z: -0.06786818, w: 0.9976943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Spine3_JNT
+      parentName: CTRL_Spine2_JNT
+      position: {x: -0.014193254, y: -8.881784e-18, z: -5.39542e-18}
+      rotation: {x: 0, y: 0, z: 0.042051364, w: 0.99911547}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Neck1_JNT
+      parentName: CTRL_Spine3_JNT
+      position: {x: -0.0149186645, y: -2.2204459e-17, z: -4.8676246e-18}
+      rotation: {x: 0, y: 0, z: 0.19627158, w: 0.9805496}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Neck2_JNT
+      parentName: CTRL_Neck1_JNT
+      position: {x: -0.013342994, y: -2.6645352e-17, z: 5.7615454e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Head1_JNT
+      parentName: CTRL_Neck2_JNT
+      position: {x: -0.009896538, y: 0.00000008545447, z: 3.8479842e-18}
+      rotation: {x: 0, y: -0, z: -0.09724434, w: 0.99526054}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Head2_JNT
+      parentName: CTRL_Head1_JNT
+      position: {x: -0.01959377, y: 1.2212453e-17, z: 6.8949685e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Clavicle_JNT
+      parentName: CTRL_Spine3_JNT
+      position: {x: -0.011544505, y: 0.000566243, z: 0.00484358}
+      rotation: {x: 0.60042965, y: 0.56484663, z: 0.333056, w: -0.45771852}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Shoulder_JNT
+      parentName: CTRL_R_Clavicle_JNT
+      position: {x: 0.01508302, y: 0, z: 8.881784e-18}
+      rotation: {x: 0.15662089, y: -0.038713634, z: 0.5380805, w: 0.8273092}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Elbow_JNT
+      parentName: CTRL_R_Shoulder_JNT
+      position: {x: 0.028568046, y: 0.0000006850012, z: 2.720961e-10}
+      rotation: {x: 0.12291861, y: 0.2775707, z: -0.035833783, w: 0.9521352}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Wrist_JNT
+      parentName: CTRL_R_Elbow_JNT
+      position: {x: 0.02683815, y: -0.00000025376585, z: 0.0000000052338867}
+      rotation: {x: -0.04375525, y: 0.06739813, z: 0.0029586023, w: 0.99676186}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger1_JNT
+      parentName: CTRL_R_Wrist_JNT
+      position: {x: 0.00910963, y: -0.000000025330957, z: -0.000000009500198}
+      rotation: {x: -2.1742412e-11, y: 0.0000010280554, z: 0.000021149066, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger2_JNT
+      parentName: CTRL_R_Finger1_JNT
+      position: {x: 0.00511198, y: -0.00000023457181, z: -7.25549e-11}
+      rotation: {x: -5.7958863e-11, y: 0.000001678505, z: 0.00003453005, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger3_JNT
+      parentName: CTRL_R_Finger2_JNT
+      position: {x: 0.0035558473, y: 0.00000019939782, z: 2.8143424e-10}
+      rotation: {x: -6.551659e-10, y: -0.0000056433673, z: -0.00011609485, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Finger4_JNT
+      parentName: CTRL_R_Finger3_JNT
+      position: {x: 0.0032824113, y: -0.00000047482447, z: 0.000000010620797}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb1_JNT
+      parentName: CTRL_R_Wrist_JNT
+      position: {x: 0.0023816095, y: 0.00013881554, z: -0.0015349449}
+      rotation: {x: 0.6759599, y: 0.2789584, z: -0.28571266, w: 0.61937773}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb2_JNT
+      parentName: CTRL_R_Thumb1_JNT
+      position: {x: 0.004149096, y: 0.000000025395906, z: -0.00000014961752}
+      rotation: {x: -0.027667286, y: -0.022480465, z: 0.061934374, w: 0.9974434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb3_JNT
+      parentName: CTRL_R_Thumb2_JNT
+      position: {x: 0.004757927, y: -0.00000006176096, z: 0.0000002555238}
+      rotation: {x: -5.574195e-10, y: -0.000008813715, z: -0.00006324456, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Thumb4_JNT
+      parentName: CTRL_R_Thumb3_JNT
+      position: {x: 0.0041297735, y: 0.000000029299661, z: -0.00000025356323}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Clavicle_JNT
+      parentName: CTRL_Spine3_JNT
+      position: {x: -0.011544202, y: 0.0005663045, z: -0.004843579}
+      rotation: {x: 0.398536, y: -0.40240532, z: 0.66304404, w: 0.48950145}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Shoulder_JNT
+      parentName: CTRL_L_Clavicle_JNT
+      position: {x: -0.015083046, y: 0, z: 0}
+      rotation: {x: -0.062798575, y: 0.06747155, z: 0.5419834, w: 0.8353191}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Elbow_JNT
+      parentName: CTRL_L_Shoulder_JNT
+      position: {x: -0.028567825, y: -3.5527136e-17, z: 2.220446e-18}
+      rotation: {x: -0.057832062, y: 0.14456531, z: -0.028574698, w: 0.9873904}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Wrist_JNT
+      parentName: CTRL_L_Elbow_JNT
+      position: {x: -0.026838176, y: 3.5527136e-17, z: 1.3322676e-17}
+      rotation: {x: 0, y: -0.19332795, z: -0, w: 0.98113424}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger1_JNT
+      parentName: CTRL_L_Wrist_JNT
+      position: {x: -0.009109725, y: 0, z: -1.11022296e-17}
+      rotation: {x: -2.1742412e-11, y: 0.0000010280554, z: 0.000021149066, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger2_JNT
+      parentName: CTRL_L_Finger1_JNT
+      position: {x: -0.0051121158, y: -1.5418776e-14, z: 7.5717207e-16}
+      rotation: {x: -5.795887e-11, y: 0.000001678505, z: 0.000034530058, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger3_JNT
+      parentName: CTRL_L_Finger2_JNT
+      position: {x: -0.003555705, y: 0, z: -1.11022296e-17}
+      rotation: {x: -6.551659e-10, y: -0.0000056433673, z: -0.00011609485, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Finger4_JNT
+      parentName: CTRL_L_Finger3_JNT
+      position: {x: -0.0032826609, y: -8.5265126e-16, z: 4.6629366e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb1_JNT
+      parentName: CTRL_L_Wrist_JNT
+      position: {x: -0.002381788, y: -0.00013907976, z: 0.001534949}
+      rotation: {x: 0.6759599, y: 0.2789584, z: -0.28571266, w: 0.61937773}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb2_JNT
+      parentName: CTRL_L_Thumb1_JNT
+      position: {x: -0.0041490416, y: -1.5543122e-17, z: -7.105427e-17}
+      rotation: {x: -0.027667286, y: -0.022480465, z: 0.061934374, w: 0.9974434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb3_JNT
+      parentName: CTRL_L_Thumb2_JNT
+      position: {x: -0.0047580185, y: -3.8857805e-17, z: 1.0658141e-16}
+      rotation: {x: -5.574195e-10, y: -0.000008813715, z: -0.00006324456, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Thumb4_JNT
+      parentName: CTRL_L_Thumb3_JNT
+      position: {x: -0.004129715, y: 2.1377343e-15, z: -3.1974422e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Jack_JNT001
+      parentName: CTRL_ROOT_JNT
+      position: {x: 0.0041806116, y: 0.0135493195, z: 3.1664968e-10}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Jack_JNT002
+      parentName: CTRL_Jack_JNT001
+      position: {x: -0, y: -0.017562876, z: -0.00013582707}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Jack_JNT003
+      parentName: CTRL_Jack_JNT002
+      position: {x: -0, y: -0.016925735, z: -0.00030480145}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_Jack_JNT004
+      parentName: CTRL_Jack_JNT003
+      position: {x: -0, y: -0.021373352, z: -0.00056626316}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT001
+      parentName: CTRL_ROOT_JNT
+      position: {x: 0.0013273318, y: 0.013281518, z: -0.007198218}
+      rotation: {x: 0.58107567, y: -0.42700464, z: 0.50272286, w: 0.47674716}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT_SPEC
+      parentName: CTRL_L_Jack_JNT001
+      position: {x: -0.00007533669, y: -0.009437742, z: 0.00021223426}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT002 3
+      parentName: CTRL_L_Jack_JNT_SPEC
+      position: {x: -0.00009471352, y: -0.009740756, z: -0.00007226256}
+      rotation: {x: 0.13639766, y: -0, z: -0, w: 0.9906542}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT003 3
+      parentName: CTRL_L_Jack_JNT002 3
+      position: {x: -0.00018327951, y: -0.017529696, z: -0.00030883908}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT004 3
+      parentName: CTRL_L_Jack_JNT003 3
+      position: {x: -0.00017830312, y: -0.022325553, z: -0.00057270646}
+      rotation: {x: 0.22494943, y: -0.09190793, z: -0.16246474, w: 0.95632416}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT006
+      parentName: CTRL_ROOT_JNT
+      position: {x: -0.002678102, y: 0.0067441263, z: -0.015687857}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT002
+      parentName: CTRL_L_Jack_JNT006
+      position: {x: -0.000048547983, y: -0.008341398, z: -0.00023632764}
+      rotation: {x: 0.018309478, y: -0.026600763, z: -0.0594748, w: 0.99770737}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT003
+      parentName: CTRL_L_Jack_JNT002
+      position: {x: -0.00083924294, y: -0.011360531, z: -0.0002886611}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT004
+      parentName: CTRL_L_Jack_JNT003
+      position: {x: -0.00039381027, y: -0.019233126, z: -0.00023165702}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT005
+      parentName: CTRL_L_Jack_JNT004
+      position: {x: -0.0014381623, y: -0.022318859, z: 0.00015730798}
+      rotation: {x: 0, y: 0.020226918, z: -0, w: 0.99979544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT007
+      parentName: CTRL_ROOT_JNT
+      position: {x: -0.0031670192, y: -0.0070389756, z: -0.015712447}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT002 1
+      parentName: CTRL_L_Jack_JNT007
+      position: {x: -0.00004854679, y: -0.008173819, z: -0.0002381593}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT003 1
+      parentName: CTRL_L_Jack_JNT002 1
+      position: {x: -0.000020225049, y: -0.011919441, z: -0.000047374964}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT004 1
+      parentName: CTRL_L_Jack_JNT003 1
+      position: {x: -0.0011856806, y: -0.018256646, z: -0.0005328655}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT005 1
+      parentName: CTRL_L_Jack_JNT004 1
+      position: {x: -0.0014653086, y: -0.020635046, z: -0.0011325073}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT008
+      parentName: CTRL_ROOT_JNT
+      position: {x: 0.0018115855, y: -0.012222392, z: -0.006468364}
+      rotation: {x: 0.4889255, y: -0.5400057, z: 0.43061048, w: 0.5328418}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT002 2
+      parentName: CTRL_L_Jack_JNT008
+      position: {x: -0.000075336095, y: -0.008437863, z: -0.00026109695}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT003 2
+      parentName: CTRL_L_Jack_JNT002 2
+      position: {x: -0.0000919646, y: -0.008948526, z: 0.000010563135}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT004 2
+      parentName: CTRL_L_Jack_JNT003 2
+      position: {x: -0.00015569328, y: -0.016690169, z: -0.00067271705}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Jack_JNT005 2
+      parentName: CTRL_L_Jack_JNT004 2
+      position: {x: -0.00022218286, y: -0.018709889, z: -0.00047899364}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT001
+      parentName: CTRL_ROOT_JNT
+      position: {x: 0.0013273318, y: 0.013281518, z: 0.0071982187}
+      rotation: {x: 0.5432651, y: -0.45981482, z: 0.5018901, w: 0.49146685}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT002
+      parentName: CTRL_R_Jack_JNT001
+      position: {x: 0.00007533669, y: -0.009437742, z: 0.00021223426}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT003
+      parentName: CTRL_R_Jack_JNT002
+      position: {x: 0.00010825872, y: -0.009444417, z: -0.00035224436}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT004
+      parentName: CTRL_R_Jack_JNT003
+      position: {x: 0.00018327951, y: -0.017529696, z: -0.00030883908}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT005
+      parentName: CTRL_R_Jack_JNT004
+      position: {x: 0.00017830312, y: -0.022325553, z: -0.00057270646}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT006
+      parentName: CTRL_ROOT_JNT
+      position: {x: -0.002678102, y: 0.0067441263, z: 0.015687859}
+      rotation: {x: -0.4939337, y: 0.5437099, z: -0.5286588, w: -0.42535743}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT002 1
+      parentName: CTRL_R_Jack_JNT006
+      position: {x: 0.000048547983, y: -0.008341398, z: -0.00023632764}
+      rotation: {x: -0.055552743, y: 0.38584656, z: -0.26024696, w: 0.8833504}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT003 1
+      parentName: CTRL_R_Jack_JNT002 1
+      position: {x: 0.00083924294, y: -0.011360531, z: -0.0002886611}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT004 1
+      parentName: CTRL_R_Jack_JNT003 1
+      position: {x: 0.00039381027, y: -0.019233126, z: -0.00023165702}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT005 1
+      parentName: CTRL_R_Jack_JNT004 1
+      position: {x: 0.0014381623, y: -0.022318859, z: 0.00015730798}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT007
+      parentName: CTRL_ROOT_JNT
+      position: {x: -0.0031670192, y: -0.0070389756, z: 0.01571245}
+      rotation: {x: 0.03242268, y: -0.5667334, z: 0.50655496, w: 0.64897156}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT002 2
+      parentName: CTRL_R_Jack_JNT007
+      position: {x: 0.00004854679, y: -0.008173819, z: -0.0002381593}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT003 2
+      parentName: CTRL_R_Jack_JNT002 2
+      position: {x: 0.0008291614, y: -0.01139615, z: 0.000040980576}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT004 2
+      parentName: CTRL_R_Jack_JNT003 2
+      position: {x: 0.00037674425, y: -0.018779935, z: -0.000621221}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT005 2
+      parentName: CTRL_R_Jack_JNT004 2
+      position: {x: 0.0014653086, y: -0.020635046, z: -0.0011325073}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT008
+      parentName: CTRL_ROOT_JNT
+      position: {x: 0.0018115855, y: -0.012222392, z: 0.0064683645}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT002 3
+      parentName: CTRL_R_Jack_JNT008
+      position: {x: 0.000075336095, y: -0.008437863, z: -0.00026109695}
+      rotation: {x: -0.41711286, y: 0.3518376, z: 0.120636776, w: 0.82926106}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT002 4
+      parentName: CTRL_R_Jack_JNT002 3
+      position: {x: 0.0000919646, y: -0.008948526, z: 0.000010563135}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT003 3
+      parentName: CTRL_R_Jack_JNT002 4
+      position: {x: 0.00015569328, y: -0.016690169, z: -0.00067271705}
+      rotation: {x: -0.047167484, y: 0.1764408, z: 0.05888026, w: 0.98141587}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Jack_JNT004 3
+      parentName: CTRL_R_Jack_JNT003 3
+      position: {x: 0.00022218286, y: -0.018709889, z: -0.00047899364}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Hip_JNT
+      parentName: CTRL_ROOT_JNT
+      position: {x: 0.0017108708, y: 0.00008371861, z: -0.0113566285}
+      rotation: {x: 0.00039674414, y: -0.0014799872, z: 0.9980615, w: -0.06221731}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Knee_JNT
+      parentName: CTRL_L_Hip_JNT
+      position: {x: -0.05010037, y: -2.9143353e-18, z: -2.6645352e-17}
+      rotation: {x: -2.4597483e-14, y: 1.176326e-13, z: 0.20887196, w: 0.977943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Ankle_JNT
+      parentName: CTRL_L_Knee_JNT
+      position: {x: -0.04529251, y: -9.1593395e-18, z: -4.4408918e-17}
+      rotation: {x: -0.00034255037, y: 0.00016916855, z: -0.6528561, w: 0.7574819}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_BOF_JNT
+      parentName: CTRL_L_Ankle_JNT
+      position: {x: -0.0123838745, y: -1.110223e-18, z: -4.440892e-18}
+      rotation: {x: -5.4514254e-10, y: 1.5980713e-10, z: -0.28130928, w: 0.95961714}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_L_Toe_JNT
+      parentName: CTRL_L_BOF_JNT
+      position: {x: -0.011026091, y: -6.661338e-18, z: -8.881784e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Hip_JNT
+      parentName: CTRL_ROOT_JNT
+      position: {x: 0.0017105119, y: 0.00008373681, z: 0.011356601}
+      rotation: {x: -0.0022940892, y: 0.00019964708, z: -0.29333794, w: 0.95600605}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Knee_JNT
+      parentName: CTRL_R_Hip_JNT
+      position: {x: 0.05010073, y: 0.000000009497335, z: -0.000000017852406}
+      rotation: {x: 0.00000014577184, y: 0.00000027341616, z: 0.22042447, w: 0.975404}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Ankle_JNT
+      parentName: CTRL_R_Knee_JNT
+      position: {x: 0.04529251, y: -0.0000000011385276, z: 0.000000017852406}
+      rotation: {x: 0.0005357976, y: 0.00006655226, z: -0.5600534, w: 0.82845634}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_BOF_JNT
+      parentName: CTRL_R_Ankle_JNT
+      position: {x: 0.012383879, y: -0.000000007913624, z: 0.000000004925637}
+      rotation: {x: -0.0000018201057, y: -0.000006850563, z: -0.28130928, w: 0.95961714}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CTRL_R_Toe_JNT
+      parentName: CTRL_R_BOF_JNT
+      position: {x: 0.011026056, y: 3.673728e-15, z: 0.00000007812986}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_ROOT_JNT
+      parentName: JOINT_GRP
+      position: {x: 7.882583e-17, y: 0.100683525, z: -0.0016907942}
+      rotation: {x: -0.4797088, y: 0.51949924, z: -0.4797088, w: 0.51949924}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Jack_JNT001
+      parentName: BND_ROOT_JNT
+      position: {x: 0.0041806116, y: 0.0135493195, z: 3.1664968e-10}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Jack_JNT002
+      parentName: BND_Jack_JNT001
+      position: {x: -0, y: -0.017562876, z: -0.00013582707}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Jack_JNT003
+      parentName: BND_Jack_JNT002
+      position: {x: -0, y: -0.016925735, z: -0.00030480145}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Jack_JNT004
+      parentName: BND_Jack_JNT003
+      position: {x: -0, y: -0.021373352, z: -0.00056626316}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT009
+      parentName: BND_ROOT_JNT
+      position: {x: 0.0013273318, y: 0.013281518, z: -0.007198218}
+      rotation: {x: 0.58107567, y: -0.42700464, z: 0.50272286, w: 0.47674716}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT_SPEC
+      parentName: BND_R_Jack_JNT009
+      position: {x: -0.00007533669, y: -0.009437742, z: 0.00021223426}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT002 8
+      parentName: BND_R_Jack_JNT_SPEC
+      position: {x: -0.00009471352, y: -0.009740756, z: -0.00007226256}
+      rotation: {x: 0.13639766, y: -0, z: -0, w: 0.9906542}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT003 7
+      parentName: BND_R_Jack_JNT002 8
+      position: {x: -0.00018327951, y: -0.017529696, z: -0.00030883908}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT004 7
+      parentName: BND_R_Jack_JNT003 7
+      position: {x: -0.00017830312, y: -0.022325553, z: -0.00057270646}
+      rotation: {x: 0.22494943, y: -0.09190793, z: -0.16246474, w: 0.95632416}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT0010
+      parentName: BND_ROOT_JNT
+      position: {x: -0.002678102, y: 0.0067441263, z: -0.015687857}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT002 1
+      parentName: BND_R_Jack_JNT0010
+      position: {x: -0.000048547983, y: -0.008341398, z: -0.00023632764}
+      rotation: {x: 0.018309478, y: -0.026600763, z: -0.0594748, w: 0.99770737}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT003 1
+      parentName: BND_R_Jack_JNT002 1
+      position: {x: -0.00083924294, y: -0.011360531, z: -0.0002886611}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT004 1
+      parentName: BND_R_Jack_JNT003 1
+      position: {x: -0.00039381027, y: -0.019233126, z: -0.00023165702}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT005 1
+      parentName: BND_R_Jack_JNT004 1
+      position: {x: -0.0014381623, y: -0.022318859, z: 0.00015730798}
+      rotation: {x: 0, y: 0.020226918, z: -0, w: 0.99979544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT0011
+      parentName: BND_ROOT_JNT
+      position: {x: -0.0031670192, y: -0.0070389756, z: -0.015712447}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT002 2
+      parentName: BND_R_Jack_JNT0011
+      position: {x: -0.00004854679, y: -0.008173819, z: -0.0002381593}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT003 2
+      parentName: BND_R_Jack_JNT002 2
+      position: {x: -0.000020225049, y: -0.011919441, z: -0.000047374964}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT004 2
+      parentName: BND_R_Jack_JNT003 2
+      position: {x: -0.0011856806, y: -0.018256646, z: -0.0005328655}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT005 2
+      parentName: BND_R_Jack_JNT004 2
+      position: {x: -0.0014653086, y: -0.020635046, z: -0.0011325073}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT0012
+      parentName: BND_ROOT_JNT
+      position: {x: 0.0018115855, y: -0.012222392, z: -0.006468364}
+      rotation: {x: 0.4889255, y: -0.5400057, z: 0.43061048, w: 0.5328418}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT002 3
+      parentName: BND_R_Jack_JNT0012
+      position: {x: -0.000075336095, y: -0.008437863, z: -0.00026109695}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT003 3
+      parentName: BND_R_Jack_JNT002 3
+      position: {x: -0.0000919646, y: -0.008948526, z: 0.000010563135}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT004 3
+      parentName: BND_R_Jack_JNT003 3
+      position: {x: -0.00015569328, y: -0.016690169, z: -0.00067271705}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT005 3
+      parentName: BND_R_Jack_JNT004 3
+      position: {x: -0.00022218286, y: -0.018709889, z: -0.00047899364}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT001
+      parentName: BND_ROOT_JNT
+      position: {x: 0.0013273318, y: 0.013281518, z: 0.0071982187}
+      rotation: {x: 0.5432651, y: -0.45981482, z: 0.5018901, w: 0.49146685}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT002
+      parentName: BND_R_Jack_JNT001
+      position: {x: 0.00007533669, y: -0.009437742, z: 0.00021223426}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT003
+      parentName: BND_R_Jack_JNT002
+      position: {x: 0.00010825872, y: -0.009444417, z: -0.00035224436}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT004
+      parentName: BND_R_Jack_JNT003
+      position: {x: 0.00018327951, y: -0.017529696, z: -0.00030883908}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT005
+      parentName: BND_R_Jack_JNT004
+      position: {x: 0.00017830312, y: -0.022325553, z: -0.00057270646}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT006
+      parentName: BND_ROOT_JNT
+      position: {x: -0.002678102, y: 0.0067441263, z: 0.015687859}
+      rotation: {x: -0.4939337, y: 0.5437099, z: -0.5286588, w: -0.42535743}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT002 4
+      parentName: BND_R_Jack_JNT006
+      position: {x: 0.000048547983, y: -0.008341398, z: -0.00023632764}
+      rotation: {x: -0.055552743, y: 0.38584656, z: -0.26024696, w: 0.8833504}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT003 4
+      parentName: BND_R_Jack_JNT002 4
+      position: {x: 0.00083924294, y: -0.011360531, z: -0.0002886611}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT004 4
+      parentName: BND_R_Jack_JNT003 4
+      position: {x: 0.00039381027, y: -0.019233126, z: -0.00023165702}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT005 4
+      parentName: BND_R_Jack_JNT004 4
+      position: {x: 0.0014381623, y: -0.022318859, z: 0.00015730798}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT007
+      parentName: BND_ROOT_JNT
+      position: {x: -0.0031670192, y: -0.0070389756, z: 0.01571245}
+      rotation: {x: 0.03242268, y: -0.5667334, z: 0.50655496, w: 0.64897156}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT002 5
+      parentName: BND_R_Jack_JNT007
+      position: {x: 0.00004854679, y: -0.008173819, z: -0.0002381593}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT003 5
+      parentName: BND_R_Jack_JNT002 5
+      position: {x: 0.0008291614, y: -0.01139615, z: 0.000040980576}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT004 5
+      parentName: BND_R_Jack_JNT003 5
+      position: {x: 0.00037674425, y: -0.018779935, z: -0.000621221}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT005 5
+      parentName: BND_R_Jack_JNT004 5
+      position: {x: 0.0014653086, y: -0.020635046, z: -0.0011325073}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT008
+      parentName: BND_ROOT_JNT
+      position: {x: 0.0018115855, y: -0.012222392, z: 0.0064683645}
+      rotation: {x: 0.48921382, y: -0.51055837, z: 0.48921382, w: 0.51055837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT002 6
+      parentName: BND_R_Jack_JNT008
+      position: {x: 0.000075336095, y: -0.008437863, z: -0.00026109695}
+      rotation: {x: -0.41711286, y: 0.3518376, z: 0.120636776, w: 0.82926106}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT002 7
+      parentName: BND_R_Jack_JNT002 6
+      position: {x: 0.0000919646, y: -0.008948526, z: 0.000010563135}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT003 6
+      parentName: BND_R_Jack_JNT002 7
+      position: {x: 0.00015569328, y: -0.016690169, z: -0.00067271705}
+      rotation: {x: -0.047167484, y: 0.1764408, z: 0.05888026, w: 0.98141587}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Jack_JNT004 6
+      parentName: BND_R_Jack_JNT003 6
+      position: {x: 0.00022218286, y: -0.018709889, z: -0.00047899364}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Spine1_JNT
+      parentName: BND_ROOT_JNT
+      position: {x: -0.014923218, y: 5.5511148e-18, z: 3.31362e-18}
+      rotation: {x: 0, y: -0, z: -0.04852497, w: 0.998822}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Spine2_JNT
+      parentName: BND_Spine1_JNT
+      position: {x: -0.01571925, y: -1.110223e-18, z: -3.4447848e-18}
+      rotation: {x: 0, y: -0, z: -0.06786818, w: 0.9976943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Spine3_JNT
+      parentName: BND_Spine2_JNT
+      position: {x: -0.014193254, y: -8.881784e-18, z: -5.39542e-18}
+      rotation: {x: 0, y: 0, z: 0.042051364, w: 0.99911547}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Neck1_JNT
+      parentName: BND_Spine3_JNT
+      position: {x: -0.0149186645, y: -2.2204459e-17, z: -4.8676246e-18}
+      rotation: {x: 0, y: 0, z: 0.19627158, w: 0.9805496}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Neck2_JNT
+      parentName: BND_Neck1_JNT
+      position: {x: -0.013342994, y: -2.6645352e-17, z: 5.7615454e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Head1_JNT
+      parentName: BND_Neck2_JNT
+      position: {x: -0.009896538, y: 0.00000008545447, z: 3.8479842e-18}
+      rotation: {x: 0, y: -0, z: -0.09724434, w: 0.99526054}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_Head2_JNT
+      parentName: BND_Head1_JNT
+      position: {x: -0.01959377, y: 1.2212453e-17, z: 6.8949685e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Clavicle_JNT
+      parentName: BND_Spine3_JNT
+      position: {x: -0.011544202, y: 0.0005663045, z: -0.004843579}
+      rotation: {x: 0.398536, y: -0.40240532, z: 0.66304404, w: 0.48950145}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Shoulder_JNT
+      parentName: BND_L_Clavicle_JNT
+      position: {x: -0.015083046, y: 0, z: 0}
+      rotation: {x: -0.062798575, y: 0.06747156, z: 0.5419834, w: 0.8353191}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Elbow_JNT
+      parentName: BND_L_Shoulder_JNT
+      position: {x: -0.028567825, y: -3.5527136e-17, z: 2.220446e-18}
+      rotation: {x: -0.057832066, y: 0.14456531, z: -0.028574694, w: 0.9873904}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Wrist_JNT
+      parentName: BND_L_Elbow_JNT
+      position: {x: -0.026838176, y: 3.5527136e-17, z: 1.3322676e-17}
+      rotation: {x: -2.4160135e-10, y: -0.19332795, z: -0.000000001202346, w: 0.98113424}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Finger1_JNT
+      parentName: BND_L_Wrist_JNT
+      position: {x: -0.009109725, y: 0, z: -1.11022296e-17}
+      rotation: {x: -2.1742412e-11, y: 0.0000010280554, z: 0.000021149066, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Finger2_JNT
+      parentName: BND_L_Finger1_JNT
+      position: {x: -0.0051121158, y: -1.5418776e-14, z: 7.5717207e-16}
+      rotation: {x: -5.795887e-11, y: 0.000001678505, z: 0.000034530058, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Finger3_JNT
+      parentName: BND_L_Finger2_JNT
+      position: {x: -0.003555705, y: 0, z: -1.11022296e-17}
+      rotation: {x: -6.551659e-10, y: -0.0000056433673, z: -0.00011609485, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Finger4_JNT
+      parentName: BND_L_Finger3_JNT
+      position: {x: -0.0032826609, y: -8.5265126e-16, z: 4.6629366e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Thumb1_JNT
+      parentName: BND_L_Wrist_JNT
+      position: {x: -0.002381788, y: -0.00013907976, z: 0.001534949}
+      rotation: {x: 0.6759599, y: 0.2789584, z: -0.28571266, w: 0.61937773}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Thumb2_JNT
+      parentName: BND_L_Thumb1_JNT
+      position: {x: -0.0041490416, y: -1.5543122e-17, z: -7.105427e-17}
+      rotation: {x: -0.027667286, y: -0.022480465, z: 0.061934374, w: 0.9974434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Thumb3_JNT
+      parentName: BND_L_Thumb2_JNT
+      position: {x: -0.0047580185, y: -3.8857805e-17, z: 1.0658141e-16}
+      rotation: {x: -5.574195e-10, y: -0.000008813715, z: -0.00006324456, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Thumb4_JNT
+      parentName: BND_L_Thumb3_JNT
+      position: {x: -0.004129715, y: 2.1377343e-15, z: -3.1974422e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Clavicle_JNT
+      parentName: BND_Spine3_JNT
+      position: {x: -0.011544505, y: 0.000566243, z: 0.00484358}
+      rotation: {x: 0.60042965, y: 0.56484663, z: 0.333056, w: -0.45771852}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Shoulder_JNT
+      parentName: BND_R_Clavicle_JNT
+      position: {x: 0.01508302, y: 0, z: 8.881784e-18}
+      rotation: {x: 0.15662089, y: -0.038713653, z: 0.53808045, w: 0.82730925}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Elbow_JNT
+      parentName: BND_R_Shoulder_JNT
+      position: {x: 0.028568046, y: 0.0000006850012, z: 2.720961e-10}
+      rotation: {x: 0.12291862, y: 0.2775707, z: -0.035833783, w: 0.95213526}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Wrist_JNT
+      parentName: BND_R_Elbow_JNT
+      position: {x: 0.02683815, y: -0.00000025376585, z: 0.0000000052338867}
+      rotation: {x: -0.04375525, y: 0.06739813, z: 0.0029585995, w: 0.99676186}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Finger1_JNT
+      parentName: BND_R_Wrist_JNT
+      position: {x: 0.00910963, y: -0.000000025330957, z: -0.000000009500198}
+      rotation: {x: 0.000000007450581, y: 0.0000010280556, z: 0.000021149066, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Finger2_JNT
+      parentName: BND_R_Finger1_JNT
+      position: {x: 0.00511198, y: -0.00000023457181, z: -7.25549e-11}
+      rotation: {x: 6.3036746e-19, y: 0.000001678505, z: 0.00003453005, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Finger3_JNT
+      parentName: BND_R_Finger2_JNT
+      position: {x: 0.0035558473, y: 0.00000019939782, z: 2.8143424e-10}
+      rotation: {x: 0.000000007450581, y: -0.0000056433682, z: -0.00011609485, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Finger4_JNT
+      parentName: BND_R_Finger3_JNT
+      position: {x: 0.0032824113, y: -0.00000047482447, z: 0.000000010620797}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Thumb1_JNT
+      parentName: BND_R_Wrist_JNT
+      position: {x: 0.0023816095, y: 0.00013881554, z: -0.0015349449}
+      rotation: {x: 0.6759599, y: 0.2789584, z: -0.28571266, w: 0.61937773}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Thumb2_JNT
+      parentName: BND_R_Thumb1_JNT
+      position: {x: 0.004149096, y: 0.000000025395906, z: -0.00000014961752}
+      rotation: {x: -0.027667286, y: -0.022480465, z: 0.061934374, w: 0.9974434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Thumb3_JNT
+      parentName: BND_R_Thumb2_JNT
+      position: {x: 0.004757927, y: -0.00000006176096, z: 0.0000002555238}
+      rotation: {x: 9.113762e-19, y: -0.000008813715, z: -0.00006324456, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Thumb4_JNT
+      parentName: BND_R_Thumb3_JNT
+      position: {x: 0.0041297735, y: 0.000000029299661, z: -0.00000025356323}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Hip_JNT
+      parentName: BND_ROOT_JNT
+      position: {x: 0.0017108708, y: 0.00008371861, z: -0.0113566285}
+      rotation: {x: 0.00039674458, y: -0.0014799905, z: 0.9980615, w: -0.06221731}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Knee_JNT
+      parentName: BND_L_Hip_JNT
+      position: {x: -0.05010037, y: -4.9960034e-18, z: 6.661338e-18}
+      rotation: {x: 0, y: 0, z: 0.20887196, w: 0.977943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Ankle_JNT
+      parentName: BND_L_Knee_JNT
+      position: {x: -0.04529251, y: -1.11022296e-17, z: -1.5543122e-17}
+      rotation: {x: -0.00034255037, y: 0.00016916855, z: -0.6528561, w: 0.7574819}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_BOF_JNT
+      parentName: BND_L_Ankle_JNT
+      position: {x: -0.0123838745, y: 8.881784e-18, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0.28130928, w: 0.95961714}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_L_Toe_JNT
+      parentName: BND_L_BOF_JNT
+      position: {x: -0.011026091, y: -4.9960034e-18, z: -4.440892e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Hip_JNT
+      parentName: BND_ROOT_JNT
+      position: {x: 0.0017105119, y: 0.00008373681, z: 0.011356601}
+      rotation: {x: -0.002294093, y: 0.0001996517, z: -0.2933379, w: 0.95600605}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Knee_JNT
+      parentName: BND_R_Hip_JNT
+      position: {x: 0.05010073, y: 0.000000009497335, z: -0.000000017852406}
+      rotation: {x: 0.00000014577184, y: 0.00000027341616, z: 0.22042447, w: 0.975404}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Ankle_JNT
+      parentName: BND_R_Knee_JNT
+      position: {x: 0.04529251, y: -0.0000000011385276, z: 0.000000017852406}
+      rotation: {x: 0.0005357977, y: 0.00006655227, z: -0.5600534, w: 0.82845634}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_BOF_JNT
+      parentName: BND_R_Ankle_JNT
+      position: {x: 0.012383879, y: -0.000000007913624, z: 0.000000004925637}
+      rotation: {x: -0.0000018217894, y: -0.000006855997, z: -0.28130928, w: 0.95961714}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BND_R_Toe_JNT
+      parentName: BND_R_BOF_JNT
+      position: {x: 0.011026056, y: 3.67123e-15, z: 0.00000007812986}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

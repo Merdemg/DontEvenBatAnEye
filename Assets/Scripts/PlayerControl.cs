@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Rewired;
 
 public class PlayerControl : MonoBehaviour {
-
+    [SerializeField] Animator dmgAnimController;
     [SerializeField] Text sanityText, boozeText;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float sanity = 100.0f;
