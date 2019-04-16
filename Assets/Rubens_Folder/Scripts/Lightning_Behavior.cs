@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lightning_Behavior : MonoBehaviour
 {
+    [SerializeField] AudioSource thunderSFX;
     [SerializeField] Animator anim_Light;
     [SerializeField] float speed;
     [SerializeField] private float timer;
@@ -16,9 +17,11 @@ public class Lightning_Behavior : MonoBehaviour
     }
     private void Update()
     {
+        
         transform.Rotate(0, 0, 1 * speed, Space.World);
         timer -= 1 / (Time.deltaTime /speed);
         if (timer < 0) {
+            thunderSFX.Play();
             print("Thunder");
             anim_Light.SetTrigger("Thunder");
             ResetTimer();
